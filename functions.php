@@ -4,11 +4,11 @@
 // Theme Information
 ////////////////////////////////////////////////////////////////////
 
-    $themename = "DevDmBootstrap3";
-    $developer_uri = "http://devdm.com";
-    $shortname = "dm";
-    $version = '1.40';
-    load_theme_textdomain( 'devdmbootstrap3', get_template_directory() . '/languages' );
+    $themename = "Synergia (based on DevDmBootstrap3)";
+    $developer_uri = "http://vk.com/stsdc";
+    $shortname = "sy";
+    $version = '0.2';
+    load_theme_textdomain( 'synergia', get_template_directory() . '/languages' );
 
 ////////////////////////////////////////////////////////////////////
 // include Theme-options.php for Admin Theme settings
@@ -25,13 +25,13 @@
 ////////////////////////////////////////////////////////////////////
 // Enqueue Styles (normal style.css and bootstrap.css)
 ////////////////////////////////////////////////////////////////////
-    function devdmbootstrap3_theme_stylesheets()
+    function synergia_theme_stylesheets()
     {
         wp_register_style('bootstrap.css', get_template_directory_uri() . '/css/bootstrap.css', array(), '1', 'all' );
         wp_enqueue_style( 'bootstrap.css');
         wp_enqueue_style( 'stylesheet', get_stylesheet_uri(), array(), '1', 'all' );
     }
-    add_action('wp_enqueue_scripts', 'devdmbootstrap3_theme_stylesheets');
+    add_action('wp_enqueue_scripts', 'synergia_theme_stylesheets');
 
 //Editor Style
 add_editor_style('css/editor-style.css');
@@ -39,20 +39,20 @@ add_editor_style('css/editor-style.css');
 ////////////////////////////////////////////////////////////////////
 // Register Bootstrap JS with jquery
 ////////////////////////////////////////////////////////////////////
-    function devdmbootstrap3_theme_js()
+    function synergia_theme_js()
     {
         global $version;
         wp_enqueue_script('theme-js', get_template_directory_uri() . '/js/bootstrap.js',array( 'jquery' ),$version,true );
     }
-    add_action('wp_enqueue_scripts', 'devdmbootstrap3_theme_js');
+    add_action('wp_enqueue_scripts', 'synergia_theme_js');
 
 ////////////////////////////////////////////////////////////////////
 // Add Title Parameters
 ////////////////////////////////////////////////////////////////////
 
-if(!function_exists('devdmbootstrap3_wp_title')) {
+if(!function_exists('synergia_wp_title')) {
 
-    function devdmbootstrap3_wp_title( $title, $sep ) { // Taken from Twenty Twelve 1.0
+    function synergia_wp_title( $title, $sep ) { // Taken from Twenty Twelve 1.0
         global $paged, $page;
 
         if ( is_feed() )
@@ -68,11 +68,11 @@ if(!function_exists('devdmbootstrap3_wp_title')) {
 
         // Add a page number if necessary.
         if ( $paged >= 2 || $page >= 2 )
-            $title = "$title $sep " . sprintf( __( 'Page %s', 'devdmbootstrap3' ), max( $paged, $page ) );
+            $title = "$title $sep " . sprintf( __( 'Page %s', 'synergia' ), max( $paged, $page ) );
 
         return $title;
     }
-    add_filter( 'wp_title', 'devdmbootstrap3_wp_title', 10, 2 );
+    add_filter( 'wp_title', 'synergia_wp_title', 10, 2 );
 
 }
 
@@ -123,9 +123,9 @@ if(!function_exists('devdmbootstrap3_wp_title')) {
 // Register hook and action to set Main content area col-md- width based on sidebar declarations
 ////////////////////////////////////////////////////////////////////
 
-add_action( 'devdmbootstrap3_main_content_width_hook', 'devdmbootstrap3_main_content_width_columns');
+add_action( 'synergia_main_content_width_hook', 'synergia_main_content_width_columns');
 
-function devdmbootstrap3_main_content_width_columns () {
+function synergia_main_content_width_columns () {
 
     global $dm_settings;
 
@@ -142,8 +142,8 @@ function devdmbootstrap3_main_content_width_columns () {
     echo $columns;
 }
 
-function devdmbootstrap3_main_content_width() {
-    do_action('devdmbootstrap3_main_content_width_hook');
+function synergia_main_content_width() {
+    do_action('synergia_main_content_width_hook');
 }
 
 ////////////////////////////////////////////////////////////////////
@@ -165,5 +165,75 @@ function devdmbootstrap3_main_content_width() {
 ////////////////////////////////////////////////////////////////////
 
 if ( ! isset( $content_width ) ) $content_width = 800;
+
+////////////////////////////////////////////////////////////////////
+// Favicon
+//////////////////////////////////////////////////////////////////// 
+function blog_favicon() {
+echo '<link rel="icon" type="image/png" href="'.get_template_directory_uri() . '/img/fav.png" />';
+}
+add_action('wp_head', 'blog_favicon');
+
+////////////////////////////////////////////////////////////////////
+// Custom excerpt ellipses, custom length
+///////////////////////////////////////////////////////////////////
+function custom_excerpt_more($more) {
+return '…';
+}
+add_filter('excerpt_more', 'custom_excerpt_more');
+
+function new_excerpt_length($length) {
+return 15;
+}
+add_filter('excerpt_length', 'new_excerpt_length');
+
+////////////////////////////////////////////////////////////////////
+// Dynamic Copy Year
+////////////////////////////////////////////////////////////////////
+function comicpress_copyright() {
+global $wpdb;
+$copyright_dates = $wpdb->get_results("
+SELECT
+YEAR(min(post_date_gmt)) AS firstdate,
+YEAR(max(post_date_gmt)) AS lastdate
+FROM
+$wpdb->posts
+WHERE
+post_status = 'publish'
+");
+$output = '';
+if($copyright_dates) {
+$copyright = "&copy; " . $copyright_dates[0]->firstdate;
+if($copyright_dates[0]->firstdate != $copyright_dates[0]->lastdate) {
+$copyright .= '-' . $copyright_dates[0]->lastdate;
+}
+$output = $copyright;
+}
+return $output;
+}
+
+////////////////////////////////////////////////////////////////////
+// Remove version
+////////////////////////////////////////////////////////////////////
+function wpbeginner_remove_version() {
+return '';
+}
+add_filter('the_generator', 'wpbeginner_remove_version');
+
+////////////////////////////////////////////////////////////////////
+// Remove comment_notes_before
+////////////////////////////////////////////////////////////////////
+
+//function change_fields($fields) {
+//    //remove a field
+//    unset($fields['comment_notes_before']);
+//    //add a field
+//    $fields['my_field'] = '';
+//    //return the modified array of fields
+//    return $fields;
+//}
+//
+//add_filter('comment_form_default_fields','change_fields');
+
 
 ?>

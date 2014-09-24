@@ -1,6 +1,6 @@
 <?php
 
-load_theme_textdomain( 'devdmbootstrap3', get_template_directory() . '/languages' );
+load_theme_textdomain( 'synergia', get_template_directory() . '/languages' );
 
 add_action( 'widgets_init', 'register_bootstrap_custom_menu');
 
@@ -12,11 +12,11 @@ class bootstrap_custom_menu extends WP_Widget {
 
     function bootstrap_custom_menu() {
 
-        $widget_ops = array( 'classname' => 'bootstrapwidgetmenu', 'description' => __('A custom menu widget that uses the wp_bootstrap_navwalker', 'devdmbootstrap3'));
+        $widget_ops = array( 'classname' => 'bootstrapwidgetmenu', 'description' => __('A custom menu widget that uses the wp_bootstrap_navwalker', 'synergia'));
 
         $control_ops = array( 'width' => 300, 'height' => 350, 'id_base' => 'bootstrap-widget-menu');
 
-        $this->WP_Widget( 'bootstrap-widget-menu', __('Boot Strap Menu', 'devdmbootstrap3'), $widget_ops, $control_ops);
+        $this->WP_Widget( 'bootstrap-widget-menu', __('Boot Strap Menu', 'synergia'), $widget_ops, $control_ops);
     }
 
     //what our widget instance looks like and does with our arguments
@@ -59,22 +59,22 @@ class bootstrap_custom_menu extends WP_Widget {
     //show form info for customizing
     function form( $instance ) {
 
-     $defaults = array ( 'title' => __('Menu', 'devdmbootstrap3'), 'menuname' => __('Menu Name', 'devdmbootstrap3'), 'menutype' => 'nav-tabs');
+     $defaults = array ( 'title' => __('Menu', 'synergia'), 'menuname' => __('Menu Name', 'synergia'), 'menutype' => 'nav-tabs');
      $instance = wp_parse_args( (array) $instance, $defaults );
     ?>
     <p>
-        <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e('Title','devdmbootstrap3'); ?>:</label>
+        <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e('Title','synergia'); ?>:</label>
         <input id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo $instance['title']; ?>" style="width:100%;" />
     </p>
 
      <p>
-            <label for="<?php echo $this->get_field_id( 'menuname' ); ?>"><?php _e('Menu','devdmbootstrap3'); ?>:</label>
+            <label for="<?php echo $this->get_field_id( 'menuname' ); ?>"><?php _e('Menu','synergia'); ?>:</label>
             <select id="<?php echo $this->get_field_id( 'menuname' ); ?>" name="<?php echo $this->get_field_name( 'menuname' ); ?>" style="width:100%;" type="text">
                 <?php
 
                     $menus = get_terms( 'nav_menu', array( 'hide_empty' => false ) );
 
-                        echo "<option value=''>". __('Default All Pages','devdmbootstrap3') ."</option>";
+                        echo "<option value=''>". __('Default All Pages','synergia') ."</option>";
                              foreach ( $menus as $menu ) {
                                      echo "<option value='" . $menu->name . "' ". selected($instance['menuname'], $menu->name).">" . $menu->name . "</option>";
                              }
@@ -84,7 +84,7 @@ class bootstrap_custom_menu extends WP_Widget {
      </p>
 
         <p>
-            <label for="<?php echo $this->get_field_id( 'menutype' ); ?>"><?php _e('Menu Type','devdmbootstrap3'); ?>:</label>
+            <label for="<?php echo $this->get_field_id( 'menutype' ); ?>"><?php _e('Menu Type','synergia'); ?>:</label>
             <select id="<?php echo $this->get_field_id( 'menutype' ); ?>" name="<?php echo $this->get_field_name( 'menutype' ); ?>" style="width:100%;" type="text">
                 <?php
 

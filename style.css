@@ -21,49 +21,108 @@ devdmbootstrap3 is distributed under the terms of the GNU GPL v3.
 /****************** Special Blank CSS classes for child themes to use without disturbing core bootstrap styles ****************/
 
 .dmbs-container {
-
+    margin-top: 20px;
 }
-
-.dmbs-header {
-
+.dmbs-header {} .dmbs-header-img {} .dmbs-header-text {} .dmbs-top-menu {} nav .container {
+    padding: 0;
 }
-
-.dmbs-header-img {
-
-}
-
-.dmbs-header-text {
-
-}
-
-.dmbs-top-menu {
-
-}
-
 .dmbs-content {
-
+    margin-top: 30px;
 }
-
-.dmbs-main {
-
+.dmbs-main {} .dmbs-left {} .dmbs-right {} .dmbs-footer-menu {} .dmbs-author-credits {} .dmbs-footer {} .navbar img {
+    float: left;
 }
-
-.dmbs-left {
-
+.portfolio img {
+    float: right;
+    height: auto;
+    width: 100%;
 }
-
-.dmbs-right {
-
+.portfolio {
+    padding: 0;
+    overflow: hidden;
+    position: relative;
 }
-
-.dmbs-footer-menu {
-
+.portfolio p,
+.meta {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 10px;
+    clear: both;
+    color: rgba(255, 255, 255, 0.8);
 }
-
-.dmbs-author-credits {
-
+.meta a {
+    color: white;
 }
-
-.dmbs-footer {
-
+.meta p.left {
+    display: inline-block;
+    margin: 0;
+}
+.meta p.right {
+    display: inline-block;
+    float: right;
+    margin: 0;
+}
+#ln {
+    border-top: 5px solid #6C4892;
+    position: relative;
+    width: 100%;
+    clear: both;
+    -webkit-transition: all 1s linear;
+    -moz-transition: all 1s linear;
+    -ms-transition: all 1s linear;
+    -o-transition: all 1s linear;
+    transition: all 1s linear;
+}
+.portfolio:hover #ln {
+    border-top: 5px solid #A57AD3;
+}
+.no-right-padding {
+    padding-right: 0;
+}
+.portfolio-title,
+.page-header {
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: bold;
+    position: absolute;
+    color: white;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+}
+.comment-reply-title {
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: bold;
+/*    color: white;*/
+    margin: 0;
+    padding: 15px 10px 10px 0px;
+/*    background-color: rgba(0, 0, 0, 0.9);*/
+}
+.page-header {
+    font-size: 23px;
+    padding: 15px;
+}
+.widget h3 {
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: bold;
+}
+.widget_archive ul {
+    padding: 0;
+}
+.widget_archive ul li {
+    list-style: none;
+}
+.post-header img {
+    height: auto;
+    width: 100%;
+    border-bottom: 5px solid #6C4892;
+}
+.post-header {
+    position: relative;
+    margin-bottom: 20px;
+}
+.comment-form-email input, .comment-form-author input, .comment-form textarea {
+    width: 100%;
 }

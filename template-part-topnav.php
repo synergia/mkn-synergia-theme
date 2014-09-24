@@ -1,17 +1,23 @@
 
 <?php if ( has_nav_menu( 'main_menu' ) ) : ?>
 
-    <div class="row dmbs-top-menu">
+    <div class="dmbs-top-menu">
         <nav class="navbar navbar-inverse" role="navigation">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-1-collapse">
-                        <span class="sr-only"><?php _e('Toggle navigation','devdmbootstrap3'); ?></span>
+                        <span class="sr-only"><?php _e('Toggle navigation','synergia'); ?></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
                 </div>
+                <?php if ( get_header_image() !='' || get_header_textcolor() !='blank' ) : ?>
+
+                    <?php if ( get_header_image() !='' ) : ?>
+                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><img src="<?php header_image(); ?>" height="47" width="300px" alt="" /></a>
+                    <?php endif; ?>
+                <?php endif; ?>
 
                 <?php
                 wp_nav_menu( array(

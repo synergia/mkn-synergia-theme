@@ -6,83 +6,51 @@ Template Name: Portfolio
 
 <?php get_header(); ?>
 
-<?php
-//allows the theme to get info from the theme options page
-global $options;
-foreach ($options as $value) {
-    if (get_settings( $value['id'] ) === FALSE) { $$value['id'] = $value['std']; } else { $$value['id'] = get_settings( $value['id'] ); }
-}
-?>
+<?php get_template_part('template-part', 'topnav'); ?>
 
-<?php global $post; $pageid = $post->ID; ?>
+<!-- start content container -->
+<div class="row dmbs-content">
 
-	<div id="content">
-<<<<<<< HEAD
-<?php $args = array(
-                'post_type' => 'post',
-                'category_name' => 'portfolio'
+    <?php //left sidebar ?>
+    <?php get_sidebar( 'left' ); ?>
+
+    <div class="col-md-<?php synergia_main_content_width(); ?> dmbs-main">
+
+               <?php $args = array(
+    'post_type'              => 'post',
+	'category_name'          => 'portfolio',
+	'pagination'             => true,
+	'posts_per_page'         => '10',
                 );
             $products = new WP_Query( $args );
             if( $products->have_posts() ) {
                 while( $products->have_posts() ) {
                     $products->the_post(); ?>
         
-            <div class="single-club col-md-3">
-                <a href="<?php the_permalink(); ?>">
-				<?php the_post_thumbnail("medium"); ?>
-                </a>
-                <?php the_excerpt(); ?>
+            <div class="col-md-6 no-right-padding">
+                <div class="portfolio">
+                    <a href="<?php the_permalink(); ?>">
+				    <?php the_post_thumbnail("full"); ?>
+                        <h2 class="portfolio-title"><?php the_title(); ?></h2>
+                    </a>
+                    <div id="ln">
+                    <?php the_excerpt(); ?>
+                    </div>
+                </div>  
             </div>  
         <?php
                 }
             }
             else { echo 'Trzeba z kimś współpracować...'; } ?>
-=======
-	
-	
-<?php if (have_posts()) : ?>
-     <?php query_posts("category_name=$bb_portfolio_cat&posts_per_page=1000"); ?>
-        <?php while (have_posts()) : the_post(); ?>
 
 
-			<div class="post" id="post-<?php the_ID(); ?>">
-				
-				<div class="box">
-				
-				<a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>">
-					<?php the_post_thumbnail('portfolio-thumb'); ?>
-					</a>
-				
-				</div>
-			
-				<h2><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
-				
-				<div class="entry">
-					<p><?php echo substr(strip_tags($post->post_content), 0, 120); ?>... <a href="<?php the_permalink(); ?>">
-					Zobacz więcej</a></p>
-				</div>
 
-			</div>
+    </div>
 
-		<?php endwhile; ?>
+    <?php //get the right sidebar ?>
+    <?php get_sidebar( 'right' ); ?>
 
-		<!-- if you set portfolio.php as the homepage via wp-admin the pagintaion doesnt't work. -->
-		<div class="navigation">
-			<div class="alignleft"><?php next_posts_link('&larr; Older Entries') ?></div>
-			<div class="alignright"><?php previous_posts_link('Newer Entries &rarr;') ?></div>
-		</div>
+</div>
+<!-- end content container -->
 
-	<?php else : ?>
-
-		<h2 class="center">Not Found</h2>
-		<p class="center">Sorry, but you are looking for something that isn't here.</p>
-		
-
-	<?php endif; ?>
-	<?php wp_reset_query(); ?>
->>>>>>> 938bfb5e6792896f1272c09c3564f2a286fb3231
-	</div>
-
-
-<?php get_sidebar('standard'); ?>
 <?php get_footer(); ?>

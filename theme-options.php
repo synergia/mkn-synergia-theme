@@ -1,13 +1,13 @@
 <?php
 
-load_theme_textdomain( 'devdmbootstrap3', get_template_directory() . '/languages' );
+load_theme_textdomain( 'synergia', get_template_directory() . '/languages' );
 
 /////////////////////////////////////////////////////////////////////
 // Add DevDm Theme Options to the Appearance Menu and Admin Bar
 ////////////////////////////////////////////////////////////////////
 
     function dmbs_theme_options_menu() {
-        add_theme_page( 'DevDm Theme' . __('Options','devdmbootstrap3'), 'DevDm' . __('Options','devdmbootstrap3'), 'manage_options', 'devdm-theme-options', 'devdm_theme_options' );
+        add_theme_page( 'DevDm Theme' . __('Options','synergia'), 'DevDm' . __('Options','synergia'), 'manage_options', 'devdm-theme-options', 'devdm_theme_options' );
     }
     add_action( 'admin_menu', 'dmbs_theme_options_menu' );
 
@@ -16,7 +16,7 @@ load_theme_textdomain( 'devdmbootstrap3', get_template_directory() . '/languages
     function toolbar_link_to_dmbs_options( $wp_admin_bar ) {
         $args = array(
             'id'    => 'devdm_theme_options',
-            'title' => __('DevDm Options','devdmbootstrap3'),
+            'title' => __('DevDm Options','synergia'),
             'href'  => home_url() . '/wp-admin/themes.php?page=devdm-theme-options',
             'meta'  => array( 'class' => 'devdm-theme-options' ),
             'parent' => 'site-name'
@@ -232,7 +232,7 @@ load_theme_textdomain( 'devdmbootstrap3', get_template_directory() . '/languages
 
             <div class="icon32" id="icon-options-general"></div>
 
-            <h2><a href="<?php echo $developer_uri ?>" target="_blank">DevDmBootstrap3</a></h2>
+            <h2><a href="<?php echo $developer_uri ?>" target="_blank">synergia</a></h2>
 
                <?php
 
@@ -244,7 +244,7 @@ load_theme_textdomain( 'devdmbootstrap3', get_template_directory() . '/languages
 
                <?php if ( false !== $_REQUEST['settings-updated'] ) : ?>
 
-               <div class='saved'><p><strong><?php _e('Options Saved!','devdmbootstrap3') ;?></strong></p></div>
+               <div class='saved'><p><strong><?php _e('Options Saved!','synergia') ;?></strong></p></div>
 
                <?php endif; ?>
 
@@ -257,14 +257,14 @@ load_theme_textdomain( 'devdmbootstrap3', get_template_directory() . '/languages
 
                 <table cellpadding='10'>
 
-                    <tr valign="top"><th scope="row"><?php _e('Right Sidebar','devdmbootstrap3') ;?></th>
+                    <tr valign="top"><th scope="row"><?php _e('Right Sidebar','synergia') ;?></th>
                         <td>
                             <input type="checkbox" id="right_sidebar" name="dm_options[right_sidebar]" value="1" <?php checked( true, $settings['right_sidebar'] ); ?> />
-                            <label for="right_sidebar"><?php _e('Show the Right Sidebar','devdmbootstrap3') ;?></label>
+                            <label for="right_sidebar"><?php _e('Show the Right Sidebar','synergia') ;?></label>
                         </td>
                     </tr>
 
-                    <tr valign="top"><th scope="row"><?php _e('Right Sidebar Size','devdmbootstrap3') ;?></th>
+                    <tr valign="top"><th scope="row"><?php _e('Right Sidebar Size','synergia') ;?></th>
                         <td>
                     <?php foreach( $dm_sidebar_sizes as $sizes ) : ?>
                         <input type="radio" id="<?php echo $sizes['value']; ?>" name="dm_options[right_sidebar_width]" value="<?php echo esc_attr($sizes['value']); ?>" <?php checked( $settings['right_sidebar_width'], $sizes['value'] ); ?> />
@@ -273,14 +273,14 @@ load_theme_textdomain( 'devdmbootstrap3', get_template_directory() . '/languages
                         </td>
                     </tr>
 
-                    <tr valign="top"><th scope="row"><?php _e('Left Side Bar','devdmbootstrap3') ;?></th>
+                    <tr valign="top"><th scope="row"><?php _e('Left Side Bar','synergia') ;?></th>
                         <td>
                             <input type="checkbox" id="left_sidebar" name="dm_options[left_sidebar]" value="1" <?php checked( true, $settings['left_sidebar'] ); ?> />
-                            <label for="left_sidebar"><?php _e('Show the Left Sidebar','devdmbootstrap3') ;?></label>
+                            <label for="left_sidebar"><?php _e('Show the Left Sidebar','synergia') ;?></label>
                         </td>
                     </tr>
 
-                    <tr valign="top"><th scope="row"><?php _e('Left Sidebar Size','devdmbootstrap3') ;?></th>
+                    <tr valign="top"><th scope="row"><?php _e('Left Sidebar Size','synergia') ;?></th>
                         <td>
                             <?php foreach( $dm_sidebar_sizes as $sizes ) : ?>
                                 <input type="radio" id="<?php echo $sizes['value']; ?>" name="dm_options[left_sidebar_width]" value="<?php echo esc_attr($sizes['value']); ?>" <?php checked( $settings['left_sidebar_width'], $sizes['value'] ); ?> />
@@ -289,31 +289,24 @@ load_theme_textdomain( 'devdmbootstrap3', get_template_directory() . '/languages
                         </td>
                     </tr>
 
-                    <tr valign="top"><th scope="row"><?php _e('Show Header','devdmbootstrap3') ;?></th>
+                    <tr valign="top"><th scope="row"><?php _e('Show Header','synergia') ;?></th>
                         <td>
                             <input type="checkbox" id="show_header" name="dm_options[show_header]" value="1" <?php checked( true, $settings['show_header'] ); ?> />
-                            <label for="show_header"><?php _e('Show The Main Header in the Template (logo/sitename/etc.)','devdmbootstrap3') ;?></label>
+                            <label for="show_header"><?php _e('Show The Main Header in the Template (logo/sitename/etc.)','synergia') ;?></label>
                         </td>
                     </tr>
 
-                    <tr valign="top"><th scope="row"><?php _e('Show Post Meta','devdmbootstrap3') ;?></th>
+                    <tr valign="top"><th scope="row"><?php _e('Show Post Meta','synergia') ;?></th>
                         <td>
                             <input type="checkbox" id="show_postmeta" name="dm_options[show_postmeta]" value="1" <?php checked( true, $settings['show_postmeta'] ); ?> />
-                            <label for="show_postmeta"><?php _e('Show Post Meta data (author, category, date created)','devdmbootstrap3') ;?></label>
-                        </td>
-                    </tr>
-
-                    <tr valign="top"><th scope="row"><?php _e('Give Danny His Credit?','devdmbootstrap3') ;?></th>
-                        <td>
-                            <input type="checkbox" id="author_credits" name="dm_options[author_credits]" value="1" <?php checked( true, $settings['author_credits'] ); ?> />
-                            <label for="author_credits"><?php _e('Show me some love and keep a link to DevDm.com in your footer.','devdmbootstrap3') ;?></label>
+                            <label for="show_postmeta"><?php _e('Show Post Meta data (author, category, date created)','v') ;?></label>
                         </td>
                     </tr>
 
                 </table>
 
                 <p class="submit">
-                    <input name="Submit" type="submit" class="button-primary" value="<?php esc_attr_e('Save Changes','devdmbootstrap3'); ?>" />
+                    <input name="Submit" type="submit" class="button-primary" value="<?php esc_attr_e('Save Changes','synergia'); ?>" />
                 </p>
 
             </form>

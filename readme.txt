@@ -1,4 +1,4 @@
-## DevDmBootstrap3
+## synergia
 
 This is a starter WordPress theme for DEVELOPERS using Twitter Bootstrap 3.2.0.
 
