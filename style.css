@@ -20,10 +20,7 @@ devdmbootstrap3 is distributed under the terms of the GNU GPL v3.
 
 /****************** Special Blank CSS classes for child themes to use without disturbing core bootstrap styles ****************/
 
-.dmbs-container {
-    margin-top: 20px;
-}
-.dmbs-header {} .dmbs-header-img {} .dmbs-header-text {} .dmbs-top-menu {} nav .container {
+.dmbs-header {} .dmbs-header-img {} .dmbs-header-text {} nav .container {
     padding: 0;
 }
 .dmbs-content {
@@ -94,10 +91,8 @@ devdmbootstrap3 is distributed under the terms of the GNU GPL v3.
     text-transform: uppercase;
     font-size: 18px;
     font-weight: bold;
-/*    color: white;*/
     margin: 0;
     padding: 15px 10px 10px 0px;
-/*    background-color: rgba(0, 0, 0, 0.9);*/
 }
 .page-header {
     font-size: 23px;

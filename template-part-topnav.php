@@ -11,13 +11,9 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
+                    <a href="#"><div class="logo"></div></a>
                 </div>
-                <?php if ( get_header_image() !='' || get_header_textcolor() !='blank' ) : ?>
-
-                    <?php if ( get_header_image() !='' ) : ?>
-                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><img src="<?php header_image(); ?>" height="47" width="300px" alt="" /></a>
-                    <?php endif; ?>
-                <?php endif; ?>
+                
 
                 <?php
                 wp_nav_menu( array(
