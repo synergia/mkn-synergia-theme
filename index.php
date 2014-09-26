@@ -20,7 +20,10 @@
                             <div class="post-header">
 
                             <h2 class="page-header"><?php the_title() ;?></h2>
-
+                                    <?php if( has_tag() ) : ?>
+                                    <div class="tags"><span class="glyphicon glyphicon-tags"></span>
+                                        <?php the_tags(""," &middot; "); ?> </div>
+                                    <?php endif; ?>
                             <?php if ( has_post_thumbnail() ) : ?>
                                 <?php the_post_thumbnail('full'); ?>
                                 <div class="clear"></div>

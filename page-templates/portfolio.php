@@ -27,7 +27,7 @@ Template Name: Portfolio
                 while( $products->have_posts() ) {
                     $products->the_post(); ?>
         
-            <div class="col-md-6 no-right-padding">
+            <div class="col-md-6 kafelek">
                 <div class="portfolio">
                     <a href="<?php the_permalink(); ?>">
 				    <?php the_post_thumbnail("full"); ?>

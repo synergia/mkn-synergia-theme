@@ -46,9 +46,15 @@ devdmbootstrap3 is distributed under the terms of the GNU GPL v3.
     padding: 10px;
     clear: both;
     color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 0;
 }
-.meta a {
-    color: white;
+.meta a,
+.tags a {
+    color: rgba(255, 255, 255, 0.8);
+}
+.meta a:hover,
+.tags a:hover {
+    color: rgba(255, 255, 255, 1.0);
 }
 .meta p.left {
     display: inline-block;
@@ -73,8 +79,9 @@ devdmbootstrap3 is distributed under the terms of the GNU GPL v3.
 .portfolio:hover #ln {
     border-top: 5px solid #A57AD3;
 }
-.no-right-padding {
+.kafelek {
     padding-right: 0;
+    margin-bottom: 15px;
 }
 .portfolio-title,
 .page-header {
@@ -83,9 +90,10 @@ devdmbootstrap3 is distributed under the terms of the GNU GPL v3.
     font-weight: bold;
     position: absolute;
     color: white;
-    padding: 10px;
+    padding: 15px;
     background-color: rgba(0, 0, 0, 0.7);
     width: 100%;
+    margin-top: 0;
 }
 .comment-reply-title {
     text-transform: uppercase;
@@ -93,10 +101,6 @@ devdmbootstrap3 is distributed under the terms of the GNU GPL v3.
     font-weight: bold;
     margin: 0;
     padding: 15px 10px 10px 0px;
-}
-.page-header {
-    font-size: 23px;
-    padding: 15px;
 }
 .widget h3 {
     text-transform: uppercase;
@@ -118,6 +122,18 @@ devdmbootstrap3 is distributed under the terms of the GNU GPL v3.
     position: relative;
     margin-bottom: 20px;
 }
-.comment-form-email input, .comment-form-author input, .comment-form textarea {
+.comment-form-email input,
+.comment-form-author input,
+.comment-form textarea {
     width: 100%;
+}
+.tags {
+    position: absolute;
+    bottom: 50px;
+    right: 10px;
+    color: rgba(255, 255, 255, 0.8);
+}
+.tags .glyphicon {
+    font-size: 12px;
+    margin-right: 5px;
 }

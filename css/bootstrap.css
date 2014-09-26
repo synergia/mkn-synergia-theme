@@ -4346,12 +4346,16 @@ select[multiple].input-group-sm > #searchform #s {
         color: white;
     }
     .navbar-collapse {
-        overflow-x: visible;
+        overflow-x: hidden;
         background-color: #6C4892;
         -webkit-overflow-scrolling: touch;
         position: relative;
         z-index: 10;
     }
+    .kafelek {
+        padding: 0;
+    }
+
 }
 @media (min-width: 768px) {
     .navbar-nav {
@@ -4377,6 +4381,9 @@ select[multiple].input-group-sm > #searchform #s {
         position: relative;
         float: left;
         background-image: url("../img/logo.png");
+    }
+    h2.page-header {
+        font-size: 28px;
     }
 }
 @media (min-width: 768px) {

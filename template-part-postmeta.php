@@ -6,10 +6,5 @@
         <?php edit_post_link(__('Edit','synergia')); ?>
     </p>
     <p class="right"><?php the_category(', '); ?></p>
-    <?php if( has_tag() ) : ?>
-        <span class="glyphicon glyphicon-tags"></span>
-        <?php the_tags(); ?>
-    
-    <?php endif; ?>
 </div>
 <?php endif; ?>
