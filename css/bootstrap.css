@@ -3118,7 +3118,6 @@ fieldset[disabled] .btn-primary:active,
 .btn-primary[disabled].active,
 fieldset[disabled] .btn-primary.active {
     background-color: #6C4892;
-    border-color: #357ebd;
 }
 .btn-primary .badge {
     color: #6C4892;
@@ -3127,8 +3126,7 @@ fieldset[disabled] .btn-primary.active {
 .btn-success,
 .comment-reply-link {
     color: #ffffff;
-    background-color: #5cb85c;
-    border-color: #4cae4c;
+    background-color: #A57AD3;
 }
 .btn-success:hover,
 .btn-success:focus,
@@ -3141,8 +3139,8 @@ fieldset[disabled] .btn-primary.active {
 .comment-reply-link.active,
 .open > .dropdown-toggle.comment-reply-link {
     color: #ffffff;
-    background-color: #449d44;
-    border-color: #398439;
+    background-color: #6C4892;
+    text-decoration: none;
 }
 .btn-success:active,
 .btn-success.active,
@@ -3182,8 +3180,7 @@ fieldset[disabled] .comment-reply-link:active,
 .comment-reply-link.disabled.active,
 .comment-reply-link[disabled].active,
 fieldset[disabled] .comment-reply-link.active {
-    background-color: #5cb85c;
-    border-color: #4cae4c;
+    background-color: #6C4892;
 }
 .btn-success .badge,
 .comment-reply-link .badge {
@@ -4696,7 +4693,8 @@ fieldset[disabled] .navbar-default .btn-link:focus {
     .widget h3,
     .textwidget,
     .comment-respond h3,
-    .widget li {
+    .widget li,
+    h1.comments-counter{
         padding-left: 5px;
         padding-right: 5px;
     }
@@ -4721,6 +4719,9 @@ fieldset[disabled] .navbar-default .btn-link:focus {
     .navbar-inverse .navbar-nav > li > a:hover {
         color: #fff;
     }
+    .reply {
+    margin-right: 10px;
+}
 }
 .navbar-inverse .navbar-link {
     color: #777777;
@@ -6534,6 +6535,7 @@ embed {
 .comment-body {
     margin-top: 10px;
     margin-bottom: 10px;
+    overflow: hidden;
 }
 .comment-respond code {
     white-space: pre-wrap;

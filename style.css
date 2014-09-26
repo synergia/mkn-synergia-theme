@@ -95,7 +95,8 @@ devdmbootstrap3 is distributed under the terms of the GNU GPL v3.
     width: 100%;
     margin-top: 0;
 }
-.comment-reply-title {
+.comment-reply-title,
+.comments-counter {
     text-transform: uppercase;
     font-size: 18px;
     font-weight: bold;
@@ -136,4 +137,7 @@ devdmbootstrap3 is distributed under the terms of the GNU GPL v3.
 .tags .glyphicon {
     font-size: 12px;
     margin-right: 5px;
+}
+.commentlist {
+    padding-left: 20px;
 }

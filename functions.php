@@ -221,19 +221,10 @@ return '';
 add_filter('the_generator', 'wpbeginner_remove_version');
 
 ////////////////////////////////////////////////////////////////////
-// Remove comment_notes_before
+// Polskie komentarze od adpawl
 ////////////////////////////////////////////////////////////////////
-
-//function change_fields($fields) {
-//    //remove a field
-//    unset($fields['comment_notes_before']);
-//    //add a field
-//    $fields['my_field'] = '';
-//    //return the modified array of fields
-//    return $fields;
-//}
-//
-//add_filter('comment_form_default_fields','change_fields');
-
-
-?>
+function odmiana($in,$lp,$lm1,$lm2) {
+ if ($in==1) return $lp;
+ elseif (($in%10>1) && ($in%10<5) && !(($in%100>=10) && ($in%100<=21))) return $lm1;
+return $lm2;
+};

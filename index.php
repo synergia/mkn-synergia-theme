@@ -32,6 +32,7 @@
 
                             </div>
                             <?php the_content(); ?>
+                            <center><img src="<?php echo get_template_directory_uri(); ?>/img/chip.png"/></center>
                             <?php wp_link_pages(); ?>
                             <?php comments_template(); ?>
 

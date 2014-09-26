@@ -3,7 +3,7 @@
 //ZMODYFIKOWANA FORMA DLA KOMENTARZY////
 ////////////////////////////////////////
 
-$comment_args = array( 'title_reply'=>'Komentarze',
+$comment_args = array( 'title_reply'=>'Napisz komentarz',
 
 'fields' => apply_filters( 'comment_form_default_fields', array(
 
@@ -23,7 +23,8 @@ $comment_args = array( 'title_reply'=>'Komentarze',
     <div class="dmbs-comments">
     <a name="comments"></a>
     <?php if ( have_comments() && comments_open() ) : ?>
-        <h4 id="comments"><?php comments_number(__('Leave a Comment','synergia'), __('One Comment','synergia'), '%' . __(' Comments','synergia') );?></h4>
+    <h1 class="comments-counter"><?php echo get_comments_number(); echo odmiana(get_comments_number(),' Komentarz',' Komentarze',' Komentarzy'); ?></h1>
+
             <ul class="commentlist">
                 <?php wp_list_comments(); ?>
                 <?php paginate_comments_links(); ?>
