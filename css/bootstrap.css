@@ -4346,10 +4346,12 @@ select[multiple].input-group-sm > #searchform #s {
         color: white;
     }
     .navbar-collapse {
-    overflow-x: visible;
-    background-color: #6C4892;
-    -webkit-overflow-scrolling: touch;
-}
+        overflow-x: visible;
+        background-color: #6C4892;
+        -webkit-overflow-scrolling: touch;
+        position: relative;
+        z-index: 10;
+    }
 }
 @media (min-width: 768px) {
     .navbar-nav {
@@ -4704,7 +4706,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
         background-color: white;
         background-image: url("../img/logo.png");
         -webkit-box-shadow: 0 0 3px 0 #000000;
-box-shadow: 0 0 3px 0 #000000;
+        box-shadow: 0 0 3px 0 #000000;
     }
     .navbar-inverse .navbar-nav > li > a {
         color: #A57AD3;
