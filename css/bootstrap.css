@@ -4352,7 +4352,9 @@ select[multiple].input-group-sm > #searchform #s {
     .kafelek {
         padding: 0;
     }
-
+    .navbar {
+        margin-bottom: 0;
+    }
 }
 @media (min-width: 768px) {
     .navbar-nav {
@@ -4381,6 +4383,9 @@ select[multiple].input-group-sm > #searchform #s {
     }
     h2.page-header {
         font-size: 28px;
+    }
+        .dmbs-content {
+        margin-top: 30px;
     }
 }
 @media (min-width: 768px) {

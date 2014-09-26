@@ -23,9 +23,6 @@ devdmbootstrap3 is distributed under the terms of the GNU GPL v3.
 .dmbs-header {} .dmbs-header-img {} .dmbs-header-text {} nav .container {
     padding: 0;
 }
-.dmbs-content {
-    margin-top: 30px;
-}
 .dmbs-main {} .dmbs-left {} .dmbs-right {} .dmbs-footer-menu {} .dmbs-author-credits {} .dmbs-footer {} .navbar img {
     float: left;
 }
