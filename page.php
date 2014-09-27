@@ -1,7 +1,5 @@
 <?php get_header(); ?>
 
-<?php get_template_part('template-part', 'head'); ?>
-
 <?php get_template_part('template-part', 'topnav'); ?>
 
 <!-- start content container -->
@@ -15,10 +13,18 @@
         <?php // theloop
         if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
-            <h2 class="page-header"><?php the_title() ;?></h2>
+                            <div class="post-header">
+                            <?php if ( has_post_thumbnail() ) : ?>
+                            <h2 class="page-header"><?php the_title() ;?></h2>
+                                <?php the_post_thumbnail('full'); ?>
+                                <div class="clear"></div>
+                            <?php else: ?>
+                            <h2 class="page-header-no-thumb"><?php the_title() ;?></h2>
+        <?php endif; ?>
+
+                            </div>
             <?php the_content(); ?>
             <?php wp_link_pages(); ?>
-            <?php comments_template(); ?>
 
         <?php endwhile; ?>
         <?php else: ?>
