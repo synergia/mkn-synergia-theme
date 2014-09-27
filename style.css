@@ -31,13 +31,14 @@ devdmbootstrap3 is distributed under the terms of the GNU GPL v3.
     height: auto;
     width: 100%;
 }
-.portfolio {
+.portfolio,
+.type-post {
     padding: 0;
     overflow: hidden;
     position: relative;
 }
 .portfolio p,
-.meta {
+.meta, .exc {
     color: white;
     background-color: rgba(0, 0, 0, 0.9);
     padding: 10px;
@@ -73,7 +74,8 @@ devdmbootstrap3 is distributed under the terms of the GNU GPL v3.
     -o-transition: all 1s linear;
     transition: all 1s linear;
 }
-.portfolio:hover #ln {
+.portfolio:hover #ln,
+.type-post:hover #ln {
     border-top: 5px solid #A57AD3;
 }
 .kafelek {
@@ -125,7 +127,8 @@ devdmbootstrap3 is distributed under the terms of the GNU GPL v3.
 .comment-form textarea {
     width: 100%;
 }
-.tags {
+.tags,
+.post-header-on-blog .tags {
     position: absolute;
     bottom: 50px;
     right: 10px;
@@ -137,4 +140,27 @@ devdmbootstrap3 is distributed under the terms of the GNU GPL v3.
 }
 .commentlist {
     padding-left: 20px;
+}
+.type-post a img {
+    height: auto;
+    width: 100%;
+}
+.post-header-on-blog {
+    display: block;
+    overflow: hidden;
+    position: relative;
+}
+.post-header-on-blog .tags {
+    bottom: 0;
+}
+.exc {
+    padding-top: 0;
+}
+.exc p{
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 10px;
+}
+.separator {
+    text-align: center;
+    padding: 10px;
 }
