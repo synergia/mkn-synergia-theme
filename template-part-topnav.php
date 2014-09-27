@@ -11,7 +11,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a href="#"><div class="logo"></div></a>
+                    <a href="<?php echo site_url(); ?>"><div class="logo"></div></a>
                 </div>
                 
 
