@@ -4733,7 +4733,10 @@ fieldset[disabled] .navbar-default .btn-link:focus {
     .reply {
         margin-right: 10px;
     }
-
+    .sponsorowane-left {
+        display: none;
+    }
+}
 .navbar-inverse .navbar-link {
     color: #777777;
 }

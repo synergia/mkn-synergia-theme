@@ -38,7 +38,8 @@ devdmbootstrap3 is distributed under the terms of the GNU GPL v3.
     position: relative;
 }
 .portfolio p,
-.meta, .exc {
+.meta,
+.exc {
     color: white;
     background-color: rgba(0, 0, 0, 0.9);
     padding: 10px;
@@ -83,7 +84,8 @@ devdmbootstrap3 is distributed under the terms of the GNU GPL v3.
     margin-bottom: 15px;
 }
 .portfolio-title,
-.page-header, .page-header-no-thumb {
+.page-header,
+.page-header-no-thumb {
     text-transform: uppercase;
     font-size: 20px;
     font-weight: bold;
@@ -110,8 +112,9 @@ devdmbootstrap3 is distributed under the terms of the GNU GPL v3.
 }
 .widget h3 {
     text-transform: uppercase;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
+    margin-top: 0;
 }
 .widget_archive ul {
     padding: 0;
@@ -163,11 +166,30 @@ devdmbootstrap3 is distributed under the terms of the GNU GPL v3.
 .exc {
     padding-top: 0;
 }
-.exc p{
+.exc p {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding-top: 10px;
 }
 .separator {
     text-align: center;
     padding: 10px;
+}
+.sponsorowane-left {
+    position: relative;
+    height: 100%;
+    padding: 0;
+}
+.sponsorowane {
+    float: left;
+    margin-top: 20px;
+    margin-right: 15px;
+}
+.sponsorowane a {
+    text-align: center;
+    display: inline;
+    position: relative;
+}
+.sponsorowane img {
+    width: 100%;
+    height: auto;
 }
