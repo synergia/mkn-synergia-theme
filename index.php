@@ -24,10 +24,13 @@
                                     <div class="tags"><span class="glyphicon glyphicon-tags"></span>
                                         <?php the_tags(""," &middot; "); ?> </div>
                                     <?php endif; ?>
-                            <?php if ( has_post_thumbnail() ) : ?>
-                                <?php the_post_thumbnail('full'); ?>
+                            <?php if (has_post_thumbnail()) {
+                        the_post_thumbnail('full');
+                        } else { ?>
+                        <img src="<?php bloginfo('template_directory'); ?>/img/default.jpg"/>
+                        <?php  } ?>
                                 <div class="clear"></div>
-                            <?php endif; ?>
+
                                 <?php get_template_part('template-part', 'postmeta'); ?>
 
                             </div>
@@ -45,9 +48,11 @@
 
                                <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'synergia' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark">
                                    <h2 class="page-header"><?php the_title(); ?></h2>
-                                        <?php if ( has_post_thumbnail() ) : ?>
-                                        <?php the_post_thumbnail('full'); ?>
-                                        <?php endif; ?>
+                                        <?php if (has_post_thumbnail()) {
+                        the_post_thumbnail('full');
+                        } else { ?>
+                        <img src="<?php bloginfo('template_directory'); ?>/img/default.jpg"/>
+                        <?php  } ?>
                                 </a>
                                     <?php if( has_tag() ) : ?>
                            <div class="tags"><span class="glyphicon glyphicon-tags"></span>
