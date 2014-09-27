@@ -8,7 +8,7 @@
     <?php //left sidebar ?>
     <?php get_sidebar( 'left' ); ?>
 
-    <div class="col-md-<?php synergia_main_content_width(); ?> dmbs-main">
+    <div class="col-sm-<?php synergia_main_content_width(); ?> dmbs-main">
 
         <?php // theloop
         if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
