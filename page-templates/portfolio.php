@@ -33,7 +33,7 @@ Template Name: Portfolio
 				    <?php the_post_thumbnail("full"); ?>
                         <h2 class="portfolio-title"><?php the_title(); ?></h2>
                     </a>
-                    <div id="ln">
+                    <div id="lnn">
                     <?php the_excerpt(); ?>
                     </div>
                 </div>  

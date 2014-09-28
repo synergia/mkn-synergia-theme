@@ -147,13 +147,6 @@ function synergia_main_content_width() {
 }
 
 ////////////////////////////////////////////////////////////////////
-// Add support for a featured image and the size
-////////////////////////////////////////////////////////////////////
-
-    add_theme_support( 'post-thumbnails' );
-    set_post_thumbnail_size(300,300, true);
-
-////////////////////////////////////////////////////////////////////
 // Adds RSS feed links to for posts and comments.
 ////////////////////////////////////////////////////////////////////
 
@@ -183,7 +176,7 @@ return '…';
 add_filter('excerpt_more', 'custom_excerpt_more');
 
 function new_excerpt_length($length) {
-return 15;
+return 18;
 }
 add_filter('excerpt_length', 'new_excerpt_length');
 

@@ -1,11 +1,8 @@
     <div class="dmbs-footer">
-        <?php
-            global $dm_settings;
-            if ($dm_settings['author_credits'] != 0) : ?>
-                <div class="row dmbs-author-credits">
-                    <p class="text-center"><a href="<?php global $developer_uri; echo esc_url($developer_uri); ?>">synergia <?php _e('created by','synergia') ?> Danny Machal</a></p>
+                <div class="row">
+                    <div class="mkn-footer col-sm-6">Międzywydziałowe Koło Naukowe "Synergia" <?php echo comicpress_copyright(); ?></div>
                 </div>
-        <?php endif; ?>
+
 
         <?php get_template_part('template-part', 'footernav'); ?>
     </div>

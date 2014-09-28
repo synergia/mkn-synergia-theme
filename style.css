@@ -23,7 +23,13 @@ devdmbootstrap3 is distributed under the terms of the GNU GPL v3.
 .dmbs-header {} .dmbs-header-img {} .dmbs-header-text {} nav .container {
     padding: 0;
 }
-.dmbs-main {} .dmbs-left {} .dmbs-right {} .dmbs-footer-menu {} .dmbs-author-credits {} .dmbs-footer {} .navbar img {
+.dmbs-main {} .dmbs-left {} .dmbs-right {} .dmbs-footer-menu {} .dmbs-author-credits {} .dmbs-footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    line-height: 1.2;
+    color: rgba(0, 0, 0, 0.7);
+    padding: 10px 0 15px 0;
+}
+.navbar img {
     float: left;
 }
 .portfolio img {
@@ -37,6 +43,10 @@ devdmbootstrap3 is distributed under the terms of the GNU GPL v3.
     overflow: hidden;
     position: relative;
 }
+.type-post {
+    padding-bottom: 20px;
+    padding-top:
+}
 .portfolio p,
 .meta,
 .exc {
@@ -46,6 +56,12 @@ devdmbootstrap3 is distributed under the terms of the GNU GPL v3.
     clear: both;
     color: rgba(255, 255, 255, 0.8);
     margin-bottom: 0;
+}
+.post-header-on-blog .meta {
+    background-color: transparent;
+}
+.post-header-on-blog .meta a:hover {
+    color: #333;
 }
 .meta a,
 .tags a {
@@ -64,26 +80,28 @@ devdmbootstrap3 is distributed under the terms of the GNU GPL v3.
     float: right;
     margin: 0;
 }
-#ln {
+
+#lnn {
     border-top: 5px solid #6C4892;
-    position: relative;
-    width: 100%;
-    clear: both;
     -webkit-transition: all 1s linear;
     -moz-transition: all 1s linear;
     -ms-transition: all 1s linear;
     -o-transition: all 1s linear;
     transition: all 1s linear;
+    display: block;
+    position: relative;
+    clear: both;
 }
-.portfolio:hover #ln,
-.type-post:hover #ln {
-    border-top: 5px solid #A57AD3;
-}
+
 .kafelek {
     padding-right: 0;
     margin-bottom: 15px;
 }
+.kafelek:hover #lnn {
+    border-top: 5px solid #A57AD3;
+}
 .portfolio-title,
+.page-header-on-blog,
 .page-header,
 .page-header-no-thumb {
     text-transform: uppercase;
@@ -96,9 +114,11 @@ devdmbootstrap3 is distributed under the terms of the GNU GPL v3.
     width: 100%;
     margin-top: 0;
 }
+
+.page-header-on-blog,
 .page-header-no-thumb {
     position: relative;
-    background-color: white;
+    background-color: transparent;
     color: black;
     padding: 0px 5px 0 5px;
 }
@@ -144,7 +164,8 @@ devdmbootstrap3 is distributed under the terms of the GNU GPL v3.
     right: 10px;
     color: rgba(255, 255, 255, 0.8);
 }
-.tags .glyphicon {
+.tags .glyphicon,
+.glyphicon-time {
     font-size: 12px;
     margin-right: 5px;
 }
@@ -170,10 +191,6 @@ devdmbootstrap3 is distributed under the terms of the GNU GPL v3.
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding-top: 10px;
 }
-.separator {
-    text-align: center;
-    padding: 10px;
-}
 .sponsorowane-left {
     position: relative;
     height: 100%;
@@ -192,4 +209,12 @@ devdmbootstrap3 is distributed under the terms of the GNU GPL v3.
 .sponsorowane img {
     width: 100%;
     height: auto;
+}
+.thumb-on-blog {
+    padding: 0;
+}
+.teaser {
+    position: absolute;
+    right: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
