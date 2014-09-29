@@ -176,7 +176,7 @@ return '…';
 add_filter('excerpt_more', 'custom_excerpt_more');
 
 function new_excerpt_length($length) {
-return 18;
+return 15;
 }
 add_filter('excerpt_length', 'new_excerpt_length');
 
