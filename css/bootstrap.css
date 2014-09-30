@@ -4351,7 +4351,7 @@ select[multiple].input-group-sm > #searchform #s {
         z-index: 10;
     }
     .kafelek {
-        padding: 0;
+        padding: 0 0 0 0;
     }
     .navbar {
         margin-bottom: 0;
@@ -4391,6 +4391,10 @@ select[multiple].input-group-sm > #searchform #s {
     h2.page-header-no-thumb {
         padding: 0;
     }
+    .kafelek {
+    padding-right: 0;
+    margin-bottom: 15px;
+}
 }
 @media (min-width: 768px) {
     .navbar-left {
@@ -5107,15 +5111,15 @@ a.list-group-item.active > .badge,
         border-right: 10px solid #A57AD3;
     }
     .post-header-on-blog .meta {
-    bottom: 0;
-    width: 100%;
-    padding: 5px 20px 0 0;
-    background-color: transparent;
-}
+        bottom: 0;
+        width: 100%;
+        padding: 5px 20px 0 0;
+        background-color: transparent;
+    }
     h2.page-header-on-blog {
-    width: auto;
-    padding-left: 0;
-}
+        width: auto;
+        padding-left: 0;
+    }
 }
 .thumbnail {
     display: block;

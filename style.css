@@ -26,9 +26,16 @@ Version: 0.2
     float: left;
 }
 .portfolio img {
-    float: right;
     height: auto;
+    width: 400px;
+}
+.portfolio-image {
+    height: 200px;
     width: 100%;
+    overflow: hidden;
+            background: center center no-repeat #eee;
+    text-align: center;
+    position: relative;
 }
 .portfolio,
 .type-post {
@@ -38,11 +45,9 @@ Version: 0.2
 }
 .type-post {
     padding-bottom: 20px;
-    padding-top:
 }
 .portfolio p,
-.meta,
-.exc {
+.meta{
     color: white;
     background-color: rgba(0, 0, 0, 0.9);
     padding: 10px;
@@ -84,10 +89,7 @@ Version: 0.2
     position: relative;
     clear: both;
 }
-.kafelek {
-    padding-right: 0;
-    margin-bottom: 15px;
-}
+
 .kafelek:hover #lnn {
     border-top: 5px solid #A57AD3;
 }
@@ -104,6 +106,9 @@ Version: 0.2
     background-color: rgba(0, 0, 0, 0.7);
     width: 100%;
     margin-top: 0;
+}
+.portfolio-title {
+    top:0;
 }
 .page-header-on-blog,
 .page-header-no-thumb {

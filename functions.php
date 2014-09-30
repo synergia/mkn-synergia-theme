@@ -171,7 +171,7 @@ add_action('wp_head', 'blog_favicon');
 // Custom excerpt ellipses, custom length
 ///////////////////////////////////////////////////////////////////
 function custom_excerpt_more($more) {
-return '…';
+return '';
 }
 add_filter('excerpt_more', 'custom_excerpt_more');
 
@@ -264,6 +264,7 @@ function sponsorowane() {
 	register_post_type( 'sponsorowane', $args );
 
 }
+add_theme_support('post-thumbnails');
 
 // Hook into the 'init' action
 add_action( 'init', 'sponsorowane', 0 );

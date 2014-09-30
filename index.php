@@ -48,7 +48,7 @@
                                 <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Poczytaj o %s', 'synergia' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark">
                                     <div id="ln" class="thumb-on-blog col-sm-5">
                                         <?php if (has_post_thumbnail()) { ?>
-                                        <?the_post_thumbnail('medium  ');
+                                        <?the_post_thumbnail('medium');
                                         } else { ?>
                                         <img src="<?php bloginfo('template_directory'); ?>/img/default.jpg"/><?php  } ?>
                                         <?php if( has_tag() ) : ?>

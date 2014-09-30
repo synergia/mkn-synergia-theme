@@ -30,7 +30,14 @@ Template Name: Portfolio
             <div class="col-sm-6 kafelek">
                 <div class="portfolio">
                     <a href="<?php the_permalink(); ?>">
-				    <?php the_post_thumbnail("full"); ?>
+                        <?php if (has_post_thumbnail()) {
+                    $thumb_id  = get_post_thumbnail_id();
+                    $thumb_url = wp_get_attachment_image_src($thumb_id, 'medium', true); ?>
+            <div class="portfolio-image" style="background-image: url(<?php echo $thumb_url[0]; ?>);">
+            <?php } else { //jeśli obrazku nie ma, to wykorzystujemy defaultowy?>
+            <div class="portfolio-image" style="background-image: url(<?php bloginfo('template_directory'); ?>/img/def-thumb.jpg);">
+            <?php } ?>
+                </div>
                         <h2 class="portfolio-title"><?php the_title(); ?></h2>
                     </a>
                     <div id="lnn">
@@ -42,8 +49,11 @@ Template Name: Portfolio
                 }
             }
             else { echo 'Trzeba z kimś współpracować...'; } ?>
-
-
+        <script>
+jQuery("#lnn p").text(function(index, currentText) {
+    return currentText.substr(0, 120)+ '...';
+});
+</script>
 
     </div>
 
