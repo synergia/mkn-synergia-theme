@@ -33,21 +33,18 @@ Version: 0.2
     height: 200px;
     width: 100%;
     overflow: hidden;
-            background: center center no-repeat #eee;
+    background: center center no-repeat #eee;
     text-align: center;
     position: relative;
 }
-.portfolio,
-.type-post {
+.portfolio{
     padding: 0;
     overflow: hidden;
     position: relative;
 }
-.type-post {
-    padding-bottom: 20px;
-}
+
 .portfolio p,
-.meta{
+.meta {
     color: white;
     background-color: rgba(0, 0, 0, 0.9);
     padding: 10px;
@@ -57,6 +54,7 @@ Version: 0.2
 }
 .post-header-on-blog .meta {
     background-color: transparent;
+    color: #333;
 }
 .post-header-on-blog .meta a:hover {
     color: #333;
@@ -89,7 +87,6 @@ Version: 0.2
     position: relative;
     clear: both;
 }
-
 .kafelek:hover #lnn {
     border-top: 5px solid #A57AD3;
 }
@@ -107,8 +104,19 @@ Version: 0.2
     width: 100%;
     margin-top: 0;
 }
+    #ln {
+        border-right: 10px solid #6C4892;
+        -webkit-transition: all 1s linear;
+        -moz-transition: all 1s linear;
+        -ms-transition: all 1s linear;
+        -o-transition: all 1s linear;
+        transition: all 1s linear;
+    }
+    .type-post:hover #ln {
+        border-right: 10px solid #A57AD3;
+    }
 .portfolio-title {
-    top:0;
+    top: 0;
 }
 .page-header-on-blog,
 .page-header-no-thumb {
@@ -175,16 +183,10 @@ Version: 0.2
     display: block;
     overflow: hidden;
     position: relative;
+    /*    border-bottom: 1px solid #cfcfcf;*/
 }
 .post-header-on-blog .tags {
     bottom: 0;
-}
-.exc {
-    padding-top: 0;
-}
-.exc p {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 10px;
 }
 .sponsorowane-left {
     position: relative;
@@ -207,11 +209,17 @@ Version: 0.2
 }
 .thumb-on-blog {
     padding: 0;
+    height: 200px;
+    overflow: hidden;
+    background: center center no-repeat #eee;
+    position: relative;
 }
 .teaser {
     position: absolute;
     right: 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    height: 100%;
+    background-color: #eee;
+    padding: 5px 5px 10px 10px;
 }
 /*TABS*/
 

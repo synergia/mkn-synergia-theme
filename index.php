@@ -46,18 +46,20 @@
                         <div <?php post_class(); ?>>
                             <div class="post-header-on-blog">
                                 <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Poczytaj o %s', 'synergia' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark">
-                                    <div id="ln" class="thumb-on-blog col-sm-5">
-                                        <?php if (has_post_thumbnail()) { ?>
-                                        <?the_post_thumbnail('medium');
-                                        } else { ?>
-                                        <img src="<?php bloginfo('template_directory'); ?>/img/default.jpg"/><?php  } ?>
+                                          <?php if (has_post_thumbnail()) {
+                    $thumb_id  = get_post_thumbnail_id();
+                    $thumb_url = wp_get_attachment_image_src($thumb_id, 'medium', true); ?>
+            <div id="ln" class="thumb-on-blog col-sm-5 col-xs-5" style="background-image: url(<?php echo $thumb_url[0]; ?>);">
+            <?php } else { //jeśli obrazku nie ma, to wykorzystujemy defaultowy?>
+            <div id="ln" class="thumb-on-blog col-sm-5 col-xs-5" style="background-image: url(<?php bloginfo('template_directory'); ?>/img/def-thumb.jpg);">
+            <?php } ?>
                                         <?php if( has_tag() ) : ?>
                                             <div class="tags"><span class="glyphicon glyphicon-tags"></span>
                                             <?php the_tags(""," &middot; "); ?> </div>
                                         <?php endif; ?>
                                     </div>
                                 </a>
-                                    <div class="col-sm-7 teaser">
+                                    <div class="col-sm-7 col-xs-7 teaser">
                                         <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Poczytaj o %s', 'synergia' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark">
                                             <h2 class="page-header-on-blog "><?php the_title(); ?></h2>
                                         </a>
