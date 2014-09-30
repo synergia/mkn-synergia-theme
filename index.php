@@ -72,7 +72,11 @@
                             <?php wp_link_pages(); ?>
 
                        </div>
-
+        <script>
+jQuery(".teaser > p").text(function(index, currentText) {
+    return currentText.substr(0, 170)+ '...';
+});
+</script>
                      <?php  endif; ?>
 
                 <?php endwhile; ?>
