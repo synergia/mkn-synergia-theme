@@ -51,7 +51,7 @@ Template Name: Portfolio
             else { echo 'Trzeba z kimś współpracować...'; } ?>
         <script>
 jQuery("#lnn p").text(function(index, currentText) {
-    return currentText.substr(0, 120)+ '...';
+    return currentText.substr(0, 118)+ '...';
 });
 </script>
 
