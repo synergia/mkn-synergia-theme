@@ -166,6 +166,7 @@ Version: 0.2
     bottom: 50px;
     right: 10px;
     color: rgba(255, 255, 255, 0.8);
+    text-shadow: 0 0 2px #000000;
 }
 .tags .glyphicon,
 .glyphicon-time {
@@ -183,7 +184,6 @@ Version: 0.2
     display: block;
     overflow: hidden;
     position: relative;
-    /*    border-bottom: 1px solid #cfcfcf;*/
 }
 .post-header-on-blog .tags {
     bottom: 0;

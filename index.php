@@ -53,11 +53,7 @@
             <?php } else { //jeśli obrazku nie ma, to wykorzystujemy defaultowy?>
             <div id="ln" class="thumb-on-blog col-sm-5 col-xs-5" style="background-image: url(<?php bloginfo('template_directory'); ?>/img/def-thumb.jpg);">
             <?php } ?>
-                                        <?php if( has_tag() ) : ?>
-                                            <div class="tags"><span class="glyphicon glyphicon-tags"></span>
-                                            <?php the_tags(""," &middot; "); ?> </div>
-                                        <?php endif; ?>
-                                    </div>
+                                </div>
                                 </a>
                                     <div class="col-sm-7 col-xs-7 teaser">
                                         <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Poczytaj o %s', 'synergia' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark">
