@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="53"
+   height="60"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="Nowy dokument 1">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2.8"
+     inkscape:cx="37.831154"
+     inkscape:cy="38.554155"
+     inkscape:document-units="px"
+     inkscape:current-layer="g3913"
+     showgrid="true"
+     inkscape:snap-bbox="true"
+     inkscape:bbox-paths="true"
+     inkscape:bbox-nodes="true"
+     inkscape:snap-bbox-edge-midpoints="true"
+     inkscape:snap-bbox-midpoints="true"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:window-width="1366"
+     inkscape:window-height="722"
+     inkscape:window-x="0"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1">
+    <sodipodi:guide
+       orientation="1,0"
+       position="431.42858,791.42857"
+       id="guide3759" />
+    <sodipodi:guide
+       orientation="0,1"
+       position="466.69048,813.1728"
+       id="guide3765" />
+    <sodipodi:guide
+       orientation="1,0"
+       position="376.78691,813.1728"
+       id="guide3778" />
+    <sodipodi:guide
+       orientation="0,1"
+       position="431.42858,625.71429"
+       id="guide3871" />
+    <sodipodi:guide
+       orientation="1,0"
+       position="99.607658,544.90209"
+       id="guide3873" />
+    <sodipodi:guide
+       orientation="0.70710678,0.70710678"
+       position="99.607658,625.71429"
+       id="guide3902" />
+    <sodipodi:guide
+       orientation="-0.70710678,0.70710678"
+       position="431.42858,293.89337"
+       id="guide3904" />
+    <sodipodi:guide
+       orientation="1,0"
+       position="763.2495,625.71429"
+       id="guide3906" />
+    <sodipodi:guide
+       orientation="0.70710678,0.70710678"
+       position="376.78691,813.1728"
+       id="guide3908" />
+    <sodipodi:guide
+       orientation="-0.70710678,0.70710678"
+       position="431.42858,758.53113"
+       id="guide3910" />
+    <inkscape:grid
+       type="xygrid"
+       id="grid3931"
+       empspacing="5"
+       visible="true"
+       enabled="true"
+       snapvisiblegridlinesonly="true" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-992.36218)">
+    <g
+       id="g3913"
+       style="fill:#6c4892;fill-opacity:1">
+      <path
+         style="fill:#6c4892;fill-opacity:1;stroke:none"
+         d="m 17.569576,1002.094 0,26.0976 17.326637,0 0,-26.0976 -17.326637,0 z m 4.571463,3.1584 c 0.960635,0 1.740618,0.7776 1.740618,1.7383 0,0.9606 -0.779983,1.7406 -1.740618,1.7406 -0.960636,0 -1.738279,-0.78 -1.738279,-1.7406 0,-0.9607 0.777643,-1.7383 1.738279,-1.7383 z m 8.181373,0 c 0.960634,0 1.740617,0.7776 1.740617,1.7383 0,0.9606 -0.779983,1.7406 -1.740617,1.7406 -0.960635,0 -1.738279,-0.78 -1.738279,-1.7406 0,-0.9607 0.777644,-1.7383 1.738279,-1.7383 z"
+         id="rect2985"
+         inkscape:export-filename="/home/stsdc/Obrazy/synergia/robot.png"
+         inkscape:export-xdpi="7.7056465"
+         inkscape:export-ydpi="7.7056465"
+         inkscape:connector-curvature="0" />
+      <rect
+         y="993.4317"
+         x="25.590523"
+         height="11.978447"
+         width="1.2834051"
+         id="rect3755"
+         style="fill:#6c4892;fill-opacity:1;stroke:none"
+         inkscape:export-filename="/home/stsdc/Obrazy/synergia/robot.png"
+         inkscape:export-xdpi="7.7056465"
+         inkscape:export-ydpi="7.7056465" />
+      <path
+         transform="matrix(0.0748653,0,0,0.0748653,19.922152,971.33003)"
+         d="m 98.571427,295.21933 c 0,7.88978 -6.395932,14.28571 -14.285714,14.28571 -7.889782,0 -14.285714,-6.39593 -14.285714,-14.28571 0,-7.88978 6.395932,-14.28571 14.285714,-14.28571 7.889782,0 14.285714,6.39593 14.285714,14.28571 z"
+         sodipodi:ry="14.285714"
+         sodipodi:rx="14.285714"
+         sodipodi:cy="295.21933"
+         sodipodi:cx="84.285713"
+         id="path3761"
+         style="fill:#6c4892;fill-opacity:1;stroke:none"
+         sodipodi:type="arc"
+         inkscape:export-filename="/home/stsdc/Obrazy/synergia/robot.png"
+         inkscape:export-xdpi="7.7056465"
+         inkscape:export-ydpi="7.7056465" />
+      <rect
+         y="1015.1427"
+         x="10.403563"
+         height="37.219509"
+         width="31.657324"
+         id="rect3802"
+         style="fill:#6c4892;fill-opacity:1;stroke:none"
+         inkscape:export-filename="/home/stsdc/Obrazy/synergia/robot.png"
+         inkscape:export-xdpi="7.7056465"
+         inkscape:export-ydpi="7.7056465" />
+      <rect
+         y="1021.025"
+         x="2.9170346"
+         height="6.0500298"
+         width="14.959651"
+         id="rect3804"
+         style="fill:#6c4892;fill-opacity:1;stroke:none"
+         inkscape:export-filename="/home/stsdc/Obrazy/synergia/robot.png"
+         inkscape:export-xdpi="7.7056465"
+         inkscape:export-ydpi="7.7056465" />
+      <rect
+         transform="matrix(0,1,-1,0,0,0)"
+         y="-7.4403839"
+         x="1006.9908"
+         height="6.0500298"
+         width="20.084164"
+         id="rect3804-7"
+         style="fill:#6c4892;fill-opacity:1;stroke:none"
+         inkscape:export-filename="/home/stsdc/Obrazy/synergia/robot.png"
+         inkscape:export-xdpi="7.7056465"
+         inkscape:export-ydpi="7.7056465" />
+      <rect
+         y="1003.5684"
+         x="0"
+         height="6.8448272"
+         width="2.7807109"
+         id="rect3824"
+         style="fill:#6c4892;fill-opacity:1;stroke:none"
+         inkscape:export-filename="/home/stsdc/Obrazy/synergia/robot.png"
+         inkscape:export-xdpi="7.7056465"
+         inkscape:export-ydpi="7.7056465" />
+      <rect
+         y="1003.5684"
+         x="6.0500288"
+         height="6.8448272"
+         width="2.7807109"
+         id="rect3824-3"
+         style="fill:#6c4892;fill-opacity:1;stroke:none"
+         inkscape:export-filename="/home/stsdc/Obrazy/synergia/robot.png"
+         inkscape:export-xdpi="7.7056465"
+         inkscape:export-ydpi="7.7056465" />
+      <rect
+         transform="scale(-1,-1)"
+         y="-1027.075"
+         x="-50.082165"
+         height="6.0500298"
+         width="15.494398"
+         id="rect3804-6"
+         style="fill:#6c4892;fill-opacity:1;stroke:none"
+         inkscape:export-filename="/home/stsdc/Obrazy/synergia/robot.png"
+         inkscape:export-xdpi="7.7056465"
+         inkscape:export-ydpi="7.7056465" />
+      <rect
+         transform="matrix(0,-1,1,0,0,0)"
+         y="45.024071"
+         x="-1041.1091"
+         height="6.0500298"
+         width="20.084164"
+         id="rect3804-7-2"
+         style="fill:#6c4892;fill-opacity:1;stroke:none"
+         inkscape:export-filename="/home/stsdc/Obrazy/synergia/robot.png"
+         inkscape:export-xdpi="7.7056465"
+         inkscape:export-ydpi="7.7056465" />
+      <rect
+         transform="scale(-1,-1)"
+         y="-1044.5315"
+         x="-52.464458"
+         height="6.8448272"
+         width="2.7807109"
+         id="rect3824-0"
+         style="fill:#6c4892;fill-opacity:1;stroke:none"
+         inkscape:export-filename="/home/stsdc/Obrazy/synergia/robot.png"
+         inkscape:export-xdpi="7.7056465"
+         inkscape:export-ydpi="7.7056465" />
+      <rect
+         transform="scale(-1,-1)"
+         y="-1044.5315"
+         x="-46.414436"
+         height="6.8448272"
+         width="2.7807109"
+         id="rect3824-3-5"
+         style="fill:#6c4892;fill-opacity:1;stroke:none"
+         inkscape:export-filename="/home/stsdc/Obrazy/synergia/robot.png"
+         inkscape:export-xdpi="7.7056465"
+         inkscape:export-ydpi="7.7056465" />
+    </g>
+  </g>
+</svg>

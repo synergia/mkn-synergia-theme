@@ -70,7 +70,7 @@
                        </div>
         <script>
 jQuery(".teaser > p").text(function(index, currentText) {
-    return currentText.substr(0, 170)+ '...';
+    return currentText.substr(0, 160)+ '...';
 });
 </script>
                      <?php  endif; ?>
