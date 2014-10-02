@@ -405,7 +405,7 @@ text-align: center;}
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     line-height: 1.2;
     color: #444;
-    padding: 10px 0 0px 0;
+    padding: 10px 0 5px 0;
     margin-top: 15px;
     border-bottom: 5px solid #6C4892;
 }
@@ -417,7 +417,9 @@ text-align: center;}
 .dmbs-footer a {
     color:#444;
 }
-
+.mkn-footer-inner {
+    padding-left: 5px;
+}
 .mkn-footer ul li {
     list-style: none;
 }

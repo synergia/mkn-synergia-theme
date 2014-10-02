@@ -4763,6 +4763,10 @@ fieldset[disabled] .navbar-default .btn-link:focus {
     .teaser {
         border-bottom: 1px solid #cfcfcf;
     }
+    .mkn-footer {
+        text-align: center;
+        padding-bottom: 15px;
+    }
 }
 .navbar-inverse .navbar-link {
     color: #777777;

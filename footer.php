@@ -1,14 +1,16 @@
     <div class="dmbs-footer">
                 <div class="row">
                     <div class="mkn-footer col-sm-5">
-                        <a href="<?php echo esc_url( home_url( '/' ) ); ?>">Międzywydziałowe Koło Naukowe "Synergia"</a> <?php echo comicpress_copyright(); ?>
-                        <ul>
-                            <li><a href="http://tmm.pwr.wroc.pl">Zakład Teorii Maszyn i Układów Mechatronicznych</a></li>
-                            <li><a href="http://wmech.pwr.wroc.pl/">Wydział Mechaniczny</a></li>
-                            <li><a href="http://weka.pwr.wroc.pl/">Wydział Elektroninki</a></li>
-                        </ul>
+                        <div class="mkn-footer-inner">
+                            <a href="<?php echo esc_url( home_url( '/' ) ); ?>">Międzywydziałowe Koło Naukowe "Synergia"</a> <?php echo comicpress_copyright(); ?>
+                            <ul>
+                                <li><a href="http://tmm.pwr.wroc.pl">Zakład Teorii Maszyn i Układów Mechatronicznych</a></li>
+                                <li><a href="http://wmech.pwr.wroc.pl/">Wydział Mechaniczny</a></li>
+                                <li><a href="http://weka.pwr.wroc.pl/">Wydział Elektroninki</a></li>
+                            </ul>
                             <?php get_template_part('template-part', 'footernav'); ?>
 
+                        </div>
                     </div>
                     <a href="http://pwr.wroc.pl" title="Seks! Muzyka! Po-li-technika!" target="_blank"><div class="col-sm-2 pwr"><img src="<?php echo get_template_directory_uri(); ?>/img/pwr.png"/>
                 </div></a>
