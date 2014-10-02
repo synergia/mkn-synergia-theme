@@ -28,6 +28,13 @@ Template Name: Członkowie
                 <?php echo do_shortcode("[table id=1 /]"); ?>
         </section>
         <section id="section-2">
+            <div class="special-div-for-grzegorz">
+                        <div class="clip-circle col-xs-6"></div>
+                        <div class="about-grzegorz col-xs-6">
+                            <h2>Grzegorz Hajdukiewicz</h2>
+                            <p>Założyciel i pierwszy przewodniczący MKN "Synergia"</p>
+                        </div>
+                    </div>
                 <?php echo do_shortcode("[table id=2 /]"); ?>
         </section>
         <section id="section-3">
