@@ -2,7 +2,7 @@
                 <div class="row">
                     <div class="mkn-footer col-sm-5">
                         <div class="mkn-footer-inner">
-                            <a href="<?php echo esc_url( home_url( '/' ) ); ?>">Międzywydziałowe Koło Naukowe "Synergia"</a> <?php echo comicpress_copyright(); ?>
+                            <a href="<?php echo esc_url( home_url( '/' ) ); ?>">Międzywydziałowe Koło Naukowe<br>"Synergia"</a> <?php echo comicpress_copyright(); ?>
                             <ul>
                                 <li><a href="http://tmm.pwr.wroc.pl">Zakład Teorii Maszyn i Układów Mechatronicznych</a></li>
                                 <li><a href="http://wmech.pwr.wroc.pl/">Wydział Mechaniczny</a></li>
