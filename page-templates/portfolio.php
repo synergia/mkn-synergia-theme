@@ -14,7 +14,7 @@ Template Name: Portfolio
     <?php //left sidebar ?>
     <?php get_sidebar( 'left' ); ?>
 
-    <div class="col-md-<?php synergia_main_content_width(); ?> dmbs-main">
+    <div class="col-sm-<?php synergia_main_content_width(); ?> dmbs-main">
 
                <?php $args = array(
     'post_type'              => 'post',
@@ -27,13 +27,20 @@ Template Name: Portfolio
                 while( $products->have_posts() ) {
                     $products->the_post(); ?>
         
-            <div class="col-md-6 no-right-padding">
+            <div class="col-sm-6 kafelek">
                 <div class="portfolio">
                     <a href="<?php the_permalink(); ?>">
-				    <?php the_post_thumbnail("full"); ?>
+                        <?php if (has_post_thumbnail()) {
+                    $thumb_id  = get_post_thumbnail_id();
+                    $thumb_url = wp_get_attachment_image_src($thumb_id, 'medium', true); ?>
+            <div class="portfolio-image" style="background-image: url(<?php echo $thumb_url[0]; ?>);">
+            <?php } else { //jeśli obrazku nie ma, to wykorzystujemy defaultowy?>
+            <div class="portfolio-image" style="background-image: url(<?php bloginfo('template_directory'); ?>/img/def-thumb.jpg);">
+            <?php } ?>
+                </div>
                         <h2 class="portfolio-title"><?php the_title(); ?></h2>
                     </a>
-                    <div id="ln">
+                    <div id="lnn">
                     <?php the_excerpt(); ?>
                     </div>
                 </div>  
@@ -42,8 +49,11 @@ Template Name: Portfolio
                 }
             }
             else { echo 'Trzeba z kimś współpracować...'; } ?>
-
-
+        <script>
+jQuery("#lnn p").text(function(index, currentText) {
+    return currentText.substr(0, 118)+ '...';
+});
+</script>
 
     </div>
 

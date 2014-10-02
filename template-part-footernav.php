@@ -1,16 +1,7 @@
 <?php if ( has_nav_menu( 'footer_menu' ) ) : ?>
     <div class="dmbs-footer-menu">
-            <nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
+            <nav role="navigation">
                 <div class="container">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-2-collapse">
-                            <span class="sr-only"><?php _e('Toggle navigation','synergia'); ?></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                    </div>
-
                     <?php
                     wp_nav_menu( array(
                             'theme_location'    => 'footer_menu',
