@@ -4347,10 +4347,6 @@ select[multiple].input-group-sm > #searchform #s {
         overflow-x: hidden;
         background-color: #6C4892;
         -webkit-overflow-scrolling: touch;
-<<<<<<< HEAD
-        z-index: 10;
-        position: relative;
-=======
         position: relative;
         z-index: 10;
     }
@@ -4359,7 +4355,6 @@ select[multiple].input-group-sm > #searchform #s {
     }
     .navbar {
         margin-bottom: 0;
->>>>>>> refs/remotes/origin/bootstrap
     }
 }
 @media (min-width: 768px) {
@@ -4771,6 +4766,11 @@ fieldset[disabled] .navbar-default .btn-link:focus {
     .mkn-footer {
         text-align: center;
         padding-bottom: 15px;
+    }
+    .navbar-inverse .navbar-nav > .active > a,
+    .navbar-inverse .navbar-nav > .active > a:hover,
+    .navbar-inverse .navbar-nav > .active > a:focus {
+        color: white;
     }
 }
 .navbar-inverse .navbar-link {
