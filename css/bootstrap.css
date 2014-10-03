@@ -4355,7 +4355,6 @@ select[multiple].input-group-sm > #searchform #s {
     }
     .navbar {
         margin-bottom: 0;
-
     }
 }
 @media (min-width: 768px) {
@@ -4760,7 +4759,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
         text-align: center;
         padding-bottom: 15px;
     }
-        .navbar-inverse .navbar-nav > .active > a,
+    .navbar-inverse .navbar-nav > .active > a,
     .navbar-inverse .navbar-nav > .active > a:hover,
     .navbar-inverse .navbar-nav > .active > a:focus {
         color: white;
