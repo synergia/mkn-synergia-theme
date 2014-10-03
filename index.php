@@ -27,7 +27,7 @@
                             <?php if (has_post_thumbnail()) {
                         the_post_thumbnail('full');
                         } else { ?>
-                        <img src="<?php bloginfo('template_directory'); ?>/img/default.jpg"/>
+                        <img src="<?php bloginfo('template_directory'); ?>/img/default.png"/>
                         <?php  } ?>
                                 <div class="clear"></div>
 
@@ -51,7 +51,7 @@
                     $thumb_url = wp_get_attachment_image_src($thumb_id, 'medium', true); ?>
             <div id="ln" class="thumb-on-blog col-sm-5 col-xs-5" style="background-image: url(<?php echo $thumb_url[0]; ?>);">
             <?php } else { //jeśli obrazku nie ma, to wykorzystujemy defaultowy?>
-            <div id="ln" class="thumb-on-blog col-sm-5 col-xs-5" style="background-image: url(<?php bloginfo('template_directory'); ?>/img/def-thumb.jpg);">
+            <div id="ln" class="thumb-on-blog col-sm-5 col-xs-5" style="background-image: url(<?php bloginfo('template_directory'); ?>/img/default.png);">
             <?php } ?>
                                 </div>
                                 </a>
