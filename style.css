@@ -3,7 +3,7 @@ Theme Name: Synergia
 Author: Stanisław Dac
 Author URI: http://vk.com/stsdc
 Description: Specjalnie dla MKN "Synergia". Na podstawie DevDmBootstrap3.
-Version: 0.2
+Version: 0.2.5
 */
 
 /* The bootstrap.css file is auto-enqueued in functions.php */
@@ -61,13 +61,10 @@ Version: 0.2
 .tags a:hover {
     color: rgba(255, 255, 255, 1.0);
 }
-.meta p.left {
-    display: inline-block;
-    margin: 0;
-}
-.meta p.right {
+.meta p.right, .nav-links p.right {
     display: inline-block;
     float: right;
+    text-align: right;
     margin: 0;
 }
 #lnn {
@@ -452,4 +449,9 @@ text-align: center;}
     overflow: hidden;
     float: left;
     border: 5px solid #7251a1;
+}
+.nav-links {
+    width: 100%;
+    position: relative;
+    padding-left: 5px;
 }

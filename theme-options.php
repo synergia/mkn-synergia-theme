@@ -1,13 +1,11 @@
 <?php
 
-load_theme_textdomain( 'synergia', get_template_directory() . '/languages' );
-
 /////////////////////////////////////////////////////////////////////
-// Add DevDm Theme Options to the Appearance Menu and Admin Bar
+// Add Synergia Theme Options to the Appearance Menu and Admin Bar
 ////////////////////////////////////////////////////////////////////
 
     function dmbs_theme_options_menu() {
-        add_theme_page( 'DevDm Theme' . __('Options','synergia'), 'DevDm' . __('Options','synergia'), 'manage_options', 'devdm-theme-options', 'devdm_theme_options' );
+        add_theme_page( 'Synergiczne opcje', 'DevDm' . __('Options','synergia'), 'manage_options', 'synergia-theme-options', 'synergia_theme_options' );
     }
     add_action( 'admin_menu', 'dmbs_theme_options_menu' );
 
@@ -15,10 +13,10 @@ load_theme_textdomain( 'synergia', get_template_directory() . '/languages' );
 
     function toolbar_link_to_dmbs_options( $wp_admin_bar ) {
         $args = array(
-            'id'    => 'devdm_theme_options',
-            'title' => __('DevDm Options','synergia'),
-            'href'  => home_url() . '/wp-admin/themes.php?page=devdm-theme-options',
-            'meta'  => array( 'class' => 'devdm-theme-options' ),
+            'id'    => 'synergia_theme_options',
+            'title' => __('Synergia Options','synergia'),
+            'href'  => home_url() . '/wp-admin/themes.php?page=synergia-theme-options',
+            'meta'  => array( 'class' => 'synergia-theme-options' ),
             'parent' => 'site-name'
         );
         $wp_admin_bar->add_node( $args );
@@ -28,10 +26,10 @@ load_theme_textdomain( 'synergia', get_template_directory() . '/languages' );
 // Add admin.css enqueue
 ////////////////////////////////////////////////////////////////////
 
-    function devdm_theme_style() {
-        wp_enqueue_style('devdm-theme', get_template_directory_uri() . '/css/admin.css');
+    function synergia_theme_style() {
+        wp_enqueue_style('synergia-theme', get_template_directory_uri() . '/css/admin.css');
     }
-    add_action('admin_enqueue_scripts', 'devdm_theme_style');
+    add_action('admin_enqueue_scripts', 'synergia_theme_style');
 
 ////////////////////////////////////////////////////////////////////
 // Custom background theme support
@@ -54,7 +52,7 @@ load_theme_textdomain( 'synergia', get_template_directory() . '/languages' );
         'wheel' => array(
             'url' => '%s/img/deafaultlogo.png',
             'thumbnail_url' => '%s/img/deafaultlogo.png',
-            'description' => __( 'Your Business Name', 'devdmbootstrap' )
+            'description' => __( 'MKN "Synergia"', 'synergia' )
         ))
 
     );
@@ -70,11 +68,11 @@ load_theme_textdomain( 'synergia', get_template_directory() . '/languages' );
         'uploads'                => true,
         'wp-head-callback'       => '',
         'admin-head-callback'    => '',
-        'admin-preview-callback' => 'devdm_admin_header_image',
+        'admin-preview-callback' => 'synergia_admin_header_image',
     );
     add_theme_support( 'custom-header', $defaults );
 
-    function devdm_admin_header_image() { ?>
+    function synergia_admin_header_image() { ?>
 
         <div id="headimg">
             <?php
@@ -122,7 +120,8 @@ load_theme_textdomain( 'synergia', get_template_directory() . '/languages' );
         'left_sidebar' => true,
         'left_sidebar_width' => 3,
         'show_header' => true,
-        'show_postmeta' => true
+        'show_postmeta' => true,
+        'archiwum' => ''
     );
 
     $dm_sidebar_sizes = array(
@@ -206,6 +205,7 @@ load_theme_textdomain( 'synergia', get_template_directory() . '/languages' );
         } else {
             $input['show_postmeta'] = ( $input['show_postmeta'] == 1 ? 1 : 0 );
         }
+        $input['archiwum'] = wp_filter_nohtml_kses( $input['archiwum'] );
 
         return $input;
     }
@@ -214,7 +214,7 @@ load_theme_textdomain( 'synergia', get_template_directory() . '/languages' );
 // Display Options Page
 ////////////////////////////////////////////////////////////////////
 
-    function devdm_theme_options() {
+    function synergia_theme_options() {
 
     if ( !current_user_can( 'manage_options' ) )  {
         wp_die('You do not have sufficient permissions to access this page.');
@@ -228,7 +228,7 @@ load_theme_textdomain( 'synergia', get_template_directory() . '/languages' );
 
         <div class="wrap">
 
-        <div class="dm-logo-wrap"><a href="<?php echo $developer_uri ?>" target="_blank"><img src="<?php echo $logo; ?>" class="dm-logo" title="Created by Danny Machal @ DevDm.com" /></a></div>
+        <div class="dm-logo-wrap"><a href="<?php echo $developer_uri ?>" target="_blank"><img src="<?php echo $logo; ?>" class="dm-logo" /></a></div>
 
             <div class="icon32" id="icon-options-general"></div>
 
@@ -300,6 +300,11 @@ load_theme_textdomain( 'synergia', get_template_directory() . '/languages' );
                         <td>
                             <input type="checkbox" id="show_postmeta" name="dm_options[show_postmeta]" value="1" <?php checked( true, $settings['show_postmeta'] ); ?> />
                             <label for="show_postmeta"><?php _e('Show Post Meta data (author, category, date created)','v') ;?></label>
+                        </td>
+                    </tr>
+                    <tr valign="top"><th scope="row"><?php _e('Link do Archiwum','pogonlwow') ;?></th>
+                        <td>
+                            <input type="text" id="archiwum" name="dm_options[archiwum]" value="<?php esc_attr_e($settings['archiwum']); ?>" />
                         </td>
                     </tr>
 

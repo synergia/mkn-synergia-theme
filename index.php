@@ -76,7 +76,10 @@ jQuery(".teaser > p").text(function(index, currentText) {
                      <?php  endif; ?>
 
                 <?php endwhile; ?>
-                <?php posts_nav_link(); ?>
+                <div class="nav-links">
+        <p class="col-xs-6"><?php previous_posts_link('&laquo; Siędy');?></p>
+        <p class="right col-xs-6"><?php next_posts_link( 'Tędy &raquo;', $query->max_num_pages ); ?></p>
+    </div>
                 <?php else: ?>
 
                     <?php get_404_template(); ?>
