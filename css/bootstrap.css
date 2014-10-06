@@ -4773,6 +4773,10 @@ fieldset[disabled] .navbar-default .btn-link:focus {
     .navbar-inverse .navbar-nav > .active > a:focus {
         color: white;
     }
+    .meta p.left {
+        width: auto;
+        display: inline;
+    }
 
 }
 .navbar-inverse .navbar-link {
@@ -5119,7 +5123,7 @@ a.list-group-item.active > .badge,
     .meta p.left {
     display: inline-block;
     margin: 0;
-}
+    }
 }
 .thumbnail {
     display: block;

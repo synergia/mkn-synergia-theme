@@ -7,7 +7,7 @@
     $themename = "Synergia (based on DevDmBootstrap3)";
     $developer_uri = "http://vk.com/stsdc";
     $shortname = "sy";
-    $version = '0.2.5';
+    $version = '0.2.5.1';
 ////////////////////////////////////////////////////////////////////
 // include Theme-options.php for Admin Theme settings
 ////////////////////////////////////////////////////////////////////

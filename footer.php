@@ -6,7 +6,7 @@
                             <ul>
                                 <li><a href="http://tmm.pwr.wroc.pl">Zakład Teorii Maszyn i Układów Mechatronicznych</a></li>
                                 <li><a href="http://wmech.pwr.wroc.pl/">Wydział Mechaniczny</a></li>
-                                <li><a href="http://weka.pwr.wroc.pl/">Wydział Elektroninki</a></li>
+                                <li><a href="http://weka.pwr.wroc.pl/">Wydział Elektroniki</a></li>
                             </ul>
                             <?php get_template_part('template-part', 'footernav'); ?>
 
