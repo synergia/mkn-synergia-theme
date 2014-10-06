@@ -6,7 +6,8 @@
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
 }
-html, body {
+html,
+body {
     max-width: 100%;
     overflow-x: hidden;
 }
@@ -4670,7 +4671,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
     background-color: #080808;
     color: #ffffff;
 }
-@media (max-width:550px) {
+@media (max-width: 550px) {
     .meta p.left {
         display: none;
     }
@@ -4777,7 +4778,6 @@ fieldset[disabled] .navbar-default .btn-link:focus {
         width: auto;
         display: inline;
     }
-
 }
 .navbar-inverse .navbar-link {
     color: #777777;
@@ -5121,8 +5121,8 @@ a.list-group-item.active > .badge,
         padding-bottom: 5px;
     }
     .meta p.left {
-    display: inline-block;
-    margin: 0;
+        display: inline-block;
+        margin: 0;
     }
 }
 .thumbnail {
