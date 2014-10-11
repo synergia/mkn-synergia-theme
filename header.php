@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <!--Design&Developing: Stanisław Dac-->
+
 <head>
     <meta http-equiv="content-type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
     <link rel="apple-touch-icon" href="<?php bloginfo('template_directory'); ?>/img/safari_60.png">
     <link rel="apple-touch-icon" sizes="76x76" href="<?php bloginfo('template_directory'); ?>/img/safari_76.png">
     <link rel="apple-touch-icon" sizes="120x120" href="<?php bloginfo('template_directory'); ?>/img/safari_120.png">
     <link rel="apple-touch-icon" sizes="152x152" href="<?php bloginfo('template_directory'); ?>/img/safari_152.png">
+    <meta name="msapplication-TileColor" content="#eeeeee">
+    <meta name="msapplication-TileImage" content="<?php bloginfo('template_directory'); ?>/img/tile144.png">
     <meta name="description" content="<?php echo esc_attr(get_bloginfo('description')); ?>" />
     <title>
         <?php wp_title( '&laquo;', true, 'right'); ?>
