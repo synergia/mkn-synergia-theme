@@ -32,7 +32,7 @@ Template Name: Członkowie
                         <div class="clip-circle col-xs-6"></div>
                         <div class="about-grzegorz col-xs-6">
                             <h2>Grzegorz Hajdukiewicz</h2>
-                            <p>Założyciel i pierwszy przewodniczący MKN "Synergia"</p>
+                            <p>Założyciel i pierwszy przewodniczący MKNM "Synergia"</p>
                         </div>
                     </div>
                 <?php echo do_shortcode("[table id=2 /]"); ?>

@@ -4740,7 +4740,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
     .reply {
         margin-right: 10px;
     }
-    .sponsorowane-left {
+    .sponsorowane-left, .wspolpraca-left {
         display: none;
     }
     .post-header-on-blog .meta {

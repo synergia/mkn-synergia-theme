@@ -27,7 +27,7 @@
                             <?php if (has_post_thumbnail()) {
                         the_post_thumbnail('full');
                         } else { ?>
-                        <img src="<?php bloginfo('template_directory'); ?>/img/default.png"/>
+                        <img src="<?php bloginfo('template_directory'); ?>/img/defaulth.png"/>
                         <?php  } ?>
                                 <div class="clear"></div>
 

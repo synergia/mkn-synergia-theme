@@ -3,7 +3,7 @@ Theme Name: Synergia
 Author: Stanisław Dac
 Author URI: http://vk.com/stsdc
 Description: Specjalnie dla MKN "Synergia". Na podstawie DevDmBootstrap3.
-Version: 0.2.5.2
+Version: 0.2.6
 */
 
 /* The bootstrap.css file is auto-enqueued in functions.php */
@@ -124,7 +124,8 @@ Version: 0.2.5.2
     margin: 0;
     padding: 15px 10px 10px 0px;
 }
-.widget h3 {
+.widget h3, .wspolpraca-left h3,
+.sponsorowane-left h3{
     text-transform: uppercase;
     font-size: 20px;
     font-weight: bold;
@@ -179,22 +180,25 @@ Version: 0.2.5.2
 .post-header-on-blog .tags {
     bottom: 0;
 }
-.sponsorowane-left {
+.sponsorowane-left, .wspolpraca-left {
     position: relative;
     height: 100%;
     padding: 0;
 
 }
-.sponsorowane {
+.sponsorowane-left h3, .wspolpraca-left h3 {
+    margin-top: 10px;
+}
+.sponsorowane, .wspolpraca {
     margin-top: 20px;
     width: 80%;
 }
-.sponsorowane a {
+.sponsorowane a, wspolpraca a {
     text-align: center;
     display: inline;
     position: relative;
 }
-.sponsorowane img {
+.sponsorowane img, .wspolpraca img {
     width: 100%;
     height: auto;
 }
@@ -329,11 +333,11 @@ Version: 0.2.5.2
 .pwr{
     text-align: center;
 }
-.pwr img, .sponsorowane img {
+.pwr img, .sponsorowane img, .wspolpraca img {
     opacity: 0.7;
     filter: alpha(opacity=70); /* For IE8 and earlier */
 }
-.pwr img:hover, .sponsorowane img:hover {
+.pwr img:hover, .sponsorowane img:hover, .wspolpraca:hover {
     opacity: 1;
     filter: alpha(opacity=100); /* For IE8 and earlier */
 }
