@@ -18,12 +18,26 @@ Template Name: Członkowie
         <div id="tabs" class="tabs">
     <nav>
         <ul>
+            <li><a href="#section-0"><span>Zarząd</span></a></li>
             <li><a href="#section-1" ><span>Aktualni</span></a></li>
             <li><a href="#section-2" ><span>Byli</span></a></li>
             <li><a href="#section-3" ><span>Kandydaci</span></a></li>
         </ul>
     </nav>
     <div class="content">
+        <section class="zarzad" id="section-0">
+        					<?php
+$args = array (
+	'pagename'               => 'zarzad',
+);
+
+// The Query
+$query = new WP_Query( $args );
+
+                                          while($query->have_posts()) : $query->the_post();?>
+                                        <?php the_content(); ?>
+                                        <?php endwhile; ?>
+        </section>
         <section id="section-1">
                 <?php echo do_shortcode("[table id=1 /]"); ?>
         </section>
