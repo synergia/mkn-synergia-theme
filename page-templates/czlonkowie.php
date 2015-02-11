@@ -42,13 +42,6 @@ $query = new WP_Query( $args );
                 <?php echo do_shortcode("[table id=1 /]"); ?>
         </section>
         <section id="section-2">
-            <div class="special-div-for-grzegorz">
-                        <div class="clip-circle col-xs-6"></div>
-                        <div class="about-grzegorz col-xs-9">
-                            <h2>Grzegorz Hajdukiewicz</h2>
-                            <p>Przewodniczący w latach 2010 - 2013. Przejął on, prowadzone od 2006 roku przez doktora Jarosława Szreka, Międzywydziałowe Koło Naukowe Mechatroniki oraz zmienił jego nazwę na aktualną, dodając człon "Synergia".</p><p> Doktor Szrek natomiast stał się naszym opiekunem i pozostaje nim do dziś. Za kadencji Grześka Koło stało się rozpoznawalne na Politechnice Wrocławskiej, nazwa Synergia nie jest obca większości studentom naszej uczelni.</p>
-                        </div>
-                    </div>
                 <?php echo do_shortcode("[table id=2 /]"); ?>
         </section>
         <section id="section-3">
