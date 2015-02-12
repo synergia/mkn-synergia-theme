@@ -1,3 +1,5 @@
+<!--Design Stanisław Dac-->
+
 <?php get_header(); ?>
 
 <?php get_template_part('template-part', 'topnav'); ?>
