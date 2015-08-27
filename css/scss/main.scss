@@ -1,0 +1,91 @@
+@import url(http://fonts.googleapis.com/css?family=Titillium+Web:400,700,300,400italic&subset=latin,latin-ext);
+@import 'vars';
+@import 'mixins';
+@import 'normalize';
+@import 'gridlayout';
+@import 'html5boiler';
+/* ==========================================================================
+   Synergia custom styles
+   ========================================================================== */
+body {
+    font-family: $synergia-fontstack;
+    font-size: $font-size;
+    line-height: $line-height;
+    color: $text-color;
+    background-color: $background-color;
+}
+
+input,
+button,
+select,
+textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    border: none;
+    background-color: rgba(165, 122, 211, 0.5);
+    padding: 5px;
+}
+
+a {
+    color: $synergia-color;
+    text-decoration: none;
+}
+
+a:hover,
+a:focus {
+    color: $synergia-light-color;
+    text-decoration: underline;
+}
+
+a:focus {
+    outline: thin dotted;
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
+}
+
+figure {
+    margin: 0;
+}
+
+img {
+    vertical-align: middle;
+}
+.dmbs-container {
+    @media (min-width: 768px){
+        margin-top: 20px;
+    }
+}
+.container {
+    @include clearfix;
+    margin-right: auto;
+    margin-left: auto;
+    @media (min-width: 768px) {
+        width: 750px;
+    }
+    @media (min-width: 992px) {
+        width: 970px;
+    }
+    @media (min-width: 1200px) {
+        width: $container-width;
+    }
+}
+.navbar-inverse {
+    background-color: $background-color;
+}
+.navbar {
+    position: relative;
+    height: 56px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    @include clearfix;
+    @media (min-width: 768px) {
+        border-radius: 4px;
+    }
+}
+nav {
+    .container {
+        padding: 0;
+    }
+}
+@import 'html5plate';
