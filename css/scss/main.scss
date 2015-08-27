@@ -91,8 +91,14 @@ img {
         > li {
             > a {
                 color: $synergia-color;
+                &:hover {
+                    color: $synergia-light-color;
+                }
                 @media (max-width: 767px) {
                     color: $synergia-light-color;
+                    &:hover {
+                        color: #ffffff;
+                    }
                 }
             }
         }
@@ -101,6 +107,18 @@ img {
         background-color: $synergia-color;
     }
 }
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus {
+    @media (max-width: 767px) {
+        color:#ffffff;
+    }
+    color: $synergia-color;
+    background-color: transparent;
+    border-bottom: 4px solid $synergia-color;
+    padding-bottom: 5px;
+}
+
 .navbar-toggle {
     position: relative;
     float: right;
@@ -205,6 +223,9 @@ img {
     }
 }
 .collapse {
+    @media (min-width: 768px) {
+        display: block;
+    }
     display: none;
     &.in {
         display: block;
