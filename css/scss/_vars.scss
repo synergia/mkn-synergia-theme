@@ -9,5 +9,10 @@ $background-color: #ffffff;
 $synergia-color: #6c4892;
 $synergia-light-color:lighten($synergia-color, 20%);
 
+//LOGO
+$image-path: '../img' !default;
+$fallback-extension: 'png' !default;
+$retina-suffix: '@2x';
+
 //OTHER
 $container-width: 1000px;
