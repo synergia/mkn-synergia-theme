@@ -140,7 +140,7 @@ img {
 
 .navbar {
     position: relative;
-    height: 56px;
+//    height: 56px;
     margin-bottom: 20px;
     border: 1px solid transparent;
     @include clearfix;
@@ -202,13 +202,13 @@ nav {
     float: left;
 }
 .navbar-nav {
-        margin-bottom: 0px;
+    margin-bottom: 0px;
     padding-left: 0px;
     list-style: outside none none;
     z-index: 10;
     position: relative;
     > li {
-                text-align: center;
+        text-align: center;
         text-transform: uppercase;
         position: relative;
         display: block;
@@ -216,10 +216,11 @@ nav {
         > a {
             padding-top: 10px;
             padding-bottom: 10px;
-            line-height: 20px;
+            line-height: 25px;
             padding: 10px 15px;
             outline: 0px none;
             text-decoration: none;
+            display: block;
         }
     }
     @media (min-width: 768px) {
@@ -230,8 +231,8 @@ nav {
             font-weight: bold;
             float: left;
             > a {
-                padding-top: 15px;
-                padding-bottom: 15px;
+//                padding-top: 15px;
+//                padding-bottom: 15px;
             }
         }
     }

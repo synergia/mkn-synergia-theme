@@ -1009,7 +1009,6 @@ img {
 
 .navbar {
   position: relative;
-  height: 56px;
   margin-bottom: 20px;
   border: 1px solid transparent; }
   .navbar:before, .navbar:after {
@@ -1106,10 +1105,11 @@ nav .container {
     .navbar-nav > li > a {
       padding-top: 10px;
       padding-bottom: 10px;
-      line-height: 20px;
+      line-height: 25px;
       padding: 10px 15px;
       outline: 0px none;
-      text-decoration: none; }
+      text-decoration: none;
+      display: block; }
   @media (min-width: 768px) {
     .navbar-nav {
       float: right;
@@ -1117,10 +1117,7 @@ nav .container {
       .navbar-nav > li {
         text-transform: uppercase;
         font-weight: bold;
-        float: left; }
-        .navbar-nav > li > a {
-          padding-top: 15px;
-          padding-bottom: 15px; } }
+        float: left; } }
 
 .nav {
   margin-bottom: 0px;
