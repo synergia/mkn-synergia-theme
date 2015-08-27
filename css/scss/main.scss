@@ -80,11 +80,20 @@ img {
         .icon-bar {
             background-color: $background-color;
         }
+        &:hover {
+            background-color: $synergia-light-color;
+        }
+        &:focus {
+            background-color: $synergia-light-color;
+        }
     }
     .navbar-nav {
         > li {
             > a {
                 color: $synergia-color;
+                @media (max-width: 767px) {
+                    color: $synergia-light-color;
+                }
             }
         }
     }
@@ -136,6 +145,21 @@ img {
         @include clearfix;
         @include background-image('logo');
     }
+    @media (max-width: 767px) {
+        width: 54px;
+        margin-top: 2px;
+        height: 54px;
+        background-position: 2px 2px;
+        background-repeat: no-repeat;
+        position: relative;
+        border-radius: 4px;
+        float: left;
+        margin-left: 20px;
+        background-color: $background-color;
+        @include background-image('logo');
+        -webkit-box-shadow: 0 0 3px 0 #000000;
+        box-shadow: 0 0 3px 0 #000000;
+    }
 }
 
 .navbar {
@@ -153,26 +177,48 @@ img {
 }
 .navbar-collapse {
     overflow-x: visible;
+    -webkit-overflow-scrolling: touch;
     @media (min-width: 768px) {
         width: auto;
         border-top: 0;
         box-shadow: none;
     }
     .collapse {
-        display: none;
         @media (min-width: 768px) {
             display: block !important;
             height: auto !important;
             padding-bottom: 0;
             overflow: visible !important;
         }
+        @media (max-width: 767px) {
+            overflow-x: hidden;
+            background-color: $synergia-color;
+            position: relative;
+            z-index: 10;
+        }
         .in {
+            overflow-y: auto;
             @media (min-width: 768px) {
                 overflow-y: visible;
             }
         }
     }
 }
+.collapse {
+    display: none;
+    &.in {
+        display: block;
+    }
+}
+.collapsing {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    -webkit-transition: height 0.35s ease;
+    -o-transition: height 0.35s ease;
+    transition: height 0.35s ease;
+}
+
 .navbar-fixed-top .navbar-collapse,
 .navbar-static-top .navbar-collapse,
 .navbar-fixed-bottom .navbar-collapse {
@@ -199,9 +245,12 @@ nav {
     }
 }
 .navbar-header {
-    float: left;
+    @media (min-width: 768px) {
+        float: left;
+    }
 }
 .navbar-nav {
+    margin: 7.5px -15px;
     margin-bottom: 0px;
     padding-left: 0px;
     list-style: outside none none;
