@@ -1,15 +1,16 @@
 @import url(http://fonts.googleapis.com/css?family=Titillium+Web:400,700,300,400italic&subset=latin,latin-ext);
+@import 'mq';
 @import 'vars';
 @import 'mixins';
 @import 'normalize';
 @import 'gridlayout';
 @import 'html5boiler';
-/* ==========================================================================
-   Synergia custom styles
-   ========================================================================== */
+//==========================================================================
+//   Synergia custom styles
+//==========================================================================
 body {
     font-family: $synergia-fontstack;
-    font-size: $font-size;
+//    font-size: $font-size;
     line-height: $line-height;
     color: $text-color;
     background-color: $background-color;
@@ -55,7 +56,7 @@ img {
     vertical-align: middle;
 }
 .dmbs-container {
-    @media (min-width: 768px){
+    @include mq($from: tablet){
         margin-top: 20px;
     }
 }
@@ -63,13 +64,13 @@ img {
     @include clearfix;
     margin-right: auto;
     margin-left: auto;
-    @media (min-width: 768px) {
+    @include mq($from: tablet){
         width: 750px;
     }
-    @media (min-width: 992px) {
+    @include mq($from: desktop){
         width: 970px;
     }
-    @media (min-width: 1200px) {
+    @include mq($from: wide){
         width: $container-width;
     }
 }
@@ -94,7 +95,7 @@ img {
                 &:hover {
                     color: $synergia-light-color;
                 }
-                @media (max-width: 767px) {
+                @include mq($until: tablet){
                     color: $synergia-light-color;
                     &:hover {
                         color: #ffffff;
@@ -103,14 +104,14 @@ img {
             }
         }
     }
-    @media (max-width: 767px) {
+    @include mq($until: tablet){
         background-color: $synergia-color;
     }
 }
 .navbar-inverse .navbar-nav > .active > a,
 .navbar-inverse .navbar-nav > .active > a:hover,
 .navbar-inverse .navbar-nav > .active > a:focus {
-    @media (max-width: 767px) {
+    @include mq($until: tablet){
         color:#ffffff;
     }
     color: $synergia-color;
@@ -139,7 +140,7 @@ img {
             margin-top: 4px;
         }
     }
-    @media (min-width: 768px) {
+    @include mq($from: tablet){
         display: none;
     }
 }
@@ -155,7 +156,7 @@ img {
 }
 
 .logo {
-    @media (min-width: 768px) {
+    @include mq($from: tablet){
         width: 300px;
         height: 50px;
         position: relative;
@@ -163,7 +164,7 @@ img {
         @include clearfix;
         @include background-image('logo');
     }
-    @media (max-width: 767px) {
+    @include mq($until: tablet){
         width: 54px;
         margin-top: 2px;
         height: 54px;
@@ -186,29 +187,29 @@ img {
     margin-bottom: 20px;
     border: 1px solid transparent;
     @include clearfix;
-    @media (min-width: 768px) {
+    @include mq($from: tablet){
         border-radius: 4px;
     }
-    @media (max-width: 767px) {
+    @include mq($until: tablet){
         margin-bottom: 0;
     }
 }
 .navbar-collapse {
     overflow-x: visible;
     -webkit-overflow-scrolling: touch;
-    @media (min-width: 768px) {
+    @include mq($from: tablet){
         width: auto;
         border-top: 0;
         box-shadow: none;
     }
     .collapse {
-        @media (min-width: 768px) {
+        @include mq($from: tablet){
             display: block !important;
             height: auto !important;
             padding-bottom: 0;
             overflow: visible !important;
         }
-        @media (max-width: 767px) {
+        @include mq($until: tablet){
             overflow-x: hidden;
             background-color: $synergia-color;
             position: relative;
@@ -216,14 +217,14 @@ img {
         }
         .in {
             overflow-y: auto;
-            @media (min-width: 768px) {
+            @include mq($from: tablet){
                 overflow-y: visible;
             }
         }
     }
 }
 .collapse {
-    @media (min-width: 768px) {
+    @include mq($from: tablet){
         display: block;
     }
     display: none;
@@ -243,7 +244,7 @@ img {
 .navbar-fixed-top .navbar-collapse,
 .navbar-static-top .navbar-collapse,
 .navbar-fixed-bottom .navbar-collapse {
-    @media (min-width: 768px) {
+    @include mq($from: tablet){
         padding-left: 0;
         padding-right: 0;
     }
@@ -260,13 +261,13 @@ nav {
     margin-right: -15px;
     margin-left: -15px;
     @include clearfix;
-    @media (min-width: 768px){
+    @include mq($from: tablet){
         margin-right: 0;
         margin-left: 0;
     }
 }
 .navbar-header {
-    @media (min-width: 768px) {
+    @include mq($from: tablet){
         float: left;
     }
 }
@@ -293,7 +294,7 @@ nav {
             display: block;
         }
     }
-    @media (min-width: 768px) {
+    @include mq($from: tablet){
         float: right;
         margin: 1px;
         > li {
