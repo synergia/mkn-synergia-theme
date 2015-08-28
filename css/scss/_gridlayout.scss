@@ -1,3 +1,6 @@
+@import 'mq';
+$mq-media-type: screen;
+
 /* GridLayout
  *
  * Ionuț Colceriu - ghinda.net
@@ -34,7 +37,7 @@
  */
 /* min-width 640px
    */
-@media only screen and (min-width: 40em) {
+@include mq($from:tablet) {
   .gl {
     display: table;
     border-collapse: collapse;
@@ -231,11 +234,8 @@
     height: 100%;
   }
 }
-/* large grid sizes
- */
-/* min-width 640px
-   */
-@media only screen and (min-width: 64em) {
+// large grid sizes
+@include mq($from:desktop) {
   .gl-cell.gl-lg-1 {
     width: 8.333333333333334%;
   }
@@ -309,8 +309,8 @@
     height: 100%;
   }
 }
-/* show the grid on small screens when using the .gl-sm class
- */
+// show the grid on small screens when using the .gl-sm class
+
 .gl-sm {
   display: table;
   border-collapse: collapse;
@@ -333,7 +333,7 @@
 /* Use left, right, 0 instead of width: 100%
    * because IE9 sets a 17px (scrollbar width) padding on the right side
    * of scrollview-content otherwise.
-   */
+
   top: 0;
   left: 0;
   right: 0;

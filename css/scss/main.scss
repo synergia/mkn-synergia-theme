@@ -356,7 +356,7 @@ nav {
     margin-top: 20px;
     width: 80%;
     img {
-        opacity: 0.7;
+        opacity: $image-opacity;
         width: 100%;
         height: auto;
         &:hover {
@@ -369,4 +369,53 @@ nav {
 .wspolpraca {
     @extend .sponsorowane;
 }
+
+.dmbs-footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    line-height: 1.2;
+    padding: 10px 0px 5px;
+    margin-top: 15px;
+    border-bottom: 5px solid $synergia-color;
+    @include clearfix;
+    a {
+        color: $text-color;
+    }
+}
+//WTF is this
+.footer-right {
+    padding: 2% 0;
+    text-align: center;
+}
+.center {
+    padding: 3% 0;
+}
+.pwr {
+    text-align: center;
+    img {
+        opacity: $image-opacity;
+        &:hover {
+            opacity: 1;
+            filter: alpha(opacity=100); // For IE8 and earlier
+        }
+    }
+}
+
+.mknm-footer {
+    @include mq($until: tablet) {
+        text-align: center;
+    }
+    ul {
+        padding: 0px;
+        margin: 10px 0px 0px;
+        font-size: 0.875em;
+        li {
+            list-style: outside none none;
+        }
+        @include mq($until:tablet) {
+            text-align: center;
+            padding-bottom: 15px;
+        }
+    }
+}
+@import 'icons';
 @import 'html5plate';
