@@ -9,12 +9,12 @@ Template Name: Portfolio
 <?php get_template_part('template-part', 'topnav'); ?>
 
 <!-- start content container -->
-<div class="row dmbs-content">
+<div class="gl dmbs-content">
 
     <?php //left sidebar ?>
     <?php get_sidebar( 'left' ); ?>
 
-    <div class="col-sm-<?php synergia_main_content_width(); ?> dmbs-main">
+    <div class="gl-sm-<?php synergia_main_content_width(); ?> gl-cell dmbs-main">
 
     <?php    $paged = ( get_query_var( 'page' ) ) ? get_query_var( 'page' ) : 1;
 $args = array(
@@ -35,7 +35,7 @@ $wp_query = $query;
 
 if ($query->have_posts()) :
     while ($query->have_posts()) : $query->the_post(); ?>
-            <div class="col-sm-6 kafelek">
+            <div class="gl-sm-6 gl-cell kafelek">
                 <div class="portfolio">
                     <a href="<?php the_permalink(); ?>">
                         <?php if (has_post_thumbnail()) {
@@ -55,8 +55,8 @@ if ($query->have_posts()) :
             </div>
    <?php endwhile; ?>
     <div class="nav-links">
-        <p class="col-xs-6"><?php previous_posts_link('&laquo; Siędy');?></p>
-        <p class="right col-xs-6"><?php next_posts_link( 'Tędy &raquo;', $query->max_num_pages ); ?></p>
+        <p class="gl-sm-6 gl-cell"><?php previous_posts_link('&laquo; Siędy');?></p>
+        <p class="right gl-cell gl-sm-6"><?php next_posts_link( 'Tędy &raquo;', $query->max_num_pages ); ?></p>
     </div>
     <?php wp_reset_postdata();
 

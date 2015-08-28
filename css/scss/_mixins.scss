@@ -1,26 +1,44 @@
 @mixin clearfix {
- // For modern browsers
-  &:before,
-  &:after {
-    content:"";
-    display:table;
-  }  &:after {
-    clear:both;
-  }  // For IE 6/7 (trigger hasLayout)
-  & {
-    zoom:1;
-  }
+    // For modern browsers
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    } // For IE 6/7 (trigger hasLayout)
+    & {
+        zoom: 1;
+    }
 }
-@mixin background-image($name, $size:false){
+
+@mixin background-image($name, $size:false) {
     background-image: url(#{$image-path}/#{$name}.svg);
-    @if($size){
+    @if($size) {
         background-size: $size;
     }
-    .no-svg &{
+    .no-svg & {
         background-image: url(#{$image-path}/#{$name}.#{$fallback-extension});
-
         @media only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
-          background-image: url(#{$image-path}/#{$name}#{$retina-suffix}.#{$fallback-extension});
+            background-image: url(#{$image-path}/#{$name}#{$retina-suffix}.#{$fallback-extension});
         }
     }
+}
+
+// Vertical align anything
+// http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/
+@mixin vertical-align($position: relative) {
+    position: $position;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+// Should be in parent element to prevent blurry half pixel
+@mixin preserve-3d {
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
 }

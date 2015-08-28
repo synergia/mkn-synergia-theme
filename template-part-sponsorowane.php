@@ -1,4 +1,4 @@
-    <div class="wspolpraca-left col-sm-12">
+    <div class="wspolpraca-left gl-cell gl-sm-12">
         <h3>Współpraca</h3>
 
 
@@ -25,7 +25,7 @@
     }
   ?>
     </div>
-<div class="sponsorowane-left col-sm-12">
+<div class="sponsorowane-left gl-cell gl-sm-12">
         <h3>Sponsorzy</h3>
 
 <?php

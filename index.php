@@ -5,12 +5,12 @@
 <?php get_template_part('template-part', 'topnav'); ?>
 
 <!-- start content container -->
-<div class="row dmbs-content">
+<div class="gl dmbs-content">
 
     <?php //left sidebar ?>
     <?php get_sidebar( 'left' ); ?>
 
-    <div class="col-sm-<?php synergia_main_content_width(); ?> dmbs-main">
+    <div class="gl-sm-<?php synergia_main_content_width(); ?> gl-cell dmbs-main">
 
             <?php // theloop
                 if ( have_posts() ) : while ( have_posts() ) : the_post();
@@ -46,18 +46,18 @@
                     // list of posts
                     else : ?>
                         <div <?php post_class(); ?>>
-                            <div class="post-header-on-blog">
+                            <div class="post-header-on-blog gl">
                                 <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Poczytaj o %s', 'synergia' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark">
                                           <?php if (has_post_thumbnail()) {
                     $thumb_id  = get_post_thumbnail_id();
                     $thumb_url = wp_get_attachment_image_src($thumb_id, 'medium', true); ?>
-            <div id="ln" class="thumb-on-blog col-sm-5 col-xs-5" style="background-image: url(<?php echo $thumb_url[0]; ?>);">
+            <div id="ln" class="thumb-on-blog gl-sm-5 gl-cell" style="background-image: url(<?php echo $thumb_url[0]; ?>);">
             <?php } else { //jeśli obrazku nie ma, to wykorzystujemy defaultowy?>
-            <div id="ln" class="thumb-on-blog col-sm-5 col-xs-5" style="background-image: url(<?php bloginfo('template_directory'); ?>/img/default.png);">
+            <div id="ln" class="thumb-on-blog gl-sm-5 gl-cell" style="background-image: url(<?php bloginfo('template_directory'); ?>/img/default.png);">
             <?php } ?>
                                 </div>
                                 </a>
-                                    <div class="col-sm-7 col-xs-7 teaser">
+                                    <div class="gl-sm-7 gl-cell teaser">
                                         <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Poczytaj o %s', 'synergia' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark">
                                             <h2 class="page-header-on-blog "><?php the_title(); ?></h2>
                                         </a>
@@ -78,9 +78,9 @@ jQuery(".teaser > p").text(function(index, currentText) {
                      <?php  endif; ?>
 
                 <?php endwhile; ?>
-                <div class="nav-links">
-        <p class="col-xs-6"><?php previous_posts_link('&laquo; Siędy');?></p>
-        <p class="right col-xs-6"><?php next_posts_link( 'Tędy &raquo;', $query->max_num_pages ); ?></p>
+                <div class="nav-links gl">
+        <p class="gl-sm-6 gl-cell"><?php previous_posts_link('&laquo; Siędy');?></p>
+        <p class="right gl-sm-6 gl-cell"><?php next_posts_link( 'Tędy &raquo;', $query->max_num_pages ); ?></p>
     </div>
                 <?php else: ?>
 

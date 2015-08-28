@@ -3,12 +3,12 @@
 <?php get_template_part('template-part', 'topnav'); ?>
 
 <!-- start content container -->
-<div class="row dmbs-content">
+<div class="gl dmbs-content">
 
     <?php //left sidebar ?>
     <?php get_sidebar( 'left' ); ?>
 
-    <div class="col-sm-<?php synergia_main_content_width(); ?> dmbs-main">
+    <div class="gl-sm-<?php synergia_main_content_width(); ?> gl-cell dmbs-main">
 
         <?php // theloop
         if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>

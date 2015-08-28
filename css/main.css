@@ -1262,6 +1262,29 @@ nav .container {
       outline: 0px none;
       text-decoration: none; }
 
+.sponsorowane-left, .wspolpraca-left, .widget {
+  position: relative;
+  height: 100%;
+  padding: 0; }
+  .sponsorowane-left h3, .wspolpraca-left h3, .widget h3 {
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-top: 10px; }
+  @media (max-width: 47.99em) {
+    .sponsorowane-left, .wspolpraca-left, .widget {
+      display: none; } }
+
+.widget h3 {
+  margin-top: 0; }
+
+.sponsorowane, .wspolpraca {
+  margin-top: 20px;
+  width: 80%; }
+  .sponsorowane img, .wspolpraca img {
+    opacity: 0.7;
+    width: 100%;
+    height: auto; }
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */

@@ -17,7 +17,7 @@ input::-moz-focus-inner {
 .dmbs-header {} .dmbs-header-img {} .dmbs-header-text {} nav .container {
     padding: 0;
 }
-.dmbs-main {} .dmbs-left {} .dmbs-right {} .dmbs-footer-menu {} .dmbs-author-credits {}
+.dmbs-main {} . {} .dmbs-right {} .dmbs-footer-menu {} .dmbs-author-credits {}
 .navbar img {
     float: left;
 }
