@@ -1284,6 +1284,9 @@ nav .container {
     opacity: 0.7;
     width: 100%;
     height: auto; }
+    .sponsorowane img:hover, .wspolpraca img:hover {
+      opacity: 1;
+      filter: alpha(opacity=100); }
 
 /* ==========================================================================
    Helper classes
