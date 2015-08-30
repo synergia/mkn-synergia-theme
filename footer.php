@@ -13,12 +13,11 @@
                     </div>
                     <div class="gl-sm-2 gl-cell">
                         <a href="http://pwr.wroc.pl" target="_blank">
-                            <div class="gl-sm-2 gl-cell pwr"><img src="<?php echo get_template_directory_uri(); ?>/img/pwr.png"/>
-                            </div>
+                                <div class="pwr"></div>
                         </a>
                     </div>
-                    <div class="gl-sm-5 gl-cell footer-right">
-                        <div class="center">
+                    <div class="gl-sm-5 gl-cell footer-icons">
+                        <div>
                             <a href="<?php echo $dm_settings['archiwum'] ?>" title="Archiwum"><i class="icon-archive"></i></a>
                             <a href="http://facebook.com/mknmsynergia" title="Polub"><i class="icon-facebook"></i></a>
                             <a href="http://github.com/synergia" title="Kod"><i class="icon-github"></i></a>

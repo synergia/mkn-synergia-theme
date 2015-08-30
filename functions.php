@@ -268,3 +268,14 @@ add_theme_support('post-thumbnails');
 
 // Hook into the 'init' action
 add_action( 'init', 'sponsorowane', 0 );
+
+// Obrazki dla portfolio
+add_image_size( 'medium', 355, 300, true );
+
+//
+add_filter('next_posts_link_attributes', 'posts_link_attributes');
+add_filter('previous_posts_link_attributes', 'posts_link_attributes');
+
+function posts_link_attributes() {
+    return 'am-button';
+}

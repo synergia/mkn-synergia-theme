@@ -381,23 +381,34 @@ nav {
         color: $text-color;
     }
 }
-//WTF is this
-.footer-right {
-    padding: 2% 0;
-    text-align: center;
+.footer-icons {
+    @include preserve-3d;
+    div {
+        position: relative;
+        text-align: center;
+        padding: 0.625em;
+        @include mq($from:tablet) {
+            right: 0;
+            @include vertical-align(absolute);
+    }
+        a {
+            i {
+                font-size: 1.6em;
+            }
+        }
+    }
 }
-.center {
-    padding: 3% 0;
-}
+
 .pwr {
-    text-align: center;
-    img {
-        opacity: $image-opacity;
-        &:hover {
+    @include background-image('pwr');
+    width: 64px;
+    height: 93px;
+    margin: 0 auto;
+    opacity: 0.9;
+            &:hover {
             opacity: 1;
             filter: alpha(opacity=100); // For IE8 and earlier
         }
-    }
 }
 
 .mknm-footer {
@@ -417,5 +428,16 @@ nav {
         }
     }
 }
+.left {
+    float: left;
+}
+.text-right {
+    text-align: right;
+}
+.portfolio-content {
+    overflow: hidden;
+    display: block;
+}
+@import 'ui';
 @import 'icons';
 @import 'html5plate';
