@@ -18,8 +18,7 @@ Template Name: Portfolio
 
         <?php    $paged = ( get_query_var( 'page' ) ) ? get_query_var( 'page' ) : 1;
             $args = array(
-                'post_type'              => 'post',
-                'category_name'          => 'portfolio',
+                'post_type'              => array('projekt'),
                 'post_per_page' => 10,
                 'paged'         => $paged
                     );

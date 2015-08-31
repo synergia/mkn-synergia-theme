@@ -262,8 +262,60 @@ function sponsorowane() {
 		'capability_type'     => 'page',
 	);
 	register_post_type( 'sponsorowane', $args );
-
 }
+
+// Register Custom Post Type
+function projects() {
+
+	$labels = array(
+		'name'                => _x( 'Projekty', 'Post Type General Name', 'text_domain' ),
+		'singular_name'       => _x( 'Projekt', 'Post Type Singular Name', 'text_domain' ),
+		'menu_name'           => __( 'Projekty', 'text_domain' ),
+		'name_admin_bar'      => __( 'Projekt', 'text_domain' ),
+		'parent_item_colon'   => __( 'Parent Item:', 'text_domain' ),
+		'all_items'           => __( 'Wszystkie projekty', 'text_domain' ),
+		'add_new_item'        => __( 'Dodaj nowy projekt', 'text_domain' ),
+		'add_new'             => __( 'Dodaj nowy', 'text_domain' ),
+		'new_item'            => __( 'Nowy projekt', 'text_domain' ),
+		'edit_item'           => __( 'Edytuj projekt', 'text_domain' ),
+		'update_item'         => __( 'Zaktualizuj projekt', 'text_domain' ),
+		'view_item'           => __( 'Zobacz projekt', 'text_domain' ),
+		'search_items'        => __( 'Szukaj projektów', 'text_domain' ),
+		'not_found'           => __( 'Nie ma takiego', 'text_domain' ),
+		'not_found_in_trash'  => __( 'Nawet w koszu nie ma', 'text_domain' ),
+	);
+	$rewrite = array(
+		'slug'                => 'projekt',
+		'with_front'          => false,
+		'pages'               => true,
+		'feeds'               => true,
+	);
+	$args = array(
+		'label'               => __( 'Projekt', 'text_domain' ),
+		'description'         => __( 'Projekty Synergii', 'text_domain' ),
+		'labels'              => $labels,
+		'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', 'page-attributes', ),
+		'hierarchical'        => false,
+		'public'              => true,
+		'show_ui'             => true,
+		'show_in_menu'        => true,
+		'menu_position'       => 5,
+		'menu_icon'           => 'dashicons-carrot',
+		'show_in_admin_bar'   => true,
+		'show_in_nav_menus'   => true,
+		'can_export'          => true,
+		'has_archive'         => true,
+		'exclude_from_search' => false,
+		'publicly_queryable'  => true,
+		'query_var'           => 'projekt',
+		'rewrite'             => $rewrite,
+		'capability_type'     => 'page',
+	);
+	register_post_type( 'projekt', $args );
+    flush_rewrite_rules();
+}
+add_action( 'init', 'projects', 0 );
+
 add_theme_support('post-thumbnails');
 
 // Hook into the 'init' action
