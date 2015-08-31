@@ -962,7 +962,7 @@ a:focus {
   text-decoration: underline; }
 
 a:focus {
-  outline: thin dotted;
+  outline: none;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px; }
 
@@ -1373,12 +1373,23 @@ nav .container {
   text-transform: uppercase;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   -webkit-tap-highlight-color: transparent;
-  color: #333333;
-  background: #cfcfcf; }
+  color: #333333; }
+  [am-button]:hover {
+    background: #cfcfcf; }
   [am-button][am-button~="raised"] {
     box-shadow: 0 0 0.2em rgba(0, 0, 0, 0.2), 0 0.2em 0.2em rgba(0, 0, 0, 0.2); }
     [am-button][am-button~="raised"]:active {
       box-shadow: 0 0 0.6em rgba(0, 0, 0, 0.2), 0 0.6em 0.6em rgba(0, 0, 0, 0.2); }
+
+svg.ink {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; }
+  svg.ink circle {
+    fill: rgba(0, 0, 0, 0.2); }
 
 [am-button~="disabled"],
 [am-button~="disabled"]:hover,
@@ -1417,14 +1428,16 @@ a[am-button] {
   .card p {
     margin: 0; }
   .card .action {
-    border-top: 1px solid rgba(160, 160, 160, 0.2);
-    padding: 20px; }
-  .card a {
-    margin-right: 1.250em;
-    -webkit-transition: color 0.3s ease;
-    transition: color 0.3s ease;
-    text-transform: uppercase;
-    text-decoration: none; }
+    border-top: 1px solid rgba(160, 160, 160, 0.2); }
+    .card .action a[am-button] {
+      margin-right: 1.250em;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: inherit;
+      color: #565656; }
+      .card .action a[am-button]:hover {
+        color: #333333; }
   .card .image {
     position: relative;
     background-color: transparent;

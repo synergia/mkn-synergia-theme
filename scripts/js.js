@@ -97,7 +97,7 @@ var emailDef = $("#emailTo").val();
 		} else {
 			$("#form_status").html('Please fill in all required fields').show("slow");
 		}
-		
 		return false;
+
 	});
 });

@@ -41,7 +41,7 @@ add_editor_style('css/editor-style.css');
     function synergia_theme_js()
     {
         global $version;
-        wp_enqueue_script('theme-js', get_template_directory_uri() . '/js/bootstrap.js',array( 'jquery' ),$version,true );
+        wp_enqueue_script('js', get_template_directory_uri() . '/js/js.min.js',array( 'jquery' ),$version,true );
     }
     add_action('wp_enqueue_scripts', 'synergia_theme_js');
 

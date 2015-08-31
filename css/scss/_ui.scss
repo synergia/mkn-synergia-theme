@@ -1,63 +1,67 @@
 //BUTTON
 // http://codepen.io/jreece/pen/myeJBN
-
 [am-button] {
-	display: block;
-	position: relative;
-	width: 100%;
-	margin: 0 0 2rem;
-	padding: 0.8rem;
-	border: 0; outline: 0;
-	border-radius: 0.125em;
-	font-weight: 500;
-	letter-spacing: 0.05em;
-	text-transform: uppercase;
-	transition: all 0.2s $bezier;
-	-webkit-tap-highlight-color: rgba(0,0,0,0);
+    display: block;
+    position: relative;
+    width: 100%;
+    margin: 0 0 2rem;
+    padding: 0.8rem;
+    border: 0;
+    outline: 0;
+    border-radius: 0.125em;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: all 0.2s $bezier;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     color: $text-color;
-	// Light theme (default)
-	background: #cfcfcf;
-
-	// Raised
-	&[am-button~="raised"] {
-		box-shadow:
-			0 0 0.2em $shadowlight,
-			0 0.2em 0.2em $shadowlight;
-		&:active {
-			box-shadow:
-				0 0 0.6em $shadowlight,
-				0 0.6em 0.6em $shadowlight;
-		}
-	} // raised
+    // Light theme (default)
+    &:hover {
+        background: #cfcfcf;
+    }
+    // Raised
+    &[am-button~="raised"] {
+        box-shadow: 0 0 0.2em $shadowlight, 0 0.2em 0.2em $shadowlight;
+        &:active {
+            box-shadow: 0 0 0.6em $shadowlight, 0 0.6em 0.6em $shadowlight;
+        }
+    } // raised
 } // button
-
-
+svg.ink {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    circle {
+        fill: rgba(0, 0, 0, 0.2);
+    }
+}
 
 // Disabled
 // ------------------------------------------
-
 [am-button~="disabled"],
 [am-button~="disabled"]:hover,
 [am-button~="disabled"]:focus {
-
-	// Light theme (default)
-	box-shadow: none;
-	cursor: default;
-	background: rgba(black, 0.12);
-	color: rgba(black, 0.26);
+    // Light theme (default)
+    box-shadow: none;
+    cursor: default;
+    background: rgba(black, 0.12);
+    color: rgba(black, 0.26);
 } // disabled
-
 a[am-button] {
     margin: 0.625em;
     width: auto;
     display: inline-block;
-    &:hover, &:active {
+    &:hover,
+    &:active {
         text-decoration: none;
-        color:$text-color;
+        color: $text-color;
     }
 }
-//CARD
 
+//CARD
 .card {
     display: inline-block;
     vertical-align: top;
@@ -67,14 +71,14 @@ a[am-button] {
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
     border-radius: 2px;
     .title {
-        font-weight:400;
+        font-weight: 400;
     }
     .content {
         padding: 1.250em;
         font-weight: 300;
         border-radius: 0 0 0.125em 0.125em;
         height: 5.000em;
-        @include mq($until:desktop){
+        @include mq($until: desktop) {
             height: 6em;
         }
     }
@@ -83,20 +87,23 @@ a[am-button] {
     }
     .action {
         border-top: 1px solid rgba(160, 160, 160, 0.2);
-        padding: 20px;
-    }
-    a {
-        margin-right: 1.250em;
-        -webkit-transition: color 0.3s ease;
-        transition: color 0.3s ease;
-        text-transform: uppercase;
-        text-decoration: none;
+        a[am-button] {
+            margin-right: 1.250em;
+            text-transform: uppercase;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: inherit;
+            color: $cardbutton-color;
+            &:hover {
+                color: $text-color;
+            }
+        }
     }
     .image {
         position: relative;
-        @include background-gradient(transparent, rgba(0,0,0,0.5));
+        @include background-gradient(transparent, rgba(0, 0, 0, 0.5));
         height: 13.750em;
-        @include mq($from:wide) {
+        @include mq($from: wide) {
             height: 18.750em;
         }
         overflow: hidden;
