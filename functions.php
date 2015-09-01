@@ -335,8 +335,8 @@ function linki_meta_init() {
     'Linki',
     'linki_meta',
     'projekt',
-    'advanced',
-    'high'
+    'side',
+    'default'
   );
 }
 // The function below links the panel

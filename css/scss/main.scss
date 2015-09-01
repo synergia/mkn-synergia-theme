@@ -396,3 +396,12 @@ nav {
 @import 'burger';
 @import 'icons';
 @import 'html5plate';
+
+/* Author Box */
+#author-info {
+background: #fff; padding: 10px; margin: 10px 0 0 0; font-size:13px;
+overflow: auto; border:1px solid #ccc;}
+#author-font{font-size:18px; font-weight: bold;}
+#authorbox-title{font-size:18px; font-weight: bold; padding-bottom:3px;}
+#author-image {float: left; margin: 0 10px 5px 0;}
+.authorboxfix{clear: both;height: 1px;margin: -1px 0 0;overflow: hidden; padding-top:5px;}

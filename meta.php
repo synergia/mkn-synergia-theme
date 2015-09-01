@@ -7,4 +7,5 @@
 
     <label>Strona internetowa</label>
     <input type="text" name="web" value="<?php if(!empty($web)) echo $web; ?>" />
+
 </div>
