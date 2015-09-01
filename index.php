@@ -17,7 +17,8 @@
 
                     // single post
                     if ( is_single() ) : ?>
-
+                                                          --------  <?php echo get_post_meta(get_the_ID(), "web", true); ?>--------
+                        <?php echo get_the_id(); ?>
                         <div <?php post_class(); ?>>
                             <div class="post-header">
 
