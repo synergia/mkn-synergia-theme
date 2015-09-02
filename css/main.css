@@ -1319,6 +1319,24 @@ nav .container {
   overflow: hidden;
   display: block; }
 
+.userpic {
+  text-align: center; }
+  .userpic img {
+    width: 150px;
+    height: 150px;
+    background: #ffffff;
+    -webkit-border-radius: 75px;
+    -moz-border-radius: 75px;
+    border-radius: 75px; }
+
+.userinfo h2 {
+  font-size: 3em;
+  font-weight: 300;
+  margin: 0; }
+.userinfo span {
+  width: 100%;
+  display: inline-block; }
+
 [am-button] {
   display: block;
   position: relative;
@@ -1434,6 +1452,14 @@ a[am-button] {
       padding: 1.250em 1.250em 0.625em;
       color: #ffffff;
       margin: 0; }
+
+.userpic img {
+  width: 150px;
+  height: 150px;
+  background: #ffffff;
+  -webkit-border-radius: 75px;
+  -moz-border-radius: 75px;
+  border-radius: 75px; }
 
 .lines-button {
   display: inline-block;

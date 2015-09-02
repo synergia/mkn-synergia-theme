@@ -16,8 +16,9 @@
             </div>
             <div class="gl-md-9 gl-cell userinfo">
                 <h2><?php echo $curauth->first_name ." ". $curauth->last_name; ?></h2>
-                <?php if ( in_array( 'synergia_member', (array) $curauth->roles ) ) { ?>
+                <?php if ( (in_array( 'synergia_member', (array) $curauth->roles )) || (in_array( 'administrator', (array) $curauth->roles )) ) { ?>
                 <span>Członek MKNM "Synergia"</span>
+                <span><?php echo $curauth->description; ?></span>
                 <?php } ?>
             </div>
         </div>
