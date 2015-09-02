@@ -133,4 +133,9 @@ a[am-button] {
     }
 }
 
-// BURGER
+//USER
+.userpic {
+    img {
+        @include circle(150px, #ffffff);
+    }
+}

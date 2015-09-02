@@ -1,0 +1,14 @@
+//USER
+.userpic {
+    text-align: center;
+    img {
+        @include circle(150px, #ffffff);
+    }
+}
+.userinfo {
+    h2 {
+        font-size: 3em;
+        font-weight: 300;
+        margin: 0;
+    }
+}

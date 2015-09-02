@@ -267,21 +267,21 @@ function sponsorowane() {
 function projects() {
 
 	$labels = array(
-		'name'                => _x( 'Projekty', 'Post Type General Name', 'text_domain' ),
-		'singular_name'       => _x( 'Projekt', 'Post Type Singular Name', 'text_domain' ),
-		'menu_name'           => __( 'Projekty', 'text_domain' ),
-		'name_admin_bar'      => __( 'Projekt', 'text_domain' ),
-		'parent_item_colon'   => __( 'Parent Item:', 'text_domain' ),
-		'all_items'           => __( 'Wszystkie projekty', 'text_domain' ),
-		'add_new_item'        => __( 'Dodaj nowy projekt', 'text_domain' ),
-		'add_new'             => __( 'Dodaj nowy', 'text_domain' ),
-		'new_item'            => __( 'Nowy projekt', 'text_domain' ),
-		'edit_item'           => __( 'Edytuj projekt', 'text_domain' ),
-		'update_item'         => __( 'Zaktualizuj projekt', 'text_domain' ),
-		'view_item'           => __( 'Zobacz projekt', 'text_domain' ),
-		'search_items'        => __( 'Szukaj projektów', 'text_domain' ),
-		'not_found'           => __( 'Nie ma takiego', 'text_domain' ),
-		'not_found_in_trash'  => __( 'Nawet w koszu nie ma', 'text_domain' ),
+		'name'                => _x( 'Projekty', 'Post Type General Name', 'projects' ),
+		'singular_name'       => _x( 'Projekt', 'Post Type Singular Name', 'projects' ),
+		'menu_name'           => __( 'Projekty', 'projects' ),
+		'name_admin_bar'      => __( 'Projekt', 'projects' ),
+		'parent_item_colon'   => __( 'Parent Item:', 'projects' ),
+		'all_items'           => __( 'Wszystkie projekty', 'projects' ),
+		'add_new_item'        => __( 'Dodaj nowy projekt', 'projects' ),
+		'add_new'             => __( 'Dodaj nowy', 'projects' ),
+		'new_item'            => __( 'Nowy projekt', 'projects' ),
+		'edit_item'           => __( 'Edytuj projekt', 'projects' ),
+		'update_item'         => __( 'Zaktualizuj projekt', 'projects' ),
+		'view_item'           => __( 'Zobacz projekt', 'projects' ),
+		'search_items'        => __( 'Szukaj projektów', 'projects' ),
+		'not_found'           => __( 'Nie ma takiego', 'projects' ),
+		'not_found_in_trash'  => __( 'Nawet w koszu nie ma', 'projects' ),
 	);
 	$rewrite = array(
 		'slug'                => 'projekt',
@@ -290,10 +290,10 @@ function projects() {
 		'feeds'               => true,
 	);
 	$args = array(
-		'label'               => __( 'Projekt', 'text_domain' ),
-		'description'         => __( 'Projekty Synergii', 'text_domain' ),
+		'label'               => __( 'Projekt', 'projects' ),
+		'description'         => __( 'Projekty Synergii', 'projects' ),
 		'labels'              => $labels,
-		'supports'            => array( 'title', 'editor', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', 'page-attributes', ),
+		'supports'            => array( 'title', 'editor', 'author', 'thumbnail', 'revisions' ),
 		'hierarchical'        => false,
 		'public'              => true,
 		'show_ui'             => true,
@@ -308,7 +308,8 @@ function projects() {
 		'publicly_queryable'  => true,
 		'query_var'           => 'projekt',
 		'rewrite'             => $rewrite,
-		'capability_type'     => 'page',
+        'capability'     => __('project'),
+        'map_meta_cap'        => true,
 	);
 	register_post_type( 'projekt', $args );
     flush_rewrite_rules();
@@ -421,3 +422,164 @@ add_filter('previous_posts_link_attributes', 'posts_link_attributes');
 function posts_link_attributes() {
     return 'am-button';
 }
+//USER
+
+//removing color scheme
+remove_action( 'admin_color_scheme_picker', 'admin_color_scheme_picker' );
+
+//custom fields
+add_action( 'show_user_profile', 'add_extra_social_links' );
+add_action( 'edit_user_profile', 'add_extra_social_links' );
+
+function add_extra_social_links( $user )
+{
+    ?>
+        <h3>Strony społecznościowe</h3>
+
+        <table class="form-table">
+            <tr>
+                <th><label for="facebook_profile">Facebook Profile</label></th>
+                <td><input type="text" name="facebook_profile" value="<?php echo esc_attr(get_the_author_meta( 'facebook_profile', $user->ID )); ?>" class="regular-text" /></td>
+            </tr>
+
+            <tr>
+                <th><label for="twitter_profile">Twitter Profile</label></th>
+                <td><input type="text" name="twitter_profile" value="<?php echo esc_attr(get_the_author_meta( 'twitter_profile', $user->ID )); ?>" class="regular-text" /></td>
+            </tr>
+
+            <tr>
+                <th><label for="google_profile">Google+ Profile</label></th>
+                <td><input type="text" name="google_profile" value="<?php echo esc_attr(get_the_author_meta( 'google_profile', $user->ID )); ?>" class="regular-text" /></td>
+            </tr>
+        </table>
+    <?php
+}
+add_action( 'personal_options_update', 'save_extra_social_links' );
+add_action( 'edit_user_profile_update', 'save_extra_social_links' );
+
+function save_extra_social_links( $user_id )
+{
+    update_user_meta( $user_id,'facebook_profile', sanitize_text_field( $_POST['facebook_profile'] ) );
+    update_user_meta( $user_id,'twitter_profile', sanitize_text_field( $_POST['twitter_profile'] ) );
+    update_user_meta( $user_id,'google_profile', sanitize_text_field( $_POST['google_profile'] ) );
+}
+
+/* Adding Image Upload Fields */
+// http://www.flyinghippo.com/blog/adding-custom-fields-uploading-images-wordpress-users/
+add_action( 'show_user_profile', 'my_show_extra_profile_fields' );
+add_action( 'edit_user_profile', 'my_show_extra_profile_fields' );
+
+function my_show_extra_profile_fields( $user )
+{
+?>
+
+	<h3>Profile Images</h3>
+
+	<table class="form-table fh-profile-upload-options">
+		<tr>
+			<th>
+				<label for="image">Main Profile Image</label>
+			</th>
+
+			<td>
+                <?php if(get_the_author_meta( 'image', $user->ID )) { ?>
+				<img class="user-preview-image" src="<?php echo esc_attr( get_the_author_meta( 'image', $user->ID ) ); ?>">
+                <?php } ?>
+				<input type="text" name="image" id="image" value="<?php echo esc_attr( get_the_author_meta( 'image', $user->ID ) ); ?>" class="regular-text" />
+				<input type='button' class="button-primary" value="Upload Image" id="uploadimage"/><br />
+
+				<span class="description">Please upload an image for your profile.</span>
+			</td>
+		</tr>
+
+		<tr>
+			<th>
+				<label for="image">Sidebar Profile Image</label>
+			</th>
+
+			<td>
+                <?php if(get_the_author_meta( 'sidebarimage', $user->ID )) { ?>
+				<img class="user-preview-image" src="<?php echo esc_attr( get_the_author_meta( 'sidebarimage', $user->ID ) ); ?>">
+                <?php } ?>
+				<input type="text" name="sidebarimage" id="sidebarimage" value="<?php echo esc_attr( get_the_author_meta( 'sidebarimage', $user->ID ) ); ?>" class="regular-text" />
+				<input type='button' class="button-primary" value="Upload Image" id="sidebarUploadimage"/><br />
+
+				<span class="description">Please upload an image for the sidebar.</span>
+			</td>
+		</tr>
+	</table>
+
+	<script type="text/javascript">
+		(function( $ ) {
+			$( '#uploadimage' ).on( 'click', function() {
+				tb_show('test', 'media-upload.php?type=image&TB_iframe=1');
+
+				window.send_to_editor = function( html )
+				{
+					imgurl = $( 'img',html ).attr( 'src' );
+					$( '#image' ).val(imgurl);
+					tb_remove();
+				}
+
+				return false;
+			});
+
+			$( 'input#sidebarUploadimage' ).on('click', function() {
+				tb_show('', 'media-upload.php?type=image&TB_iframe=true');
+
+				window.send_to_editor = function( html )
+				{
+					imgurl = $( 'img', html ).attr( 'src' );
+					$( '#sidebarimage' ).val(imgurl);
+					tb_remove();
+				}
+
+				return false;
+			});
+		})(jQuery);
+	</script>
+
+<?php
+}
+
+add_action( 'admin_enqueue_scripts', 'enqueue_admin' );
+
+function enqueue_admin()
+{
+	wp_enqueue_script( 'thickbox' );
+	wp_enqueue_style('thickbox');
+
+	wp_enqueue_script('media-upload');
+}
+
+add_action( 'personal_options_update', 'my_save_extra_profile_fields' );
+add_action( 'edit_user_profile_update', 'my_save_extra_profile_fields' );
+
+function my_save_extra_profile_fields( $user_id ) {
+
+	if ( !current_user_can( 'edit_user', $user_id ) )
+{
+		return false;
+	}
+
+update_user_meta( $user_id, 'image', $_POST[ 'image' ] );
+	update_user_meta( $user_id, 'sidebarimage', $_POST[ 'sidebarimage' ] );
+}
+
+// http://wordpress.stackexchange.com/questions/28005/after-adding-add-role-to-functions-php-and-creating-a-user-can-not-login-into-a
+add_role( synergia_member, __('Członek Synergii'), array( 'delete_posts',
+                          'delete_private_posts'=> true,
+                          'edit_private_posts'=> true,
+                          'read_private_posts'=> true,
+                          'edit_comment'=> false,
+                          'publish_posts'=> true,
+                          'edit_published_posts'=> true,
+                          'edit_posts'=> true,
+                          'upload_files'=> true,
+                          'manage_links'=> true,
+        ));
+// http://wordpress.stackexchange.com/questions/14553/allow-member-to-have-access-to-custom-post-type-only-permission-to-only-edit-th
+$wp_roles->add_cap( 'Członek Synergii', 'project' );
+$role =& get_role('synergia_member');
+$role->add_cap('read');
+$role->add_cap('project');

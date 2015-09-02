@@ -27,4 +27,14 @@
   margin: 15px 6px;
   text-transform: uppercase; }
 
+.fh-profile-upload-options th,
+.fh-profile-upload-options td,
+.fh-profile-upload-options input {
+  vertical-align: top; }
+
+.user-preview-image {
+  display: block;
+  height: auto;
+  width: 150px; }
+
 /*# sourceMappingURL=admin.css.map */
