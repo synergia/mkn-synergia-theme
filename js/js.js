@@ -282,7 +282,6 @@ jQuery(function($) {
 
 });
 
-
 //AUTHOR
 jQuery(function ($) {
   $('.userinfo a').each(function(index) {
