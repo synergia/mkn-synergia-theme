@@ -132,10 +132,3 @@ a[am-button] {
         }
     }
 }
-
-//USER
-.userpic {
-    img {
-        @include circle(150px, #ffffff);
-    }
-}

@@ -1336,6 +1336,12 @@ nav .container {
 .userinfo span {
   width: 100%;
   display: inline-block; }
+.userinfo a {
+  padding: 0.313em 0.313em;
+  display: inline-block;
+  color: #333333; }
+  .userinfo a:first-of-type {
+    padding-left: 0; }
 
 [am-button] {
   display: block;
@@ -1452,14 +1458,6 @@ a[am-button] {
       padding: 1.250em 1.250em 0.625em;
       color: #ffffff;
       margin: 0; }
-
-.userpic img {
-  width: 150px;
-  height: 150px;
-  background: #ffffff;
-  -webkit-border-radius: 75px;
-  -moz-border-radius: 75px;
-  border-radius: 75px; }
 
 .lines-button {
   display: inline-block;

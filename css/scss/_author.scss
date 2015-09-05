@@ -15,4 +15,13 @@
         width: 100%;
         display: inline-block;
     }
+    a {
+      padding: 0.313em 0.313em;
+      display: inline-block;
+      color: $text-color;
+      &:first-of-type {
+        padding-left: 0;
+      }
+    }
+
 }
