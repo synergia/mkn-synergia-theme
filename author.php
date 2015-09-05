@@ -18,13 +18,12 @@
                 <h2><?php echo $curauth->first_name ." ". $curauth->last_name; ?></h2>
                 <?php if ( (in_array( 'synergia_member', (array) $curauth->roles )) || (in_array( 'administrator', (array) $curauth->roles )) ) { ?>
                 <span>Członek MKNM "Synergia"</span>
-                <span><?php echo $curauth->description; ?></span>
+                <a github href="<?php echo $curauth->github_profile; ?>"><i class="icon icon-github"></i></a>
+                <a twitter href="<?php echo $curauth->twitter_profile; ?>"><i class="icon icon-twitter"></i></a>
+                <a face href="<?php echo $curauth->facebook_profile; ?>"><i class="icon icon-facebook"></i></a>
                 <?php } ?>
             </div>
         </div>
-
-        <h2>Posts by <?php echo $curauth->nickname; ?>:</h2>
-        <h2>FB <?php echo $curauth->facebook_profile; ?>:</h2>
 
         <ul>
     <!-- The Loop -->

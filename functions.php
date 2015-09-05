@@ -18,7 +18,7 @@
 ////////////////////////////////////////////////////////////////////
 
     include 'shortcodes.php';
-	
+
 ////////////////////////////////////////////////////////////////////
 // Enqueue Styles (normal style.css and bootstrap.css)
 ////////////////////////////////////////////////////////////////////
@@ -40,7 +40,7 @@ add_editor_style('css/editor-style.css');
     function synergia_theme_js()
     {
         global $version;
-        wp_enqueue_script('js', get_template_directory_uri() . '/js/js.min.js',array( 'jquery' ),$version,true );
+        wp_enqueue_script('js', get_template_directory_uri() . '/js/js.js',array( 'jquery' ),$version,true );
     }
     add_action('wp_enqueue_scripts', 'synergia_theme_js');
 
@@ -159,7 +159,7 @@ if ( ! isset( $content_width ) ) $content_width = 800;
 
 ////////////////////////////////////////////////////////////////////
 // Favicon
-//////////////////////////////////////////////////////////////////// 
+////////////////////////////////////////////////////////////////////
 function blog_favicon() {
 echo '<link rel="icon" type="image/png" href="'.get_template_directory_uri() . '/img/fav.png" />';
 }
@@ -438,8 +438,8 @@ function add_extra_social_links( $user )
 
         <table class="form-table">
             <tr>
-                <th><label for="facebook_profile">Facebook Profile</label></th>
-                <td><input type="text" name="facebook_profile" value="<?php echo esc_attr(get_the_author_meta( 'facebook_profile', $user->ID )); ?>" class="regular-text" /></td>
+                <th><label for="facebook_profile">Github Profile</label></th>
+                <td><input type="text" name="github_profile" value="<?php echo esc_attr(get_the_author_meta( 'github_profile', $user->ID )); ?>" class="regular-text" /></td>
             </tr>
 
             <tr>
@@ -448,8 +448,8 @@ function add_extra_social_links( $user )
             </tr>
 
             <tr>
-                <th><label for="google_profile">Google+ Profile</label></th>
-                <td><input type="text" name="google_profile" value="<?php echo esc_attr(get_the_author_meta( 'google_profile', $user->ID )); ?>" class="regular-text" /></td>
+                <th><label for="google_profile">Facebook Profile</label></th>
+                <td><input type="text" name="facebook_profile" value="<?php echo esc_attr(get_the_author_meta( 'facebook_profile', $user->ID )); ?>" class="regular-text" /></td>
             </tr>
         </table>
     <?php
@@ -461,7 +461,7 @@ function save_extra_social_links( $user_id )
 {
     update_user_meta( $user_id,'facebook_profile', sanitize_text_field( $_POST['facebook_profile'] ) );
     update_user_meta( $user_id,'twitter_profile', sanitize_text_field( $_POST['twitter_profile'] ) );
-    update_user_meta( $user_id,'google_profile', sanitize_text_field( $_POST['google_profile'] ) );
+    update_user_meta( $user_id,'github_profile', sanitize_text_field( $_POST['github_profile'] ) );
 }
 
 /* Adding Image Upload Fields */
