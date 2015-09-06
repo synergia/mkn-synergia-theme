@@ -14,13 +14,6 @@ GitHub Theme URI: https://github.com/synergia/mknm-synergia-theme
 input::-moz-focus-inner {
   border: 0;
 }
-.dmbs-header {} .dmbs-header-img {} .dmbs-header-text {} nav .container {
-    padding: 0;
-}
-.dmbs-main {} . {} .dmbs-right {} .dmbs-footer-menu {} .dmbs-author-credits {}
-.navbar img {
-    float: left;
-}
 .portfolio img {
     height: auto;
     width: 400px;
