@@ -297,3 +297,4 @@ jQuery(function ($) {
 		}
   });
 });
+jQuery(".excerpt").text(function(index, currentText) {return currentText.substr(0, 118)+ '...'; });

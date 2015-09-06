@@ -25,31 +25,42 @@
             </div>
         </div>
 
-        <ul>
     <!-- The Loop -->
-
-
-
-
-
-
-
-
-        <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-            <li>
-                <a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link: <?php the_title(); ?>">
-                <?php the_title(); ?></a>,
-                <?php the_time('d M Y'); ?> in <?php the_category('&');?>
-            </li>
-
-        <?php endwhile; else: ?>
-            <p><?php _e('No posts by this author.'); ?></p>
-
-        <?php endif; ?>
+    <div class="post-list">
+    <?php
+        $args = array(
+            'post_type' => 'projekt ',
+            'author' => $curauth->ID
+           );
+        $products = new WP_Query( $args );
+        if( $products->have_posts() ) {
+          while( $products->have_posts() ) {
+            $products->the_post();
+            ?>
+              <div class="post-list-item ">
+                <!-- <div class="gl-md-3 gl-cell"> -->
+                  <?php the_post_thumbnail("thumbnail"); ?>
+                <!-- </div> -->
+                <div class="post-list-item-content">
+                  <a href="<?php the_permalink(); ?>">
+                    <h2><?php the_title(); ?></h2>
+                  </a>
+                  <div class="excerpt">
+                    <?php the_excerpt(); ?>
+                  </div>
+                </div>
+              </div>
+    <?php
+          }
+        }
+        else {
+          echo 'Nic a nic';
+        }
+      ?>
+    </div>
 
     <!-- End Loop -->
 
-        </ul>
 
 
     </div>

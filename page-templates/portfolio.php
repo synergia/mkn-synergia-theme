@@ -41,7 +41,7 @@ Template Name: Portfolio
                         <?php if ( has_post_thumbnail() ) { the_post_thumbnail('medium'); } else { ?> <img src="<?php bloginfo('template_directory'); ?>/img/def-thumb.jpg" /> <?php } ?>
                             <h2 class="title"><?php the_title(); ?></h2>
                     </div>
-                    <div class="content">
+                    <div class="excerpt">
                         <?php the_excerpt(); ?>
                     </div>
                     <div class="action">
@@ -66,9 +66,6 @@ Template Name: Portfolio
         $wp_query = null;
         $wp_query = $tmp_query;
                 ?>
-
-<script> jQuery(".card .content").text(function(index, currentText) {return currentText.substr(0, 118)+ '...'; });</script>
-
     </div>
 
     </div>
