@@ -2,7 +2,7 @@
 .userpic {
     text-align: center;
     img {
-        @include circle(150px, #ffffff);
+        @include circle(130px, #ffffff);
     }
 }
 .userinfo {
@@ -23,5 +23,7 @@
         padding-left: 0;
       }
     }
-
+}
+.usercard {
+  // margin-bottom: 10px;
 }

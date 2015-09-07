@@ -1,3 +1,4 @@
+@import "vars";
 //BUTTON
 // http://codepen.io/jreece/pen/myeJBN
 [am-button] {
@@ -156,6 +157,121 @@ a[am-button] {
     }
     .excerpt {
       padding: 15px;
+    }
+  }
+}
+
+//TABS
+// http://codepen.io/Merri/pen/FAtDq
+label {
+  cursor: pointer;
+}
+
+.tabs {
+  & > .tab {
+    display: none;
+  }
+
+  @for $i from 1 through 9 {
+    // active tab
+    & > input:nth-of-type(#{$i}):checked ~ .tab:nth-of-type(#{$i}) {
+      display: block;
+    }
+    // active tab button
+    & > input:nth-of-type(#{$i}):checked ~ .tabs-nav > ul > li:nth-of-type(#{$i}) > label {
+      // to make things easier further below we limit styling here
+      border-bottom: 4px solid $synergia-color;
+      &:hover {
+        border-bottom: 4px solid $synergia-light-color;
+      }
+      @media only screen and (max-width: 39.999em) {
+        background: transparent;
+        font-weight: bold;
+        left: 0;
+        position: absolute;
+        text-indent: .5em;
+        top: 0;
+      }
+    }
+  }
+
+  .tabs-nav {
+    position: relative;
+    // checkbox controls size of the list
+    & > input {
+      & ~ ul {
+        height: 0;
+        overflow: hidden;
+      }
+      &:checked ~ ul {
+        height: auto;
+        overflow: auto;
+      }
+    }
+    // label to control the checkbox
+    & > label {
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      height: 2em;
+      left: 0;
+      line-height: 2em;
+      padding: 0 .5em;
+      position: absolute;
+      right: 0;
+      text-align: right;
+      top: 0;
+      z-index: 1;
+    }
+    // then just some nice mobile styles
+    & > ul {
+      display: block;
+      list-style: none;
+      margin: 0;
+      padding: 2em 0 0 0;
+      position: relative;
+      text-align: center;
+      font-weight: 600;
+      text-transform: uppercase;
+
+      & > li {
+        display: inline;
+
+        & > label {
+          display: block;
+          height: 2em;
+          line-height: 2em;
+        }
+      }
+    }
+  }
+
+  @media only screen and (min-width: 40em) {
+    .tabs-nav {
+      // undo the stuff done by the checkbox
+      & > input {
+        & ~ ul,
+        &:checked ~ ul {
+          background: transparent;
+          height: auto;
+          overflow: auto;
+        }
+      }
+      // we don't need to control the checkbox
+      & > label {
+        display: none;
+      }
+      // minimal changes to tab styles
+      & > ul {
+        padding: 0;
+
+        & > li {
+
+          & > label {
+            display: inline-block;
+            padding: 0.3em 1em;
+          }
+        }
+      }
     }
   }
 }
