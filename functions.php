@@ -29,25 +29,27 @@
     {
         global $version;
         wp_register_style('main', get_template_directory_uri() . '/css/main.css', array(), $version, 'all' );
+        wp_register_style('github', get_template_directory_uri() . '/css/github.css', array(), $version, 'all' );
         wp_enqueue_style( 'main');
+        if ( is_author() ) {
+          wp_enqueue_style( 'github');
+        }
     }
     add_action('wp_enqueue_scripts', 'synergia_theme_stylesheets');
 
 ////////////////////////////////////////////////////////////////////
 // Register Bootstrap JS with jquery
 ////////////////////////////////////////////////////////////////////
-    function synergia_theme_js()
-    {
-        global $version;
-        wp_enqueue_script('js', get_template_directory_uri() . '/js/js.js',array( 'jquery' ),$version,true );
-        wp_register_script( 'underscore', get_template_directory_uri().'/js/underscore.min.js', '1.6.0', true );
-        wp_register_script( 'github.js', get_template_directory_uri().'/js/github.min.js', '0.1.3', true );
-        if ( is_author() ) {
-          wp_enqueue_script('underscore');
-          wp_enqueue_script('github.js');
-}
+    function js () {
+      wp_register_script( 'underscore', get_template_directory_uri().'/js/underscore.min.js', '1.6.0', true );
+      wp_register_script( 'github.js', get_template_directory_uri().'/js/github.min.js', '0.1.3', true );
+      if ( is_author() ) {
+        wp_enqueue_script('underscore');
+        wp_enqueue_script('github.js');
+      }
+      wp_enqueue_script('js', get_template_directory_uri() . '/js/js.js',array( 'jquery' ),$version,true );
     }
-    add_action('wp_enqueue_scripts', 'synergia_theme_js');
+    add_action('wp_footer', 'js');
 
 
 ////////////////////////////////////////////////////////////////////

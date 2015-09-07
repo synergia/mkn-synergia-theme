@@ -72,18 +72,12 @@
           </div>
         </div>
           <div class="tab">
-            <h2>Second tab</h2>
-            <p>Hellou.</p>
+            <div class="github"></div>
           </div>
 
 
 
     </div>
-
-    <!-- End Loop -->
-
-
-
     </div>
 </div>
 <?php get_footer(); ?>

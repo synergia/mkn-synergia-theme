@@ -87,6 +87,17 @@
 
     };
 
+    Github.onlyuserActivity = function (options) {
+
+      if(options = gitMethods.initialize(options, ['username','selector'], 1)){
+        var userUrl = gitApiUrl + 'users/' + options.username,
+        eventsUrl = userUrl + '/events';
+        gitMethods.getData(eventsUrl, options, gitMethods.getPublicActivityHTML);
+      } else{
+        console.error("Parameters not passed correctly");
+      }
+
+    };
     //
     //        repoActivity - render's the github repository activity to selector
     //        @param  Type - JSON -> options [username, reponame, selector and limit (optional)]
@@ -125,9 +136,9 @@
     var gitTemplates = {
       // Parent container template
       parentTpl: '<div class="gt-container">'+
-                          '<div class="gt-header gt-shadow">'+
-                            '<div class="gt-loading-txt">Loading..</div>'+
-                          '</div>'+
+                          // '<div class="gt-header gt-shadow">'+
+                          //   '<div class="gt-loading-txt">Loading..</div>'+
+                          // '</div>'+
                           '<%if(type){%><div class="gt-activity-cnt gt-scrollbar">'+
                             '<div class="gt-loading-txt">Loading..</div>'+
                           '</div><%}%>'+

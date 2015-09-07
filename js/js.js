@@ -308,3 +308,9 @@ jQuery(function ($) {
   });
 });
 jQuery(".excerpt").text(function(index, currentText) {return currentText.substr(0, 118)+ '...'; });
+
+    Github.onlyuserActivity({
+      username: "stsdc",
+      selector: ".github",
+      limit: 10
+    });
