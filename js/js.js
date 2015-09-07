@@ -296,8 +296,14 @@ jQuery(function($) {
 jQuery(function ($) {
   $('.userinfo a').each(function(index) {
     var profile = $(this).attr('href');
+    var gith = profile.substr(19);
     if (profile.indexOf('github') > -1) {
-			$('a[github]').append(profile.substr(19));
+			$('a[github]').append(gith);
+      Github.onlyuserActivity({
+        username: gith,
+        selector: ".github",
+        limit: 10
+      });
     }
 		if (profile.indexOf('twitter') > -1) {
 			$('a[twitter]').append(profile.substr(20));
@@ -306,11 +312,6 @@ jQuery(function ($) {
 			$('a[face]').append(profile.substr(25));
 		}
   });
+
 });
 jQuery(".excerpt").text(function(index, currentText) {return currentText.substr(0, 118)+ '...'; });
-
-    Github.onlyuserActivity({
-      username: "stsdc",
-      selector: ".github",
-      limit: 10
-    });
