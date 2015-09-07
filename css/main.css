@@ -1488,9 +1488,8 @@ label {
 .tabs > input:nth-of-type(1):checked ~ .tab:nth-of-type(1) {
   display: block; }
 .tabs > input:nth-of-type(1):checked ~ .tabs-nav > ul > li:nth-of-type(1) > label {
-  border-bottom: 4px solid #6c4892; }
-  .tabs > input:nth-of-type(1):checked ~ .tabs-nav > ul > li:nth-of-type(1) > label:hover {
-    border-bottom: 4px solid #9f80c0; }
+  border-bottom: 4px solid #6c4892;
+  color: #333333; }
   @media only screen and (max-width: 39.999em) {
     .tabs > input:nth-of-type(1):checked ~ .tabs-nav > ul > li:nth-of-type(1) > label {
       background: transparent;
@@ -1502,9 +1501,8 @@ label {
 .tabs > input:nth-of-type(2):checked ~ .tab:nth-of-type(2) {
   display: block; }
 .tabs > input:nth-of-type(2):checked ~ .tabs-nav > ul > li:nth-of-type(2) > label {
-  border-bottom: 4px solid #6c4892; }
-  .tabs > input:nth-of-type(2):checked ~ .tabs-nav > ul > li:nth-of-type(2) > label:hover {
-    border-bottom: 4px solid #9f80c0; }
+  border-bottom: 4px solid #6c4892;
+  color: #333333; }
   @media only screen and (max-width: 39.999em) {
     .tabs > input:nth-of-type(2):checked ~ .tabs-nav > ul > li:nth-of-type(2) > label {
       background: transparent;
@@ -1516,9 +1514,8 @@ label {
 .tabs > input:nth-of-type(3):checked ~ .tab:nth-of-type(3) {
   display: block; }
 .tabs > input:nth-of-type(3):checked ~ .tabs-nav > ul > li:nth-of-type(3) > label {
-  border-bottom: 4px solid #6c4892; }
-  .tabs > input:nth-of-type(3):checked ~ .tabs-nav > ul > li:nth-of-type(3) > label:hover {
-    border-bottom: 4px solid #9f80c0; }
+  border-bottom: 4px solid #6c4892;
+  color: #333333; }
   @media only screen and (max-width: 39.999em) {
     .tabs > input:nth-of-type(3):checked ~ .tabs-nav > ul > li:nth-of-type(3) > label {
       background: transparent;
@@ -1530,9 +1527,8 @@ label {
 .tabs > input:nth-of-type(4):checked ~ .tab:nth-of-type(4) {
   display: block; }
 .tabs > input:nth-of-type(4):checked ~ .tabs-nav > ul > li:nth-of-type(4) > label {
-  border-bottom: 4px solid #6c4892; }
-  .tabs > input:nth-of-type(4):checked ~ .tabs-nav > ul > li:nth-of-type(4) > label:hover {
-    border-bottom: 4px solid #9f80c0; }
+  border-bottom: 4px solid #6c4892;
+  color: #333333; }
   @media only screen and (max-width: 39.999em) {
     .tabs > input:nth-of-type(4):checked ~ .tabs-nav > ul > li:nth-of-type(4) > label {
       background: transparent;
@@ -1544,9 +1540,8 @@ label {
 .tabs > input:nth-of-type(5):checked ~ .tab:nth-of-type(5) {
   display: block; }
 .tabs > input:nth-of-type(5):checked ~ .tabs-nav > ul > li:nth-of-type(5) > label {
-  border-bottom: 4px solid #6c4892; }
-  .tabs > input:nth-of-type(5):checked ~ .tabs-nav > ul > li:nth-of-type(5) > label:hover {
-    border-bottom: 4px solid #9f80c0; }
+  border-bottom: 4px solid #6c4892;
+  color: #333333; }
   @media only screen and (max-width: 39.999em) {
     .tabs > input:nth-of-type(5):checked ~ .tabs-nav > ul > li:nth-of-type(5) > label {
       background: transparent;
@@ -1558,9 +1553,8 @@ label {
 .tabs > input:nth-of-type(6):checked ~ .tab:nth-of-type(6) {
   display: block; }
 .tabs > input:nth-of-type(6):checked ~ .tabs-nav > ul > li:nth-of-type(6) > label {
-  border-bottom: 4px solid #6c4892; }
-  .tabs > input:nth-of-type(6):checked ~ .tabs-nav > ul > li:nth-of-type(6) > label:hover {
-    border-bottom: 4px solid #9f80c0; }
+  border-bottom: 4px solid #6c4892;
+  color: #333333; }
   @media only screen and (max-width: 39.999em) {
     .tabs > input:nth-of-type(6):checked ~ .tabs-nav > ul > li:nth-of-type(6) > label {
       background: transparent;
@@ -1572,9 +1566,8 @@ label {
 .tabs > input:nth-of-type(7):checked ~ .tab:nth-of-type(7) {
   display: block; }
 .tabs > input:nth-of-type(7):checked ~ .tabs-nav > ul > li:nth-of-type(7) > label {
-  border-bottom: 4px solid #6c4892; }
-  .tabs > input:nth-of-type(7):checked ~ .tabs-nav > ul > li:nth-of-type(7) > label:hover {
-    border-bottom: 4px solid #9f80c0; }
+  border-bottom: 4px solid #6c4892;
+  color: #333333; }
   @media only screen and (max-width: 39.999em) {
     .tabs > input:nth-of-type(7):checked ~ .tabs-nav > ul > li:nth-of-type(7) > label {
       background: transparent;
@@ -1586,9 +1579,8 @@ label {
 .tabs > input:nth-of-type(8):checked ~ .tab:nth-of-type(8) {
   display: block; }
 .tabs > input:nth-of-type(8):checked ~ .tabs-nav > ul > li:nth-of-type(8) > label {
-  border-bottom: 4px solid #6c4892; }
-  .tabs > input:nth-of-type(8):checked ~ .tabs-nav > ul > li:nth-of-type(8) > label:hover {
-    border-bottom: 4px solid #9f80c0; }
+  border-bottom: 4px solid #6c4892;
+  color: #333333; }
   @media only screen and (max-width: 39.999em) {
     .tabs > input:nth-of-type(8):checked ~ .tabs-nav > ul > li:nth-of-type(8) > label {
       background: transparent;
@@ -1600,9 +1592,8 @@ label {
 .tabs > input:nth-of-type(9):checked ~ .tab:nth-of-type(9) {
   display: block; }
 .tabs > input:nth-of-type(9):checked ~ .tabs-nav > ul > li:nth-of-type(9) > label {
-  border-bottom: 4px solid #6c4892; }
-  .tabs > input:nth-of-type(9):checked ~ .tabs-nav > ul > li:nth-of-type(9) > label:hover {
-    border-bottom: 4px solid #9f80c0; }
+  border-bottom: 4px solid #6c4892;
+  color: #333333; }
   @media only screen and (max-width: 39.999em) {
     .tabs > input:nth-of-type(9):checked ~ .tabs-nav > ul > li:nth-of-type(9) > label {
       background: transparent;
@@ -1645,7 +1636,8 @@ label {
       .tabs .tabs-nav > ul > li > label {
         display: block;
         height: 2em;
-        line-height: 2em; }
+        line-height: 2em;
+        color: #565656; }
 @media only screen and (min-width: 40em) {
   .tabs .tabs-nav > input ~ ul, .tabs .tabs-nav > input:checked ~ ul {
     background: transparent;

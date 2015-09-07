@@ -10,7 +10,7 @@
     <?php //left sidebar ?>
     <?php get_sidebar( 'left' ); ?>
 
-    <div class="gl-sm-<?php synergia_main_content_width(); ?> gl-cell dmbs-main">
+    <div class="gl-sm-9 gl-cell dmbs-main">
 
             <?php // theloop
                 if ( have_posts() ) : while ( have_posts() ) : the_post();
@@ -98,4 +98,3 @@ jQuery(".teaser > p").text(function(index, currentText) {
 <!-- end content container -->
 
 <?php get_footer(); ?>
-

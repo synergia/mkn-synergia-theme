@@ -181,9 +181,7 @@ label {
     & > input:nth-of-type(#{$i}):checked ~ .tabs-nav > ul > li:nth-of-type(#{$i}) > label {
       // to make things easier further below we limit styling here
       border-bottom: 4px solid $synergia-color;
-      &:hover {
-        border-bottom: 4px solid $synergia-light-color;
-      }
+      color: $text-color;
       @media only screen and (max-width: 39.999em) {
         background: transparent;
         font-weight: bold;
@@ -240,6 +238,7 @@ label {
           display: block;
           height: 2em;
           line-height: 2em;
+          color: $cardbutton-color;
         }
       }
     }
@@ -269,6 +268,9 @@ label {
           & > label {
             display: inline-block;
             padding: 0.3em 1em;
+            &:hover {
+              // border-bottom: 4px solid $synergia-light-color;
+            }
           }
         }
       }
