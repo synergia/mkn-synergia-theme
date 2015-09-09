@@ -147,8 +147,9 @@ a[am-button] {
 
   .post-list-item-content {
     float: left;
-    width: 76%;
+    width: calc(100% - 151px);
     position: relative;
+
     h2 {
       float: left;
       font-weight: 400;

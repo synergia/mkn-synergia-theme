@@ -1,29 +1,38 @@
 //USER
 .userpic {
-    text-align: center;
-    img {
-        @include circle(130px, #ffffff);
-    }
+	text-align: center;
+	img {
+		@include circle(130px, #ffffff);
+	}
 }
+
 .userinfo {
-    h2 {
-        font-size: 3em;
-        font-weight: 300;
-        margin: 0;
-    }
-    span {
-        width: 100%;
-        display: inline-block;
-    }
-    a {
-      padding: 0.313em 0.313em;
-      display: inline-block;
-      color: $text-color;
-      &:first-of-type {
-        padding-left: 0;
-      }
-    }
+	text-align: center;
+	@include mq($from: tablet) {
+		text-align: left;
+	}
+	h2 {
+		font-size: 3em;
+		font-weight: 300;
+		margin: 0;
+	}
+	span {
+		width: 100%;
+		display: inline-block;
+	}
+	a {
+		padding: 0.313em;
+		display: inline-block;
+		color: $text-color;
+		&:first-of-type {
+			padding-left: 0;
+		}
+	}
 }
+
 .usercard {
-  // margin-bottom: 10px;
+	margin-top: 20px;
+	@include mq($from:tablet) {
+		margin-top: 0;
+	}
 }

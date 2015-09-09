@@ -948,8 +948,9 @@ textarea {
   background-color: rgba(165, 122, 211, 0.5);
   padding: 5px; }
 
-ul, ol {
-  margin-top: 0px;
+ul,
+ol {
+  margin-top: 0;
   margin-bottom: 10px; }
 
 a {
@@ -1006,7 +1007,7 @@ img {
       .navbar-inverse .navbar-nav > li > a {
         color: #9f80c0; }
         .navbar-inverse .navbar-nav > li > a:hover {
-          color: #ffffff; } }
+          color: #fff; } }
   @media screen and (max-width: 47.99em) {
     .navbar-inverse {
       background-color: #6c4892; } }
@@ -1022,7 +1023,7 @@ img {
     .navbar-inverse .navbar-nav > .active > a,
     .navbar-inverse .navbar-nav > .active > a:hover,
     .navbar-inverse .navbar-nav > .active > a:focus {
-      color: #ffffff; } }
+      color: #fff; } }
 
 @media screen and (min-width: 48em) {
   .logo {
@@ -1057,8 +1058,8 @@ img {
     margin-left: 20px;
     background-color: #ffffff;
     background-image: url(../img/logo.svg);
-    -webkit-box-shadow: 0 0 3px 0 #000000;
-    box-shadow: 0 0 3px 0 #000000; }
+    -webkit-box-shadow: 0 0 3px 0 #000;
+    box-shadow: 0 0 3px 0 #000; }
     .no-svg .logo {
       background-image: url(../img/logo.png); } }
     @media only screen and (max-width: 47.99em) and (-moz-min-device-pixel-ratio: 1.5), only screen and (max-width: 47.99em) and (-o-min-device-pixel-ratio: 3 / 2), only screen and (max-width: 47.99em) and (-webkit-min-device-pixel-ratio: 1.5), only screen and (max-width: 47.99em) and (min-device-pixel-ratio: 1.5) {
@@ -1173,9 +1174,8 @@ nav .container {
     float: left; } }
 
 .navbar-nav {
-  margin: 7.5px -15px;
-  margin-bottom: 0px;
-  padding-left: 0px;
+  margin: 7.5px -15px 0;
+  padding-left: 0;
   list-style: outside none none;
   z-index: 10;
   position: relative; }
@@ -1190,7 +1190,7 @@ nav .container {
       padding-bottom: 10px;
       line-height: 25px;
       padding: 10px 15px;
-      outline: 0px none;
+      outline: 0 none;
       text-decoration: none;
       display: block; }
   @media screen and (min-width: 48em) {
@@ -1203,8 +1203,8 @@ nav .container {
         float: left; } }
 
 .nav {
-  margin-bottom: 0px;
-  padding-left: 0px;
+  margin-bottom: 0;
+  padding-left: 0;
   list-style: outside none none;
   z-index: 10;
   position: relative; }
@@ -1216,7 +1216,7 @@ nav .container {
     z-index: 10; }
     .nav > li > a {
       padding: 10px 15px;
-      outline: 0px none;
+      outline: 0 none;
       text-decoration: none; }
 
 .sponsorowane-left, .wspolpraca-left, .widget {
@@ -1248,7 +1248,7 @@ nav .container {
 .dmbs-footer {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   line-height: 1.2;
-  padding: 10px 0px 5px;
+  padding: 10px 0 5px;
   margin-top: 15px;
   border-bottom: 5px solid #6c4892; }
   .dmbs-footer:before, .dmbs-footer:after {
@@ -1299,8 +1299,8 @@ nav .container {
   .mknm-footer {
     text-align: center; } }
 .mknm-footer ul {
-  padding: 0px;
-  margin: 10px 0px 0px;
+  padding: 0;
+  margin: 10px 0 0;
   font-size: 0.875em; }
   .mknm-footer ul li {
     list-style: outside none none; }
@@ -1329,19 +1329,30 @@ nav .container {
     -moz-border-radius: 65px;
     border-radius: 65px; }
 
-.userinfo h2 {
-  font-size: 3em;
-  font-weight: 300;
-  margin: 0; }
-.userinfo span {
-  width: 100%;
-  display: inline-block; }
-.userinfo a {
-  padding: 0.313em 0.313em;
-  display: inline-block;
-  color: #333333; }
-  .userinfo a:first-of-type {
-    padding-left: 0; }
+.userinfo {
+  text-align: center; }
+  @media screen and (min-width: 48em) {
+    .userinfo {
+      text-align: left; } }
+  .userinfo h2 {
+    font-size: 3em;
+    font-weight: 300;
+    margin: 0; }
+  .userinfo span {
+    width: 100%;
+    display: inline-block; }
+  .userinfo a {
+    padding: 0.313em;
+    display: inline-block;
+    color: #333333; }
+    .userinfo a:first-of-type {
+      padding-left: 0; }
+
+.usercard {
+  margin-top: 20px; }
+  @media screen and (min-width: 48em) {
+    .usercard {
+      margin-top: 0; } }
 
 [am-button] {
   display: block;
@@ -1470,7 +1481,7 @@ a[am-button] {
     float: left; }
   .post-list-item .post-list-item-content {
     float: left;
-    width: 76%;
+    width: calc(100% - 151px);
     position: relative; }
     .post-list-item .post-list-item-content h2 {
       float: left;

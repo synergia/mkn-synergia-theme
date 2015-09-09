@@ -69,21 +69,6 @@ function my_show_extra_profile_fields( $user )
 			</td>
 		</tr>
 
-		<tr>
-			<th>
-				<label for="image">Sidebar Profile Image</label>
-			</th>
-
-			<td>
-                <?php if(get_the_author_meta( 'sidebarimage', $user->ID )) { ?>
-				<img class="user-preview-image" src="<?php echo esc_attr( get_the_author_meta( 'sidebarimage', $user->ID ) ); ?>">
-                <?php } ?>
-				<input type="text" name="sidebarimage" id="sidebarimage" value="<?php echo esc_attr( get_the_author_meta( 'sidebarimage', $user->ID ) ); ?>" class="regular-text" />
-				<input type='button' class="button-primary" value="Upload Image" id="sidebarUploadimage"/><br />
-
-				<span class="description">Please upload an image for the sidebar.</span>
-			</td>
-		</tr>
 	</table>
 
 	<script type="text/javascript">
@@ -95,19 +80,6 @@ function my_show_extra_profile_fields( $user )
 				{
 					imgurl = $( 'img',html ).attr( 'src' );
 					$( '#image' ).val(imgurl);
-					tb_remove();
-				}
-
-				return false;
-			});
-
-			$( 'input#sidebarUploadimage' ).on('click', function() {
-				tb_show('', 'media-upload.php?type=image&TB_iframe=true');
-
-				window.send_to_editor = function( html )
-				{
-					imgurl = $( 'img', html ).attr( 'src' );
-					$( '#sidebarimage' ).val(imgurl);
 					tb_remove();
 				}
 
