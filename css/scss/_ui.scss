@@ -183,14 +183,6 @@ label {
       // to make things easier further below we limit styling here
       border-bottom: 4px solid $synergia-color;
       color: $text-color;
-      @media only screen and (max-width: 39.999em) {
-        background: transparent;
-        font-weight: bold;
-        left: 0;
-        position: absolute;
-        text-indent: .5em;
-        top: 0;
-      }
     }
   }
 
@@ -245,7 +237,6 @@ label {
     }
   }
 
-  @media only screen and (min-width: 40em) {
     .tabs-nav {
       // undo the stuff done by the checkbox
       & > input {
@@ -277,7 +268,6 @@ label {
       }
     }
   }
-}
 .github {
   margin:0.625em;
 }
