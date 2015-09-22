@@ -1476,6 +1476,22 @@ a[am-button] {
   margin: 0.625em;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   border-radius: 2px; }
+  .post-list-item .thumb {
+    position: relative;
+    overflow: hidden;
+    float: left; }
+    .post-list-item .thumb time {
+      position: absolute;
+      font-weight: 400;
+      display: none;
+      width: 100%;
+      text-align: center;
+      height: 150px;
+      line-height: 150px;
+      color: #ffffff; }
+  .post-list-item:hover .thumb time {
+    display: block;
+    background-color: rgba(108, 72, 146, 0.7); }
   .post-list-item img {
     float: left; }
   .post-list-item .post-list-item-content {
