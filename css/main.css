@@ -1,5 +1,4 @@
 @charset "UTF-8";
-@import url(http://fonts.googleapis.com/css?family=Titillium+Web:400,700,300,400italic&subset=latin,latin-ext);
 /*! normalize.css modified for PXtoEM.com at 16px
     normalize.css 2012-03-11T12:53 UTC - http://github.com/necolas/normalize.css */
 /* =============================================================================
@@ -932,7 +931,7 @@ textarea {
   padding: 0.2em 0; }
 
 body {
-  font-family: "Titillium Web", Helvetica, Arial, sans-serif;
+  font-family: "Titillium Web", sans-serif;
   line-height: 1.4;
   color: #333333;
   background-color: #ffffff; }

@@ -45,15 +45,15 @@
                     'author' => $curauth->ID,
                     'posts_per_page' => -1
                    );
-                $products = new WP_Query( $args );
-                if( $products->have_posts() ) {
-                  while( $products->have_posts() ) {
-                    $products->the_post();
+                $items = new WP_Query( $args );
+                if( $items->have_posts() ) {
+                  while( $items->have_posts() ) {
+                    $items->the_post();
                     ?>
                       <div class="post-list-item ">
-                        <!-- <div class="gl-md-3 gl-cell"> -->
+                        <a rel="bookmark" href="<?php the_permalink(); ?>">
                           <?php the_post_thumbnail("thumbnail"); ?>
-                        <!-- </div> -->
+						</a>
                         <div class="post-list-item-content">
                           <a rel="bookmark" href="<?php the_permalink(); ?>">
                             <h2><?php the_title(); ?></h2>

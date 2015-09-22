@@ -22,15 +22,18 @@
 
     include 'lib/shortcodes.php';
 
+
 ////////////////////////////////////////////////////////////////////
 // Enqueue Styles (normal style.css and bootstrap.css)
 ////////////////////////////////////////////////////////////////////
     function synergia_theme_stylesheets()
     {
         global $version;
+		wp_register_style('googleFonts', 'https://fonts.googleapis.com/css?family=Titillium+Web:400,300,700&subset=latin,latin-ext');
         wp_register_style('main', get_template_directory_uri() . '/css/main.css', array(), $version, 'all' );
         wp_register_style('github', get_template_directory_uri() . '/css/github.css', array(), $version, 'all' );
         wp_enqueue_style( 'main');
+		wp_enqueue_style( 'googleFonts');
         if ( is_author() ) {
           wp_enqueue_style( 'github');
         }

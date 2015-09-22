@@ -90,10 +90,6 @@ jQuery(".teaser > p").text(function(index, currentText) {
             <?php endif; ?>
 
    </div>
-
-   <?php //get the right sidebar ?>
-   <?php get_sidebar( 'right' ); ?>
-
 </div>
 <!-- end content container -->
 

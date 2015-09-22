@@ -37,10 +37,12 @@ Template Name: Portfolio
 
             <div class="gl-md-6 gl-cell left">
                 <div class="card">
-                    <div class="image">
-                        <?php if ( has_post_thumbnail() ) { the_post_thumbnail('medium'); } else { ?> <img src="<?php bloginfo('template_directory'); ?>/img/def-thumb.jpg" /> <?php } ?>
-                            <h2 class="title"><?php the_title(); ?></h2>
-                    </div>
+					<a href="<?php the_permalink(); ?>">
+						<div class="image">
+							<?php if ( has_post_thumbnail() ) { the_post_thumbnail('medium'); } else { ?> <img src="<?php bloginfo('template_directory'); ?>/img/def-thumb.jpg" /> <?php } ?>
+								<h2 class="title"><?php the_title(); ?></h2>
+						</div>
+					</a>
                     <div class="excerpt">
                         <?php the_excerpt(); ?>
                     </div>
