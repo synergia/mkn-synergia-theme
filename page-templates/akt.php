@@ -15,20 +15,22 @@ Template Name: Aktualności
 
             <div class="post-list">
             <?php
-                $args = array(
-                    'posts_per_page' => 5
-                   );
-                $items = new WP_Query( $args );
-                if( $items->have_posts() ) {
-                  while( $items->have_posts() ) {
-                    $items->the_post();
-                    ?>
+				$paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
+				$args = array (
+					'pagination'             => true,
+					'posts_per_page'         => '5',
+					'paged' => $paged
+				);
+            $query = new WP_Query( $args );
+
+            if ($query->have_posts()) :
+                while ($query->have_posts()) : $query->the_post(); ?>
                       <div class="post-list-item ">
 						  <div class="thumb">
 								<a rel="bookmark" href="<?php the_permalink(); ?>">
 									<time><?php echo get_the_date(); ?></time>
+								</a>
 									<?php the_post_thumbnail("thumbnail"); ?>
-							  </a>
 						  </div>
                         <div class="post-list-item-content">
                           <a rel="bookmark" href="<?php the_permalink(); ?>">
@@ -40,16 +42,21 @@ Template Name: Aktualności
                         </div>
                       </div>
             <?php
-                  }
-                }
-                else {
-                  echo 'Nic a nic';
-                }
+                  endwhile;
               ?>
           </div>
+		            <div class="gl">
+                <p class="gl-sm-6 gl-cell"><?php previous_posts_link('<i class="icon-left-open-big"></i> Siędy');?></p>
+                <p class="text-right gl-cell gl-sm-6"><?php next_posts_link( 'Tędy  <i class="icon-right-open-big"></i>', $query->max_num_pages ); ?></p>
+            </div>
 	</div>
 
-		<?php wp_reset_postdata(); ?>
+		<?php wp_reset_postdata();
 
+        else :
+            echo "Nic a nic";
+        endif;
+
+                ?>
 
 <?php get_footer(); ?>

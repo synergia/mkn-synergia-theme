@@ -954,7 +954,8 @@ ol {
 
 a {
   color: #6c4892;
-  text-decoration: none; }
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
 
 a:hover,
 a:focus {
@@ -1482,15 +1483,17 @@ a[am-button] {
     float: left; }
     .post-list-item .thumb time {
       position: absolute;
-      font-weight: 400;
-      display: none;
+      font-weight: 600;
+      display: block;
+      opacity: 0;
       width: 100%;
       text-align: center;
       height: 150px;
       line-height: 150px;
-      color: #ffffff; }
+      color: #ffffff;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
   .post-list-item:hover .thumb time {
-    display: block;
+    opacity: 1;
     background-color: rgba(108, 72, 146, 0.7); }
   .post-list-item img {
     float: left; }

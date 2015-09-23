@@ -16,7 +16,8 @@ Template Name: Portfolio
         <div class="gl-md-9 gl-cell">
             <div class="gl portfolio-content">
 
-        <?php    $paged = ( get_query_var( 'page' ) ) ? get_query_var( 'page' ) : 1;
+        <?php
+			$paged = ( get_query_var( 'page' ) ) ? get_query_var( 'page' ) : 1;
             $args = array(
                 'post_type'              => array('projekt'),
                 'post_per_page' => 10,

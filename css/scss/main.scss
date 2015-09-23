@@ -39,6 +39,7 @@ ol {
 a {
   color: $synergia-color;
   text-decoration: none;
+	@include transition;
 }
 
 a:hover,

@@ -57,6 +57,7 @@
     background-image:         linear-gradient(top, $startColor, $endColor);
     filter:            progid:DXImageTransform.Microsoft.gradient(startColorStr='#{$startColor}', endColorStr='#{$endColor}');
 }
+
 //USER PROFILE PIC
 @mixin circle($width, $color) {
   width: $width;
@@ -65,4 +66,7 @@
   -webkit-border-radius: $width/2;
      -moz-border-radius: $width/2;
           border-radius: $width/2;
+}
+@mixin transition() {
+	transition: all 0.2s $bezier;
 }
