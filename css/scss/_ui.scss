@@ -9,7 +9,7 @@
 	padding: 0.8rem;
 	border: 0;
 	outline: 0;
-	border-radius: 0.125em;
+	@include border-radius(0.125em);
 	font-weight: 500;
 	letter-spacing: 0.05em;
 	text-transform: uppercase;
@@ -70,7 +70,8 @@ a[am-button] {
 	overflow: hidden;
 	margin: 0.625em;
 	@include box-shadow;
-	border-radius: 2px;
+	@include border-radius(0.125em);
+
 	.title {
 		font-weight: 400;
 	}
@@ -140,7 +141,7 @@ a[am-button] {
 	overflow: hidden;
 	margin: 0.625em;
 	@include box-shadow;
-	border-radius: 2px;
+	@include border-radius(0.125em);
 	.thumb {
 		position: relative;
 		overflow: hidden;
