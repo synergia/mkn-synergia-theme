@@ -71,10 +71,6 @@ a[am-button] {
 	margin: 0.625em;
 	@include box-shadow;
 	@include border-radius(0.125em);
-
-	.title {
-		font-weight: 400;
-	}
 	.excerpt {
 		padding: 1.250em;
 		font-weight: 300;
@@ -131,6 +127,7 @@ a[am-button] {
 			padding: 1.250em 1.250em 0.625em;
 			color: #ffffff;
 			margin: 0;
+			font-weight: 400;
 		}
 	}
 }
