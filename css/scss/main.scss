@@ -453,8 +453,10 @@ nav {
   overflow: hidden;
   display: block;
 }
+
 @import 'author';
 @import 'ui';
+@import 'project';
 @import 'burger';
 @import 'icons';
 @import 'html5plate';

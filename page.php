@@ -3,7 +3,7 @@
 <?php get_template_part('template-part', 'topnav'); ?>
 
 <!-- start content container -->
-<div class="gl dmbs-content">
+<div class="gl">
 
     <?php //left sidebar ?>
     <?php get_sidebar( 'left' ); ?>

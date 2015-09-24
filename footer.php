@@ -12,7 +12,7 @@
 
                     </div>
                     <div class="gl-sm-2 gl-cell">
-                        <a href="http://pwr.wroc.pl" target="_blank">
+                        <a href="http://www.pwr.edu.pl/index.dhtml" target="_blank">
                                 <div class="pwr"></div>
                         </a>
                     </div>

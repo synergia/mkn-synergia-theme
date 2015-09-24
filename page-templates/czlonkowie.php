@@ -9,7 +9,7 @@ Template Name: Członkowie
 <?php get_template_part('template-part', 'topnav'); ?>
 
 <!-- start content container -->
-<div class="row dmbs-content">
+<div class="row">
 
     <?php //left sidebar ?>
     <?php get_sidebar( 'left' ); ?>
