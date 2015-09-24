@@ -47,7 +47,7 @@ return '';
 add_filter('excerpt_more', 'custom_excerpt_more');
 
 function new_excerpt_length($length) {
-return 25;
+return 30;
 }
 add_filter('excerpt_length', 'new_excerpt_length');
 
