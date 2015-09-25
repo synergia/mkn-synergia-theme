@@ -10,7 +10,7 @@
 			overflow: hidden;
 			position: relative;
 			@include background-gradient(transparent, rgba(0, 0, 0, 0.5));
-			@include mq($from: desktop){
+			@include mq($from: desktop) {
 				height: 25em;
 			}
 			.wp-post-image {
@@ -32,6 +32,35 @@
 				font-weight: 400;
 				font-size: 2.5em;
 				color: #ffffff;
+			}
+		}
+		.userpic-project {
+			float: left;
+			margin: 0.313em;
+			margin-right: 10px;
+			img {
+				@include circle(50px, #ffffff);
+			}
+		}
+		.meta-stuff {
+			display: block;
+			width: 100%;
+			padding: 10px 0 10px 0;
+			overflow: hidden;
+			.co-author {
+				float: left;
+				padding: 5px;
+				h3 {
+					float: left;
+					margin: 0;
+					font-weight: 400;
+					font-size: 1.5em;
+					a {
+						color: $text-color;
+						text-decoration: none;
+					}
+
+				}
 			}
 		}
 	}

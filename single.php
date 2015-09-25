@@ -12,18 +12,17 @@
 					<?php the_post_thumbnail('full'); ?>
 						<h2 class="project-title"><?php the_title(); ?></h2>
 				</div>
-
-
+				<div class="meta-stuff gl">
+					<?php get_template_part('template-part', 'authors');?>
+				</div>
 				<?php the_content(); ?>
+				<?php wp_link_pages(); ?>
+			<?php endwhile; ?>
+		<?php else: ?>
 
-					<?php wp_link_pages(); ?>
+		<?php get_404_template(); ?>
 
-						<?php endwhile; ?>
-							<?php else: ?>
-
-								<?php get_404_template(); ?>
-
-									<?php endif; ?>
+		<?php endif; ?>
 
 		</div>
 

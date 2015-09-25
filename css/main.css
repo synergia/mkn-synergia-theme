@@ -1662,6 +1662,33 @@ label {
       font-weight: 400;
       font-size: 2.5em;
       color: #ffffff; }
+  .project-content .userpic-project {
+    float: left;
+    margin: 0.313em;
+    margin-right: 10px; }
+    .project-content .userpic-project img {
+      width: 50px;
+      height: 50px;
+      background: #ffffff;
+      -webkit-border-radius: 25px;
+      -moz-border-radius: 25px;
+      border-radius: 25px; }
+  .project-content .meta-stuff {
+    display: block;
+    width: 100%;
+    padding: 10px 0 10px 0;
+    overflow: hidden; }
+    .project-content .meta-stuff .co-author {
+      float: left;
+      padding: 5px; }
+      .project-content .meta-stuff .co-author h3 {
+        float: left;
+        margin: 0;
+        font-weight: 400;
+        font-size: 1.5em; }
+        .project-content .meta-stuff .co-author h3 a {
+          color: #333333;
+          text-decoration: none; }
 
 .lines-button {
   display: inline-block;

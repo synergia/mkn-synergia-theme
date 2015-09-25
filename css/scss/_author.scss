@@ -5,7 +5,6 @@
 		@include circle(130px, #ffffff);
 	}
 }
-
 .userinfo {
 	text-align: center;
 	@include mq($from: tablet) {
