@@ -92,4 +92,5 @@ function odmiana($in,$lp,$lm1,$lm2) {
  elseif (($in%10>1) && ($in%10<5) && !(($in%100>=10) && ($in%100<=21))) return $lm1;
 return $lm2;
 };
+
 ?>
