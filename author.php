@@ -44,7 +44,7 @@
           <input id="tab-2" name="tabset-1" type="radio" hidden />
           <nav class="tabs-nav" role="navigation">
             <ul>
-              <li><label for="tab-1">Projekty (<?php echo $post_count; ?>)</label></li>
+              <li><label for="tab-1">Projekty (<?php echo $curauth->post_count; ?>)</label></li>
               <li><label for="tab-2">Github</label></li>
             </ul>
           </nav>
@@ -60,7 +60,7 @@
                 if( $items->have_posts() ) {
                   while( $items->have_posts() ) {
                     $items->the_post();
-					$post_count = $items->found_posts;
+					post_count($curauth->ID, $items->found_posts);
                     ?>
                       <div class="post-list-item ">
                         <a rel="bookmark" href="<?php the_permalink(); ?>">
@@ -76,7 +76,7 @@
                         </div>
                       </div>
             <?php
-                  }echo $post_count;
+                  }
                 }
                 else {
                   echo 'Nic a nic';

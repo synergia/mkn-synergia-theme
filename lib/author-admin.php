@@ -65,7 +65,7 @@ function my_show_extra_profile_fields( $user )
 				<input type="text" name="image" id="image" value="<?php echo esc_attr( get_the_author_meta( 'image', $user->ID ) ); ?>" class="regular-text" />
 				<input type='button' class="button-primary" value="Upload Image" id="uploadimage"/><br />
 
-				<span class="description">Please upload an image for your profile.</span>
+				<span class="description">Wrzuć zdjęcie profilowe.</span>
 			</td>
 		</tr>
 
@@ -132,4 +132,10 @@ $wp_roles->add_cap( 'Członek Synergii', 'project' );
 $role =& get_role('synergia_member');
 $role->add_cap('read');
 $role->add_cap('project');
+
+
+// Zapisuje ilość projektów do meta użytkownika
+function post_count($user_id, $count) {
+        update_user_meta($user_id, 'post_count', $count );
+    }
 ?>
