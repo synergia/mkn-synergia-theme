@@ -63,9 +63,12 @@
 					post_count($curauth->ID, $items->found_posts);
                     ?>
                       <div class="post-list-item ">
-                        <a rel="bookmark" href="<?php the_permalink(); ?>">
-                          <?php the_post_thumbnail("thumbnail"); ?>
-						</a>
+						  <div class="thumb">
+								<a rel="bookmark" href="<?php the_permalink(); ?>">
+									<time><?php echo get_the_date(); ?></time>
+								</a>
+									<?php the_post_thumbnail("thumbnail"); ?>
+						  </div>
                         <div class="post-list-item-content">
                           <a rel="bookmark" href="<?php the_permalink(); ?>">
                             <h2><?php the_title(); ?></h2>

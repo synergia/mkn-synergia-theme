@@ -2,7 +2,6 @@
 global $post;
 $author_id=$post->post_author;
 foreach( get_coauthors() as $curauth ):
-    $post_count = $curauth->count;
 ?>
 	<div class="co-author gl-md-3 gl-cell">
 		<div class="userpic-project">
@@ -12,6 +11,7 @@ foreach( get_coauthors() as $curauth ):
 				<?php } else {?>
 				<?php echo get_avatar( $curauth->user_email, '96' ); }?>
 			</a>
+			<div class="post-count"><?php echo $curauth->post_count; ?></div>
 		</div>
 		<div>
 			<div class="gl-vertical gl">
@@ -28,7 +28,6 @@ foreach( get_coauthors() as $curauth ):
 					<?php } ?>
 				</div>
 			</div>
-<?php echo $post_count; ?>
 		</div>
 	</div>
 	<!-- .entry-author co-author -->

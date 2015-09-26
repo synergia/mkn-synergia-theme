@@ -35,3 +35,50 @@
 		margin-top: 0;
 	}
 }
+
+.post-list-item {
+	height: 150px;
+	position: relative;
+	overflow: hidden;
+	margin: 0.625em;
+	@include box-shadow;
+	@include border-radius(0.125em);
+	.thumb {
+		position: relative;
+		overflow: hidden;
+		float: left;
+		time {
+			position: absolute;
+			font-weight: 600;
+			display: block;
+			@include opacity(0);
+			width: 100%;
+			text-align: center;
+			height: 150px;
+			line-height: 150px;
+			color: #ffffff;
+			@include transition;
+		}
+	}
+	&:hover .thumb time {
+		@include opacity(1);
+		background-color: rgba(108, 72, 146, 0.7);
+	}
+	img {
+		float: left;
+	}
+	.post-list-item-content {
+		float: left;
+		width: calc(100% - 151px);
+		position: relative;
+		h2 {
+			float: left;
+			font-weight: 400;
+			margin: 15px;
+			width: 100%;
+		}
+		.excerpt {
+			padding: 15px;
+		}
+	}
+}

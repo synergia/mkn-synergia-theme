@@ -36,10 +36,24 @@
 		}
 		.userpic-project {
 			float: left;
+			position: relative;
 			margin: 0.313em;
 			margin-right: 10px;
 			img {
 				@include circle(50px, #ffffff);
+			}
+			.post-count {
+				@include circle(20px, $synergia-color);
+				position: absolute;
+				right: -3px;
+				top: -3px;
+				font-weight: 600;
+				font-size: 10px;
+				text-align: center;
+				line-height: 20px;
+				color: #ffffff;
+//				-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
+//				box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
 			}
 		}
 		.meta-stuff {
@@ -59,7 +73,6 @@
 						color: $text-color;
 						text-decoration: none;
 					}
-
 				}
 			}
 		}
