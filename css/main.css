@@ -1697,11 +1697,19 @@ label {
     .project-content .meta-stuff .co-author {
       float: left;
       padding: 5px; }
+      @media screen and (max-width: 47.99em) {
+        .project-content .meta-stuff .co-author {
+          width: 50%; } }
+      @media screen and (max-width: 29.99em) {
+        .project-content .meta-stuff .co-author {
+          width: 100%; } }
       .project-content .meta-stuff .co-author h3 {
         float: left;
         margin: 0;
         font-weight: 400;
-        font-size: 1.5em; }
+        font-size: 1.5em;
+        width: 80%;
+        width: calc(100% - 65px); }
         .project-content .meta-stuff .co-author h3 a {
           color: #333333;
           text-decoration: none; }

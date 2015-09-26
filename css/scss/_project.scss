@@ -64,11 +64,19 @@
 			.co-author {
 				float: left;
 				padding: 5px;
+				@include mq($until:tablet) {
+					width:50%;
+				}
+				@include mq ($until:mobile) {
+					width:100%;
+				}
 				h3 {
 					float: left;
 					margin: 0;
 					font-weight: 400;
 					font-size: 1.5em;
+					width:80%;
+					width: calc(100% - 65px);
 					a {
 						color: $text-color;
 						text-decoration: none;

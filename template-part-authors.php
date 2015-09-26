@@ -3,7 +3,7 @@ global $post;
 $author_id=$post->post_author;
 foreach( get_coauthors() as $curauth ):
 ?>
-	<div class="co-author gl-md-3 gl-cell">
+	<div class="co-author gl-cell gl-sm-1 gl-lg-3 gl-md-4">
 		<div class="userpic-project">
 			<a href="<?php echo get_author_posts_url( $curauth->ID, $curauth->user_nicename ); ?>">
 				<?php if ($curauth->image){ ?>
