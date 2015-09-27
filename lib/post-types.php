@@ -45,6 +45,18 @@ function sponsorowane() {
 
 // Register Custom Post Type
 function projects() {
+    // Co można robić z tym typem postów
+    $capabilities = array(
+				'publish_posts' => 'publish_projects',
+				'edit_posts' => 'edit_projects',
+				'edit_others_posts' => 'edit_others_projects',
+				'delete_posts' => 'delete_projects',
+				'delete_others_posts' => 'delete_others_projects',
+				'read_private_posts' => 'read_private_projects',
+				'edit_post' => 'edit_project',
+				'delete_post' => 'delete_project',
+				'read_post' => 'read_project',
+			);
 
 	$labels = array(
 		'name'                => _x( 'Projekty', 'Post Type General Name', 'projects' ),
@@ -89,17 +101,7 @@ function projects() {
 		'query_var'           => 'project',
 		'rewrite'             => $rewrite,
         'capability_type' => 'project',
-        'capabilities' => array(
-				'publish_posts' => 'publish_projects',
-				'edit_posts' => 'edit_projects',
-				'edit_others_posts' => 'edit_others_projects',
-				'delete_posts' => 'delete_projects',
-				'delete_others_posts' => 'delete_others_projects',
-				'read_private_posts' => 'read_private_projects',
-				'edit_post' => 'edit_project',
-				'delete_post' => 'delete_project',
-				'read_post' => 'read_project',
-			),
+        'capabilities' => $capabilities,
         'map_meta_cap'        => true,
 	);
 	register_post_type( 'project', $args );

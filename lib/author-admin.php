@@ -183,7 +183,7 @@ function my_map_meta_cap( $caps, $cap, $user_id, $args ) {
 }
 
 function add_synergia_member_and_delete_other_roles() {
-
+    // możliwości dla 'project'
     $project_capabilities = array(
         'delete_projects' =>true,
         'delete_published_projects' => true,
@@ -217,6 +217,8 @@ function add_synergia_member_and_delete_other_roles() {
 //    $synergia_member = get_role( 'synergia_member' );
 
 //    foreach(){} dlaczegoś nie zadziałał :(
+//    bez tego nie wyświetlają się projekty w admince
+//    dla administratora
     $administrator = get_role( 'administrator' );
     $administrator->add_cap( 'delete_projects' );
     $administrator->add_cap( 'delete_published_projects' );
@@ -225,11 +227,14 @@ function add_synergia_member_and_delete_other_roles() {
     $administrator->add_cap( 'edit_published_projects' );
     $administrator->add_cap( 'publish_projects' );
 }
-    add_action('admin_init', 'add_synergia_member_and_delete_other_roles');
+    add_action('after_switch_theme', 'add_synergia_member_and_delete_other_roles');
 
 
 // Zapisuje ilość projektów do meta użytkownika
 function post_count($user_id, $count) {
         update_user_meta($user_id, 'post_count', $count );
     }
+    add_action('publish_post', 'post_count');
+    add_action('post_updated', 'post_count');
+    add_action('delete_post', 'post_count');
 ?>
