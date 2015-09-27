@@ -6,7 +6,7 @@
     $themename = "Synergia";
     $developer_uri = "http://vk.com/stsdc";
     $shortname = "sy";
-    $version = '0.2.8';
+    $version = '0.7';
 ////////////////////////////////////////////////////////////////////
 // include Theme-options.php for Admin Theme settings
 ////////////////////////////////////////////////////////////////////

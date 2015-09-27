@@ -5,6 +5,7 @@
 		@include circle(130px, #ffffff);
 	}
 }
+
 .userinfo {
 	text-align: center;
 	@include mq($from: tablet) {
@@ -31,7 +32,7 @@
 
 .usercard {
 	margin-top: 20px;
-	@include mq($from:tablet) {
+	@include mq($from: tablet) {
 		margin-top: 0;
 	}
 }
@@ -81,4 +82,13 @@
 			padding: 15px;
 		}
 	}
+}
+
+.crown {
+	position: absolute;
+	font-size: 3em;
+	right: 17px;
+	top: -25px;
+	color: gold;
+	text-shadow: 0 2px 3px rgba(0,0,0,0.5);
 }

@@ -1398,6 +1398,14 @@ nav .container {
     .post-list-item .post-list-item-content .excerpt {
       padding: 15px; }
 
+.crown {
+  position: absolute;
+  font-size: 3em;
+  right: 17px;
+  top: -25px;
+  color: gold;
+  text-shadow: 0 2px 3px rgba(0, 0, 0, 0.5); }
+
 [am-button] {
   display: block;
   position: relative;
@@ -1781,8 +1789,8 @@ label {
 
 @font-face {
   font-family: 'fontello';
-  src: url("../font/fontello.eot?6227052");
-  src: url("../font/fontello.eot?6227052#iefix") format("embedded-opentype"), url("../font/fontello.woff?6227052") format("woff"), url("../font/fontello.ttf?6227052") format("truetype"), url("../font/fontello.svg?6227052#fontello") format("svg");
+  src: url("../font/fontello.eot?16071799");
+  src: url("../font/fontello.eot?16071799#iefix") format("embedded-opentype"), url("../font/fontello.woff?16071799") format("woff"), url("../font/fontello.ttf?16071799") format("truetype"), url("../font/fontello.svg?16071799#fontello") format("svg");
   font-weight: normal;
   font-style: normal; }
 /* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
@@ -1791,7 +1799,7 @@ label {
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'fontello';
-    src: url('../font/fontello.svg?6227052#fontello') format('svg');
+    src: url('../font/fontello.svg?16071799#fontello') format('svg');
   }
 }
 */
@@ -1822,42 +1830,46 @@ label {
   /* Uncomment for 3D effect */
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */ }
 
-.icon-twitter:before {
+.icon-crown:before {
   content: '\e800'; }
 
 /* '' */
-.icon-instagram:before {
+.icon-twitter:before {
   content: '\e801'; }
 
 /* '' */
-.icon-right-open-big:before {
+.icon-instagram:before {
   content: '\e802'; }
 
 /* '' */
-.icon-left-open-big:before {
+.icon-right-open-big:before {
   content: '\e803'; }
 
 /* '' */
-.icon-heart:before {
+.icon-left-open-big:before {
   content: '\e804'; }
 
 /* '' */
-.icon-github:before {
+.icon-heart:before {
   content: '\e805'; }
 
 /* '' */
-.icon-archive:before {
+.icon-github:before {
   content: '\e806'; }
 
 /* '' */
-.icon-gplus:before {
+.icon-archive:before {
   content: '\e807'; }
 
 /* '' */
-.icon-facebook:before {
+.icon-gplus:before {
   content: '\e808'; }
 
 /* '' */
+.icon-facebook:before {
+  content: '\e809'; }
+
+/* '' */
 /* ==========================================================================
    Helper classes
    ========================================================================== */

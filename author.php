@@ -11,21 +11,24 @@
     global $wp_query;
     $curauth = $wp_query->get_queried_object();
 	$post_count = 0;
-//    $post_count = $wpdb->get_var("SELECT COUNT(*) FROM $wpdb->posts WHERE post_author = '" . $curauth->ID . "' AND post_type = 'projekt' AND post_status = 'publish'");
-//$post_count = custom_get_user_posts_count($curauth->ID,array('post_type' =>'projekt','author_name' => $curauth->user_nicename));
 ?>
     <div class="gl-md-9 gl-cell">
         <div class="gl usercard">
             <div class="gl-md-3 userpic gl-cell">
 				<?php if($curauth->image) { ?>
                 	<img src="<?php echo $curauth->image; ?>"/>
+					<?php if($curauth->prezes){ ?>
+								<i class="icon crown icon-crown"></i>
+					<?php } ?>
 				<?php }else { ?>
 					<?php echo get_avatar( $curauth->user_email, '96' ); }?>
            </div>
             <div class="gl-md-9 gl-cell userinfo">
                 <h2><?php echo $curauth->first_name ." ". $curauth->last_name; ?></h2>
                 <?php if ( (in_array( 'synergia_member', (array) $curauth->roles )) || (in_array( 'administrator', (array) $curauth->roles )) ) { ?>
-					<span>Członek MKNM "Synergia"</span>
+					<?php if($curauth->prezes){ ?>
+							<span>Prezes MKNM "Synergia"</span>
+					<?php }else{?><span>Członek MKNM "Synergia"</span><?php } ?>
 					<?php if($curauth->github_profile){ ?>
 					<a github href="<?php echo $curauth->github_profile; ?>"><i class="icon icon-github"></i></a>
 					<?php } ?>
