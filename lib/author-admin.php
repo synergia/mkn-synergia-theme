@@ -4,6 +4,24 @@
 //removing color scheme
 remove_action( 'admin_color_scheme_picker', 'admin_color_scheme_picker' );
 
+// Checkbox dla prezesa
+add_action('show_user_profile', 'prezes');
+
+function prezes($user){
+	if(current_user_can('administrator')) { ?>
+	<table class="form-table">
+		<tr>
+			<th><label>Obierz prezesa</label></th>
+			<td>
+				<input type="checkbox" name="prezes" id="prezes" value="yes" <?php if (esc_attr( get_the_author_meta( "prezes", $user->ID )) == true) echo "checked"; ?> />
+				<label>Zaznacz, jeśli jest prezesem</label>
+			</td>
+
+		</tr>
+	</table>
+<?php }
+}
+
 //custom fields
 add_action( 'show_user_profile', 'add_extra_social_links' );
 add_action( 'edit_user_profile', 'add_extra_social_links' );
@@ -39,6 +57,9 @@ function save_extra_social_links( $user_id )
     update_user_meta( $user_id,'facebook_profile', sanitize_text_field( $_POST['facebook_profile'] ) );
     update_user_meta( $user_id,'twitter_profile', sanitize_text_field( $_POST['twitter_profile'] ) );
     update_user_meta( $user_id,'github_profile', sanitize_text_field( $_POST['github_profile'] ) );
+	update_user_meta( $user_id, 'prezes', $_POST['prezes'] );
+
+
 }
 
 /* Adding Image Upload Fields */
