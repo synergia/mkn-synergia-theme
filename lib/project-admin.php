@@ -18,7 +18,7 @@ function linki_meta_init() {
     'linki_meta',
     'Linki',
     'linki_meta',
-    'projekt',
+    'project',
     'side',
     'default'
   );
@@ -47,11 +47,11 @@ function linki_meta() {
 //authentication via the nonce, and saves
 //it to the database.
 function my_meta_save($post_id) {
-  if (!current_user_can('edit_post', $post_id)) {
+  if (!current_user_can('edit_posts', $post_id)) {
     return $post_id;
   }
   // The array of accepted fields for Books
-    $accepted_fields['projekt'] = array(
+    $accepted_fields['project'] = array(
       'github',
       'facebook',
       'web'

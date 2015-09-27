@@ -93,4 +93,31 @@ function odmiana($in,$lp,$lm1,$lm2) {
 return $lm2;
 };
 
+
+function wpse31443_author_has_custom_post_type( $post_author, $post_type ) {
+    global $wp_post_types; // If nonexistent post type found return
+    if ( array_intersect((array)$post_type, array_keys($wp_post_types))
+        != (array)$post_type ) return false;
+
+    static $posts = NULL; // Cache the query internally
+    if ( !$posts ) {
+        global $wpdb;
+
+        $sql = "SELECT `post_type`, `post_author`, COUNT(*) AS `post_count`".
+            " FROM {$wpdb->posts}".
+            " WHERE `post_type` NOT IN ('revision', 'nav_menu_item')".
+            " AND `post_status` IN ('publish', 'pending')".
+            " GROUP BY `post_type`, `post_author`";
+
+        $posts = $wpdb->get_results( $sql );
+    }
+
+    foreach( $posts as $post ) {
+        if ( $post->post_author == $post_author
+            and in_array( $post->post_type, (array)$post_type )
+            and $post->post_count ) return true;
+    }
+
+    return false;
+}
 ?>

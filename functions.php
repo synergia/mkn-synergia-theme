@@ -14,7 +14,7 @@
    include 'lib/theme-options.php';
    include 'lib/post-types.php';
    include 'lib/author-admin.php';
-   include 'lib/projekt-admin.php';
+   include 'lib/project-admin.php';
    include 'lib/candies.php';
 ////////////////////////////////////////////////////////////////////
 // Include shortcodes.php for Bootstrap Shortcodes

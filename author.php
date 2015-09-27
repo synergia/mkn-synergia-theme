@@ -55,7 +55,7 @@
             <div class="post-list">
             <?php
                 $args = array(
-                    'post_type' => 'projekt ',
+                    'post_type' => 'project ',
                     'posts_per_page' => -1,
 					'author_name' => $curauth->user_nicename,
                    );

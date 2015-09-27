@@ -64,7 +64,7 @@ function projects() {
 		'not_found_in_trash'  => __( 'Nawet w koszu nie ma', 'projects' ),
 	);
 	$rewrite = array(
-		'slug'                => 'projekt',
+		'slug'                => 'project',
 		'with_front'          => false,
 		'pages'               => true,
 		'feeds'               => true,
@@ -86,13 +86,24 @@ function projects() {
 		'has_archive'         => true,
 		'exclude_from_search' => false,
 		'publicly_queryable'  => true,
-		'query_var'           => 'projekt',
+		'query_var'           => 'project',
 		'rewrite'             => $rewrite,
-        'capability'     => __('project'),
+        'capability_type' => 'project',
+        'capabilities' => array(
+				'publish_posts' => 'publish_projects',
+				'edit_posts' => 'edit_projects',
+				'edit_others_posts' => 'edit_others_projects',
+				'delete_posts' => 'delete_projects',
+				'delete_others_posts' => 'delete_others_projects',
+				'read_private_posts' => 'read_private_projects',
+				'edit_post' => 'edit_project',
+				'delete_post' => 'delete_project',
+				'read_post' => 'read_project',
+			),
         'map_meta_cap'        => true,
 	);
-	register_post_type( 'projekt', $args );
-    flush_rewrite_rules();
+	register_post_type( 'project', $args );
+    flush_rewrite_rules(false);
 }
 add_action( 'init', 'projects', 0 );
 ?>

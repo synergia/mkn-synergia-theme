@@ -10,6 +10,8 @@ add_action('show_user_profile', 'prezes');
 function prezes($user){
 	if(current_user_can('administrator')) { ?>
 	<table class="form-table">
+           <?php var_dump( $GLOBALS['wp_post_types']['projekt'] ); ?>
+
 		<tr>
 			<th><label>Obierz prezesa</label></th>
 			<td>
@@ -58,8 +60,6 @@ function save_extra_social_links( $user_id )
     update_user_meta( $user_id,'twitter_profile', sanitize_text_field( $_POST['twitter_profile'] ) );
     update_user_meta( $user_id,'github_profile', sanitize_text_field( $_POST['github_profile'] ) );
 	update_user_meta( $user_id, 'prezes', $_POST['prezes'] );
-
-
 }
 
 /* Adding Image Upload Fields */
@@ -137,22 +137,95 @@ update_user_meta( $user_id, 'image', $_POST[ 'image' ] );
 }
 
 // http://wordpress.stackexchange.com/questions/28005/after-adding-add-role-to-functions-php-and-creating-a-user-can-not-login-into-a
-add_role( synergia_member, __('Członek Synergii'), array( 'delete_posts',
-                          'delete_private_posts'=> true,
-                          'edit_private_posts'=> true,
-                          'read_private_posts'=> true,
-                          'edit_comment'=> false,
-                          'publish_posts'=> true,
-                          'edit_published_posts'=> true,
-                          'edit_posts'=> true,
-                          'upload_files'=> true,
-                          'manage_links'=> true,
+
+add_filter( 'map_meta_cap', 'my_map_meta_cap', 10, 4 );
+
+function my_map_meta_cap( $caps, $cap, $user_id, $args ) {
+
+	/* If editing, deleting, or reading a project, get the post and post type object. */
+	if ( 'edit_project' == $cap || 'delete_project' == $cap || 'read_project' == $cap ) {
+		$post = get_post( $args[0] );
+		$post_type = get_post_type_object( $post->post_type );
+
+		/* Set an empty array for the caps. */
+		$caps = array();
+	}
+
+	/* If editing a project, assign the required capability. */
+	if ( 'edit_project' == $cap ) {
+		if ( $user_id == $post->post_author )
+			$caps[] = $post_type->cap->edit_posts;
+		else
+			$caps[] = $post_type->cap->edit_others_posts;
+	}
+
+	/* If deleting a project, assign the required capability. */
+	elseif ( 'delete_project' == $cap ) {
+		if ( $user_id == $post->post_author )
+			$caps[] = $post_type->cap->delete_posts;
+		else
+			$caps[] = $post_type->cap->delete_others_posts;
+	}
+
+	/* If reading a private project, assign the required capability. */
+	elseif ( 'read_project' == $cap ) {
+
+		if ( 'private' != $post->post_status )
+			$caps[] = 'read';
+		elseif ( $user_id == $post->post_author )
+			$caps[] = 'read';
+		else
+			$caps[] = $post_type->cap->read_private_posts;
+	}
+
+	/* Return the capabilities required by the user. */
+	return $caps;
+}
+
+function add_synergia_member_and_delete_other_roles() {
+
+    $project_capabilities = array(
+        'delete_projects' =>true,
+        'delete_published_projects' => true,
+        'edit_projects' => true,
+        'edit_others_projects' => true,
+        'edit_others_posts' => true,
+        'edit_published_projects' => true,
+        'publish_projects' => true,
+        'read' => true,
+        'upload_files' => true
+        );
+
+    add_role( synergia_member, __('Członek Synergii'), $project_capabilities);
+
+    add_role( ex_synergia_member, __('Były członek Synergii'), array(
+        'delete_projects' =>false,
+        'delete_published_projects' => false,
+        'edit_projects' => true,
+        'edit_others_projects' => true,
+        'edit_others_posts' => true,
+        'edit_published_projects' => true,
+        'publish_projects' => false,
+        'read' => true,
+        'upload_files' => false
         ));
-// http://wordpress.stackexchange.com/questions/14553/allow-member-to-have-access-to-custom-post-type-only-permission-to-only-edit-th
-$wp_roles->add_cap( 'Członek Synergii', 'project' );
-$role =& get_role('synergia_member');
-$role->add_cap('read');
-$role->add_cap('project');
+    remove_role( 'editor' );
+    remove_role( 'contributor' );
+    remove_role( 'author' );
+    remove_role( 'subscriber' );
+//    remove_role( 'synergia_member' );
+//    $synergia_member = get_role( 'synergia_member' );
+
+//    foreach(){} dlaczegoś nie zadziałał :(
+    $administrator = get_role( 'administrator' );
+    $administrator->add_cap( 'delete_projects' );
+    $administrator->add_cap( 'delete_published_projects' );
+    $administrator->add_cap( 'edit_projects' );
+    $administrator->add_cap( 'edit_others_projects' );
+    $administrator->add_cap( 'edit_published_projects' );
+    $administrator->add_cap( 'publish_projects' );
+}
+    add_action('admin_init', 'add_synergia_member_and_delete_other_roles');
 
 
 // Zapisuje ilość projektów do meta użytkownika
