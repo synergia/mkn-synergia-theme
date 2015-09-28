@@ -196,9 +196,9 @@ function add_synergia_member_and_delete_other_roles() {
         'upload_files' => true
         );
 
-    add_role( synergia_member, __('Członek Synergii'), $project_capabilities);
+    add_role( 'synergia_member', __('Członek Synergii'), $project_capabilities);
 
-    add_role( ex_synergia_member, __('Były członek Synergii'), array(
+    add_role( 'ex_synergia_member', __('Były członek Synergii'), array(
         'delete_projects' =>false,
         'delete_published_projects' => false,
         'edit_projects' => true,
@@ -222,6 +222,7 @@ function add_synergia_member_and_delete_other_roles() {
     $administrator = get_role( 'administrator' );
     $administrator->add_cap( 'delete_projects' );
     $administrator->add_cap( 'delete_published_projects' );
+    $administrator->add_cap( 'delete_others_projects' );
     $administrator->add_cap( 'edit_projects' );
     $administrator->add_cap( 'edit_others_projects' );
     $administrator->add_cap( 'edit_published_projects' );
@@ -235,6 +236,9 @@ function post_count($user_id, $count) {
         update_user_meta($user_id, 'post_count', $count );
     }
     add_action('publish_post', 'post_count');
+    add_action('save_post', 'post_count');
     add_action('post_updated', 'post_count');
     add_action('delete_post', 'post_count');
+    add_action('after_switch_theme', 'post_count');
+
 ?>

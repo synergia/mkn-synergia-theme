@@ -63,7 +63,11 @@
                 if( $items->have_posts() ) {
                   while( $items->have_posts() ) {
                     $items->the_post();
-					post_count($curauth->ID, $items->found_posts);
+                    if($items->found_posts){
+					       post_count($curauth->ID, $items->found_posts);
+                    }else{
+					       post_count($curauth->ID, 0);
+                    }
                     ?>
                       <div class="post-list-item ">
 						  <div class="thumb">

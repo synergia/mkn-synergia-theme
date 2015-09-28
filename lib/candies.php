@@ -120,4 +120,8 @@ function wpse31443_author_has_custom_post_type( $post_author, $post_type ) {
 
     return false;
 }
+
+
+//	add_filter('the_author','use_coauthors');
+
 ?>
