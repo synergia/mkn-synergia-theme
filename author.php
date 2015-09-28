@@ -11,6 +11,11 @@
     global $wp_query;
     $curauth = $wp_query->get_queried_object();
 	$post_count = 0;
+
+    //dla sprawdzenia konkretnej roli, wrzucamy je do zmiennych
+    $synergia_member = in_array( 'synergia_member', (array) $curauth->roles );
+    $administrator = in_array( 'administrator', (array) $curauth->roles );
+    $ex_synergia_member = in_array( 'ex_synergia_member', (array) $curauth->roles );
 ?>
     <div class="gl-md-9 gl-cell">
         <div class="gl usercard">
@@ -25,10 +30,14 @@
            </div>
             <div class="gl-md-9 gl-cell userinfo">
                 <h2><?php echo $curauth->first_name ." ". $curauth->last_name; ?></h2>
-                <?php if ( (in_array( 'synergia_member', (array) $curauth->roles )) || (in_array( 'administrator', (array) $curauth->roles )) ) { ?>
-					<?php if($curauth->prezes){ ?>
-							<span>Prezes MKNM "Synergia"</span>
-					<?php }else{?><span>Członek MKNM "Synergia"</span><?php } ?>
+                <?php //ify sprawdzające czy jest prezesem, członkiem lub byłym członkiem
+                    if ( $synergia_member || $administrator ) { ?>
+
+					<?php if($curauth->prezes){ ?><span>Prezes MKNM "Synergia"</span>
+					<?php }else if($synergia_member){?><span>Członek MKNM "Synergia"</span>
+					<?php }else if($ex_synergia_member){?><span>Były członek MKNM "Synergia"</span>
+                    <?php } ?>
+
 					<?php if($curauth->github_profile){ ?>
 					<a github href="<?php echo $curauth->github_profile; ?>"><i class="icon icon-github"></i></a>
 					<?php } ?>
@@ -63,11 +72,7 @@
                 if( $items->have_posts() ) {
                   while( $items->have_posts() ) {
                     $items->the_post();
-                    if($items->found_posts){
-					       post_count($curauth->ID, $items->found_posts);
-                    }else{
-					       post_count($curauth->ID, 0);
-                    }
+				    post_count($curauth->ID, $items->found_posts);
                     ?>
                       <div class="post-list-item ">
 						  <div class="thumb">
@@ -89,7 +94,8 @@
                   }
                 }
                 else {
-                  echo 'Nic a nic';
+                    post_count($curauth->ID, 0);
+                    echo 'Nic a nic';
                 }
               ?>
 
