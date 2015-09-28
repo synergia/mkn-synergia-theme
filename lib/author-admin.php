@@ -230,17 +230,17 @@ function add_synergia_member_and_delete_other_roles() {
     $administrator->add_cap( 'edit_published_projects' );
     $administrator->add_cap( 'publish_projects' );
 }
-    add_action('init', 'add_synergia_member_and_delete_other_roles');
+    add_action('after_switch_theme', 'add_synergia_member_and_delete_other_roles');
 
 
 // Zapisuje ilość projektów do meta użytkownika
 function post_count($user_id, $count) {
         update_user_meta($user_id, 'post_count', $count );
     }
-//    add_action('publish_post', 'post_count');
-//    add_action('save_post', 'post_count');
-//    add_action('post_updated', 'post_count');
-//    add_action('delete_post', 'post_count');
-//    add_action('after_switch_theme', 'post_count');
+    add_action('publish_post', 'post_count');
+    add_action('save_post', 'post_count');
+    add_action('post_updated', 'post_count');
+    add_action('delete_post', 'post_count');
+    add_action('after_switch_theme', 'post_count');
 
 ?>
