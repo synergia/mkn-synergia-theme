@@ -1,27 +1,53 @@
 <?php
 //USER
-
+//global $user_ID;
 //removing color scheme
 remove_action( 'admin_color_scheme_picker', 'admin_color_scheme_picker' );
 
 // Checkbox dla prezesa
-add_action('show_user_profile', 'prezes');
+add_action('show_user_profile', 'management_board');
+add_action('edit_user_profile', 'management_board');
 
-function prezes($user){
-	if(current_user_can('administrator')) { ?>
+function management_board($user){
+    global $user_ID;
+	if($user_ID)
+    {
+        if( current_user_can('level_10'))
+        {?>
+<h3>Obierz zarząd</h3>
 	<table class="form-table">
-           <?php var_dump( $GLOBALS['wp_post_types']['projekt'] ); ?>
-
 		<tr>
 			<th><label>Obierz prezesa</label></th>
 			<td>
-				<input type="checkbox" name="prezes" id="prezes" value="yes" <?php if (esc_attr( get_the_author_meta( "prezes", $user->ID )) == true) echo "checked"; ?> />
-				<label>Zaznacz, jeśli jest prezesem</label>
+                <label>
+				    <input type="checkbox" name="president" id="president" value="yes" <?php if (esc_attr( get_the_author_meta( "president", $user->ID )) == true) echo "checked"; ?> />
+				Zaznacz, jeśli jest prezesem
+                </label>
 			</td>
-
+        </tr>
+        <tr>
+            <th><label>Obierz członka zarządu</label></th>
+            <td>
+                <label>
+				    <input type="checkbox" name="member_of_managment_board" id="member_of_managment_board" value="yes" <?php if (esc_attr( get_the_author_meta( "member_of_managment_board", $user->ID )) == true) echo "checked"; ?> />
+				Zaznacz, jeśli jest członkiem zarządu
+                </label>
+			</td>
 		</tr>
 	</table>
-<?php }
+<script>
+    //Jeśli zaznaczono prezesa, to nie ma potrzeby w drugim checkboxie
+    jQuery('#president').change(function () {
+        if (jQuery(this).attr("checked")) {
+            jQuery('#member_of_managment_board').attr('disabled', true);
+        } else {
+            jQuery('#member_of_managment_board').attr('disabled', false);
+        }
+    });
+</script>
+<?php
+        }
+    }
 }
 
 //custom fields
@@ -59,7 +85,8 @@ function save_extra_social_links( $user_id )
     update_user_meta( $user_id,'facebook_profile', sanitize_text_field( $_POST['facebook_profile'] ) );
     update_user_meta( $user_id,'twitter_profile', sanitize_text_field( $_POST['twitter_profile'] ) );
     update_user_meta( $user_id,'github_profile', sanitize_text_field( $_POST['github_profile'] ) );
-	update_user_meta( $user_id, 'prezes', $_POST['prezes'] );
+	update_user_meta( $user_id, 'member_of_managment_board', $_POST['member_of_managment_board'] );
+	update_user_meta( $user_id, 'president', $_POST['president'] );
 }
 
 /* Adding Image Upload Fields */
@@ -243,4 +270,47 @@ function post_count($user_id, $count) {
     add_action('delete_post', 'post_count');
     add_action('after_switch_theme', 'post_count');
 
+
+function get_members_with_projects() {
+
+// https://tommcfarlin.com/wp_user_query-multiple-roles/
+// prepare arguments
+    $synergia_member_args = array (
+        'role'           => 'synergia_member',
+        'order'          => 'ASC',
+        'orderby'        => 'post_count',
+        'meta_query'     => array(
+            array(
+                'key'       => 'post_count',
+                'compare'   => '>',
+                'type'      => 'NUMERIC',
+                'value'     => '0',
+            ),
+        ),
+    );
+
+    $administrator_args = array (
+        'role'           => 'administrator',
+        'order'          => 'ASC',
+        'orderby'        => 'post_count',
+        'meta_query'     => array(
+            array(
+                'key'       => 'post_count',
+                'compare'   => '>',
+                'type'      => 'NUMERIC',
+                'value'     => '0',
+            ),
+        ),
+    );
+// Create the WP_User_Query object
+    $administrator_query = new WP_User_Query($administrator_args);
+    $synergia_member_query = new WP_User_Query($synergia_member_args);
+
+    $administrators = $administrator_query->get_results();
+    $synergia_members = $synergia_member_query->get_results();
+
+    return array_merge( $administrators, $synergia_members );
+}
+function get_management_board() {
+}
 ?>
