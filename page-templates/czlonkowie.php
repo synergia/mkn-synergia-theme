@@ -40,6 +40,22 @@ if (!empty($members)) { ?>
         echo '<li>'.$member_info->user_nicename.'</li>';
     } ?>
     </ul></div>
+                <div class="tab">
+                <?php
+
+foreach (get_management_board() as $management_board_member)
+    {
+        // get all the user's data
+        $management_board_member_info = get_userdata($management_board_member->ID);
+        if($management_board_member_info->president == true) {
+            echo '<li>Prezes'.$management_board_member_info->user_nicename.'</li>';
+        }else{
+        echo '<li>'.$management_board_member_info->user_nicename.'</li>';
+        }
+    }
+
+     ?>
+                </div>
 <?php
 } else {
     echo 'No authors found';

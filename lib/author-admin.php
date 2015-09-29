@@ -12,7 +12,7 @@ function management_board($user){
     global $user_ID;
 	if($user_ID)
     {
-        if( current_user_can('level_10'))
+        if( current_user_can('level_10'))  //administrator
         {?>
 <h3>Obierz zarząd</h3>
 	<table class="form-table">
@@ -312,5 +312,11 @@ function get_members_with_projects() {
     return array_merge( $administrators, $synergia_members );
 }
 function get_management_board() {
+        $management_board_args = array (
+	'role'           => 'administrator',
+);
+    $management_board_query = new WP_User_Query($management_board_args);
+    $management_board_members = $management_board_query->get_results();
+    return $management_board_members;
 }
 ?>
