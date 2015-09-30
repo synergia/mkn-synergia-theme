@@ -331,4 +331,15 @@ function social_links($curauth){
 	   echo '<a face href="'.$curauth->facebook_profile.'"><i class="icon icon-facebook"></i></a>';
     }
 }
+
+function show_avatar($member_info){
+    if ($member_info->image){
+        echo '<img src="'.$member_info->image.'" />';
+        if($member_info->president && is_author()){
+            echo '<i class="icon crown icon-crown"></i>';
+        }
+    } else {
+        echo get_avatar( $member_info->user_email, '96' );
+    }
+}
 ?>

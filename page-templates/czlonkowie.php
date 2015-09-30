@@ -35,13 +35,9 @@ if (!empty($members)) { ?>
     // loop trough each member
     foreach ($members as $member)
     {
-        // get all the user's data
-        $member_info = get_userdata($member->ID); ?>
+        ?>
         <li>
-                <?php if ($member_info->image){ ?>
-				<img src="<?php echo $member_info->image; ?>" />
-				<?php } else {?>
-				<?php echo get_avatar( $member_info->user_email, '96' ); }?>
+            <?php show_avatar(get_userdata($member->ID))?>
         </li>
 <?php } ?>
     </ul></div>

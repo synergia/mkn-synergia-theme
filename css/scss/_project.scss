@@ -42,7 +42,7 @@
 			img {
 				@include circle(50px, #ffffff);
 			}
-			.post-count {
+			.project-count {
 				@include circle(20px, $synergia-color);
 				position: absolute;
 				right: -3px;

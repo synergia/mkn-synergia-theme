@@ -4,40 +4,34 @@
 <div class="gl">
         <?php //left sidebar ?>
         <?php get_sidebar( 'left' ); ?>
-<!-- This sets the $curauth variable -->
+<!-- This sets the $current_member variable -->
 
     <?php
-    $curauth = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : get_userdata(intval($author));
+    $current_member = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : get_userdata(intval($author));
     global $wp_query;
-    $curauth = $wp_query->get_queried_object();
+    $current_member = $wp_query->get_queried_object();
 	$project_count = 0;
 
     //dla sprawdzenia konkretnej roli, wrzucamy je do zmiennych
-    $synergia_member = in_array( 'synergia_member', (array) $curauth->roles );
-    $administrator = in_array( 'administrator', (array) $curauth->roles );
-    $ex_synergia_member = in_array( 'ex_synergia_member', (array) $curauth->roles );
+    $synergia_member = in_array( 'synergia_member', (array) $current_member->roles );
+    $administrator = in_array( 'administrator', (array) $current_member->roles );
+    $ex_synergia_member = in_array( 'ex_synergia_member', (array) $current_member->roles );
 ?>
     <div class="gl-md-9 gl-cell">
         <div class="gl usercard">
             <div class="gl-md-3 userpic gl-cell">
-				<?php if($curauth->image) { ?>
-                	<img src="<?php echo $curauth->image; ?>"/>
-					<?php if($curauth->president){ ?>
-								<i class="icon crown icon-crown"></i>
-					<?php } ?>
-				<?php }else { ?>
-					<?php echo get_avatar( $curauth->user_email, '96' ); }?>
+				<?php show_avatar($current_member); ?>
            </div>
             <div class="gl-md-9 gl-cell userinfo">
-                <h2><?php echo $curauth->first_name ." ". $curauth->last_name; ?></h2>
+                <h2><?php echo $current_member->first_name ." ". $current_member->last_name; ?></h2>
                 <?php //ify sprawdzające czy jest prezesem, członkiem lub byłym członkiem
                     if ( $synergia_member || $administrator ) { ?>
 
-					<?php if($curauth->president){ ?><span>Prezes MKNM "Synergia"</span>
+					<?php if($current_member->president){ ?><span>Prezes MKNM "Synergia"</span>
 					<?php }else if($synergia_member){?><span>Członek MKNM "Synergia"</span>
 					<?php }else if($ex_synergia_member){?><span>Były członek MKNM "Synergia"</span>
                     <?php } ?>
-					<?php social_links($curauth); ?>
+					<?php social_links($current_member); ?>
                 <?php } ?>
             </div>
         </div>
@@ -47,7 +41,7 @@
           <input id="tab-2" name="tabset-1" type="radio" hidden />
           <nav class="tabs-nav" role="navigation">
             <ul>
-              <li><label for="tab-1">Projekty (<?php echo $curauth->project_count; ?>)</label></li>
+              <li><label for="tab-1">Projekty (<?php echo $current_member->project_count; ?>)</label></li>
               <li><label for="tab-2">Github</label></li>
             </ul>
           </nav>
@@ -57,13 +51,13 @@
                 $args = array(
                     'post_type' => 'project ',
                     'posts_per_page' => -1,
-					'author_name' => $curauth->user_nicename,
+					'author_name' => $current_member->user_nicename,
                    );
                 $items = new WP_Query( $args );
                 if( $items->have_posts() ) {
                   while( $items->have_posts() ) {
                     $items->the_post();
-				    project_count($curauth->ID, $items->found_posts);
+				    project_count($current_member->ID, $items->found_posts);
                     ?>
                       <div class="post-list-item ">
 						  <div class="thumb">
@@ -85,7 +79,7 @@
                   }
                 }
                 else {
-                    project_count($curauth->ID, 0);
+                    project_count($current_member->ID, 0);
                     echo 'Nic a nic';
                 }
               ?>
