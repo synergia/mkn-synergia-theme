@@ -320,26 +320,26 @@ function get_management_board() {
     return $management_board_members;
 }
 
-function social_links($curauth){
-    if($curauth->github_profile){
-       echo '<a github href="'.$curauth->github_profile.'"><i class="icon icon-github"></i></a>';
+function social_links($current_member){
+    if($current_member->github_profile){
+       echo '<a github href="'.$current_member->github_profile.'"><i class="icon icon-github"></i></a>';
     }
-    if($curauth->twitter_profile){
-	   echo '<a twitter href="'.$curauth->twitter_profile.'"><i class="icon icon-twitter"></i></a>';
+    if($current_member->twitter_profile){
+	   echo '<a twitter href="'.$current_member->twitter_profile.'"><i class="icon icon-twitter"></i></a>';
     }
-    if($curauth->facebook_profile){
-	   echo '<a face href="'.$curauth->facebook_profile.'"><i class="icon icon-facebook"></i></a>';
+    if($current_member->facebook_profile){
+	   echo '<a face href="'.$current_member->facebook_profile.'"><i class="icon icon-facebook"></i></a>';
     }
 }
 
-function show_avatar($member_info){
-    if ($member_info->image){
-        echo '<img src="'.$member_info->image.'" />';
-        if($member_info->president && is_author()){
+function show_avatar($current_member){
+    if ($current_member->image){
+        echo '<img src="'.$current_member->image.'" />';
+        if($current_member->president && is_author()){
             echo '<i class="icon crown icon-crown"></i>';
         }
     } else {
-        echo get_avatar( $member_info->user_email, '96' );
+        echo get_avatar( $current_member->user_email, '96' );
     }
 }
 ?>

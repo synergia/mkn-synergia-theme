@@ -47,11 +47,11 @@ if (!empty($members)) { ?>
 foreach (get_management_board() as $management_board_member)
     {
         // get all the user's data
-        $management_board_member_info = get_userdata($management_board_member->ID);
-        if($management_board_member_info->president == true) {
-            echo '<li>Prezes'.$management_board_member_info->user_nicename.'</li>';
+        $current_member = get_userdata($management_board_member->ID);
+        if($current_member->president == true) {
+            echo '<li>Prezes'.$current_member->user_nicename.'</li>';
         }else{
-        echo '<li>'.$management_board_member_info->user_nicename.'</li>';
+        echo '<li>'.$current_member->user_nicename.'</li>';
         }
     }
 
