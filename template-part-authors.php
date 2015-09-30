@@ -11,21 +11,13 @@ foreach( get_coauthors() as $curauth ):
 				<?php } else {?>
 				<?php echo get_avatar( $curauth->user_email, '96' ); }?>
 			</a>
-			<div class="post-count"><?php echo $curauth->post_count; ?></div>
+			<div class="post-count"><?php echo $curauth->project_count; ?></div>
 		</div>
 		<div>
 			<div class="gl-vertical gl">
 				<h3 class="gl-cell"><a href="<?php echo get_author_posts_url( $curauth->ID, $curauth->user_nicename ); ?>"  rel="author"><?php echo $curauth->display_name; ?></a></h3>
 				<div class="gl-cell">
-					<?php if($curauth->github_profile){ ?>
-					<a github href="<?php echo $curauth->github_profile; ?>"><i class="icon icon-github"></i></a>
-					<?php } ?>
-					<?php if($curauth->twitter_profile){ ?>
-					<a twitter href="<?php echo $curauth->twitter_profile; ?>"><i class="icon icon-twitter"></i></a>
-					<?php } ?>
-					<?php if($curauth->facebook_profile){ ?>
-					<a face href="<?php echo $curauth->facebook_profile; ?>"><i class="icon icon-facebook"></i></a>
-					<?php } ?>
+					<?php social_links($curauth); ?>
 				</div>
 			</div>
 		</div>

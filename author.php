@@ -10,7 +10,7 @@
     $curauth = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : get_userdata(intval($author));
     global $wp_query;
     $curauth = $wp_query->get_queried_object();
-	$post_count = 0;
+	$project_count = 0;
 
     //dla sprawdzenia konkretnej roli, wrzucamy je do zmiennych
     $synergia_member = in_array( 'synergia_member', (array) $curauth->roles );
@@ -22,7 +22,7 @@
             <div class="gl-md-3 userpic gl-cell">
 				<?php if($curauth->image) { ?>
                 	<img src="<?php echo $curauth->image; ?>"/>
-					<?php if($curauth->prezes){ ?>
+					<?php if($curauth->president){ ?>
 								<i class="icon crown icon-crown"></i>
 					<?php } ?>
 				<?php }else { ?>
@@ -33,20 +33,11 @@
                 <?php //ify sprawdzające czy jest prezesem, członkiem lub byłym członkiem
                     if ( $synergia_member || $administrator ) { ?>
 
-					<?php if($curauth->prezes){ ?><span>Prezes MKNM "Synergia"</span>
+					<?php if($curauth->president){ ?><span>Prezes MKNM "Synergia"</span>
 					<?php }else if($synergia_member){?><span>Członek MKNM "Synergia"</span>
 					<?php }else if($ex_synergia_member){?><span>Były członek MKNM "Synergia"</span>
                     <?php } ?>
-
-					<?php if($curauth->github_profile){ ?>
-					<a github href="<?php echo $curauth->github_profile; ?>"><i class="icon icon-github"></i></a>
-					<?php } ?>
-					<?php if($curauth->twitter_profile){ ?>
-					<a twitter href="<?php echo $curauth->twitter_profile; ?>"><i class="icon icon-twitter"></i></a>
-					<?php } ?>
-					<?php if($curauth->facebook_profile){ ?>
-					<a face href="<?php echo $curauth->facebook_profile; ?>"><i class="icon icon-facebook"></i></a>
-					<?php } ?>
+					<?php social_links($curauth); ?>
                 <?php } ?>
             </div>
         </div>
@@ -56,7 +47,7 @@
           <input id="tab-2" name="tabset-1" type="radio" hidden />
           <nav class="tabs-nav" role="navigation">
             <ul>
-              <li><label for="tab-1">Projekty (<?php echo $curauth->post_count; ?>)</label></li>
+              <li><label for="tab-1">Projekty (<?php echo $curauth->project_count; ?>)</label></li>
               <li><label for="tab-2">Github</label></li>
             </ul>
           </nav>
@@ -72,7 +63,7 @@
                 if( $items->have_posts() ) {
                   while( $items->have_posts() ) {
                     $items->the_post();
-				    post_count($curauth->ID, $items->found_posts);
+				    project_count($curauth->ID, $items->found_posts);
                     ?>
                       <div class="post-list-item ">
 						  <div class="thumb">
@@ -94,7 +85,7 @@
                   }
                 }
                 else {
-                    post_count($curauth->ID, 0);
+                    project_count($curauth->ID, 0);
                     echo 'Nic a nic';
                 }
               ?>

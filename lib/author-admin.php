@@ -261,14 +261,14 @@ function add_synergia_member_and_delete_other_roles() {
 
 
 // Zapisuje ilość projektów do meta użytkownika
-function post_count($user_id, $count) {
-        update_user_meta($user_id, 'post_count', $count );
+function project_count($user_id, $count) {
+        update_user_meta($user_id, 'project_count', $count );
     }
-    add_action('publish_post', 'post_count');
-    add_action('save_post', 'post_count');
-    add_action('post_updated', 'post_count');
-    add_action('delete_post', 'post_count');
-    add_action('after_switch_theme', 'post_count');
+    add_action('publish_post', 'project_count');
+    add_action('save_post', 'project_count');
+    add_action('post_updated', 'project_count');
+    add_action('delete_post', 'project_count');
+    add_action('after_switch_theme', 'project_count');
 
 
 function get_members_with_projects() {
@@ -318,5 +318,17 @@ function get_management_board() {
     $management_board_query = new WP_User_Query($management_board_args);
     $management_board_members = $management_board_query->get_results();
     return $management_board_members;
+}
+
+function social_links($curauth){
+    if($curauth->github_profile){
+       echo '<a github href="'.$curauth->github_profile.'"><i class="icon icon-github"></i></a>';
+    }
+    if($curauth->twitter_profile){
+	   echo '<a twitter href="'.$curauth->twitter_profile.'"><i class="icon icon-twitter"></i></a>';
+    }
+    if($curauth->facebook_profile){
+	   echo '<a face href="'.$curauth->facebook_profile.'"><i class="icon icon-facebook"></i></a>';
+    }
 }
 ?>
