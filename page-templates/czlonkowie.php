@@ -20,7 +20,7 @@ $members = get_members_with_projects();
 // Get the results
 // Check for results
 if (!empty($members)) { ?>
-            <div class="tabs">
+        <div class="tabs">
           <input id="tab-1" name="tabset-1" type="radio" hidden checked/>
           <input id="tab-2" name="tabset-1" type="radio" hidden />
           <nav class="tabs-nav" role="navigation">
@@ -30,15 +30,20 @@ if (!empty($members)) { ?>
             </ul>
           </nav>
           <div class="tab">
-              <ul>
+            <ul class="member-list">
 <?php
     // loop trough each member
     foreach ($members as $member)
     {
         // get all the user's data
-        $member_info = get_userdata($member->ID);
-        echo '<li>'.$member_info->user_nicename.'</li>';
-    } ?>
+        $member_info = get_userdata($member->ID); ?>
+        <li>
+                <?php if ($member_info->image){ ?>
+				<img src="<?php echo $member_info->image; ?>" />
+				<?php } else {?>
+				<?php echo get_avatar( $member_info->user_email, '96' ); }?>
+        </li>
+<?php } ?>
     </ul></div>
                 <div class="tab">
                 <?php

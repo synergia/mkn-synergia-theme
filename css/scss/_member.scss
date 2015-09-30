@@ -1,0 +1,7 @@
+ul.member-list {
+    li {
+        img {
+            @include circle(50px, #ffffff);
+        }
+    }
+}
