@@ -26,6 +26,9 @@ ul.member-list {
     .count {
         text-align: right;
     }
+    .memberboard-info {
+        text-align: right;
+    }
     h3 {
         //trzeba by skorzystać ze Stylusa, bo Sass "Can't extend .co-author h3: can't extend nested selectors"
         float: left;

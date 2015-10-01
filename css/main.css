@@ -1748,6 +1748,8 @@ ul.member-list {
       border-radius: 25px; }
   ul.member-list .count {
     text-align: right; }
+  ul.member-list .memberboard-info {
+    text-align: right; }
   ul.member-list h3 {
     float: left;
     margin: 0;

@@ -311,6 +311,9 @@ function get_members_with_projects() {
 
     return array_merge( $administrators, $synergia_members );
 }
+
+// w sumie już niepotrzebne, get_members_with_projects() robi to samo,
+// pod warunkiem, że admin ma projekt ukończony :)
 function get_management_board() {
         $management_board_args = array (
 	'role'           => 'administrator',
