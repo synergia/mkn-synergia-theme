@@ -23,7 +23,7 @@
 				<?php show_avatar($current_member); ?>
            </div>
             <div class="gl-md-9 gl-cell userinfo">
-                <h2><?php echo $current_member->first_name ." ". $current_member->last_name; ?></h2>
+                <h2><?php echo $current_member->display_name; ?></h2>
                 <?php //ify sprawdzające czy jest prezesem, członkiem lub byłym członkiem
                     if ( $synergia_member || $administrator ) { ?>
 

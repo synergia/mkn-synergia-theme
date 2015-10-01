@@ -1722,13 +1722,40 @@ label {
           color: #333333;
           text-decoration: none; }
 
-ul.member-list li img {
-  width: 50px;
-  height: 50px;
-  background: #ffffff;
-  -webkit-border-radius: 25px;
-  -moz-border-radius: 25px;
-  border-radius: 25px; }
+ul.member-list {
+  list-style: none;
+  padding: 0; }
+  ul.member-list li {
+    padding: 8px 0 8px 0;
+    display: block;
+    position: relative; }
+    ul.member-list li:after {
+      content: "";
+      background: rgba(0, 0, 0, 0.1);
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      height: 1px;
+      width: 92%; }
+    ul.member-list li:last-child:after {
+      background: transparent; }
+    ul.member-list li img {
+      width: 50px;
+      height: 50px;
+      background: #ffffff;
+      -webkit-border-radius: 25px;
+      -moz-border-radius: 25px;
+      border-radius: 25px; }
+  ul.member-list .count {
+    text-align: right; }
+  ul.member-list h3 {
+    float: left;
+    margin: 0;
+    font-weight: 400;
+    font-size: 1.5em; }
+    ul.member-list h3 a {
+      color: #333333;
+      text-decoration: none; }
 
 .lines-button {
   display: inline-block;

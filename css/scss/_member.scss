@@ -1,7 +1,40 @@
 ul.member-list {
+    list-style: none;
+    padding: 0;
     li {
+        padding: 8px 0 8px 0;
+        display: block;
+        position: relative;
+        &:after {
+            content: "";
+            background: rgba(0, 0, 0, 0.1);
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            height: 1px;
+            width: 92%;
+        }
+        &:last-child {
+            &:after {
+                background: rgba(0, 0, 0, 0);
+            }
+        }
         img {
             @include circle(50px, #ffffff);
+        }
+    }
+    .count {
+        text-align: right;
+    }
+    h3 {
+        //trzeba by skorzystać ze Stylusa, bo Sass "Can't extend .co-author h3: can't extend nested selectors"
+        float: left;
+        margin: 0;
+        font-weight: 400;
+        font-size: 1.5em;
+        a {
+            color: $text-color;
+            text-decoration: none;
         }
     }
 }
