@@ -1,87 +1,87 @@
 	.project-content {
-		@include box-shadow;
-		@include border-radius(2px);
-		margin: 0.625em;
-		overflow: hidden;
-		// http://stackoverflow.com/a/26921844
-		.center-cropped {
-			width: 100%;
-			height: auto;
-			overflow: hidden;
-			position: relative;
-			@include background-gradient(transparent, rgba(0, 0, 0, 0.5));
-			@include mq($from: desktop) {
-				height: 25em;
-			}
-			.wp-post-image {
-				height: auto;
-				min-width: 100%;
-				left: 50%;
-				position: relative;
-				transform: translateX(-50%);
-				width: 100%;
-				top: -25%;
-				z-index: -1;
-			}
-			.project-title {
-				position: absolute;
-				bottom: 0;
-				left: 0;
-				padding: 1.250em 1.250em 0.625em;
-				margin: 0;
-				font-weight: 400;
-				font-size: 2.5em;
-				color: #ffffff;
-			}
-		}
-		.userpic-project {
-			float: left;
-			position: relative;
-			margin: 0.313em;
-			margin-right: 10px;
-			img {
-				@include circle(50px, #ffffff);
-			}
-			.project-count {
-				@include circle(20px, $synergia-color);
-				position: absolute;
-				right: -3px;
-				top: -3px;
-				font-weight: 600;
-				font-size: 10px;
-				text-align: center;
-				line-height: 20px;
-				color: #ffffff;
-//				-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
-//				box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
-			}
-		}
-		.meta-stuff {
-			display: block;
-			width: 100%;
-			padding: 10px 0 10px 0;
-			overflow: hidden;
-			.co-author {
-				float: left;
-				padding: 5px;
-				@include mq($until:tablet) {
-					width:50%;
-				}
-				@include mq ($until:mobile) {
-					width:100%;
-				}
-				h3 {
-					float: left;
-					margin: 0;
-					font-weight: 400;
-					font-size: 1.5em;
-					width:80%;
-					width: calc(100% - 65px);
-					a {
-						color: $text-color;
-						text-decoration: none;
-					}
-				}
-			}
-		}
+	    @include box-shadow;
+	    @include border-radius(2px);
+	    margin: 0.625em;
+	    overflow: hidden;
+	    // http://stackoverflow.com/a/26921844
+	    .center-cropped {
+	        width: 100%;
+	        height: auto;
+	        overflow: hidden;
+	        position: relative;
+	        @include background-gradient(transparent, rgba(0, 0, 0, 0.5));
+	        @include mq($from: desktop) {
+	            height: 25em;
+	        }
+	        .wp-post-image {
+	            height: auto;
+	            min-width: 100%;
+	            left: 50%;
+	            position: relative;
+	            transform: translateX(-50%);
+	            width: 100%;
+	            top: -25%;
+	            z-index: -1;
+	        }
+	        .project-title {
+	            position: absolute;
+	            bottom: 0;
+	            left: 0;
+	            padding: 1.250em 1.250em 0.625em;
+	            margin: 0;
+	            font-weight: 400;
+	            font-size: 2.5em;
+	            color: #ffffff;
+	        }
+	    }
+	    .userpic-project {
+	        float: left;
+	        position: relative;
+	        margin: 0.313em;
+	        margin-right: 10px;
+	        img {
+	            @include circle(50px, #ffffff);
+	        }
+	        .project-count {
+	            @include circle(20px, $synergia-color);
+	            position: absolute;
+	            right: -3px;
+	            top: -3px;
+	            font-weight: 600;
+	            font-size: 10px;
+	            text-align: center;
+	            line-height: 20px;
+	            color: #ffffff;
+	            //				-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
+	            //				box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
+	        }
+	    }
+	    .meta-stuff {
+	        display: block;
+	        width: 100%;
+	        padding: 10px 0 10px 0;
+	        overflow: hidden;
+	        .co-author {
+	            float: left;
+	            padding: 5px;
+	            @include mq($until: tablet) {
+	                width: 50%;
+	            }
+	            @include mq ($until:mobile) {
+	                width: 100%;
+	            }
+	            h3 {
+	                float: left;
+	                margin: 0;
+	                font-weight: 400;
+	                font-size: 1.5em;
+	                width: 80%;
+	                width: calc(100% - 65px);
+	                a {
+	                    color: $text-color;
+	                    text-decoration: none;
+	                }
+	            }
+	        }
+	    }
 	}

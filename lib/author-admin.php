@@ -321,6 +321,13 @@ function get_management_board() {
 }
 
 function social_links($current_member){
+    if($current_member->user_email){
+       echo '<a email href="mailto:'.$current_member->user_email.'"><i class="icon icon-mail"></i>';
+        if(is_author()) {
+            echo 'napisz';
+        }
+        echo '</a>';
+    }
     if($current_member->github_profile){
        echo '<a github href="'.$current_member->github_profile.'"><i class="icon icon-github"></i></a>';
     }
