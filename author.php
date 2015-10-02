@@ -19,10 +19,10 @@
 ?>
     <div class="gl-md-9 gl-cell">
         <div class="gl usercard">
-            <div class="gl-md-3 userpic gl-cell">
+            <div class="gl-md-3 gl-lg-2 userpic gl-cell">
 				<?php show_avatar($current_member); ?>
            </div>
-            <div class="gl-md-9 gl-cell userinfo">
+            <div class="gl-md-9 gl-lg-10 gl-cell userinfo">
                 <h2><?php echo $current_member->display_name; ?></h2>
                 <?php //ify sprawdzające czy jest prezesem, członkiem lub byłym członkiem
                     if ( $synergia_member || $administrator ) { ?>

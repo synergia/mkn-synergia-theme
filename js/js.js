@@ -317,7 +317,7 @@ jQuery(function ($) {
 });
 
 jQuery(".excerpt").text(function (index, currentText) {
-	return currentText.substr(0, 170) + '...';
+	return currentText.substr(0, 150) + '...';
 });
 
 //Skraca imiona, by nie wychodziły za bloki

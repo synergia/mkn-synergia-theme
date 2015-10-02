@@ -335,10 +335,6 @@ nav {
     font-weight: bold;
     margin-top: 10px;
   }
-
-  @include mq($until:tablet) {
-    display: none;
-  }
 }
 
 .wspolpraca-left {

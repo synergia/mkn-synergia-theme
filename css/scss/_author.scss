@@ -1,6 +1,11 @@
 //USER
 .userpic {
-	text-align: center;
+    @include mq($from: tablet) {
+	padding: 0 15px;
+    }
+    margin: 0 auto;
+    width:130px;
+    height: 130px;
 	img {
 		@include circle(130px, #ffffff);
 	}
@@ -11,6 +16,9 @@
 	@include mq($from: tablet) {
 		text-align: left;
 	}
+    	@include mq($from: desktop) {
+            padding-left: 15px;
+        }
 	h2 {
 		font-size: 3em;
 		font-weight: 300;
@@ -70,16 +78,19 @@
 	}
 	.post-list-item-content {
 		float: left;
-		width: calc(100% - 151px);
+		width: calc(100% - 165px);
 		position: relative;
+        padding-left: 15px;
 		h2 {
 			float: left;
 			font-weight: 400;
-			margin: 15px;
 			width: 100%;
 		}
 		.excerpt {
-			padding: 15px;
+			padding: 15px 15px 15px 0;
+            @include mq($until:mobile){
+                display: none;
+            }
 		}
 	}
 }
@@ -87,8 +98,15 @@
 .crown {
 	position: absolute;
 	font-size: 3em;
-	right: 17px;
+	right: 31px;
 	top: -25px;
 	color: gold;
 	text-shadow: 0 2px 3px rgba(0,0,0,0.5);
+   @include mq($from:desktop){
+        right: 12px;
+    }
+    @include mq($until:tablet){
+        right: -11px;
+    }
+
 }
