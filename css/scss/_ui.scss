@@ -2,42 +2,42 @@
 //BUTTON
 // http://codepen.io/jreece/pen/myeJBN
 [am-button] {
-	display: block;
-	position: relative;
-	width: 100%;
-	margin: 0 0 2rem;
-	padding: 0.8rem;
-	border: 0;
-	outline: 0;
-	@include border-radius(0.125em);
-	font-weight: 500;
-	letter-spacing: 0.05em;
-	text-transform: uppercase;
-	@include transition;
-	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-	color: $text-color;
-	// Light theme (default)
-	&:hover {
-		background: #cfcfcf;
-	}
-	// Raised
-	&[am-button~="raised"] {
-		box-shadow: 0 0 0.2em $shadowlight, 0 0.2em 0.2em $shadowlight;
-		&:active {
-			box-shadow: 0 0 0.6em $shadowlight, 0 0.6em 0.6em $shadowlight;
-		}
-	} // raised
+    display: block;
+    position: relative;
+    width: 100%;
+    margin: 0 0 2rem;
+    padding: 0.8rem;
+    border: 0;
+    outline: 0;
+    @include border-radius(0.125em);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    @include transition;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    color: $text-color;
+    // Light theme (default)
+    &:hover {
+        background: #cfcfcf;
+    }
+    // Raised
+    &[am-button~="raised"] {
+        box-shadow: 0 0 0.2em $shadowlight, 0 0.2em 0.2em $shadowlight;
+        &:active {
+            box-shadow: 0 0 0.6em $shadowlight, 0 0.6em 0.6em $shadowlight;
+        }
+    } // raised
 } // button
 svg.ink {
-	position: absolute;
-	z-index: 1;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	circle {
-		fill: rgba(0, 0, 0, 0.2);
-	}
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    circle {
+        fill: rgba(0, 0, 0, 0.2);
+    }
 }
 
 // Disabled
@@ -45,191 +45,199 @@ svg.ink {
 [am-button~="disabled"],
 [am-button~="disabled"]:hover,
 [am-button~="disabled"]:focus {
-	// Light theme (default)
-	box-shadow: none;
-	cursor: default;
-	background: rgba(black, 0.12);
-	color: rgba(black, 0.26);
+    // Light theme (default)
+    box-shadow: none;
+    cursor: default;
+    background: rgba(black, 0.12);
+    color: rgba(black, 0.26);
 } // disabled
 a[am-button] {
-	margin: 0.625em;
-	width: auto;
-	display: inline-block;
-	&:hover,
-	&:active {
-		text-decoration: none;
-		color: $text-color;
-	}
+    margin: 0.625em;
+    width: auto;
+    display: inline-block;
+    &:hover,
+    &:active {
+        text-decoration: none;
+        color: $text-color;
+    }
 }
 
 //CARD
 .card {
-	display: inline-block;
-	vertical-align: top;
-	position: relative;
-	overflow: hidden;
-	margin: 0.625em;
-	@include box-shadow;
-	@include border-radius(0.125em);
-	.excerpt {
-		padding: 1.250em;
-		font-weight: 300;
-		border-radius: 0 0 0.125em 0.125em;
-		height: 5.000em;
-		@include mq($until: desktop) {
-			height: 6em;
-		}
-	}
-	p {
-		margin: 0;
-	}
-	.action {
-		border-top: 1px solid rgba(160, 160, 160, 0.2);
-		a[am-button] {
-			margin-right: 1.250em;
-			text-transform: uppercase;
-			text-decoration: none;
-			font-weight: 600;
-			letter-spacing: inherit;
-			color: $cardbutton-color;
-			&:hover {
-				color: $text-color;
-			}
-		}
-	}
-	.image {
-		position: relative;
-		@include background-gradient(transparent, rgba(0, 0, 0, 0.5));
-		height: 13.750em;
-		@include mq($from: wide) {
-			height: 18.750em;
-		}
-		overflow: hidden;
-		width:inherit;
-		@include mq($from:desktop) {
-			height: 15.875em;
-		}
-		img {
-			border-radius: 0.125em 0.125em 0 0;
-			position: relative;
-			left: 0;
-			right: 0;
-			top: 0;
-			bottom: 0;
-			width: 100%;
-			z-index: -1;
-			height: auto;
-		}
-		.title {
-			position: absolute;
-			bottom: 0;
-			left: 0;
-			padding: 1.250em 1.250em 0.625em;
-			color: #ffffff;
-			margin: 0;
-			font-weight: 400;
-		}
-	}
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    overflow: hidden;
+    margin: 0.625em;
+    @include box-shadow;
+    @include border-radius(0.125em);
+    .excerpt {
+        padding: 1.250em;
+        font-weight: 300;
+        border-radius: 0 0 0.125em 0.125em;
+        height: 5.000em;
+        @include mq($until: desktop) {
+            height: 6em;
+        }
+    }
+    p {
+        margin: 0;
+    }
+    .action {
+        border-top: 1px solid rgba(160, 160, 160, 0.2);
+        a[am-button] {
+            margin-right: 1.250em;
+            text-transform: uppercase;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: inherit;
+            color: $cardbutton-color;
+            &:hover {
+                color: $text-color;
+            }
+        }
+    }
+    .image {
+        position: relative;
+        @include background-gradient(transparent, rgba(0, 0, 0, 0.5));
+        height: 13.750em;
+        @include mq($from: wide) {
+            height: 18.750em;
+        }
+        overflow: hidden;
+        width:inherit;
+        @include mq($from:desktop) {
+            height: 15.875em;
+        }
+        img {
+            border-radius: 0.125em 0.125em 0 0;
+            position: relative;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            z-index: -1;
+            height: auto;
+        }
+        .title {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: 1.250em 1.250em 0.625em;
+            color: #ffffff;
+            margin: 0;
+            font-weight: 400;
+        }
+    }
 }
-
 
 //TABS
 // http://codepen.io/Merri/pen/FAtDq
 label {
-	cursor: pointer;
+    cursor: pointer;
 }
 
 .tabs {
-	& > .tab {
-		display: none;
-	}
-	@for $i from 1 through 9 {
-		// active tab
-		& > input:nth-of-type(#{$i}):checked ~ .tab:nth-of-type(#{$i}) {
-			display: block;
-		}
-		// active tab button
-		& > input:nth-of-type(#{$i}):checked ~ .tabs-nav > ul > li:nth-of-type(#{$i}) > label {
-			// to make things easier further below we limit styling here
-			border-bottom: 4px solid $synergia-color;
-			color: $text-color;
-		}
-	}
-	.tabs-nav {
-		position: relative;
-		// checkbox controls size of the list
-		& > input {
-			& ~ ul {
-				height: 0;
-				overflow: hidden;
-			}
-			&:checked ~ ul {
-				height: auto;
-				overflow: auto;
-			}
-		}
-		// label to control the checkbox
-		& > label {
-			-moz-box-sizing: border-box;
-			box-sizing: border-box;
-			height: 2em;
-			left: 0;
-			line-height: 2em;
-			padding: 0 .5em;
-			position: absolute;
-			right: 0;
-			text-align: right;
-			top: 0;
-			z-index: 1;
-		}
-		// then just some nice mobile styles
-		& > ul {
-			display: block;
-			list-style: none;
-			margin: 0;
-			padding: 2em 0 0 0;
-			position: relative;
-			text-align: center;
-			font-weight: 600;
-			text-transform: uppercase;
-			& > li {
-				display: inline;
-				& > label {
-					display: block;
-					height: 2em;
-					line-height: 2em;
-					color: $cardbutton-color;
-				}
-			}
-		}
-	}
-	.tabs-nav {
-		// undo the stuff done by the checkbox
-		& > input {
-			& ~ ul,
-			&:checked ~ ul {
-				background: transparent;
-				height: auto;
-				overflow: auto;
-			}
-		}
-		// we don't need to control the checkbox
-		& > label {
-			display: none;
-		}
-		// minimal changes to tab styles
-		& > ul {
-			padding: 0;
-			& > li {
-				& > label {
-					display: inline-block;
-					padding: 0.3em 1em;
-				}
-			}
-		}
-	}
+    & > .tab {
+        display: none;
+    }
+    @for $i from 1 through 9 {
+        // active tab
+        & > input:nth-of-type(#{$i}):checked ~ .tab:nth-of-type(#{$i}) {
+            display: block;
+        }
+        // active tab button
+        & > input:nth-of-type(#{$i}):checked ~ .tabs-nav > ul > li:nth-of-type(#{$i}) > label {
+            // to make things easier further below we limit styling here
+            color: #ffffff;
+            background-color: $synergia-color;
+        }
+    }
+    .tabs-nav {
+        position: relative;
+        display: table;
+        margin: 0 auto;
+        // checkbox controls size of the list
+        & > input {
+            & ~ ul {
+                height: 0;
+                overflow: hidden;
+            }
+            &:checked ~ ul {
+                height: auto;
+                overflow: auto;
+            }
+        }
+        // label to control the checkbox
+        & > label {
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            height: 2em;
+            left: 0;
+            line-height: 2em;
+            padding: 0 .5em;
+            position: absolute;
+            right: 0;
+            text-align: right;
+            top: 0;
+            z-index: 1;
+            border: 2px solid $synergia-color;
+        }
+        // then just some nice mobile styles
+        & > ul {
+            display: block;
+            overflow: hidden;
+            list-style: none;
+            margin: 0;
+            padding: 2em 0 0 0;
+            position: relative;
+            text-align: center;
+            font-weight: 600;
+            text-transform: uppercase;
+              box-shadow: inset 0 0 0 3px $synergia-color;
+            @include border-radius(5px);
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            & > li {
+                display: inline;
+                float: left;
+                & > label {
+                    display: block;
+                    color: $cardbutton-color;
+                }
+            }
+        }
+    }
+    .tabs-nav {
+        // undo the stuff done by the checkbox
+        & > input {
+            & ~ ul,
+            &:checked ~ ul {
+                background: transparent;
+                height: auto;
+                overflow: auto;
+            }
+        }
+        // we don't need to control the checkbox
+        & > label {
+            display: none;
+        }
+        // minimal changes to tab styles
+        & > ul {
+            padding: 0;
+            & > li {
+                & > label {
+                    display: inline-block;
+                    padding: 0.5em 1em;
+                }
+            }
+        }
+    }
 }
 
 .github {
-	margin: 0.625em;
+    margin: 0.625em;
 }

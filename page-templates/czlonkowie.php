@@ -23,10 +23,12 @@ if (!empty($members)) { ?>
         <div class="tabs">
           <input id="tab-1" name="tabset-1" type="radio" hidden checked/>
           <input id="tab-2" name="tabset-1" type="radio" hidden />
+          <input id="tab-3" name="tabset-1" type="radio" hidden />
           <nav class="tabs-nav" role="navigation">
             <ul>
-              <li><label for="tab-1">Członkowie</label></li>
+              <li><label for="tab-1">Aktualni</label></li>
               <li><label for="tab-2">Zarząd</label></li>
+              <li><label for="tab-3">Byli</label></li>
             </ul>
           </nav>
           <div class="tab">
@@ -80,6 +82,9 @@ foreach ($members as $management_board_member)
 
      ?>
                 </div>
+                    <div class="tab">
+
+                    </div>
 <?php
 } else {
     echo 'No authors found';
