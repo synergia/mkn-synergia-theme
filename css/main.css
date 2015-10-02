@@ -1223,6 +1223,9 @@ nav .container {
   position: relative;
   height: 100%;
   padding: 0; }
+  @media screen and (max-width: 47.99em) {
+    .sponsorowane-left, .wspolpraca-left, .widget {
+      display: none; } }
   .sponsorowane-left h3, .wspolpraca-left h3, .widget h3 {
     text-transform: uppercase;
     font-weight: bold;
