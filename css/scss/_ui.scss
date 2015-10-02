@@ -183,14 +183,13 @@ label {
             text-align: right;
             top: 0;
             z-index: 1;
-            border: 2px solid $synergia-color;
         }
         // then just some nice mobile styles
         & > ul {
             display: block;
             overflow: hidden;
             list-style: none;
-            margin: 0;
+            margin: 1.250em 0 1.250em 0;
             padding: 2em 0 0 0;
             position: relative;
             text-align: center;
@@ -206,7 +205,11 @@ label {
                 float: left;
                 & > label {
                     display: block;
-                    color: $cardbutton-color;
+                    color: $synergia-color;
+                    &:hover {
+                        color: $synergia-light-color;
+                        @include transition;
+                    }
                 }
             }
         }

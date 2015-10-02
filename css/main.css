@@ -1608,13 +1608,12 @@ label {
     right: 0;
     text-align: right;
     top: 0;
-    z-index: 1;
-    border: 2px solid #6c4892; }
+    z-index: 1; }
   .tabs .tabs-nav > ul {
     display: block;
     overflow: hidden;
     list-style: none;
-    margin: 0;
+    margin: 1.250em 0 1.250em 0;
     padding: 2em 0 0 0;
     position: relative;
     text-align: center;
@@ -1636,7 +1635,10 @@ label {
       float: left; }
       .tabs .tabs-nav > ul > li > label {
         display: block;
-        color: #565656; }
+        color: #6c4892; }
+        .tabs .tabs-nav > ul > li > label:hover {
+          color: #9f80c0;
+          transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
 .tabs .tabs-nav > input ~ ul, .tabs .tabs-nav > input:checked ~ ul {
   background: transparent;
   height: auto;
@@ -1751,7 +1753,8 @@ label {
 
 ul.member-list {
   list-style: none;
-  padding: 0; }
+  padding: 0;
+  margin: 0.625em; }
   ul.member-list li {
     padding: 8px 0 8px 0;
     display: block;
@@ -1763,9 +1766,12 @@ ul.member-list {
       bottom: 0;
       right: 0;
       height: 1px;
-      width: 92%; }
+      width: calc(100% - 65px); }
     ul.member-list li:last-child:after {
       background: transparent; }
+    @media screen and (max-width: 47.99em) {
+      ul.member-list li .avatar-image {
+        float: left; } }
     ul.member-list li img {
       width: 50px;
       height: 50px;
@@ -1773,10 +1779,31 @@ ul.member-list {
       -webkit-border-radius: 25px;
       -moz-border-radius: 25px;
       border-radius: 25px; }
-  ul.member-list .count {
+  ul.member-list .name {
+    padding-left: 0.625em; }
+    @media screen and (max-width: 47.99em) {
+      ul.member-list .name {
+        overflow: hidden;
+        padding-left: 0;
+        margin-left: 3.750em; } }
+  @media screen and (max-width: 47.99em) {
+    ul.member-list .links {
+      margin-left: 3.750em; } }
+  ul.member-list .count, ul.member-list .memberboard-info {
     text-align: right; }
+    @media screen and (max-width: 47.99em) {
+      ul.member-list .count, ul.member-list .memberboard-info {
+        position: absolute;
+        top: 25%;
+        right: 2.750em; } }
   ul.member-list .memberboard-info {
-    text-align: right; }
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; }
+    @media screen and (max-width: 47.99em) {
+      ul.member-list .memberboard-info {
+        right: 1em;
+        width: 30%; } }
   ul.member-list h3 {
     float: left;
     margin: 0;
