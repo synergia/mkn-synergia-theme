@@ -16,6 +16,9 @@ $shadowlight: rgba(black, 0.2);
 $shadowdark: rgba(black, 0.6);
 $bezier: cubic-bezier(.4,0,.2,1);
 
+//BORDER
+$border-light: 1px solid rgba(0, 0, 0, 0.1);
+
 //LOGO
 $image-path: '../img' !default;
 $fallback-extension: 'png' !default;

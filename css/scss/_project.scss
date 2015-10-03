@@ -1,4 +1,4 @@
-	.project-content {
+	.project-container {
 	    @include box-shadow;
 	    @include border-radius(2px);
 	    margin: 0.625em;
@@ -59,8 +59,9 @@
 	    .meta-stuff {
 	        display: block;
 	        width: 100%;
-	        padding: 10px 0 10px 0;
+	        padding: 10px;
 	        overflow: hidden;
+            border-bottom: $border-light;
 	        .co-author {
 	            float: left;
 	            padding: 5px;
@@ -84,4 +85,9 @@
 	            }
 	        }
 	    }
+        .project-content {
+            padding: 0 30px 15px 30px;
+            overflow: hidden;
+            font-size: 1.1em;
+        }
 	}

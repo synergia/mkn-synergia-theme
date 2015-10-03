@@ -1505,7 +1505,7 @@ a[am-button] {
   .card p {
     margin: 0; }
   .card .action {
-    border-top: 1px solid rgba(160, 160, 160, 0.2); }
+    border-top: 1px solid rgba(0, 0, 0, 0.1); }
     .card .action a[am-button] {
       margin-right: 1.250em;
       text-transform: uppercase;
@@ -1671,7 +1671,7 @@ label {
 .github {
   margin: 0.625em; }
 
-.project-content {
+.project-container {
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   -webkit-border-radius: 2px;
   border-radius: 2px;
@@ -1682,7 +1682,7 @@ label {
   -o-border-radius: 2px;
   margin: 0.625em;
   overflow: hidden; }
-  .project-content .center-cropped {
+  .project-container .center-cropped {
     width: 100%;
     height: auto;
     overflow: hidden;
@@ -1696,9 +1696,9 @@ label {
     background-image: linear-gradient(top, transparent, rgba(0, 0, 0, 0.5));
     filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='transparent', endColorStr='rgba(0, 0, 0, 0.5)'); }
     @media screen and (min-width: 62em) {
-      .project-content .center-cropped {
+      .project-container .center-cropped {
         height: 25em; } }
-    .project-content .center-cropped .wp-post-image {
+    .project-container .center-cropped .wp-post-image {
       height: auto;
       min-width: 100%;
       left: 50%;
@@ -1707,7 +1707,7 @@ label {
       width: 100%;
       top: -25%;
       z-index: -1; }
-    .project-content .center-cropped .project-title {
+    .project-container .center-cropped .project-title {
       position: absolute;
       bottom: 0;
       left: 0;
@@ -1716,19 +1716,19 @@ label {
       font-weight: 400;
       font-size: 2.5em;
       color: #ffffff; }
-  .project-content .userpic-project {
+  .project-container .userpic-project {
     float: left;
     position: relative;
     margin: 0.313em;
     margin-right: 10px; }
-    .project-content .userpic-project img {
+    .project-container .userpic-project img {
       width: 50px;
       height: 50px;
       background: #ffffff;
       -webkit-border-radius: 25px;
       -moz-border-radius: 25px;
       border-radius: 25px; }
-    .project-content .userpic-project .project-count {
+    .project-container .userpic-project .project-count {
       width: 20px;
       height: 20px;
       background: #6c4892;
@@ -1743,30 +1743,35 @@ label {
       text-align: center;
       line-height: 20px;
       color: #ffffff; }
-  .project-content .meta-stuff {
+  .project-container .meta-stuff {
     display: block;
     width: 100%;
-    padding: 10px 0 10px 0;
-    overflow: hidden; }
-    .project-content .meta-stuff .co-author {
+    padding: 10px;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+    .project-container .meta-stuff .co-author {
       float: left;
       padding: 5px; }
       @media screen and (max-width: 47.99em) {
-        .project-content .meta-stuff .co-author {
+        .project-container .meta-stuff .co-author {
           width: 50%; } }
       @media screen and (max-width: 29.99em) {
-        .project-content .meta-stuff .co-author {
+        .project-container .meta-stuff .co-author {
           width: 100%; } }
-      .project-content .meta-stuff .co-author h3 {
+      .project-container .meta-stuff .co-author h3 {
         float: left;
         margin: 0;
         font-weight: 400;
         font-size: 1.5em;
         width: 80%;
         width: calc(100% - 65px); }
-        .project-content .meta-stuff .co-author h3 a {
+        .project-container .meta-stuff .co-author h3 a {
           color: #333333;
           text-decoration: none; }
+  .project-container .project-content {
+    padding: 0 30px 15px 30px;
+    overflow: hidden;
+    font-size: 1.1em; }
 
 ul.member-list {
   list-style: none;

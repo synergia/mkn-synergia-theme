@@ -84,7 +84,7 @@ a[am-button] {
         margin: 0;
     }
     .action {
-        border-top: 1px solid rgba(160, 160, 160, 0.2);
+        border-top: $border-light;
         a[am-button] {
             margin-right: 1.250em;
             text-transform: uppercase;
