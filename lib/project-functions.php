@@ -105,4 +105,37 @@ add_filter('previous_posts_link_attributes', 'posts_link_attributes');
 function posts_link_attributes() {
     return 'am-button';
 }
+
+add_filter('img_caption_shortcode', 'img_caption_shortcode_filter',10,3);
+
+/**
+ * Filter to replace the [caption] shortcode text with HTML5 compliant code
+ *
+ * @return text HTML content describing embedded figure
+ **/
+function img_caption_shortcode_filter($val, $attr, $content = null)
+{
+    extract(shortcode_atts(array(
+        'id'    => '',
+        'align' => '',
+        'width' => '',
+        'caption' => ''
+    ), $attr));
+
+    if ( 1 > (int) $width || empty($caption) )
+        return $val;
+
+    $capid = '';
+    if ( $id ) {
+        $id = esc_attr($id);
+        $capid = 'id="figcaption_'. $id . '" ';
+        $id = 'id="' . $id . '" aria-labelledby="figcaption_' . $id . '" ';
+    }
+
+    return '<figure ' . $id . '>'
+    . do_shortcode( $content ) . '<figcaption ' . $capid
+    . 'class="wp-caption-text">' . $caption . '</figcaption></figure>';
+}
+
+
 ?>

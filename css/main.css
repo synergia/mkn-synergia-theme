@@ -1772,6 +1772,18 @@ label {
     padding: 0 30px 15px 30px;
     overflow: hidden;
     font-size: 1.1em; }
+    .project-container .project-content img {
+      max-width: 100%;
+      height: auto; }
+    .project-container .project-content figure {
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.2);
+      margin: 0 -30px; }
+    .project-container .project-content figcaption {
+      font-style: oblique;
+      background-color: #ffffff;
+      text-align: left;
+      padding: 0 30px; }
 
 ul.member-list {
   list-style: none;

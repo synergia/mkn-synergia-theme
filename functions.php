@@ -13,8 +13,8 @@
 
    include 'lib/theme-options.php';
    include 'lib/post-types.php';
-   include 'lib/author-admin.php';
-   include 'lib/project-admin.php';
+   include 'lib/author-functions.php';
+   include 'lib/project-functions.php';
    include 'lib/candies.php';
 ////////////////////////////////////////////////////////////////////
 // Include shortcodes.php for Bootstrap Shortcodes
