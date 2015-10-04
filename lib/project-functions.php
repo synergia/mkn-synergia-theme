@@ -136,6 +136,17 @@ function img_caption_shortcode_filter($val, $attr, $content = null)
     . do_shortcode( $content ) . '<figcaption ' . $capid
     . 'class="wp-caption-text">' . $caption . '</figcaption></figure>';
 }
+// Wzucanie wszystkich embed do diva
+add_filter( 'embed_oembed_html', 'custom_oembed_filter', 10, 4 ) ;
 
+function custom_oembed_filter($html, $url, $attr, $post_ID) {
+    $return = '<div class="video-container">'.$html.'</div>';
+    return $return;
+}
 
+add_filter( 'oembed_result', 'hide_youtube_related_videos', 10, 3);
+ function hide_youtube_related_videos($data, $url, $args = array()) {
+ $data = preg_replace('/(youtube\.com.*)(\?feature=oembed)(.*)/', '$1?' . apply_filters("hyrv_extra_querystring_parameters", "wmode=transparent&amp;color=blue&amp;") . 'rel=0$3', $data);
+ return $data;
+ }
 ?>
