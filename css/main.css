@@ -1698,6 +1698,12 @@ label {
     @media screen and (min-width: 62em) {
       .project-container .center-cropped {
         height: 25em; } }
+    .project-container .center-cropped .meta-stuff {
+      text-align: right;
+      color: #ffffff;
+      position: absolute;
+      right: 15px;
+      top: 15px; }
     .project-container .center-cropped .wp-post-image {
       height: auto;
       min-width: 100%;
@@ -1743,29 +1749,29 @@ label {
       text-align: center;
       line-height: 20px;
       color: #ffffff; }
-  .project-container .meta-stuff {
+  .project-container .authors {
     display: block;
     width: 100%;
     padding: 10px;
     overflow: hidden;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
-    .project-container .meta-stuff .co-author {
+    .project-container .authors .co-author {
       float: left;
       padding: 5px; }
       @media screen and (max-width: 47.99em) {
-        .project-container .meta-stuff .co-author {
+        .project-container .authors .co-author {
           width: 50%; } }
       @media screen and (max-width: 29.99em) {
-        .project-container .meta-stuff .co-author {
+        .project-container .authors .co-author {
           width: 100%; } }
-      .project-container .meta-stuff .co-author h3 {
+      .project-container .authors .co-author h3 {
         float: left;
         margin: 0;
         font-weight: 400;
         font-size: 1.5em;
         width: 80%;
         width: calc(100% - 65px); }
-        .project-container .meta-stuff .co-author h3 a {
+        .project-container .authors .co-author h3 a {
           color: #333333;
           text-decoration: none; }
   .project-container .project-content {

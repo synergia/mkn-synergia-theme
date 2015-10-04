@@ -13,6 +13,14 @@
 	        @include mq($from: desktop) {
 	            height: 25em;
 	        }
+            .meta-stuff {
+                text-align: right;
+                color: #ffffff;
+                position: absolute;
+                right: 15px;
+                top:15px;
+
+            }
 	        .wp-post-image {
 	            height: auto;
 	            min-width: 100%;
@@ -56,7 +64,7 @@
 	            //				box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
 	        }
 	    }
-	    .meta-stuff {
+	    .authors {
 	        display: block;
 	        width: 100%;
 	        padding: 10px;

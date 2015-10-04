@@ -10,9 +10,12 @@
         if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 				<div class="center-cropped">
 					<?php the_post_thumbnail('full'); ?>
+                    <div class="meta-stuff">
+                        <time><?php the_date(); ?></time>
+                    </div>
 						<h2 class="project-title"><?php the_title(); ?></h2>
 				</div>
-				<div class="meta-stuff gl">
+				<div class="authors gl">
 					<?php get_template_part('template-part', 'authors');?>
 				</div>
             <div class="project-content"><?php the_content(); ?></div>

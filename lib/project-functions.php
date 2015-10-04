@@ -3,25 +3,16 @@
 //This initializes the write panel.
 add_action('admin_init','linki_meta_init');
 
+
 function linki_meta_init() {
   //This adds our CSS file,
 //  so our write panels look pretty.
-  wp_enqueue_style(
-    'meta',
-    get_template_directory_uri() . '/css/admin.css'
-  );
+  wp_enqueue_style( 'meta', get_template_directory_uri() . '/css/admin.css');
 
-  //This method is the one that actually adds the
-  //write panel, named 'Book Information' to the
-  //post type 'books'
-  add_meta_box(
-    'linki_meta',
-    'Linki',
-    'linki_meta',
-    'project',
-    'side',
-    'default'
-  );
+    // Dodaje meta boxy do określonego typu postów
+    add_meta_box('linki_meta','Linki','linki_meta', 'project', 'side', 'default' );
+    add_meta_box('project_status_box', 'Stan Projektu', 'project_status', 'project', 'side' , 'default');
+
 }
 // The function below links the panel
 // to the custom fields
@@ -33,6 +24,7 @@ function linki_meta() {
     $github = get_post_meta($post->ID,'github',TRUE);
     $facebook = get_post_meta($post->ID,'facebook',TRUE);
     $web = get_post_meta($post->ID,'web',TRUE);
+
 
   //Call the write panel HTML
   include(get_template_directory() . '/meta.php');
@@ -46,11 +38,11 @@ function linki_meta() {
 //The function below checks the
 //authentication via the nonce, and saves
 //it to the database.
-function my_meta_save($post_id) {
+function save_meta($post_id) {
   if (!current_user_can('edit_posts', $post_id)) {
     return $post_id;
   }
-  // The array of accepted fields for Books
+  // The array of accepted fields for Project
     $accepted_fields['project'] = array(
       'github',
       'facebook',
@@ -87,9 +79,35 @@ function my_meta_save($post_id) {
         $custom_field, TRUE);
     }
   }
+
+    // Zapisuje stan projektu
+        if(isset($_POST["project_status_options"])){
+         //UPDATE:
+        $project_status = $_POST['project_status_options'];
+        //END OF UPDATE
+
+        update_post_meta($post_id, 'project_status', $project_status);
+        //print_r($_POST);
+    }
   return $post_id;
 }
-add_action( 'save_post', 'my_meta_save', 3, 1 );
+add_action( 'save_post', 'save_meta', 3, 1 );
+
+function project_status($post){
+    // http://stackoverflow.com/a/29182258
+    $project_status = get_post_meta($post->ID, 'project_status', true); //true ensures you get just one value instead of an array
+    ?>
+    <label>Stan projektu :  </label>
+
+    <select name="project_status_options" id="project_status_options">
+      <option value="Pomysł" <?php selected( $project_status, '0' ); ?>>Pomysł</option>
+      <option value="W trakcie realizacji" <?php selected( $project_status, '1' ); ?>>W trakcie realizacji</option>
+      <option value="Ukończony" <?php selected( $project_status, '2' ); ?>>Ukończony</option>
+      <option value="W ciągłym doskonaleniu" <?php selected( $project_status, '3' ); ?>>W ciągłym doskonaleniu</option>
+    </select>
+    <?php
+}
+
 add_theme_support('post-thumbnails');
 
 // Hook into the 'init' action
@@ -143,10 +161,4 @@ function custom_oembed_filter($html, $url, $attr, $post_ID) {
     $return = '<div class="video-container">'.$html.'</div>';
     return $return;
 }
-
-add_filter( 'oembed_result', 'hide_youtube_related_videos', 10, 3);
- function hide_youtube_related_videos($data, $url, $args = array()) {
- $data = preg_replace('/(youtube\.com.*)(\?feature=oembed)(.*)/', '$1?' . apply_filters("hyrv_extra_querystring_parameters", "wmode=transparent&amp;color=blue&amp;") . 'rel=0$3', $data);
- return $data;
- }
-?>
+//--------------------------------------------------------------------------
