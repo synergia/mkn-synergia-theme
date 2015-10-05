@@ -100,10 +100,10 @@ function project_status($post){
     <label>Stan projektu :  </label>
 
     <select name="project_status_options" id="project_status_options">
-      <option value="Pomysł" <?php selected( $project_status, '0' ); ?>>Pomysł</option>
-      <option value="W trakcie realizacji" <?php selected( $project_status, '1' ); ?>>W trakcie realizacji</option>
-      <option value="Ukończony" <?php selected( $project_status, '2' ); ?>>Ukończony</option>
-      <option value="W ciągłym doskonaleniu" <?php selected( $project_status, '3' ); ?>>W ciągłym doskonaleniu</option>
+      <option value="Pomysł" <?php selected( $project_status, 'Pomysł' ); ?>>Pomysł</option>
+      <option value="W trakcie realizacji" <?php selected( $project_status, 'W trakcie realizacji' ); ?>>W trakcie realizacji</option>
+      <option value="Ukończony" <?php selected( $project_status, 'Ukończony' ); ?>>Ukończony</option>
+      <option value="W ciągłym doskonaleniu" <?php selected( $project_status, 'W ciągłym doskonaleniu' ); ?>>W ciągłym doskonaleniu</option>
     </select>
     <?php
 }
@@ -161,4 +161,7 @@ function custom_oembed_filter($html, $url, $attr, $post_ID) {
     $return = '<div class="video-container">'.$html.'</div>';
     return $return;
 }
-//--------------------------------------------------------------------------
+
+function the_project_status($project_ID) {
+    echo '<span>Stan: '.get_post_meta($project_ID, "project_status", true).'</span>';
+}

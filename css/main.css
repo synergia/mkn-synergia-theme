@@ -1699,11 +1699,18 @@ label {
       .project-container .center-cropped {
         height: 25em; } }
     .project-container .center-cropped .meta-stuff {
-      text-align: right;
       color: #ffffff;
+      padding: 0 53px;
+      font-weight: 400;
+      overflow: hidden; }
+      .project-container .center-cropped .meta-stuff span {
+        float: left;
+        width: 100%; }
+      .project-container .center-cropped .meta-stuff time {
+        float: left; }
+    .project-container .center-cropped header {
       position: absolute;
-      right: 15px;
-      top: 15px; }
+      bottom: 0; }
     .project-container .center-cropped .wp-post-image {
       height: auto;
       min-width: 100%;
@@ -1714,10 +1721,7 @@ label {
       top: -25%;
       z-index: -1; }
     .project-container .center-cropped .project-title {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      padding: 1.250em 1.250em 0.625em;
+      padding: 0 1.250em 0.625em;
       margin: 0;
       font-weight: 400;
       font-size: 2.5em;

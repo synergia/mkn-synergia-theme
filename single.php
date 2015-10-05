@@ -9,11 +9,14 @@
 			<?php // theloop
         if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 				<div class="center-cropped">
+                    <header>
+                        <div class="meta-stuff">
+                            <?php the_project_status(get_the_ID()); ?>
+                            <time><?php the_date(); ?></time>
+                        </div>
+				            <h1 class="project-title"><?php the_title(); ?></h1>
+                    </header>
 					<?php the_post_thumbnail('full'); ?>
-                    <div class="meta-stuff">
-                        <time><?php the_date(); ?></time>
-                    </div>
-						<h2 class="project-title"><?php the_title(); ?></h2>
 				</div>
 				<div class="authors gl">
 					<?php get_template_part('template-part', 'authors');?>

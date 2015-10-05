@@ -14,12 +14,21 @@
 	            height: 25em;
 	        }
             .meta-stuff {
-                text-align: right;
                 color: #ffffff;
+                padding: 0 53px;
+                font-weight: 400;
+                overflow: hidden;
+                span {
+                    float: left;
+                    width: 100%;
+                }
+                time {
+                    float: left;
+                }
+            }
+            header {
                 position: absolute;
-                right: 15px;
-                top:15px;
-
+                bottom: 0;
             }
 	        .wp-post-image {
 	            height: auto;
@@ -32,10 +41,7 @@
 	            z-index: -1;
 	        }
 	        .project-title {
-	            position: absolute;
-	            bottom: 0;
-	            left: 0;
-	            padding: 1.250em 1.250em 0.625em;
+	            padding: 0 1.250em 0.625em;
 	            margin: 0;
 	            font-weight: 400;
 	            font-size: 2.5em;
