@@ -61,6 +61,15 @@ function add_extra_social_links( $user )
 
         <table class="form-table">
             <tr>
+			     <th><label>Wyświetlaj pocztę</label></th>
+                <td>
+                    <label>
+				        <input type="checkbox" name="show_mail" id="show_mail" value="yes" <?php if (esc_attr( get_the_author_meta( "show_mail", $user->ID )) == true) echo "checked"; ?> />
+				Zaznacz, jeśli chcesz, by mail był wyświetlany
+                    </label>
+                </td>
+            </tr>
+            <tr>
                 <th><label for="facebook_profile">Github Profile</label></th>
                 <td><input type="text" name="github_profile" value="<?php echo esc_attr(get_the_author_meta( 'github_profile', $user->ID )); ?>" class="regular-text" /></td>
             </tr>
@@ -87,6 +96,7 @@ function save_extra_social_links( $user_id )
     update_user_meta( $user_id,'github_profile', sanitize_text_field( $_POST['github_profile'] ) );
 	update_user_meta( $user_id, 'member_of_managment_board', $_POST['member_of_managment_board'] );
 	update_user_meta( $user_id, 'president', $_POST['president'] );
+	update_user_meta( $user_id, 'show_mail', $_POST['show_mail'] );
 }
 
 /* Adding Image Upload Fields */
@@ -324,7 +334,7 @@ function get_management_board() {
 }
 
 function social_links($current_member){
-    if($current_member->user_email){
+    if($current_member->show_mail){
        echo '<a email href="mailto:'.$current_member->user_email.'"><i class="icon icon-mail"></i>';
         if(is_author()) {
             echo 'napisz';
