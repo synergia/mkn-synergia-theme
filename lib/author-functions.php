@@ -271,8 +271,8 @@ function add_synergia_member_and_delete_other_roles() {
 
 
 // Zapisuje ilość projektów do meta użytkownika
-function project_count($user_id, $count) {
-        update_user_meta($user_id, 'project_count', $count );
+function project_count($user_id, $count = 0) {
+            update_user_meta($user_id, 'project_count', $count );
     }
     add_action('publish_post', 'project_count');
     add_action('save_post', 'project_count');
@@ -322,15 +322,14 @@ function get_members_with_projects() {
     return array_merge( $administrators, $synergia_members );
 }
 
-// w sumie już niepotrzebne, get_members_with_projects() robi to samo,
-// pod warunkiem, że admin ma projekt ukończony :)
-function get_management_board() {
-        $management_board_args = array (
-	'role'           => 'administrator',
+// pobieranie byłych członków
+function get_ex_members() {
+        $ex_synergia_member_args = array (
+	'role'           => 'ex_synergia_member',
 );
-    $management_board_query = new WP_User_Query($management_board_args);
-    $management_board_members = $management_board_query->get_results();
-    return $management_board_members;
+    $ex_synergia_member_query = new WP_User_Query($ex_synergia_member_args);
+    $ex_synergia_members = $ex_synergia_member_query->get_results();
+    return $ex_synergia_members;
 }
 
 function social_links($current_member){

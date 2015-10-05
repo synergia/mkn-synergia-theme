@@ -17,6 +17,7 @@ Template Name: Członkowie
 
 <?php
 $members = get_members_with_projects();
+$ex_members = get_ex_members();
 // Get the results
 // Check for results
 if (!empty($members)) { ?>
@@ -83,7 +84,22 @@ foreach ($members as $management_board_member)
      ?>
                 </div>
                     <div class="tab">
+                        <ul class="member-list">
+<?php
 
+    foreach ($ex_members as $ex_member)
+    {   $current_member = get_userdata($ex_member->ID);
+        ?>
+        <li>
+            <div class="gl">
+                <div class="gl-cell gl-md-1 gl-align-middle avatar-image"><a href="<?php echo get_author_posts_url( $current_member->ID, $current_member->user_nicename ); ?>"><?php show_avatar($current_member)?></a></div>
+                <div class="gl-cell gl-lg-5 gl-md-6 gl-align-middle name"><h3><a href="<?php echo get_author_posts_url( $current_member->ID, $current_member->user_nicename ); ?>"><?php echo $current_member->display_name; ?></a></h3></div>
+                <div class="gl-cell gl-lg-2 gl-md-3 gl-align-middle links"><?php social_links($current_member); ?></div>
+                <div class="gl-cell gl-lg-4 gl-md-1 gl-align-middle count"><strong><?php echo $current_member->project_count; ?></strong></div>
+            </div>
+        </li>
+<?php } ?>
+    </ul></div>
                     </div>
 <?php
 } else {
