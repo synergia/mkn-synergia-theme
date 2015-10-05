@@ -29,6 +29,7 @@
 
 					<?php if($current_member->president){ ?><span>Prezes MKNM "Synergia"</span>
 					<?php }else if($synergia_member){?><span>Członek MKNM "Synergia"</span>
+					<?php }else if($current_member->member_of_managment_board){?><span>Członek zarządu MKNM "Synergia"</span>
 					<?php }else if($ex_synergia_member){?><span>Były członek MKNM "Synergia"</span>
                     <?php } ?>
 					<?php social_links($current_member); ?>
