@@ -163,5 +163,28 @@ function custom_oembed_filter($html, $url, $attr, $post_ID) {
 }
 
 function the_project_status($project_ID) {
-    echo '<span>Stan: '.get_post_meta($project_ID, "project_status", true).'</span>';
+    $project_status = get_post_meta($project_ID, "project_status", true);
+    if($project_status){
+        echo '<span>Stan: '.$project_status.'</span>';
+    }else {
+        echo '<span>Stan: Nieznany</span>';
+    }
+}
+
+function the_project_links($project_ID) {
+    $web = get_post_meta($project_ID, "web", true);
+    $facebook = get_post_meta($project_ID, "facebook", true);
+    $github = get_post_meta($project_ID, "github", true);
+    if( $web || $facebook || $github) {
+        echo '<div class="project-links">';
+        if($web){
+            echo '<a href="'.get_post_meta($project_ID, "web", true).'"><i class="icon icon-link"></i></a>';
+        }
+        if($facebook) {
+            echo '<a href="'.get_post_meta($project_ID, "facebook", true).'"><i class="icon icon-facebook"></i></a>';
+        }    if($github) {
+            echo '<a href="'.get_post_meta($project_ID, "github", true).'"><i class="icon icon-github"></i></a>';
+        }
+        echo '</div>';
+    }
 }

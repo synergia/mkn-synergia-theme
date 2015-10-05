@@ -13,6 +13,7 @@
                         <div class="meta-stuff">
                             <?php the_project_status(get_the_ID()); ?>
                             <time><?php the_date(); ?></time>
+                            <?php the_project_links(get_the_ID()); ?>
                         </div>
 				            <h1 class="project-title"><?php the_title(); ?></h1>
                     </header>

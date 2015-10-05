@@ -1707,7 +1707,17 @@ label {
         float: left;
         width: 100%; }
       .project-container .center-cropped .meta-stuff time {
-        float: left; }
+        float: left;
+        padding-right: 10px; }
+      .project-container .center-cropped .meta-stuff .project-links {
+        position: relative;
+        display: inline;
+        padding: 0px 5px;
+        border-left: 1px solid rgba(255, 255, 255, 0.2); }
+        .project-container .center-cropped .meta-stuff .project-links a {
+          color: #ffffff; }
+          .project-container .center-cropped .meta-stuff .project-links a:hover {
+            text-shadow: 0 0 2px #FFFFFF; }
     .project-container .center-cropped header {
       position: absolute;
       bottom: 0; }
