@@ -174,50 +174,50 @@ update_user_meta( $user_id, 'image', $_POST[ 'image' ] );
 }
 
 // http://wordpress.stackexchange.com/questions/28005/after-adding-add-role-to-functions-php-and-creating-a-user-can-not-login-into-a
-
-add_filter( 'map_meta_cap', 'my_map_meta_cap', 10, 4 );
-
-function my_map_meta_cap( $caps, $cap, $user_id, $args ) {
-
-	/* If editing, deleting, or reading a project, get the post and post type object. */
-	if ( 'edit_project' == $cap || 'delete_project' == $cap || 'read_project' == $cap ) {
-		$post = get_post( $args[0] );
-		$post_type = get_post_type_object( $post->post_type );
-
-		/* Set an empty array for the caps. */
-		$caps = array();
-	}
-
-	/* If editing a project, assign the required capability. */
-	if ( 'edit_project' == $cap ) {
-		if ( $user_id == $post->post_author )
-			$caps[] = $post_type->cap->edit_posts;
-		else
-			$caps[] = $post_type->cap->edit_others_posts;
-	}
-
-	/* If deleting a project, assign the required capability. */
-	elseif ( 'delete_project' == $cap ) {
-		if ( $user_id == $post->post_author )
-			$caps[] = $post_type->cap->delete_posts;
-		else
-			$caps[] = $post_type->cap->delete_others_posts;
-	}
-
-	/* If reading a private project, assign the required capability. */
-	elseif ( 'read_project' == $cap ) {
-
-		if ( 'private' != $post->post_status )
-			$caps[] = 'read';
-		elseif ( $user_id == $post->post_author )
-			$caps[] = 'read';
-		else
-			$caps[] = $post_type->cap->read_private_posts;
-	}
-
-	/* Return the capabilities required by the user. */
-	return $caps;
-}
+//
+//add_filter( 'map_meta_cap', 'my_map_meta_cap', 10, 4 );
+//
+//function my_map_meta_cap( $caps, $cap, $user_id, $args ) {
+//
+//	/* If editing, deleting, or reading a project, get the post and post type object. */
+//	if ( 'edit_project' == $cap || 'delete_project' == $cap || 'read_project' == $cap ) {
+//		$post = get_post( $args[0] );
+//		$post_type = get_post_type_object( $post->post_type );
+//
+//		/* Set an empty array for the caps. */
+//		$caps = array();
+//	}
+//
+//	/* If editing a project, assign the required capability. */
+//	if ( 'edit_project' == $cap ) {
+//		if ( $user_id == $post->post_author )
+//			$caps[] = $post_type->cap->edit_posts;
+//		else
+//			$caps[] = $post_type->cap->edit_others_posts;
+//	}
+//
+//	/* If deleting a project, assign the required capability. */
+//	elseif ( 'delete_project' == $cap ) {
+//		if ( $user_id == $post->post_author )
+//			$caps[] = $post_type->cap->delete_posts;
+//		else
+//			$caps[] = $post_type->cap->delete_others_posts;
+//	}
+//
+//	/* If reading a private project, assign the required capability. */
+//	elseif ( 'read_project' == $cap ) {
+//
+//		if ( 'private' != $post->post_status )
+//			$caps[] = 'read';
+//		elseif ( $user_id == $post->post_author )
+//			$caps[] = 'read';
+//		else
+//			$caps[] = $post_type->cap->read_private_posts;
+//	}
+//
+//	/* Return the capabilities required by the user. */
+//	return $caps;
+//}
 
 function add_synergia_member_and_delete_other_roles() {
     // możliwości dla 'project'
@@ -274,24 +274,29 @@ function add_synergia_member_and_delete_other_roles() {
 function project_count($user_id, $count = 0) {
             update_user_meta($user_id, 'project_count', $count );
     }
-    add_action('publish_post', 'project_count');
-    add_action('save_post', 'project_count');
-    add_action('post_updated', 'project_count');
-    add_action('delete_post', 'project_count');
-    add_action('after_switch_theme', 'project_count');
+//    add_action('publish_post', 'project_count');
+//    add_action('save_post', 'project_count');
+//    add_action('post_updated', 'project_count');
+//    add_action('delete_post', 'project_count');
+//    add_action('after_switch_theme', 'project_count');
 
 
 function get_members_with_projects() {
 
 // https://tommcfarlin.com/wp_user_query-multiple-roles/
-// prepare arguments
+// Każdy członek z rolą synergia_member i administrator
+// jest pobierany z bazy, jeśli ma na koncie przynajmniej jeden projekt.
+// Pobierane są dwie tablice: dla członków i adminów a następnie
+// scalane do jednej.
+// JEST PROBLEM Z UKŁADANIEM CZŁONKÓW WG LICZBY PROJEKTÓW
     $synergia_member_args = array (
         'role'           => 'synergia_member',
         'order'          => 'ASC',
-        'orderby'        => 'post_count',
+        'orderby'        => 'meta_value',
+        'meta_key'       => 'project_count',
         'meta_query'     => array(
             array(
-                'key'       => 'post_count',
+                'key'       => 'project_count',
                 'compare'   => '>',
                 'type'      => 'NUMERIC',
                 'value'     => '0',
@@ -305,7 +310,7 @@ function get_members_with_projects() {
         'orderby'        => 'post_count',
         'meta_query'     => array(
             array(
-                'key'       => 'post_count',
+                'key'       => 'project_count',
                 'compare'   => '>',
                 'type'      => 'NUMERIC',
                 'value'     => '0',
@@ -318,7 +323,7 @@ function get_members_with_projects() {
 
     $administrators = $administrator_query->get_results();
     $synergia_members = $synergia_member_query->get_results();
-
+// scalanie tablic
     return array_merge( $administrators, $synergia_members );
 }
 
