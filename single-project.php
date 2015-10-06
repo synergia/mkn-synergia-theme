@@ -11,13 +11,16 @@
 				<div class="center-cropped">
                     <header>
                         <div class="meta-stuff">
+                            <?php the_project_status(get_the_ID()); ?>
                             <time><?php the_date(); ?></time>
+                            <?php the_project_links(get_the_ID()); ?>
                         </div>
 				            <h1 class="project-title"><?php the_title(); ?></h1>
                     </header>
 					<?php the_post_thumbnail('full'); ?>
 				</div>
-            <div class="project-content"><?php the_content(); ?></div>
+					<?php get_template_part('template-part', 'authors');?>
+                <div class="project-content"><?php the_content(); ?></div>
 				<?php wp_link_pages(); ?>
 			<?php endwhile; ?>
 		<?php else: ?>

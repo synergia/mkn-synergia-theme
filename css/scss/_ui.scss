@@ -140,11 +140,11 @@ label {
 
 .tabs {
     & > .tab {
-        @include box-shadow;
+//        @include box-shadow;
         @include border-radius(0.125em);
         margin: 0.625em;
         display: none;
-        padding: 15px;
+        padding: 1px 10px;
     }
     @for $i from 1 through 9 {
         // active tab

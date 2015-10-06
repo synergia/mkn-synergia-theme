@@ -1,3 +1,4 @@
+<div class="authors gl">
 <?php //http://wordpress.stackexchange.com/a/119946
 global $post;
 $author_id=$post->post_author;
@@ -21,3 +22,4 @@ foreach( get_coauthors() as $curauth ):
 	</div>
 	<!-- .entry-author co-author -->
 	<?php endforeach; ?>
+</div>
