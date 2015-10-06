@@ -108,12 +108,12 @@ function my_show_extra_profile_fields( $user )
 {
 ?>
 
-	<h3>Profile Images</h3>
+	<h3>Zdjęcie profilowe</h3>
 
 	<table class="form-table fh-profile-upload-options">
 		<tr>
 			<th>
-				<label for="image">Main Profile Image</label>
+				<label for="image">Zdjęcie profilowe</label>
 			</th>
 
 			<td>
@@ -132,7 +132,7 @@ function my_show_extra_profile_fields( $user )
 	<script type="text/javascript">
 		(function( $ ) {
 			$( '#uploadimage' ).on( 'click', function() {
-				tb_show('test', 'media-upload.php?type=image&TB_iframe=1');
+				tb_show('Załaduj lub wybierz zdjęcie', 'media-upload.php?type=image&TB_iframe=1');
 
 				window.send_to_editor = function( html )
 				{
