@@ -1557,7 +1557,17 @@ label {
   cursor: pointer; }
 
 .tabs > .tab {
-  display: none; }
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  -webkit-border-radius: 0.125em;
+  border-radius: 0.125em;
+  background-clip: padding-box;
+  /* stops bg color from leaking outside the border: */
+  -moz-border-radius: 0.125em;
+  -ms-border-radius: 0.125em;
+  -o-border-radius: 0.125em;
+  margin: 0.625em;
+  display: none;
+  padding: 15px; }
 .tabs > input:nth-of-type(1):checked ~ .tab:nth-of-type(1) {
   display: block; }
 .tabs > input:nth-of-type(1):checked ~ .tabs-nav > ul > li:nth-of-type(1) > label {
@@ -1835,7 +1845,8 @@ ul.member-list {
   ul.member-list li {
     padding: 8px 0 8px 0;
     display: block;
-    position: relative; }
+    position: relative;
+    overflow: hidden; }
     ul.member-list li:after {
       content: "";
       background: rgba(0, 0, 0, 0.1);

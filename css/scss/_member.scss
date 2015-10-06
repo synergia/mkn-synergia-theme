@@ -6,6 +6,7 @@ ul.member-list {
         padding: 8px 0 8px 0;
         display: block;
         position: relative;
+        overflow: hidden;
         &:after {
             content: "";
             background: rgba(0, 0, 0, 0.1);

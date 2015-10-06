@@ -140,7 +140,11 @@ label {
 
 .tabs {
     & > .tab {
+        @include box-shadow;
+        @include border-radius(0.125em);
+        margin: 0.625em;
         display: none;
+        padding: 15px;
     }
     @for $i from 1 through 9 {
         // active tab
@@ -195,7 +199,7 @@ label {
             text-align: center;
             font-weight: 600;
             text-transform: uppercase;
-              box-shadow: inset 0 0 0 3px $synergia-color;
+            box-shadow: inset 0 0 0 3px $synergia-color;
             @include border-radius(5px);
             box-sizing: border-box;
             -moz-box-sizing: border-box;
