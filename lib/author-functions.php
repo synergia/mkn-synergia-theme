@@ -225,7 +225,7 @@ function add_synergia_member_and_delete_other_roles() {
         'delete_projects' =>true,
         'delete_published_projects' => true,
         'edit_projects' => true,
-        'edit_others_projects' => true,
+        'edit_others_projects' => false,
         'edit_others_posts' => true, //potrzebne do wyświetlania bloku z wypadającą listą współautorów
         'edit_published_projects' => true,
         'publish_projects' => true,
@@ -268,9 +268,11 @@ function add_synergia_member_and_delete_other_roles() {
     $administrator->add_cap( 'publish_projects' );
 }
     add_action('after_switch_theme', 'add_synergia_member_and_delete_other_roles');
+//    add_action('init', 'add_synergia_member_and_delete_other_roles');
 
 
 // Zapisuje ilość projektów do meta użytkownika
+// działa tylko na stronie członka
 function project_count($user_id, $count = 0) {
             update_user_meta($user_id, 'project_count', $count );
     }
