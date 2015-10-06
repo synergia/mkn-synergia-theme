@@ -53,12 +53,11 @@ if (!empty($members)) { ?>
                 <ul class="member-list">
                 <?php
 
-foreach ($members as $management_board_member)
-    {
+foreach ($members as $management_board_member) {
         // get all the user's data
         $current_member = get_userdata($management_board_member->ID);
         $administrator = in_array( 'administrator', (array) $current_member->roles );
-        if($current_member->president == true) { ?>
+        if($current_member->president) { ?>
         <li>
             <div class="gl">
                 <div class="gl-cell gl-sm-1  gl-align-middle avatar-image"><a href="<?php echo get_author_posts_url( $current_member->ID, $current_member->user_nicename ); ?>"><?php show_avatar($current_member)?></a></div>
@@ -68,7 +67,7 @@ foreach ($members as $management_board_member)
 
             </div>
         </li>
-     <? }else if ($administrator || $current_member->member_of_managment_board){ ?>
+     <? }else if ($current_member->member_of_managment_board){ ?>
         <li>
             <div class="gl">
                 <div class="gl-cell gl-sm-1  gl-align-middle avatar-image"><a href="<?php echo get_author_posts_url( $current_member->ID, $current_member->user_nicename ); ?>"><?php show_avatar($current_member)?></a></div>
@@ -79,15 +78,13 @@ foreach ($members as $management_board_member)
         </li>
      <? }
     } ?>
-    </ul>
+                </ul>
             </div>
-                    <div class="tab">
-                        <ul class="member-list">
+            <div class="tab">
+                <ul class="member-list">
 <?php
-
-    foreach ($ex_members as $ex_member)
-    {   $current_member = get_userdata($ex_member->ID);
-        ?>
+    foreach ($ex_members as $ex_member) {
+        $current_member = get_userdata($ex_member->ID); ?>
         <li>
             <div class="gl">
                 <div class="gl-cell gl-md-1 gl-align-middle avatar-image"><a href="<?php echo get_author_posts_url( $current_member->ID, $current_member->user_nicename ); ?>"><?php show_avatar($current_member)?></a></div>
@@ -97,8 +94,9 @@ foreach ($members as $management_board_member)
             </div>
         </li>
 <?php } ?>
-    </ul></div>
-                    </div>
+                </ul>
+            </div>
+        </div>
 <?php
 } else {
     echo 'No authors found';
@@ -107,7 +105,5 @@ foreach ($members as $management_board_member)
         ?>
     </div>
 </div>
-</div>
-
 
 <?php get_footer(); ?>
