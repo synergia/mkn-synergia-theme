@@ -14,6 +14,7 @@ include 'lib/post-types.php';
 include 'lib/author-functions.php';
 include 'lib/project-functions.php';
 include 'lib/candies.php';
+include 'lib/additional_attachments.php';
 
 // Szortkody //
 
