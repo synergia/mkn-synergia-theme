@@ -188,3 +188,23 @@ function the_project_links($project_ID) {
         echo '</div>';
     }
 }
+
+function download_button ($project_ID) {
+    $files = get_post_meta($project_ID,'files',true);
+ ?>
+    <div id="dropdown" class="download-files-container">
+        <button am-button="raised">Pobierz pliki <i class="icon icon-down-open-big"></i></button>
+        <ul>
+<?php
+    if ( is_array($files) ) {
+        foreach( $files as $file ) {
+            if ( isset( $file['url'] ) || isset( $file['title'] ) ) {
+                echo '<li><a href="'.$file["url"].'">'.$file["title"].'</a></li>';
+            }
+        }
+    }
+    ?>
+        </ul>
+    </div>
+<?php
+}
