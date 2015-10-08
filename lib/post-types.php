@@ -24,7 +24,7 @@ function sponsorowane() {
 		'description'         => __( 'Linki sponsorowane', 'text_domain' ),
 		'labels'              => $labels,
 		'supports'            => array( 'title', 'thumbnail' ),
-        'taxonomies'          => array( 'category'),
+//        'taxonomies'          => array( 'category'),
         'hierarchical'        => false,
 		'public'              => true,
 		'show_ui'             => true,
