@@ -1685,6 +1685,7 @@ label {
 button[am-button] {
   width: auto;
   margin: 0;
+  font-size: 1rem;
   background: #6c4892;
   color: #ffffff; }
   button[am-button]:hover {
@@ -1708,7 +1709,7 @@ button[am-button] {
   position: absolute;
   list-style: none;
   overflow: hidden;
-  width: 173px;
+  width: 163px;
   padding: 0;
   display: none;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
@@ -1721,16 +1722,14 @@ button[am-button] {
   -moz-border-radius: 0 0 0.125em 0.125em;
   -ms-border-radius: 0 0 0.125em 0.125em;
   -o-border-radius: 0 0 0.125em 0.125em; }
-  #dropdown ul li {
-    font-size: 0.9em; }
-    #dropdown ul li a {
-      text-decoration: none;
-      display: block;
-      text-overflow: ellipsis;
-      padding: 7px 15px; }
-      #dropdown ul li a:hover {
-        background: #9f80c0;
-        color: #ffffff; }
+  #dropdown ul li a {
+    text-decoration: none;
+    display: block;
+    text-overflow: ellipsis;
+    padding: 7px 15px; }
+    #dropdown ul li a:hover {
+      background: #9f80c0;
+      color: #ffffff; }
 
 .project-container {
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);

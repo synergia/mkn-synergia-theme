@@ -331,7 +331,7 @@ jQuery(function ($) {
         }
     })
 });
-// Pakuje mniejsze obrazki bez podpisu w <figure>
+// Pakuje mniejsze obrazki bez podpisu w <figure> //
 jQuery(function ($) {
     $('.project-content p').each(function (index) {
         var some_img = $(this).find('img')
@@ -342,7 +342,9 @@ jQuery(function ($) {
     })
 });
 
+// Dropdown download button //
 
+// http://codepen.io/jakestuts/pen/nEFyw
 jQuery(function ($) {
 
     $("#dropdown button").on("click", function (e) {

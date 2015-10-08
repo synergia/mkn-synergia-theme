@@ -191,6 +191,7 @@ function the_project_links($project_ID) {
 
 function download_button ($project_ID) {
     $files = get_post_meta($project_ID,'files',true);
+    if($files){
  ?>
     <div id="dropdown" class="download-files-container">
         <button am-button="raised">Pobierz pliki <i class="icon icon-down-open-big"></i></button>
@@ -207,4 +208,5 @@ function download_button ($project_ID) {
         </ul>
     </div>
 <?php
+    }
 }

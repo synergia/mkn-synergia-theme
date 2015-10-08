@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
-<!--Design&Developing: Stanisław Dac-->
-
 <head>
     <meta http-equiv="content-type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
     <link rel="apple-touch-icon" href="<?php bloginfo('template_directory'); ?>/img/safari_60.png">

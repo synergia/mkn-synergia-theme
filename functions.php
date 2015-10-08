@@ -1,11 +1,8 @@
 <?php
 
 // Info o motywie //
-
-    $themename = "Synergia";
-    $developer_uri = "http://vk.com/stsdc";
-    $shortname = "sy";
-    $version = '1.0.0';
+    $theme = wp_get_theme();
+    $version = $theme->get( 'Version' );
 
 // Dodatkowe fukcje porozrzucane po plikach //
 

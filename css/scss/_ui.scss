@@ -257,6 +257,7 @@ button[am-button] {
     @extend [am-button];
     width: auto;
     margin: 0;
+    font-size: 1rem;
     background: $synergia-color;
     color: #ffffff;
     &:hover {
@@ -278,7 +279,7 @@ button[am-button] {
         position: absolute;
         list-style: none;
         overflow: hidden;
-        width: 173px;
+        width: 163px;
         padding: 0;
         display: none;
         @include box-shadow;
@@ -286,7 +287,6 @@ button[am-button] {
         z-index: 1;
         @include border-radius(0 0 0.125em 0.125em);
         li {
-            font-size: 0.9em;
             a {
                 text-decoration: none;
                 display: block;
