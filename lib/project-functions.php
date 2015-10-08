@@ -52,34 +52,36 @@ function save_meta($post_id) {
 
   //We loop through the list of fields,
   //and save 'em!
-  foreach($accepted_fields[$post_type_id] as $key){
-    // Set it to a variable, so it's
-    // easier to deal with.
-    $custom_field = $_POST[$key];
+    if (is_array($accepted_fields[$post_type_id]) || is_object($accepted_fields[$post_type_id])){
 
-    //If no data is entered
-    if(is_null($custom_field)) {
+      foreach($accepted_fields[$post_type_id] as $key){
+        // Set it to a variable, so it's
+        // easier to deal with.
+        $custom_field = $_POST[$key];
 
-      //delete the field. No point saving it.
-      delete_post_meta($post_id, $key);
+        //If no data is entered
+        if(is_null($custom_field)) {
 
-      // If it is set (there was already data),
-      // and the new data isn't empty, update it.
+          //delete the field. No point saving it.
+          delete_post_meta($post_id, $key);
+
+          // If it is set (there was already data),
+          // and the new data isn't empty, update it.
+        }
+        elseif(isset($custom_field)
+    && !is_null($custom_field))
+        {
+          // update
+         update_post_meta($post_id,$key,$custom_field);
+
+          //Just add the data.
+        } else {
+          // Add?
+          add_post_meta($post_id, $key,
+            $custom_field, TRUE);
+        }
+      }
     }
-    elseif(isset($custom_field)
-&& !is_null($custom_field))
-    {
-      // update
-     update_post_meta($post_id,$key,$custom_field);
-
-      //Just add the data.
-    } else {
-      // Add?
-      add_post_meta($post_id, $key,
-        $custom_field, TRUE);
-    }
-  }
-
     // Zapisuje stan projektu
         if(isset($_POST["project_status_options"])){
          //UPDATE:
