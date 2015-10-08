@@ -1426,8 +1426,9 @@ nav .container {
     .crown {
       right: -11px; } }
 
-[am-button] {
+[am-button], button[am-button] {
   display: block;
+  cursor: pointer;
   position: relative;
   width: 100%;
   margin: 0 0 2rem;
@@ -1680,6 +1681,57 @@ label {
 .github {
   margin: 0.625em; }
 
+/* user menu settings */
+button[am-button] {
+  width: auto;
+  margin: 0;
+  background: #6c4892;
+  color: #ffffff; }
+  button[am-button]:hover {
+    background: #9f80c0; }
+
+#dropdown button.open {
+  -webkit-border-radius: 0.125em 0.125em 0 0;
+  border-radius: 0.125em 0.125em 0 0;
+  background-clip: padding-box;
+  /* stops bg color from leaking outside the border: */
+  -moz-border-radius: 0.125em 0.125em 0 0;
+  -ms-border-radius: 0.125em 0.125em 0 0;
+  -o-border-radius: 0.125em 0.125em 0 0; }
+
+.download-files-container {
+  margin: 0 -30px;
+  padding: 15px 30px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1); }
+
+#dropdown ul {
+  position: absolute;
+  list-style: none;
+  overflow: hidden;
+  width: 173px;
+  padding: 0;
+  display: none;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  background: #fff;
+  z-index: 1;
+  -webkit-border-radius: 0 0 0.125em 0.125em;
+  border-radius: 0 0 0.125em 0.125em;
+  background-clip: padding-box;
+  /* stops bg color from leaking outside the border: */
+  -moz-border-radius: 0 0 0.125em 0.125em;
+  -ms-border-radius: 0 0 0.125em 0.125em;
+  -o-border-radius: 0 0 0.125em 0.125em; }
+  #dropdown ul li {
+    font-size: 0.9em; }
+    #dropdown ul li a {
+      text-decoration: none;
+      display: block;
+      text-overflow: ellipsis;
+      padding: 7px 15px; }
+      #dropdown ul li a:hover {
+        background: #9f80c0;
+        color: #ffffff; }
+
 .project-container {
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
   -webkit-border-radius: 2px;
@@ -1689,13 +1741,19 @@ label {
   -moz-border-radius: 2px;
   -ms-border-radius: 2px;
   -o-border-radius: 2px;
-  margin: 0.625em;
-  overflow: hidden; }
+  margin: 0.625em; }
   .project-container .center-cropped {
     width: 100%;
     height: auto;
     overflow: hidden;
     position: relative;
+    -webkit-border-radius: 2px 2px 0 0;
+    border-radius: 2px 2px 0 0;
+    background-clip: padding-box;
+    /* stops bg color from leaking outside the border: */
+    -moz-border-radius: 2px 2px 0 0;
+    -ms-border-radius: 2px 2px 0 0;
+    -o-border-radius: 2px 2px 0 0;
     background-color: transparent;
     background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.5)));
     background-image: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.5));
@@ -1802,7 +1860,6 @@ label {
           white-space: nowrap; }
   .project-container .project-content {
     padding: 0 30px 15px 30px;
-    overflow: hidden;
     font-size: 1.1em; }
     .project-container .project-content img {
       max-width: 100%;
@@ -1970,8 +2027,8 @@ ul.member-list {
 
 @font-face {
   font-family: 'fontello';
-  src: url("../font/fontello.eot?87568854");
-  src: url("../font/fontello.eot?87568854#iefix") format("embedded-opentype"), url("../font/fontello.woff?87568854") format("woff"), url("../font/fontello.ttf?87568854") format("truetype"), url("../font/fontello.svg?87568854#fontello") format("svg");
+  src: url("../font/fontello.eot?78506590");
+  src: url("../font/fontello.eot?78506590#iefix") format("embedded-opentype"), url("../font/fontello.woff?78506590") format("woff"), url("../font/fontello.ttf?78506590") format("truetype"), url("../font/fontello.svg?78506590#fontello") format("svg");
   font-weight: normal;
   font-style: normal; }
 /* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
@@ -1980,7 +2037,7 @@ ul.member-list {
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'fontello';
-    src: url('../font/fontello.svg?87568854#fontello') format('svg');
+    src: url('../font/fontello.svg?78506590#fontello') format('svg');
   }
 }
 */
@@ -2059,6 +2116,14 @@ ul.member-list {
   content: '\e80b'; }
 
 /* '' */
+.icon-down-open-big:before {
+  content: '\e80c'; }
+
+/* '' */
+.icon-down-open-mini:before {
+  content: '\e80d'; }
+
+/* '' */
 /* ==========================================================================
    Helper classes
    ========================================================================== */

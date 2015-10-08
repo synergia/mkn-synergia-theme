@@ -334,10 +334,27 @@ jQuery(function ($) {
 // Pakuje mniejsze obrazki bez podpisu w <figure>
 jQuery(function ($) {
     $('.project-content p').each(function (index) {
-            var some_img = $(this).find('img')
-            var width = some_img.width();
-            if (width < 980) {
-                some_img.wrap( "<figure></figure>" );
-            }
-        })
+        var some_img = $(this).find('img')
+        var width = some_img.width();
+        if (width < 980) {
+            some_img.wrap("<figure></figure>");
+        }
+    })
+});
+
+
+jQuery(function ($) {
+
+    $("#dropdown button").on("click", function (e) {
+        e.preventDefault();
+
+        if ($(this).hasClass("open")) {
+            $(this).removeClass("open");
+            $(this).siblings("ul").slideUp("fast");
+
+        } else {
+            $(this).addClass("open");
+            $(this).siblings("ul").slideDown("fast");
+        }
+    });
 });

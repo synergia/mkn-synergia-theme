@@ -22,6 +22,7 @@ function dynamic_inner_custom_box() {
     wp_nonce_field( plugin_basename( __FILE__ ), 'dynamicMeta_noncename' );
     ?>
     <div id="meta_inner">
+        <label>Uwaga: Jeśli plik jest dość duży &#8213; najlepiej wrzucić go na jakiś dropbox, a tu wkleić link</label>
     <?php
 
     //get the saved meta as an arry

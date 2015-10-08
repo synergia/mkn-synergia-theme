@@ -20,7 +20,19 @@
 					<?php the_post_thumbnail('full'); ?>
 				</div>
 					<?php get_template_part('template-part', 'authors');?>
-                <div class="project-content"><?php the_content(); ?></div>
+                <div class="project-content"><?php the_content(); ?>
+
+                        <div id="dropdown" class="download-files-container">
+      <button am-button="raised">Pobierz pliki <i class="icon icon-down-open-big"></i></button>
+      <ul>
+        <li><a href="#">My Profile or not my profile or maybe something</a></li>
+        <li><a href="#">Friend Requests</a></li>
+        <li><a href="#">Account Settings</a></li>
+      </ul>
+    </div>
+
+
+            </div>
 				<?php wp_link_pages(); ?>
 			<?php endwhile; ?>
 		<?php else: ?>

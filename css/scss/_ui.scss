@@ -1,8 +1,9 @@
-@import "vars";
+                @import "vars";
 //BUTTON
 // http://codepen.io/jreece/pen/myeJBN
 [am-button] {
     display: block;
+    cursor: pointer;
     position: relative;
     width: 100%;
     margin: 0 0 2rem;
@@ -140,7 +141,7 @@ label {
 
 .tabs {
     & > .tab {
-//        @include box-shadow;
+        //        @include box-shadow;
         @include border-radius(0.125em);
         margin: 0.625em;
         display: none;
@@ -247,4 +248,55 @@ label {
 
 .github {
     margin: 0.625em;
+}
+
+
+/* user menu settings */
+
+button[am-button] {
+    @extend [am-button];
+    width: auto;
+    margin: 0;
+    background: $synergia-color;
+    color: #ffffff;
+    &:hover {
+        background: $synergia-light-color;
+    }
+}
+
+#dropdown button.open {
+    @include border-radius(0.125em 0.125em 0 0);
+
+}
+.download-files-container {
+    margin: 0 -30px;
+    padding: 15px 30px 0;
+    border-top: $border-light;
+}
+#dropdown {
+    ul {
+        position: absolute;
+        list-style: none;
+        overflow: hidden;
+        width: 173px;
+        padding: 0;
+        display: none;
+        @include box-shadow;
+        background: #fff;
+        z-index: 1;
+        @include border-radius(0 0 0.125em 0.125em);
+        li {
+            font-size: 0.9em;
+            a {
+                text-decoration: none;
+                display: block;
+                text-overflow: ellipsis;
+                padding: 7px 15px;
+                &:hover {
+                    background: $synergia-light-color;
+                    color: #ffffff;
+                }
+            }
+        }
+    }
 }
