@@ -1140,7 +1140,6 @@ nav .container {
 .container-fluid > .navbar-header,
 .container > .navbar-collapse,
 .container-fluid > .navbar-collapse {
-  margin-right: -15px;
   margin-left: -15px; }
   .container > .navbar-header:before, .container > .navbar-header:after,
   .container-fluid > .navbar-header:before,
