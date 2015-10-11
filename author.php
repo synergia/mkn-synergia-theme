@@ -10,7 +10,7 @@
     $current_member = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : get_userdata(intval($author));
     global $wp_query;
     $current_member = $wp_query->get_queried_object();
-	$project_count = 0;
+//    project_counter();
 
     //dla sprawdzenia konkretnej roli, wrzucamy je do zmiennych
     $synergia_member = in_array( 'synergia_member', (array) $current_member->roles );
@@ -49,13 +49,12 @@
                 $args = array(
                     'post_type' => 'project ',
                     'posts_per_page' => -1,
-					'author_name' => $current_member->user_nicename,
+					'author_name' => $current_member->ID,
                    );
                 $items = new WP_Query( $args );
                 if( $items->have_posts() ) {
                   while( $items->have_posts() ) {
                     $items->the_post();
-				    project_count($current_member->ID, $items->found_posts);
                     ?>
                       <div class="post-list-item ">
 						  <div class="thumb">
@@ -77,7 +76,6 @@
                   }
                 }
                 else {
-                    project_count($current_member->ID, 0);
                     echo 'Nic a nic';
                 }
               ?>

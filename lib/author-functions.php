@@ -271,17 +271,6 @@ function add_synergia_member_and_delete_other_roles() {
 //    add_action('init', 'add_synergia_member_and_delete_other_roles');
 
 
-// Zapisuje ilość projektów do meta użytkownika
-// działa tylko na stronie członka
-function project_count($user_id, $count = 0) {
-            update_user_meta($user_id, 'project_count', $count );
-    }
-//    add_action('publish_post', 'project_count');
-//    add_action('save_post', 'project_count');
-//    add_action('post_updated', 'project_count');
-//    add_action('delete_post', 'project_count');
-//    add_action('after_switch_theme', 'project_count');
-
 
 function get_members_with_projects() {
 
@@ -368,4 +357,50 @@ function show_avatar($current_member){
         echo get_avatar( $current_member->user_email, '96' );
     }
 }
+
+
+/*
+ * Add Event Column
+ */
+function users_events_column( $cols ) {
+  $cols['projects'] = 'Projekty';
+  return $cols;
+}
+
+// Wyświetla liczbę projektów w panelu admin. //
+// Skradziono u co-authors
+
+function user_events_column_value( $value, $column_name, $id ) {
+    if ( 'projects' != $column_name )
+        return $value;
+    $user = get_user_by( 'id', $id );
+    return $value .= "<a href='edit.php?author_name=".$user->user_nicename."&post_type=project' title='Zobacz projekty tego członka' class='edit'>$user->project_count</a>";
+}
+
+add_filter( 'manage_users_custom_column', 'user_events_column_value', 10, 3 );
+add_filter( 'manage_users_columns', 'users_events_column' );
+
+// Zapisuje liczbę projektów do meta użytkownika //
+
+function project_counter() {
+    $member_id = get_current_user_id();
+    echo $member_id;
+    $args = array(
+        'post_type' => 'project ',
+        'posts_per_page' => -1,
+        'author_name' => $member_id,
+    );
+    $items = new WP_Query( $args );
+    if( $items->have_posts() ) {
+        update_user_meta($member_id, 'project_count', $items->found_posts );
+    } else {
+        update_user_meta($member_id, 'project_count', 0 );
+    }
+}
+// Hooki (zdarzenia), przy których się odpala ta funkcja //
+    add_action('publish_post', 'project_counter');
+    add_action('save_post', 'project_counter');
+    add_action('post_updated', 'project_counter');
+    add_action('delete_post', 'project_counter');
+    add_action('after_switch_theme', 'project_counter');
 ?>
