@@ -383,24 +383,31 @@ add_filter( 'manage_users_columns', 'users_events_column' );
 // Zapisuje liczbę projektów do meta użytkownika //
 
 function project_counter() {
-    $member_id = get_current_user_id();
-    echo $member_id;
-    $args = array(
-        'post_type' => 'project ',
-        'posts_per_page' => -1,
-        'author_name' => $member_id,
-    );
-    $items = new WP_Query( $args );
-    if( $items->have_posts() ) {
-        update_user_meta($member_id, 'project_count', $items->found_posts );
-    } else {
-        update_user_meta($member_id, 'project_count', 0 );
+//    $member_id = get_current_user_id();
+    global  $post;
+
+    foreach( get_coauthors($post->ID) as $member ){
+
+        echo $member->ID.":";
+        $args = array(
+            'post_type' => 'project ',
+            'posts_per_page' => -1,
+            'author_name' => $member->user_nicename,
+        );
+        $items = new WP_Query( $args );
+        if( $items->have_posts() ) {
+            update_user_meta($member->ID, 'project_count', $items->found_posts );
+            echo $items->found_posts." ";
+        } else {
+            update_user_meta($member->ID, 'project_count', 0 );
+        }
     }
 }
 // Hooki (zdarzenia), przy których się odpala ta funkcja //
+// Przy czym, przy usunięciu członka z projektu i
+// zaktualizowaniu projektu hooki nie działają oO
     add_action('publish_post', 'project_counter');
     add_action('save_post', 'project_counter');
-    add_action('post_updated', 'project_counter');
     add_action('delete_post', 'project_counter');
-    add_action('after_switch_theme', 'project_counter');
+    add_action('post_updated', 'project_counter');
 ?>

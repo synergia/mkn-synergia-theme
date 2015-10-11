@@ -49,7 +49,7 @@
                 $args = array(
                     'post_type' => 'project ',
                     'posts_per_page' => -1,
-					'author_name' => $current_member->ID,
+					'author_name' => $current_member->user_nicename,
                    );
                 $items = new WP_Query( $args );
                 if( $items->have_posts() ) {
