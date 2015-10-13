@@ -383,7 +383,6 @@ add_filter( 'manage_users_columns', 'users_events_column' );
 // Zapisuje liczbę projektów do meta użytkownika //
 
 function project_counter() {
-//    $member_id = get_current_user_id();
     global  $post;
 
     foreach( get_coauthors($post->ID) as $member ){

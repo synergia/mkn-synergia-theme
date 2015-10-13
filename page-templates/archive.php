@@ -8,22 +8,19 @@ Template Name: Archiwum
 <?php get_template_part('template-part', 'topnav'); ?>
 
 <!-- start content container -->
-<div class="row">
+<div class="gl">
 
     <?php //left sidebar ?>
     <?php get_sidebar( 'left' ); ?>
 
-    <div class="col-sm-<?php synergia_main_content_width(); ?> dmbs-main">
+    <div class="gl-sm-9 gl-cell">
 
-        <h2 class="page-header-no-thumb">Archiwum</h2>
+        <h2>Archiwum</h2>
 		<ul>
 			<?php wp_get_archives('type=monthly'); ?>
 		</ul>
 
     </div>
-
-    <?php //get the right sidebar ?>
-    <?php get_sidebar( 'right' ); ?>
 
 </div>
 <!-- end content container -->
