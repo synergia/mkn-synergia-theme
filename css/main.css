@@ -1864,7 +1864,7 @@ button[am-button] {
       height: auto; }
     .project-container .project-content figure {
       text-align: center;
-      background-color: rgba(0, 0, 0, 0.2);
+      background-color: #f8f8f8;
       margin: 0 -30px; }
     .project-container .project-content figcaption {
       font-style: oblique;

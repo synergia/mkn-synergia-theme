@@ -387,7 +387,7 @@ function project_counter() {
 
     foreach( get_coauthors($post->ID) as $member ){
 
-        echo $member->ID.":";
+//        echo $member->ID.":";
         $args = array(
             'post_type' => 'project ',
             'posts_per_page' => -1,
@@ -396,7 +396,7 @@ function project_counter() {
         $items = new WP_Query( $args );
         if( $items->have_posts() ) {
             update_user_meta($member->ID, 'project_count', $items->found_posts );
-            echo $items->found_posts." ";
+//            echo $items->found_posts." ";
         } else {
             update_user_meta($member->ID, 'project_count', 0 );
         }
