@@ -1,4 +1,4 @@
-<?php global $dm_settings; ?>
+<?php global $snrg_settings; ?>
 <div class="dmbs-footer">
     <div class=" gl">
                     <div class="mknm-footer gl-sm-5 gl-cell">
@@ -18,7 +18,7 @@
                     </div>
                     <div class="gl-sm-5 gl-cell footer-icons">
                         <div>
-                            <a href="<?php echo $dm_settings['archiwum'] ?>" title="Archiwum"><i class="icon-archive"></i></a>
+                            <a href="<?php echo $snrg_settings['archiwum'] ?>" title="Archiwum"><i class="icon-archive"></i></a>
                             <a href="http://facebook.com/mknmsynergia" title="Polub"><i class="icon-facebook"></i></a>
                             <a href="http://github.com/synergia" title="Kod"><i class="icon-github"></i></a>
                         </div>
@@ -26,7 +26,7 @@
     </div>
 </div>
 <!-- end main container -->
-
+<?php echo $snrg_settings['google_anal']; ?>
 <?php wp_footer(); ?>
 </body>
 </html>

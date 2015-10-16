@@ -3,6 +3,8 @@
 // Info o motywie //
     $theme = wp_get_theme();
     $version = $theme->get( 'Version' );
+    $theme_name = $theme->get( 'Name' );
+    $codename = "Emma Stone";
 
 // Dodatkowe fukcje porozrzucane po plikach //
 

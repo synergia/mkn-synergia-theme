@@ -1,37 +1,35 @@
-.links-panel .description {
-  display: none;
+.links-panel {
+    .description {
+        display: none;
+    }
+    label {
+        display: block;
+        font-weight: bold;
+        margin: 6px;
+        margin-bottom: 0;
+        margin-top: 12px;
+        span {
+            display: inline;
+            font-weight: normal;
+        }
+    }
+    span {
+        color: #999;
+        display: block;
+    }
+    textarea,
+    input[type='text'] {
+        margin-bottom: 3px;
+        width: 100%;
+    }
+    h4 {
+        color: #999;
+        font-size: 1em;
+        margin: 15px 6px;
+        text-transform: uppercase;
+    }
 }
 
-.links-panel label {
-  display: block;
-  font-weight: bold;
-  margin: 6px;
-  margin-bottom: 0;
-  margin-top: 12px;
-}
-
-.links-panel label span {
-  display: inline;
-  font-weight: normal;
-}
-
-.links-panel span {
-  color: #999;
-  display: block;
-}
-
-.links-panel textarea,
-.links-panel input[type='text'] {
-  margin-bottom: 3px;
-  width: 100%;
-}
-
-.links-panel h4 {
-  color: #999;
-  font-size: 1em;
-  margin: 15px 6px;
-  text-transform:uppercase;
-}
 .fh-profile-upload-options {
     th,
     td,
@@ -44,4 +42,19 @@
     display: block;
     height: auto;
     width: 150px;
+}
+.options_wrap {
+    img {
+        float: left;
+    }
+    span {
+        float: left;
+        font-size: 1.4em;
+        padding: 16px;
+
+    }
+    form {
+        width: 100%;
+        float: left;
+    }
 }

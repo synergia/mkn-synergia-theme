@@ -1,5 +1,4 @@
 <?php
-    global $dm_settings;
     if ( !is_author()) : ?>
     <div class="gl-sm-3 gl-cell ">
         <?php dynamic_sidebar( 'Left Sidebar' ); ?>
