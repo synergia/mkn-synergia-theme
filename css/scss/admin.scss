@@ -1,4 +1,5 @@
-.links-panel {
+.files-panel {
+    overflow: hidden;
     .description {
         display: none;
     }
@@ -12,6 +13,27 @@
             display: inline;
             font-weight: normal;
         }
+    }
+    .panel_block {
+        float: left;
+        position: relative;
+        overflow: hidden;
+        padding: 5px;
+        width: calc(50% - 20px);
+        .remove {
+            color: #a00a00;
+            cursor: pointer;
+            width: auto;
+            float: right;
+            text-align: right;
+            &:hover {
+                color:red;
+            }
+        }
+    }
+    .button-container {
+        padding: 10px;
+        clear: both;
     }
     span {
         color: #999;
@@ -29,7 +51,9 @@
         text-transform: uppercase;
     }
 }
-
+.links-panel {
+    @extend .files-panel;
+}
 .fh-profile-upload-options {
     th,
     td,
@@ -43,6 +67,7 @@
     height: auto;
     width: 150px;
 }
+
 .options_wrap {
     img {
         float: left;
@@ -51,7 +76,6 @@
         float: left;
         font-size: 1.4em;
         padding: 16px;
-
     }
     form {
         width: 100%;

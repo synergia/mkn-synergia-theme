@@ -21,8 +21,8 @@ function dynamic_inner_custom_box() {
     // Use nonce for verification
     wp_nonce_field( plugin_basename( __FILE__ ), 'dynamicMeta_noncename' );
     ?>
-    <div id="meta_inner">
-        <label>Uwaga: Jeśli plik jest dość duży &#8213; najlepiej wrzucić go na jakiś dropbox, a tu wkleić link</label>
+    <div class="files-panel">
+        <p><b>Uwaga:</b> Jeśli plik jest dość duży &#8213; najlepiej wrzucić go na jakiś dropbox, a tu wkleić link</p>
     <?php
 
     //get the saved meta as an arry
@@ -33,11 +33,14 @@ function dynamic_inner_custom_box() {
         foreach( $files as $file ) {
             if ( isset( $file['url'] ) || isset( $file['title'] ) ) {
                 printf(
-                    '<div>
+                    '<div class="panel_block">
+                        <label>Link</label>
                         <input type="text" name="files[%1$s][url]" id="file-%1$s" value="%2$s" />
                         <label>Nazwa pliku:</label>
                         <input type="text" id="title-%1$s" name="files[%1$s][title]" value="%3$s" />
-                        <span class="remove" style="color:#A00; text-decoration:underline;">%4$s</span>
+                        <div class="button-container">
+                            <span class="remove">%4$s</span>
+                        </div>
                     </div>',
                     $c, $file['url'], $file['title'], __( 'Usuń załączony plik' ) );
                 $c = $c +1;
@@ -46,8 +49,6 @@ function dynamic_inner_custom_box() {
     }
 
     ?>
-<span id="here"></span>
-<button class="add button button-primary button-large"><?php _e('Załącz pliki'); ?></button>
 <script>
 var $ =jQuery.noConflict();
 $(document).ready(function() {
@@ -55,18 +56,21 @@ $(document).ready(function() {
     $(".add").click(function() {
         count = count + 1;
 
-        $('#here').append(
-            '<div>\
+        $('.files-panel').append(
+            '<div class="panel_block">\
+                <label>Link</label>\
                 <input type="text" name="files['+count+'][url]" id="file-'+count+'" value="" />\
                 <label>Nazwa pliku:</label>\
                 <input type="text" id="title-'+count+'" name="files['+count+'][title]" value="" />\
-                <input id = "upload_image_button" type = "button" class="button button-primary button-large" value="Upload">\
-                <span class="remove" style="color:#A00; text-decoration:underline;">Usuń załączony plik</span>\
+                <div class="button-container">\
+                    <input id = "upload_image_button" type = "button" class="button button-primary button-large" value="Dodaj do mediów">\
+                    <span class="remove">Nie dodawaj</span>\
+                </div>\
             </div>' );
         return false;
     });
         $(".remove").live('click', function() {
-            $(this).parent().remove();
+            $(this).parentsUntil(".files-panel").remove();
         });
 
 // UPLOADING //
@@ -108,7 +112,11 @@ $(document).ready(function() {
     });
 });
     </script>
-</div><?php
+</div>
+<div class="button-container">
+    <button class="add button button-primary button-large"><?php _e('Dodaj pliki'); ?></button>
+</div>
+<?php
 
 }
 
