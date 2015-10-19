@@ -282,7 +282,7 @@ function get_members_with_projects() {
 // JEST PROBLEM Z UKŁADANIEM CZŁONKÓW WG LICZBY PROJEKTÓW
     $synergia_member_args = array (
         'role'           => 'synergia_member',
-        'order'          => 'ASC',
+        'order'          => 'DESC',
         'orderby'        => 'meta_value',
         'meta_key'       => 'project_count',
         'meta_query'     => array(
@@ -297,8 +297,8 @@ function get_members_with_projects() {
 
     $administrator_args = array (
         'role'           => 'administrator',
-        'order'          => 'ASC',
-        'orderby'        => 'post_count',
+        'order'          => 'DESC',
+        'orderby'        => 'project_count',
         'meta_query'     => array(
             array(
                 'key'       => 'project_count',
