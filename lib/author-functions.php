@@ -279,7 +279,6 @@ function get_members_with_projects() {
 // jest pobierany z bazy, jeśli ma na koncie przynajmniej jeden projekt.
 // Pobierane są dwie tablice: dla członków i adminów a następnie
 // scalane do jednej.
-// JEST PROBLEM Z UKŁADANIEM CZŁONKÓW WG LICZBY PROJEKTÓW
     $synergia_member_args = array (
         'role'           => 'synergia_member',
         'order'          => 'DESC',
