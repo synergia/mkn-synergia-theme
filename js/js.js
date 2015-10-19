@@ -329,17 +329,17 @@ jQuery(function ($) {
             var trimmed_name = name.charAt(0) + ". " + name.substr(name.indexOf(' ') + 1);
             $(this).text(trimmed_name);
         }
-    })
+    });
 });
 // Pakuje mniejsze obrazki bez podpisu w <figure> //
 jQuery(function ($) {
     $('.project-content p').each(function (index) {
-        var some_img = $(this).find('img')
+        var some_img = $(this).find('img');
         var width = some_img.width();
         if (width < 980) {
             some_img.wrap("<figure></figure>");
         }
-    })
+    });
 });
 
 // Dropdown download button //
@@ -360,3 +360,8 @@ jQuery(function ($) {
         }
     });
 });
+
+// Prezes zawsze na pierwszym miejscu //
+jQuery(function ($) {
+     $('#management_board li#admin').insertBefore('#management_board li:eq(0)');
+ });
