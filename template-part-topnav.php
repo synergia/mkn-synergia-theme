@@ -5,6 +5,7 @@
         <nav class="navbar navbar-inverse" role="navigation">
             <div class="container">
                 <div class="navbar-header">
+
 <!--
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-1-collapse">
                         <span class="sr-only"><?php _e('Toggle navigation','synergia'); ?></span>
@@ -16,9 +17,12 @@
                     <button class="lines-button x" type="button" data-toggle="collapse" data-target=".navbar-1-collapse" role="button" aria-label="Toggle Navigation">
   <span class="lines"></span>
 </button>
+
                     <a href="<?php echo site_url(); ?>"><div class="logo"></div></a>
+                    <?php get_template_part('template-part', 'recruit'); ?>
+
                 </div>
-                
+
 
                 <?php
                 wp_nav_menu( array(

@@ -7,7 +7,6 @@ Template Name: Portfolio
 <?php get_header(); ?>
 
 <?php get_template_part('template-part', 'topnav'); ?>
-
 <!-- start content container -->
     <div class="gl">
         <?php //left sidebar ?>
