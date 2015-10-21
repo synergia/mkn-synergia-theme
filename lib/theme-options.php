@@ -43,7 +43,7 @@
 ////////////////////////////////////////////////////////////////////
 
     $snrg_options = array(
-//        'author_credits' => true,
+       'recruitment' => false,
 //        'right_sidebar_width' => 3,
         'archiwum' => '',
         'google_anal' => ''
@@ -73,7 +73,11 @@
         global $snrg_options;
 
         $settings = get_option( 'snrg_options', $snrg_options );
-
+        if ( ! isset( $input['recruitment'] ) ) {
+                    $input['recruitment'] = null;
+                } else {
+                    $input['recruitment'] = ( $input['recruitment'] == 1 ? 1 : 0 );
+                }
         $input['archiwum'] = wp_filter_nohtml_kses( $input['archiwum'] );
 //        $input['google_anal'] = wp_filter_nohtml_kses( $input['google_anal'] );
 
@@ -116,6 +120,12 @@
                 ?>
 
                 <table cellpadding='10'>
+                  <tr valign="top"><th scope="row">Rekrutacja</th>
+                    <td>
+                      <input type="checkbox" id="recruitment" name="snrg_options[recruitment]" value="1" <?php checked( true, $settings['recruitment'] ); ?> />
+                      <label for="recruitment">Zaznacz, jeśli trwa rekrutacja</label>
+                    </td>
+                  </tr>
                     <tr valign="top"><th scope="row">Link do Archiwum</th>
                         <td>
                             <input type="text" id="archiwum" name="snrg_options[archiwum]" value="<?php esc_attr_e($settings['archiwum']); ?>" />

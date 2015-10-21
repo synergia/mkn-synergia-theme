@@ -1,5 +1,6 @@
 
 <?php if ( has_nav_menu( 'main_menu' ) ) : ?>
+  <?php global $snrg_settings; ?>
 
     <div class="dmbs-top-menu">
         <nav class="navbar navbar-inverse" role="navigation">
@@ -19,7 +20,10 @@
 </button>
 
                     <a href="<?php echo site_url(); ?>"><div class="logo"></div></a>
-                    <?php get_template_part('template-part', 'recruit'); ?>
+                    <?php
+                    if ($snrg_settings['recruitment']) {
+                      get_template_part('template-part', 'recruit');
+                    } ?>
 
                 </div>
 
