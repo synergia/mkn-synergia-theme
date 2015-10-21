@@ -2,8 +2,7 @@ MKNM "Synergia" Theme
 =====================
 Strona internetowa naszego koła naukowego zawsze była ważnym miejscem do eksponowania naszych projektów, sukcesów i wydarzeń. Nadchodzące zmiany spowodują, że strona zostanie wyjątkowym instrumentem do przedstawienia swojego projektu.
 
-*   [1.0.1](#101)
-*   1.1.0
+*   1.0.1
 
 ### 1.0.1 "Emma Stone"
 
