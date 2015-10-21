@@ -46,13 +46,19 @@ float: right;
     color: #fff;
     cursor: pointer;
     display: inline-block;
-    height: 1.5em;
-    line-height: 2.5em;
+    height: 2em;
+    line-height: 2em;
     position: absolute;
     right: 0.5em;
     top: 0.5em;
-    font-size: 2rem;
-    width: 1.5em;
+    font-size: 4em;
+    width: 2em;
+    @include mq($until:tablet) {
+      height: 1em;
+      width: 1em;
+      line-height: 1em;
+      font-size: 3em;
+    }
   }
 }
 .modal__box {
