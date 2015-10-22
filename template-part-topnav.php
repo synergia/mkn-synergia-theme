@@ -22,7 +22,7 @@
                     <a href="<?php echo site_url(); ?>"><div class="logo"></div></a>
                     <?php
                     if ($snrg_settings['recruitment']) {
-                      get_template_part('template-part', 'recruit');
+                      get_template_part('template-part', 'recruitment');
                     } ?>
 
                 </div>

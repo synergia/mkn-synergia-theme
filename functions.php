@@ -6,8 +6,28 @@
     $theme_name = $theme->get( 'Name' );
     $codename = "Emma Stone";
 
-// Dodatkowe fukcje porozrzucane po plikach //
+// Dodatkowe style i skrypty dla panelu. Odpowiedzialne za otwieranie okna
+// z mediami
+// http://stackoverflow.com/a/26103160/1589989
+if( is_admin() ) {
+    function enqueue_admin() {
+        $mode = get_user_option( 'media_library_mode', get_current_user_id() ) ? get_user_option( 'media_library_mode', get_current_user_id() ) : 'grid';
+        $modes = array( 'grid', 'list' );
+        if ( isset( $_GET['mode'] ) && in_array( $_GET['mode'], $modes ) ) {
+            $mode = $_GET['mode'];
+            update_user_option( get_current_user_id(), 'media_library_mode', $mode );
+        }
+        if( ! empty ( $_SERVER['PHP_SELF'] ) && 'upload.php' === basename( $_SERVER['PHP_SELF'] ) && 'grid' !== $mode ) {
+            wp_dequeue_script( 'media' );
+        }
+        wp_enqueue_media();
+        wp_enqueue_script('thickbox');
+        wp_enqueue_style('thickbox');
+    }
+    add_action( 'admin_enqueue_scripts', 'enqueue_admin' );
+}
 
+// Dodatkowe fukcje porozrzucane po plikach //
 include 'lib/theme-options.php';
 include 'lib/post-types.php';
 include 'lib/author-functions.php';

@@ -1,7 +1,7 @@
 <div class="modal">
   <input id="modal" type="checkbox" name="modal" tabindex="1">
   <label for="modal" am-button="raised">
-    <span class="recruitment-text">Rekrutacja</span>
+    <span class="recruit-text">Rekrutacja</span>
     <i class="icon icon-user-add"></i>
   </label>
   <div class="modal__overlay" style="background-image: url('http://192.168.0.25/synergia/wp-content/uploads/2015/09/wallhaven-196335.jpg');">
