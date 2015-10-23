@@ -10,7 +10,7 @@
     <i class="icon icon-user-add"></i>
   </label>
   <div class="modal__overlay" style="background-image: url('<?php echo $recruitment_image ?>');">
-    <label for="modal"><i class="icon icon-close"></i></label>
+    <label id="close_banner" for="modal"><i class="icon icon-close"></i></label>
     <div class="modal__box">
       <h2>Modal Title</h2>
       <p>Modal Content</p>
