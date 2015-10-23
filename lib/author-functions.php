@@ -169,7 +169,6 @@ function my_show_extra_profile_fields($user)
 <?php
 
 }
-
 add_action('personal_options_update', 'my_save_extra_profile_fields');
 add_action('edit_user_profile_update', 'my_save_extra_profile_fields');
 
