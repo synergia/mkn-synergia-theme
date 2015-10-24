@@ -3,7 +3,7 @@
     $theme = wp_get_theme();
     $version = $theme->get('Version');
     $theme_name = $theme->get('Name');
-    $codename = 'Emma Stone';
+    $codename = 'Eva Green';
 
 // Dodatkowe style i skrypty dla panelu. Odpowiedzialne za otwieranie okna
 // z mediami
@@ -43,14 +43,19 @@ include 'lib/additional_attachments.php';
 
     function synergia_theme_stylesheets()
     {
-        global $version;
-        wp_register_style('googleFonts', 'https://fonts.googleapis.com/css?family=Titillium+Web:400,300,700&subset=latin,latin-ext');
+        global $version, $snrg_settings;
+
+        wp_register_style('Titillium', 'https://fonts.googleapis.com/css?family=Titillium+Web:400,300,700&subset=latin,latin-ext');
+        wp_register_style('Titillium900', 'https://fonts.googleapis.com/css?family=Titillium+Web:900&subset=latin');
         wp_register_style('main', get_template_directory_uri().'/css/main.css', array(), $version, 'all');
         wp_register_style('github', get_template_directory_uri().'/css/github.css', array(), $version, 'all');
         wp_register_style('prism', get_template_directory_uri().'/css/prism.css', array(), $version, 'all');
-        wp_register_style('prism', get_template_directory_uri().'/css/prism.css', array(), $version, 'all');
         wp_enqueue_style('main');
-        wp_enqueue_style('googleFonts');
+        wp_enqueue_style('Titillium');
+        // Dla rekrutacji potrzebna jest ciężka czcionka
+        if ($snrg_settings['recruitment']) {
+            wp_enqueue_style('Titillium900');
+        }
         if (is_author()) {
             wp_enqueue_style('github');
         }
