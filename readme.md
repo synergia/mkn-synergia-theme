@@ -7,7 +7,7 @@ Strona internetowa naszego koła naukowego zawsze była ważnym miejscem do eksp
 
 ### 1.1.0 "Eva Green"
 
-![](http://cs629530.vk.me/v629530187/14eb1/7kKfxdpQUTg.jpg)
+![](http://cs629530.vk.me/v629530187/14ec7/HCZCLdK_B3c.jpg)
 
 * Dodano możliwość wyświetlania baneru rekrutacyjnego #20
 * Tło dla mniejszych obrazków rozjaśniono #13
