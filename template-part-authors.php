@@ -2,6 +2,8 @@
 <?php //http://wordpress.stackexchange.com/a/119946
 global $post;
 $author_id=$post->post_author;
+project_counter();
+
 foreach( get_coauthors() as $curauth ):
 ?>
 	<div class="co-author gl-cell gl-sm-1 gl-lg-3 gl-md-4">

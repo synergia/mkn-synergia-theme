@@ -50,7 +50,7 @@ if (!empty($members)) { ?>
                 </ul>
             </div>
             <div class="tab">
-                <ul class="member-list">
+                <ul id="management_board" class="member-list">
                 <?php
 
 foreach ($members as $management_board_member) {
@@ -58,7 +58,7 @@ foreach ($members as $management_board_member) {
         $current_member = get_userdata($management_board_member->ID);
         $administrator = in_array( 'administrator', (array) $current_member->roles );
         if($current_member->president) { ?>
-        <li>
+        <li id="admin">
             <div class="gl">
                 <div class="gl-cell gl-sm-1  gl-align-middle avatar-image"><a href="<?php echo get_author_posts_url( $current_member->ID, $current_member->user_nicename ); ?>"><?php show_avatar($current_member)?></a></div>
                 <div class="gl-cell gl-sm-5 gl-align-middle name"><h3><a href="<?php echo get_author_posts_url( $current_member->ID, $current_member->user_nicename ); ?>"><?php echo $current_member->display_name; ?></a></h3></div>

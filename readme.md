@@ -32,4 +32,6 @@ Strona internetowa naszego koła naukowego zawsze była ważnym miejscem do eksp
 *   [Transformer Tabs, minimal JS ](http://codepen.io/Merri/pen/FAtDq)
 *   [Stylish User Settings Dropdown Menu ](http://codepen.io/jakestuts/pen/nEFyw)
 *   [Ikony "Entypo"](http://www.entypo.com/)
+*   [JavaScript Cookie](https://github.com/js-cookie/js-cookie) - A simple, lightweight JavaScript API for handling cookies
+*   [Animate.css] (http://daneden.github.io/animate.css/) -  Just-add-water CSS animations
 *   oraz wiele innych...

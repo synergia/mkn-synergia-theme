@@ -27,7 +27,7 @@ function linki_meta() {
 
 
   //Call the write panel HTML
-  include(get_template_directory() . '/meta.php');
+  include(get_template_directory() . '/lib/meta.php');
   wp_nonce_field('my_meta_noncename', __FILE__);
   // create a custom nonce for submit
   // verification later
