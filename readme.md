@@ -7,7 +7,7 @@ Strona internetowa naszego koła naukowego zawsze była ważnym miejscem do eksp
 
 ### 1.1.0 "Eva Green"
 
-![](http://vk.com/photo36242187_381892601)
+![](http://cs629530.vk.me/v629530187/14eb1/7kKfxdpQUTg.jpg)
 
 * Dodano możliwość wyświetlania baneru rekrutacyjnego #20
 * Tło dla mniejszych obrazków rozjaśniono #13
@@ -20,7 +20,7 @@ Strona internetowa naszego koła naukowego zawsze była ważnym miejscem do eksp
 
 ### 1.0.1 "Emma Stone"
 
-![](http://vk.com/photo36242187_381892672)
+![](http://cs629530.vk.me/v629530187/14eba/-vi4bzQQlUI.jpg)
 
 *   Nowy wygląd kart projektów na głównej
 *   Nowe przyciski z ripple efektem
