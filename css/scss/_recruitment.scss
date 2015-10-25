@@ -72,6 +72,16 @@
   margin: 1em auto;
   width: 90%;
   color: #fff;
+  @include mq($from:mobile) {
+    h1 {
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+    span {
+      font-weight: 300;
+      text-transform: uppercase;
+    }
+  }
   @include mq($until:tablet) {
     left: 50%;
     position: absolute;
@@ -81,23 +91,39 @@
     transform: translate(-50%, -80%);
   }
   @include mq($from:desktop) {
-    .modal__box {
-      padding: 1.75em;
-    }
+    padding: 1.75em;
     h1 {
-      font-weight: 900;
-      text-transform: uppercase;
       font-size: 6em;
       margin: 0.8em 0 0;
       line-height: 0.7em;
     }
     span {
-      font-weight: 300;
-      text-transform: uppercase;
       font-size: 1.445em;
     }
-
   }
+    @include mq(tablet, desktop) {
+      h1 {
+        font-size: 3em;
+        margin: 0.8em 0 0;
+        line-height: 0.7em;
+      }
+      span {
+        font-size: 0.71em;
+      }
+      svg {
+        width: 100px;
+        height: auto;
+      }
+      .info-container {
+        width:370px;
+        span {
+          font-size: 1em;
+        }
+      }
+      .icon-container {
+        font-size: 0.7em;
+      }
+    }
 }
 .modal-background {
   opacity: 0;
@@ -158,15 +184,13 @@ input:focus + label {
 .fb {
   display: table;
   position: fixed;
-  bottom: 0px;
+  bottom: 0;
   left: 0;
   width: 100%;
   div {
     display: inline;
-    margin: 0px auto;
+    margin: 0 auto;
   }
-
-
   i {
     font-size: 1.5em;
   }
