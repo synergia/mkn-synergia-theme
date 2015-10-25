@@ -45,21 +45,21 @@
   <span>Międzywydziałowe Koło Naukowe Mechatroniki</span>
   <div class="gl info-container">
       <div class="location gl-cell">
-        <div class="icon-container">
+        <div class="icon-container animated slideInRight">
           <i class="icon icon-location"></i>
         </div>
-        <span>C-13 2.17</span>
-        <span>PWR</span>
+        <span class="animated slideInRight">C-13 2.17</span>
+        <span class="animated slideInRight">PWR</span>
   </div>
   <div class="date gl-cell">
-    <div class="icon-container">
+    <div class="icon-container animated slideInLeft">
       <i class="icon icon-calendar"></i>
     </div>
-    <span>4 LISTOPADA</span>
-    <span>18:45 - 20:00</span>
+    <span class="animated slideInLeft">4 LISTOPADA</span>
+    <span class="animated slideInLeft">18:45 - 20:00</span>
   </div>
 </div>
-<div class="fb"><div><i class="icon icon-facebook-circled"></i><a href="http://facebook.com/mknmsynergia">facebook.com/mknmsynergia</a></div></div>
+<div class="fb animated fadeInUp"><div><i class="icon icon-facebook-circled"></i><a href="http://facebook.com/mknmsynergia">facebook.com/mknmsynergia</a></div></div>
     </div>
   </div>
 </div>
