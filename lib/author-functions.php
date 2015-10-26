@@ -307,7 +307,7 @@ function get_members_with_projects()
     $administrator_args = array(
         'role' => 'administrator',
         'order' => 'DESC',
-        'orderby' => 'project_count',
+        'orderby' => 'meta_value',
         'meta_query' => array(
             array(
                 'key' => 'project_count',
