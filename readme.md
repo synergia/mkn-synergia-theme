@@ -3,10 +3,24 @@ MKNM "Synergia" Theme
 Strona internetowa naszego koła naukowego zawsze była ważnym miejscem do eksponowania naszych projektów, sukcesów i wydarzeń. Nadchodzące zmiany spowodują, że strona zostanie wyjątkowym instrumentem do przedstawienia swojego projektu.
 
 *   1.0.1
+*   1.1.0
+
+### 1.1.0 "Eva Green"
+
+![](http://cs629530.vk.me/v629530187/14ec7/HCZCLdK_B3c.jpg)
+
+* Dodano możliwość wyświetlania baneru rekrutacyjnego #20
+* Tło dla mniejszych obrazków rozjaśniono #13
+* Poprawiono wygląd boxu z dodawaniem dodatkowych plików do projektu #9
+* Linki współpracy i sponsorów ustawiono w dwie kolumny #8
+* Naprawiono wyświetlanie archiwum #4
+* Naprawiono wyświetlanie w prawidłowej kolejności członków i zarząd #3
+* Refaktoryzacja ustawień #2
+* Dodano pole dla Google Analytics
 
 ### 1.0.1 "Emma Stone"
 
-![](http://gdurl.com/FJHi)
+![](http://cs629530.vk.me/v629530187/14eba/-vi4bzQQlUI.jpg)
 
 *   Nowy wygląd kart projektów na głównej
 *   Nowe przyciski z ripple efektem
@@ -33,5 +47,4 @@ Strona internetowa naszego koła naukowego zawsze była ważnym miejscem do eksp
 *   [Stylish User Settings Dropdown Menu ](http://codepen.io/jakestuts/pen/nEFyw)
 *   [Ikony "Entypo"](http://www.entypo.com/)
 *   [JavaScript Cookie](https://github.com/js-cookie/js-cookie) - A simple, lightweight JavaScript API for handling cookies
-*   [Animate.css] (http://daneden.github.io/animate.css/) -  Just-add-water CSS animations 
-*   oraz wiele innych...
+*   [Animate.css](http://daneden.github.io/animate.css/) -  Just-add-water CSS animations

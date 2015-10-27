@@ -121,7 +121,7 @@ function wpse31443_author_has_custom_post_type( $post_author, $post_type ) {
     return false;
 }
 
-
+// Pousuwać nieptrzebne emoji //
 function disable_wp_emojicons() {
 
   // all actions related to emojis
@@ -136,6 +136,6 @@ function disable_wp_emojicons() {
   // filter to remove TinyMCE emojis
   add_filter( 'tiny_mce_plugins', 'disable_emojicons_tinymce' );
 }
-add_action( 'init', 'disable_wp_emojicons' );
+// add_action( 'init', 'disable_wp_emojicons' );
 
 ?>

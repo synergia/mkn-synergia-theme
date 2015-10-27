@@ -19,7 +19,7 @@
 
   <div class="modal-background">
       <label id="close_banner" for="modal"><i class="icon icon-close"></i></label>
-      <div class="modal__box">
+      <div class="modal-box">
         <svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 930.79 483.19" height="93" width="180">
       <metadata>
       <rdf:RDF>
