@@ -35,7 +35,7 @@ if (!function_exists('synergia_wp_title')) {
 function synergia_icons()
 {   // Favicon //
     // Firefox, Chrome, Safari, IE 11+ and Opera. 196x196 pixels in size
-    echo '<link rel="icon" href="'.get_template_directory_uri().'/img/fav.png" />';
+    echo '<link rel="icon" href="'.get_template_directory_uri().'/img/favicon.png" />';
     // Apple stuff //
     // Touch Icons - iOS and Android 2.1+ 180x180 pixels in size
     echo '<link rel="apple-touch-icon-precomposed" href="'.get_template_directory_uri().'/img/apple-touch-icon-precomposed.png">';
@@ -45,7 +45,7 @@ function synergia_icons()
     echo '<link rel="apple-touch-icon" sizes="152x152" href="'.get_template_directory_uri().'/img/safari_152.png">';
     // MS stuff //
     // For IE 9 and below. ICO should be 32x32 pixels in size
-    echo '<!--[if IE]><link rel="shortcut icon" href="'.get_template_directory_uri().'/img/fav.ico"><![endif]-->';
+    echo '<!--[if IE]><link rel="shortcut icon" href="'.get_template_directory_uri().'/img/favicon.ico"><![endif]-->';
 }
 add_action('wp_head', 'synergia_icons');
 
