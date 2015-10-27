@@ -59,7 +59,7 @@
     <span class="animated slideInLeft">18:45 - 20:00</span>
   </div>
 </div>
-<div class="fb animated fadeInUp"><div><i class="icon icon-facebook-circled"></i><a href="http://facebook.com/mknmsynergia">facebook.com/mknmsynergia</a></div></div>
+<div class="fb animated fadeInUp"><div><i class="icon icon-facebook-circled"></i><a href="https://www.facebook.com/events/539458102870961/">Wydarzenie na Facebooku</a></div></div>
     </div>
   </div>
 </div>
