@@ -121,21 +121,16 @@ function wpse31443_author_has_custom_post_type( $post_author, $post_type ) {
     return false;
 }
 
-// Pousuwać nieptrzebne emoji //
-function disable_wp_emojicons() {
-
-  // all actions related to emojis
-  remove_action( 'admin_print_styles', 'print_emoji_styles' );
-  remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
-  remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
-  remove_action( 'wp_print_styles', 'print_emoji_styles' );
-  remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
-  remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
-  remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
-
-  // filter to remove TinyMCE emojis
-  add_filter( 'tiny_mce_plugins', 'disable_emojicons_tinymce' );
+// Remove post formats support //
+// Usuwa różne niepotrzebne formaty postów typu linki, wideo itd.
+add_action('after_setup_theme', 'remove_post_formats', 11);
+function remove_post_formats() {
+    remove_theme_support('post-formats');
 }
-// add_action( 'init', 'disable_wp_emojicons' );
+// Wyłącza wyświetlanie komentarzy w menu //
+function remove_commnets_from_menu(){
+  remove_menu_page( 'edit-comments.php' );
+}
+add_action( 'admin_menu', 'remove_commnets_from_menu' );
 
 ?>
