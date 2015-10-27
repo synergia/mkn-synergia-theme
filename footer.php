@@ -8,8 +8,6 @@
                                 <li><a href="http://wmech.pwr.wroc.pl/">Wydział Mechaniczny</a></li>
                                 <li><a href="http://weka.pwr.wroc.pl/">Wydział Elektroniki</a></li>
                             </ul>
-                            <?php get_template_part('template-part', 'footernav'); ?>
-
                     </div>
                     <div class="gl-sm-2 gl-cell">
                         <a href="http://www.pwr.edu.pl/index.dhtml" target="_blank">
