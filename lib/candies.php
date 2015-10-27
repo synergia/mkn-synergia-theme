@@ -32,37 +32,100 @@ if (!function_exists('synergia_wp_title')) {
     add_filter('wp_title', 'synergia_wp_title', 10, 2);
 }
 
-function synergia_icons()
+function header_meta_tags()
 {   // Favicon //
     // Firefox, Chrome, Safari, IE 11+ and Opera. 196x196 pixels in size
-    echo '<link rel="icon" href="'.get_template_directory_uri().'/img/favicon.png" />';
+    echo '<link rel="icon" href="'.get_template_directory_uri().'/img/favicon.png" />'."\n";
+
     // Apple stuff //
     // Touch Icons - iOS and Android 2.1+ 180x180 pixels in size
-    echo '<link rel="apple-touch-icon-precomposed" href="'.get_template_directory_uri().'/img/apple-touch-icon-precomposed.png">';
-    echo '<link rel="apple-touch-icon" href="'.get_template_directory_uri().'/img/safari_60.png">';
-    echo '<link rel="apple-touch-icon" sizes="76x76" href="'.get_template_directory_uri().'/img/safari_76.png">';
-    echo '<link rel="apple-touch-icon" sizes="120x120" href="'.get_template_directory_uri().'/img/safari_120.png">';
-    echo '<link rel="apple-touch-icon" sizes="152x152" href="'.get_template_directory_uri().'/img/safari_152.png">';
+    echo '<link rel="apple-touch-icon-precomposed" href="'.get_template_directory_uri().'/img/apple-touch-icon-precomposed.png">'."\n";
+    echo '<link rel="apple-touch-icon" href="'.get_template_directory_uri().'/img/safari_60.png">'."\n";
+    echo '<link rel="apple-touch-icon" sizes="76x76" href="'.get_template_directory_uri().'/img/safari_76.png">'."\n";
+    echo '<link rel="apple-touch-icon" sizes="120x120" href="'.get_template_directory_uri().'/img/safari_120.png">'."\n";
+    echo '<link rel="apple-touch-icon" sizes="152x152" href="'.get_template_directory_uri().'/img/safari_152.png">'."\n";
+    echo '<link rel="apple-touch-startup-image" href="'.get_template_directory_uri().'/img/apple-touch-icon-precomposed.png">'."\n";
+    // Nazwa aplikacji
+    echo '<meta name="apple-mobile-web-app-title" content="'.get_bloginfo('name').'">'."\n";
+    // Wygląd statusbaru
+    echo '<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">'."\n";
+    // Enables or disables automatic detection of possible phone numbers in a webpage in Safari on iOS.
+    echo '<meta name="format-detection" content="telephone=no">'."\n";
+
     // MS stuff //
     // For IE 9 and below. ICO should be 32x32 pixels in size
-    echo '<!--[if IE]><link rel="shortcut icon" href="'.get_template_directory_uri().'/img/favicon.ico"><![endif]-->';
-}
-add_action('wp_head', 'synergia_icons');
+    echo '<!--[if IE]><link rel="shortcut icon" href="'.get_template_directory_uri().'/img/favicon.ico"><![endif]-->'."\n";
 
-////////////////////////////////////////////////////////////////////
-// Custom excerpt ellipses, custom length
-///////////////////////////////////////////////////////////////////
-function custom_excerpt_more($more)
-{
-    return '';
+    // Android stuff //
+    echo '<meta name="application-name" content="'.get_bloginfo('name').'">'."\n";
+    // Kolor nagłówka
+    echo '<meta name="theme-color" content="#6c4892">'."\n";
 }
-add_filter('excerpt_more', 'custom_excerpt_more');
+add_action('wp_head', 'header_meta_tags');
 
-function new_excerpt_length($length)
-{
-    return 30;
+// OpenGraph //
+// http://www.paulund.co.uk/add-facebook-open-graph-tags-to-wordpress
+function opengraph() {
+    global $post;
+
+    if(is_single()) {
+        if(has_post_thumbnail($post->ID)) {
+            $img_src = wp_get_attachment_image_src(get_post_thumbnail_id( $post->ID ), 'medium');
+        } else {
+            $img_src = get_template_directory_uri().'/img/defaulth.png';
+        }
+        $description = my_excerpt( $post->post_content, $post->post_excerpt );
+      		$description = strip_tags($description);
+      		$description = str_replace("\"", "'", $description);
+        ?>
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" value="@MKNMSynergia" />
+    <meta property="og:title" content="<?php echo the_title(); ?>"/>
+    <meta property="og:description" content="<?php echo $description; ?>"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content="<?php echo the_permalink(); ?>"/>
+    <meta property="og:site_name" content="<?php echo get_bloginfo('name'); ?>"/>
+    <meta property="og:image" content="<?php echo $img_src[0]; ?>"/>
+
+<?php
+    } else {
+        return;
+    }
 }
-add_filter('excerpt_length', 'new_excerpt_length');
+add_action('wp_head', 'opengraph', 5);
+
+// This will ensure that the proper doctype is added to our HTML.
+// Without this code, most platforms would simply skip over our webpage,
+// and the tags we are about to add would never get parsed.
+function doctype_opengraph($output) {
+    return $output . '
+    xmlns:og="http://opengraphprotocol.org/schema/"
+    xmlns:fb="http://www.facebook.com/2008/fbml"';
+}
+add_filter('language_attributes', 'doctype_opengraph');
+
+function my_excerpt($text, $excerpt){
+
+    if ($excerpt) return $excerpt;
+
+    $text = strip_shortcodes( $text );
+
+    $text = apply_filters('the_content', $text);
+    $text = str_replace(']]>', ']]&gt;', $text);
+    $text = strip_tags($text);
+    $excerpt_length = apply_filters('excerpt_length', 25);
+    $excerpt_more = apply_filters('excerpt_more', '...');
+    $words = preg_split("/[\n
+	 ]+/", $text, $excerpt_length + 1, PREG_SPLIT_NO_EMPTY);
+    if ( count($words) > $excerpt_length ) {
+            array_pop($words);
+            $text = implode(' ', $words);
+            $text = $text . $excerpt_more;
+    } else {
+            $text = implode(' ', $words);
+    }
+    return apply_filters('wp_trim_excerpt', $text, $excerpt);
+}
 
 ////////////////////////////////////////////////////////////////////
 // Dynamic Copy Year
