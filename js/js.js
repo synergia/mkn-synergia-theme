@@ -243,7 +243,6 @@ jQuery(function($) {
       if (typeof option == 'string') data[option]();
     });
   }
-
   var old = $.fn.collapse;
 
   $.fn.collapse = Plugin;

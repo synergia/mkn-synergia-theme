@@ -1,3 +1,4 @@
 *.css.map
 .sass-cache
 .brackets.json
+node_modules
