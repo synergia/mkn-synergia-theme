@@ -3,7 +3,7 @@
     $theme = wp_get_theme();
     $version = $theme->get('Version');
     $theme_name = $theme->get('Name');
-    $codename = 'Eva Green';
+    $codename = 'Emily Blunt';
 
 // Dodatkowe style i skrypty dla panelu. Odpowiedzialne za otwieranie okna
 // z mediami
