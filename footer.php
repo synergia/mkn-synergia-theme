@@ -8,8 +8,6 @@
                                 <li><a href="http://wmech.pwr.wroc.pl/">Wydział Mechaniczny</a></li>
                                 <li><a href="http://weka.pwr.wroc.pl/">Wydział Elektroniki</a></li>
                             </ul>
-                            <?php get_template_part('template-part', 'footernav'); ?>
-
                     </div>
                     <div class="gl-sm-2 gl-cell">
                         <a href="http://www.pwr.edu.pl/index.dhtml" target="_blank">
@@ -20,6 +18,7 @@
                         <div>
                             <a href="<?php echo $snrg_settings['archiwum'] ?>" title="Archiwum"><i class="icon-archive"></i></a>
                             <a href="http://facebook.com/mknmsynergia" title="Polub"><i class="icon-facebook"></i></a>
+                            <a href="https://twitter.com/MKNMSynergia" title="Śledź"><i class="icon-twitter"></i></a>
                             <a href="http://github.com/synergia" title="Kod"><i class="icon-github"></i></a>
                         </div>
                     </div>

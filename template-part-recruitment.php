@@ -1,15 +1,3 @@
-<?php global $snrg_settings; ?>
-<?php // Randomowy obrazek // ?>
-<?php $recruitment_image_number = rand(1, 3); ?>
-<?php $recruitment_image = $snrg_settings['recruitment_image_'.$recruitment_image_number]; ?>
-<style>
-.modal-background {
-  background-image:
-    linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
-    url('<?php echo $recruitment_image ?>');
-    background-size: cover;
-}
-</style>
 <div class="modal">
   <input id="modal" type="checkbox" name="modal" tabindex="1">
   <label for="modal" am-button="raised">
@@ -59,7 +47,7 @@
     <span class="animated slideInLeft">18:45 - 20:00</span>
   </div>
 </div>
-<div class="fb animated fadeInUp"><div><i class="icon icon-facebook-circled"></i><a href="http://facebook.com/mknmsynergia">facebook.com/mknmsynergia</a></div></div>
+<div class="fb animated fadeInUp"><div><i class="icon icon-facebook-circled"></i><a href="https://www.facebook.com/events/539458102870961/">Wydarzenie na Facebooku</a></div></div>
     </div>
   </div>
 </div>

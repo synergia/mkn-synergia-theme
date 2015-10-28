@@ -33,7 +33,6 @@ Strona internetowa naszego koła naukowego zawsze była ważnym miejscem do eksp
 
 ### Wykorzystane narzędzia, frameworki oraz pomysły
 
-*   [Brackets](http://brackets.io/) - edytor dla webu
 *   [sass](http://sass-lang.com/) - preprocessor
 *   [mq](https://github.com/sass-mq/sass-mq) - Media Queries with superpowers
 *   [GridLayout](https://ghinda.net/gridlayout/) - Lightweight grid system for advanced horizontal and vertical responsive web app layouts, with support for older browsers.
@@ -48,3 +47,4 @@ Strona internetowa naszego koła naukowego zawsze była ważnym miejscem do eksp
 *   [Ikony "Entypo"](http://www.entypo.com/)
 *   [JavaScript Cookie](https://github.com/js-cookie/js-cookie) - A simple, lightweight JavaScript API for handling cookies
 *   [Animate.css](http://daneden.github.io/animate.css/) -  Just-add-water CSS animations
+*   [Gulp](http://gulpjs.com/) - Automate and enhance your workflow

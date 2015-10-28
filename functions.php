@@ -3,7 +3,7 @@
     $theme = wp_get_theme();
     $version = $theme->get('Version');
     $theme_name = $theme->get('Name');
-    $codename = 'Eva Green';
+    $codename = 'Emily Blunt';
 
 // Dodatkowe style i skrypty dla panelu. Odpowiedzialne za otwieranie okna
 // z mediami
@@ -71,10 +71,10 @@ function js()
 {
   global $snrg_settings;
 
-    wp_register_script('underscore', get_template_directory_uri().'/js/underscore.min.js', '1.6.0', true);
-    wp_register_script('github.js', get_template_directory_uri().'/js/github.min.js', '0.1.3', true);
-    wp_register_script('prism', get_template_directory_uri().'/js/prism.js', '', true);
-    wp_register_script('cookie', get_template_directory_uri().'/js/js.cookie-2.0.4.min.js', '', true);
+    wp_register_script('underscore', get_template_directory_uri().'/js/min/underscore.min.js', '1.6.0', true);
+    wp_register_script('github.js', get_template_directory_uri().'/js/min/github.min.js', '0.1.3', true);
+    wp_register_script('prism', get_template_directory_uri().'/js/min/prism.js', '', true);
+    wp_register_script('cookie', get_template_directory_uri().'/js/min/js-cookie.min.js', '', true);
     if (is_author()) {
         wp_enqueue_script('underscore');
         wp_enqueue_script('github.js');
@@ -85,7 +85,7 @@ function js()
     if ($snrg_settings['recruitment']) {
         wp_enqueue_script('cookie');
     }
-    wp_enqueue_script('js', get_template_directory_uri().'/js/js.js', array('jquery'), $version, true);
+    wp_enqueue_script('js', get_template_directory_uri().'/js/min/js.min.js', array('jquery'), $version, true);
 }
 add_action('wp_footer', 'js');
 

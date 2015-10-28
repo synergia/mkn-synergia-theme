@@ -20,7 +20,7 @@ $bezier: cubic-bezier(.4,0,.2,1);
 $border-light: 1px solid rgba(0, 0, 0, 0.1);
 
 //LOGO
-$image-path: '../img' !default;
+$image-path: 'img' !default;
 $fallback-extension: 'png' !default;
 $retina-suffix: '@2x';
 
@@ -31,4 +31,3 @@ $container-width: 1000px;
 $image-opacity: 0.4;
 
 //BURGER
-

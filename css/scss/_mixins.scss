@@ -13,6 +13,8 @@
 	}
 }
 
+// SVG background images with PNG fallback (supporting retina displays) [Found on http://zerosixthree.se/8-sass-mixins-you-must-have-in-your-toolbox/]
+// $name and $image-path are in _vars.scss
 @mixin background-image($name, $size:false) {
 	background-image: url(#{$image-path}/#{$name}.svg);
 	@if($size) {

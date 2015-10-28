@@ -4,9 +4,7 @@
 @import 'normalize';
 @import 'gridlayout';
 @import 'html5boiler';
-//==========================================================================
-//   Synergia custom styles
-//==========================================================================
+// Synergiczne style //
 body {
     font-family: $synergia-fontstack;
     //    font-size: $font-size;
@@ -114,7 +112,6 @@ img {
     border-bottom: 4px solid $synergia-color;
     padding-bottom: 5px;
 }
-
 .logo {
     @include mq($from: tablet) {
         width: 300px;
