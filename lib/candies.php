@@ -170,3 +170,47 @@ function remove_commnets_from_menu()
     remove_menu_page('edit-comments.php');
 }
 add_action('admin_menu', 'remove_commnets_from_menu');
+
+// Usuwa style .recentcomments //
+// http://beerpla.net/2010/01/31/how-to-remove-inline-hardcoded-recent-comments-sidebar-widget-style-from-your-wordpress-theme/
+add_action('widgets_init', 'remove_recent_comments_style');
+function remove_recent_comments_style() {
+	global $wp_widget_factory;
+	remove_action('wp_head', array($wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style'));
+}
+
+// Usuwa wsparcie dla emoji //
+function remove_emoji() {
+	remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+	remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+	remove_action( 'admin_print_styles', 'print_emoji_styles' );
+	remove_action( 'wp_print_styles', 'print_emoji_styles' );
+	remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
+	remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
+	remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
+	// Remove from TinyMCE
+	add_filter( 'tiny_mce_plugins', 'remove_tinymce_emoji' );
+}
+add_action( 'init', 'remove_emoji' );
+// Filter out the tinymce emoji plugin.
+
+function remove_tinymce_emoji( $plugins ) {
+	if ( ! is_array( $plugins ) ) {
+		return array();
+	}
+	return array_diff( $plugins, array( 'wpemoji' ) );
+}
+
+// Inline style dla REKRUTACJI //
+function enqueue_inline_styles() {
+  global $snrg_settings;
+  $recruitment_image = $snrg_settings['recruitment_image_'.rand(1, 3)];
+	$css = '';
+		$css .= '<style>.modal-background {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
+      url('.$recruitment_image.') !important;}</style>
+		';
+	if( !empty( $css ) )
+		echo $css;
+}
+add_action( 'wp_print_styles', 'enqueue_inline_styles',8 );

@@ -1,15 +1,3 @@
-<?php global $snrg_settings; ?>
-<?php // Randomowy obrazek // ?>
-<?php $recruitment_image_number = rand(1, 3); ?>
-<?php $recruitment_image = $snrg_settings['recruitment_image_'.$recruitment_image_number]; ?>
-<style>
-.modal-background {
-  background-image:
-    linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
-    url('<?php echo $recruitment_image ?>');
-    background-size: cover;
-}
-</style>
 <div class="modal">
   <input id="modal" type="checkbox" name="modal" tabindex="1">
   <label for="modal" am-button="raised">
