@@ -1,30 +1,34 @@
 <?php
 
-////////////////////////////////////////////////////////////////////
-// Add Title Parameters
-////////////////////////////////////////////////////////////////////
-
-if (!function_exists('synergia_wp_title')) {
-    function synergia_wp_title($title, $sep)
-    { // Taken from Twenty Twelve 1.0
-        global $paged, $page;
-
-        if (is_feed()) {
-            return $title;
-        }
-
-        // Add the site name.
-        $title .= get_bloginfo('name');
-
-        // Add a page number if necessary.
-        if ($paged >= 2 || $page >= 2) {
-            $title = "$title $sep ".sprintf(__('Page %s', 'synergia'), max($paged, $page));
-        }
-
+/**
+ * Filters wp_title to print a neat <title> tag based on what is being viewed.
+ *
+ * @param string $title Default title text for current view.
+ * @param string $sep   Optional separator.
+ * @return string The filtered title.
+ */
+function wpdocs_theme_name_wp_title( $title, $sep ) {
+    if ( is_feed() ) {
         return $title;
     }
-    add_filter('wp_title', 'synergia_wp_title', 10, 2);
+
+    global $page, $paged;
+
+    // Add the blog name
+
+
+    // Add the blog description for the home/front page.
+    if ( ( is_home() || is_front_page() ) ) {
+        $title .= get_bloginfo( 'name', 'display' );
+    }
+
+    // Add a page number if necessary:
+    if ( ( $paged >= 2 || $page >= 2 ) && ! is_404() ) {
+        $title .= " $sep " . sprintf( __( 'Page %s', '_s' ), max( $paged, $page ) );
+    }
+    return $title;
 }
+add_filter( 'wp_title', 'wpdocs_theme_name_wp_title', 10, 2 );
 
 function header_meta_tags()
 {   // Favicon //
@@ -214,3 +218,9 @@ function enqueue_inline_styles() {
 		echo $css;
 }
 add_action( 'wp_print_styles', 'enqueue_inline_styles',8 );
+
+function remove_footer_admin () {
+echo 'Made with &hearts; in Wrocław by <a href="https://twitter.com/stsdc" target="_blank"> Stanisław</a>, powered by <a href="http://www.wordpress.org" target="_blank">WordPress</a> </p>';
+}
+
+add_filter('admin_footer_text', 'remove_footer_admin');
