@@ -4,6 +4,16 @@ Strona internetowa naszego koła naukowego zawsze była ważnym miejscem do eksp
 
 *   1.0.1
 *   1.1.0
+*   1.2.0
+
+### 1.2.0 "Emily Blunt"
+
+![](http://cs627828.vk.me/v627828187/26705/3vdCCbSW5t8.jpg)
+
+* Poprawiono tutuł każdej strony
+* Dodano favicon i specyficzne ikony dla iOS
+* Usunięto sekcję z komentarzami
+* Dodano opengraph i twitter cards
 
 ### 1.1.0 "Eva Green"
 

@@ -68,7 +68,7 @@ function opengraph() {
 
     if(is_single()) {
         if(has_post_thumbnail($post->ID)) {
-            $img_src = wp_get_attachment_image_src(get_post_thumbnail_id( $post->ID ), 'medium');
+            $img_src = wp_get_attachment_image_src(get_post_thumbnail_id( $post->ID ), 'large');
         } else {
             $img_src = get_template_directory_uri().'/img/defaulth.png';
         }
