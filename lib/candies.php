@@ -169,12 +169,13 @@ function remove_post_formats()
     remove_theme_support('post-formats');
 }
 add_filter( 'enable_post_format_ui', '__return_false' );
-// Wyłącza wyświetlanie komentarzy w menu //
-function remove_comments_from_menu()
+// Wyłącza wyświetlanie komentarzy i odnośników w menu //
+function remove_comments_and_links_from_menu()
 {
     remove_menu_page('edit-comments.php');
+    remove_menu_page('link-manager.php');
 }
-add_action('admin_menu', 'remove_comments_from_menu');
+add_action('admin_menu', 'remove_comments_and_links_from_menu');
 
 // Usuwa style .recentcomments //
 // http://beerpla.net/2010/01/31/how-to-remove-inline-hardcoded-recent-comments-sidebar-widget-style-from-your-wordpress-theme/
