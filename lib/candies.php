@@ -168,6 +168,7 @@ function remove_post_formats()
 {
     remove_theme_support('post-formats');
 }
+add_filter( 'enable_post_format_ui', '__return_false' );
 // Wyłącza wyświetlanie komentarzy w menu //
 function remove_comments_from_menu()
 {
