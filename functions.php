@@ -34,6 +34,7 @@ include 'lib/author-functions.php';
 include 'lib/project-functions.php';
 include 'lib/candies.php';
 include 'lib/additional_attachments.php';
+include 'lib/login.php';
 
 // Szortkody //
 
@@ -67,7 +68,6 @@ include 'lib/additional_attachments.php';
 
 // Synergiczne style dla admin panelu //
 add_action('admin_init','synergia_admin_styles');
-add_action('login_head','synergia_admin_styles');
 function synergia_admin_styles() {
   global $version;
   wp_enqueue_style( 'admin', get_template_directory_uri() . '/css/admin.css', array(), $version, 'all');

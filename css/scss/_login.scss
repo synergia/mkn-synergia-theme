@@ -1,0 +1,83 @@
+.page-template-login {
+  height: 100%;
+  position: fixed;
+  display: block;
+  width: 100%;
+  background-image: url("../img/login_bg.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+#login-form {
+  width: 300px;
+  left: 50%;
+position: fixed;
+top: 50%;
+transform: translate(-50%, -50%);
+}
+#login-form h3 {
+  background-color:$text-color;
+  height: 50px;
+  border-radius: 5px 5px 0 0;
+    @include background-image('synergia-mono-horizontal-inverted');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 200px auto;
+    height: 65px;
+    width:100%;
+  margin-bottom: -1px;
+  text-align: center;
+  text-transform: uppercase;
+}
+#login-form fieldset {
+  background: $synergia-grey-color;
+  border-radius: 0 0 5px 5px;
+  padding: 20px;
+  position: relative;
+}
+#login-form fieldset:before {
+  background-color: $synergia-grey-color;
+  content: "";
+  height: 8px;
+  left: 50%;
+  margin: -4px 0 0 -4px;
+  position: absolute;
+  top: 0;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  width: 8px;
+}
+#login-form input {
+  background-color: #fff;
+  box-sizing: border-box;
+  text-align: center;
+}
+#login-form input[type="text"],
+#login-form input[type="password"] {
+  border: 1px solid #dcdcdc;
+  padding: 8px 6px;
+  width: 100%;
+}
+#login-form input[type="text"] {
+  border-radius: 3px 3px 0 0;
+}
+#login-form input[type="password"] {
+     font: caption;
+  border-top: none;
+  border-radius: 0 0 3px 3px;
+}
+#login-form input[type="checkbox"] {
+  display: none;
+}
+#login-form button {
+  // float: right;
+  width: 100%;
+  padding: 0.5rem;
+  letter-spacing: normal;
+  font-weight: 600;
+  margin-top: 20px;
+}

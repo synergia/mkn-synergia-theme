@@ -37,7 +37,7 @@ gulp.task('sass', function() {
     .pipe(sourcemaps.init())
     .pipe(sass({ style: 'expanded'}))
     // .pipe(autoprefixer(AUTOPREFIXER_BROWSERS))
-    .pipe(base64({baseDir: './',maxImageSize: 32*1024, extensions: ['svg', 'png'], exclude: ['fontello.svg'], debug:false}))
+    .pipe(base64({baseDir: './',maxImageSize: 32*1024, extensions: ['svg', 'png'], exclude: ['fontello.svg'], debug:true}))
     .pipe(minifycss({keepSpecialComments: 0}))
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('css'));

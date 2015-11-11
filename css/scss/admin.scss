@@ -1,3 +1,5 @@
+@import "vars";
+@import "mixins";
 .files-panel {
     overflow: hidden;
     .description {
@@ -81,9 +83,29 @@
         float: left;
     }
 }
-#login {
-  padding: 4% 0 0;
-}
-.login h1 a {
-display: none;
-}
+// #login {
+//   width: 300px;
+// }
+// #login h1 {
+// 	background-color: #282830;
+// 	border-radius: 5px 5px 0 0;
+// 	color: #fff;
+// 	font-size: 14px;
+// 	padding: 20px;
+// 	text-align: center;
+// 	text-transform: uppercase;
+// }
+// body.login {
+//   background-image: url('../img/login_bg.jpg');
+//   background-repeat: no-repeat;
+//   background-attachment: fixed;
+//   background-size: cover;
+//   background-position: center;
+// }
+// .login h1 a {
+//   @include background-image('logo');
+//   background-position: center;
+//   background-size: 200px auto;
+//   height: 50px;
+//   width:200px;
+// }

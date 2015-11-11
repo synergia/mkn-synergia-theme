@@ -4,11 +4,12 @@ $font-size: 16px;
 $line-height: 1.4;
 
 //COLORS
-$text-color: #333333;
+$text-color: #333;
 $cardbutton-color: #565656;
-$background-color: #ffffff;
+$background-color: #fff;
 $synergia-color: #6c4892;
-$synergia-light-color:lighten($synergia-color, 20%);
+$synergia-grey-color: #efeff0;
+$synergia-light-color: lighten($synergia-color, 20%);
 
 //BUTTON
 // http://codepen.io/jreece/pen/myeJBN
@@ -30,4 +31,28 @@ $container-width: 1000px;
 //IMAGES
 $image-opacity: 0.4;
 
-//BURGER
+/**
+* Set up reusable colors
+*/
+$secondary-color: #34495e;
+/**
+* Colors from Flat UI
+* Source: http://flatuicolors.com
+*/
+$pomegranate: #c0392b;
+$alizarin: #e74c3c;
+$pumpkin: #d35400;
+$carrot: #e67e22;
+$orange: #f39c12;
+$sunflower: #f1c40f;
+$emerald: #2ecc71;
+$nephritis: #27ae60;
+$turquoise: #1abc9c;
+$green-sea: #16a085;
+$peter-river: #3498db;
+$belize-hole: #2980b9;
+$amethyst: #9b59b6;
+$wisteria: #8e44ad;
+
+
+$note-spacing: 24px;

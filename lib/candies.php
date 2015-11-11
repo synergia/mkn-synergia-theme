@@ -221,8 +221,7 @@ function enqueue_inline_styles() {
 }
 add_action( 'wp_print_styles', 'enqueue_inline_styles',8 );
 
-function remove_footer_admin () {
+function synergia_footer_admin () {
 echo 'Made with &hearts; in Wrocław by <a href="https://twitter.com/stsdc" target="_blank"> Stanisław</a>, powered by <a href="http://www.wordpress.org" target="_blank">WordPress</a> </p>';
 }
-
-add_filter('admin_footer_text', 'remove_footer_admin');
+add_filter('admin_footer_text', 'synergia_footer_admin');
