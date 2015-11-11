@@ -3,16 +3,10 @@
 //This initializes the write panel.
 add_action('admin_init','linki_meta_init');
 
-
 function linki_meta_init() {
-  //This adds our CSS file,
-//  so our write panels look pretty.
-  wp_enqueue_style( 'meta', get_template_directory_uri() . '/css/admin.css');
-
     // Dodaje meta boxy do określonego typu postów
     add_meta_box('linki_meta','Linki','linki_meta', 'project', 'side', 'default' );
     add_meta_box('project_status_box', 'Stan Projektu', 'project_status', 'project', 'side' , 'default');
-
 }
 // The function below links the panel
 // to the custom fields

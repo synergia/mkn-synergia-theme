@@ -65,6 +65,14 @@ include 'lib/additional_attachments.php';
     }
     add_action('wp_enqueue_scripts', 'synergia_theme_stylesheets');
 
+// Synergiczne style dla admin panelu //
+add_action('admin_init','synergia_admin_styles');
+add_action('login_head','synergia_admin_styles');
+function synergia_admin_styles() {
+  global $version;
+  wp_enqueue_style( 'admin', get_template_directory_uri() . '/css/admin.css', array(), $version, 'all');
+}
+
 // Synergiczne skrypty //
 
 function js()
@@ -73,7 +81,7 @@ function js()
 
     wp_register_script('underscore', get_template_directory_uri().'/js/min/underscore.min.js', '1.6.0', true);
     wp_register_script('github.js', get_template_directory_uri().'/js/min/github.min.js', '0.1.3', true);
-    wp_register_script('prism', get_template_directory_uri().'/js/min/prism.js', '', true);
+    wp_register_script('prism', get_template_directory_uri().'/js/min/prism.min.js', '', true);
     wp_register_script('cookie', get_template_directory_uri().'/js/min/js-cookie.min.js', '', true);
     if (is_author()) {
         wp_enqueue_script('underscore');
