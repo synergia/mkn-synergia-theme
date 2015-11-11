@@ -325,7 +325,9 @@ jQuery(function($) {
     var length = $(this).html().length;
     if (length > 13) {
       var name = $(this).text();
+      // console.log(name);
       var trimmed_name = name.charAt(0) + ". " + name.substr(name.indexOf(' ') + 1);
+      // console.log(trimmed_name);
       $(this).text(trimmed_name);
     }
   });
@@ -334,7 +336,7 @@ jQuery(function($) {
 jQuery(function($) {
   $('.project-content p').each(function(index) {
     var some_img = $(this).find('img');
-    var width = some_img.width();
+    var width = some_img.ht();
     if (width < 980) {
       some_img.wrap("<figure></figure>");
     }
