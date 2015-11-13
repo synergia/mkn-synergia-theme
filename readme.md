@@ -1,5 +1,14 @@
 MKNM "Synergia" Theme
 =====================
+
+### Jak zainstalować
+Po aktywacji motywu należy:
+* utworzyć 4 strony: Główną (szablon "Portfolio"), Aktualności (szablon "Aktualności"),
+Członkowie (szablon "Członkowie"), O nas
+* Główną stronę w Ustawienia->Czytanie ustawić jako statyczną
+* w Wyglądzie->Menu utworzyć nowe menu z Aktualnościami, Członkami i stroną O nas. Zaznaczyć położenie motywu "Main menu" i zapisać.
+* Zainstalować wtyczki Co-Authors Plus oraz WP Users Media. Najściślej motyw jest powiązany z Co-Authors Plus.
+
 Strona internetowa naszego koła naukowego zawsze była ważnym miejscem do eksponowania naszych projektów, sukcesów i wydarzeń. Nadchodzące zmiany spowodują, że strona zostanie wyjątkowym instrumentem do przedstawienia swojego projektu.
 
 *   1.0.1
