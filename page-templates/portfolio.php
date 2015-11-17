@@ -19,7 +19,7 @@ Template Name: Portfolio
 			$paged = ( get_query_var( 'page' ) ) ? get_query_var( 'page' ) : 1;
             $args = array(
                 'post_type'              => array('project'),
-                'post_per_page' => 10,
+                'post_per_page' => 6,
                 'paged'         => $paged
                     );
             $query = new WP_Query( $args );
