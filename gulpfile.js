@@ -145,4 +145,4 @@ gulp.task('clean', function (cb) {
 });
 
 // Default Task
-gulp.task('default', ['scss', 'js', 'img', 'fonts', 'webserver' 'watch']);
+gulp.task('default', ['scss', 'js', 'img', 'fonts', 'webserver', 'watch']);
