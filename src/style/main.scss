@@ -1,7 +1,7 @@
-@import 'mq';
 @import 'vars';
 @import 'mixins';
-@import 'normalize';
+@import '../../bower_components/normalize-scss/normalize';
+@import '../../bower_components/sass-mq/mq';
 @import 'gridlayout';
 @import 'html5boiler';
 // Synergiczne style //
@@ -411,6 +411,7 @@ nav {
     overflow: hidden;
     display: block;
 }
+
 @import 'author';
 @import 'ui';
 @import 'project';
