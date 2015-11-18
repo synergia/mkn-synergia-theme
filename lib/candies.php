@@ -211,13 +211,12 @@ function remove_tinymce_emoji( $plugins ) {
 function enqueue_inline_styles() {
   global $snrg_settings;
   $recruitment_image = $snrg_settings['recruitment_image_'.rand(1, 3)];
-	$css = '';
-		$css .= '<style>.modal-background {
+  if ($snrg_settings['recruitment']) {
+  	echo '<style>.modal-background {
       background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
       url('.$recruitment_image.') !important;}</style>
-		';
-	if( !empty( $css ) )
-		echo $css;
+  	';
+  }
 }
 add_action( 'wp_print_styles', 'enqueue_inline_styles',8 );
 
