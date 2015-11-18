@@ -27,16 +27,6 @@
         $wp_admin_bar->add_node( $args );
     }
 
-////////////////////////////////////////////////////////////////////
-// Add admin.css enqueue
-////////////////////////////////////////////////////////////////////
-
-    function synergia_theme_style() {
-        wp_enqueue_style('synergia-theme', get_template_directory_uri() . '/css/admin.css');
-    }
-    add_action('admin_enqueue_scripts', 'synergia_theme_style');
-
-
 
 ////////////////////////////////////////////////////////////////////
 // Register our settings options (the options we want to use)
@@ -109,7 +99,7 @@
         global $snrg_options, $version, $codename;
 
         //get our logo
-        $logo = get_template_directory_uri() . '/img/logo.png'; ?>
+        $logo = get_template_directory_uri() . '/build/img/logo.png'; ?>
 
         <div class="wrap options_wrap">
 

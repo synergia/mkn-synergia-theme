@@ -31,6 +31,10 @@ $container-width: 1000px;
 //IMAGES
 $image-opacity: 0.4;
 
+// Breakpoints //
+
+$mq-media-type: screen;
+
 $mq-breakpoints: (
     mobile:  480px,
     tablet:  768px,
