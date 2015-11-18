@@ -48,9 +48,9 @@ include 'lib/login.php';
 
         wp_register_style('Titillium', 'https://fonts.googleapis.com/css?family=Titillium+Web:400,300,700&subset=latin,latin-ext');
         wp_register_style('Titillium900', 'https://fonts.googleapis.com/css?family=Titillium+Web:900&subset=latin');
-        wp_register_style('main', get_template_directory_uri().'/css/main.css', array(), $version, 'all');
-        wp_register_style('github', get_template_directory_uri().'/css/github.css', array(), $version, 'all');
-        wp_register_style('prism', get_template_directory_uri().'/css/prism.css', array(), $version, 'all');
+        wp_register_style('main', get_template_directory_uri().'/build/style/main.css', array(), $version, 'all');
+        wp_register_style('github', get_template_directory_uri().'/build/style/github.css', array(), $version, 'all');
+        wp_register_style('prism', get_template_directory_uri().'/build/style/prism.css', array(), $version, 'all');
         wp_enqueue_style('main');
         wp_enqueue_style('Titillium');
         // Dla rekrutacji potrzebna jest ciężka czcionka
@@ -70,7 +70,7 @@ include 'lib/login.php';
 add_action('admin_init','synergia_admin_styles');
 function synergia_admin_styles() {
   global $version;
-  wp_enqueue_style( 'admin', get_template_directory_uri() . '/css/admin.css', array(), $version, 'all');
+  wp_enqueue_style( 'admin', get_template_directory_uri() . '/build/style/admin.css', array(), $version, 'all');
 }
 
 // Synergiczne skrypty //
@@ -79,10 +79,10 @@ function js()
 {
   global $snrg_settings;
 
-    wp_register_script('underscore', get_template_directory_uri().'/js/min/underscore.min.js', '1.6.0', true);
-    wp_register_script('github.js', get_template_directory_uri().'/js/min/github.min.js', '0.1.3', true);
-    wp_register_script('prism', get_template_directory_uri().'/js/min/prism.min.js', '', true);
-    wp_register_script('cookie', get_template_directory_uri().'/js/min/js-cookie.min.js', '', true);
+    wp_register_script('underscore', get_template_directory_uri().'/build/js/underscore.min.js', '1.6.0', true);
+    wp_register_script('github.js', get_template_directory_uri().'/build/js/github.min.js', '0.1.3', true);
+    wp_register_script('prism', get_template_directory_uri().'/build/js/prism.min.js', '', true);
+    wp_register_script('cookie', get_template_directory_uri().'/build/js/js-cookie.min.js', '', true);
     if (is_author()) {
         wp_enqueue_script('underscore');
         wp_enqueue_script('github.js');
@@ -93,7 +93,7 @@ function js()
     if ($snrg_settings['recruitment']) {
         wp_enqueue_script('cookie');
     }
-    wp_enqueue_script('js', get_template_directory_uri().'/js/min/js.min.js', array('jquery'), $version, true);
+    wp_enqueue_script('js', get_template_directory_uri().'/build/js/js.min.js', array('jquery'), $version, true);
 }
 add_action('wp_footer', 'js');
 

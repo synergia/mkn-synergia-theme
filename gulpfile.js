@@ -14,6 +14,44 @@ var plumber = require('gulp-plumber');
 var minifycss = require('gulp-minify-css');
 var gutil = require('gulp-util');
 
+var imagemin = require('gulp-imagemin');
+var pngquant = require('imagemin-pngquant');
+
+var rigger = require('gulp-rigger');
+
+var browserSync = require("browser-sync");
+var reload = browserSync.reload;
+
+/**
+ * Browser Sync
+ *
+ * Asynchronous browser syncing of assets across multiple devices!! Watches for changes to js, image and php files
+ * Although, I think this is redundant, since we have a watch task that does this already.
+*/
+gulp.task('webserver', function() {
+	var files = [
+					'**/*.php',
+					'**/*.{png,jpg,gif}'
+				];
+	browserSync.init(files, {
+
+		// Read here http://www.browsersync.io/docs/options/
+		proxy: '127.0.0.1/synergia/',
+
+		// port: 8080,
+
+		// Tunnel the Browsersync server through a random Public URL
+		// tunnel: true,
+
+		// Attempt to use the URL "http://my-private-site.localtunnel.me"
+		// tunnel: "ppress",
+
+		// Inject CSS changes
+		injectChanges: true
+
+	});
+});
+
 // error function for plumber
 var onError = function (err) {
   gutil.beep();
@@ -31,34 +69,57 @@ var AUTOPREFIXER_BROWSERS = [
 ];
 
 // Compile Our Sass
-gulp.task('sass', function() {
-  return gulp.src('css/scss/*.scss')
+gulp.task('scss', function() {
+  return gulp.src('src/style/*.scss')
     .pipe(plumber({ errorHandler: onError }))
     .pipe(sourcemaps.init())
     .pipe(sass({ style: 'expanded'}))
     // .pipe(autoprefixer(AUTOPREFIXER_BROWSERS))
-    .pipe(base64({baseDir: './',maxImageSize: 32*1024, extensions: ['svg', 'png'], exclude: ['fontello.svg'], debug:true}))
+    .pipe(base64({baseDir: 'src',maxImageSize: 32*1024, extensions: ['svg', 'png'], exclude: ['fontello.svg'], debug:false}))
     .pipe(minifycss({keepSpecialComments: 0}))
     .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest('css'));
+    .pipe(gulp.dest('build/style'))
+    .pipe(reload({stream: true}));
 });
 
 // Minify JS
 gulp.task('js', function() {
-  return gulp.src('js/*.js')
+  return gulp.src('src/js/*.js')
     // .pipe(concat('all.js'))
     // .pipe(filesize())
     .pipe(rename({extname: '.min.js'}))
     .pipe(uglify())
-    .pipe(gulp.dest('js/min'));
+    .pipe(gulp.dest('build/js'))
     // .pipe(filesize());
+    .pipe(reload({stream: true}));
+});
+
+// Minify images
+gulp.task('img', function() {
+  return gulp.src('src/img/*.*')
+    .pipe(imagemin({
+      progressive: true,
+      svgoPlugins: [{ removeViewBox: false }],
+      use: [pngquant()],
+      interlaced: true
+    }))
+    .pipe(gulp.dest('build/img'))
+  .pipe(reload({stream: true}));
+});
+
+gulp.task('fonts', function() {
+  gulp.src('src/fonts/*.*')
+    .pipe(gulp.dest('build/fonts')) //spit it to build
+    .pipe(reload({ stream: true })); // reload
 });
 
 // Watch Files For Changes
 gulp.task('watch', function() {
-  gulp.watch('js/*.js', ['js']);
-  gulp.watch('css/scss/*.scss', ['sass']);
+  gulp.watch('src/js/*.js', ['js']);
+  gulp.watch('src/style/*.scss', ['scss']);
+  gulp.watch('src/img/*.*', ['img']);
+  gulp.watch('src/fonts/**/*.*', ['fonts']);
 });
 
 // Default Task
-gulp.task('default', ['sass', 'js', 'watch']);
+gulp.task('default', ['scss', 'js', 'img', 'fonts', 'webserver', 'watch']);
