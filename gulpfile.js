@@ -13,28 +13,47 @@ var plumber = require('gulp-plumber');
 // var autoprefixer = require('gulp-autoprefixer');
 var minifycss = require('gulp-minify-css');
 var gutil = require('gulp-util');
-
 var imagemin = require('gulp-imagemin');
 var pngquant = require('imagemin-pngquant');
-
 var rigger = require('gulp-rigger');
-
 var browserSync = require("browser-sync");
+var rimraf = require('rimraf'); // do usuwania
 var reload = browserSync.reload;
 
-/**
- * Browser Sync
- *
- * Asynchronous browser syncing of assets across multiple devices!! Watches for changes to js, image and php files
- * Although, I think this is redundant, since we have a watch task that does this already.
-*/
-gulp.task('webserver', function() {
-	var files = [
-					'**/*.php',
-					'**/*.{png,jpg,gif}'
-				];
-	browserSync.init(files, {
+// Domyślne ścieżki //
+var path = {
+    build: { // Swieżozbudowane pliki wrzucamy do build
+        js: 'build/js/',
+        style: 'build/style/',
+        img: 'build/img/',
+        font: 'build/font/'
+    },
+    src: { // Pliki źródłowe bierzemy stąd
+        js: [
+					'src/js/*.js',
+					// Różne pluginy
+					'bower_components/prism/prism.js'
+				],
+        style: [
+					'src/style/*.scss',
+					// Różne pluginy
+					'bower_components/prism/themes/prism-okaidia.css'
+				],
+        img: 'src/img/**/*.*', // bierzemy wszystko, co jest w tych folderach
+        font: 'src/font/*.*'
+    },
+    watch: { // Wskazujemy, za jakimi plikami śledzimy
+        js: 'src/js/*.js',
+        style: 'src/style/*.scss',
+        img: 'src/img/*.*',
+        font: 'src/font/*.*'
+    },
+    clean: './build'
+};
 
+// Żeby F5 nie męczyć //
+gulp.task('webserver', function() {
+	browserSync.init({
 		// Read here http://www.browsersync.io/docs/options/
 		proxy: '127.0.0.1/synergia/',
 
@@ -70,7 +89,7 @@ var AUTOPREFIXER_BROWSERS = [
 
 // Compile Our Sass
 gulp.task('scss', function() {
-  return gulp.src('src/style/*.scss')
+  return gulp.src(path.src.style)
     .pipe(plumber({ errorHandler: onError }))
     .pipe(sourcemaps.init())
     .pipe(sass({ style: 'expanded'}))
@@ -78,48 +97,52 @@ gulp.task('scss', function() {
     .pipe(base64({baseDir: 'src',maxImageSize: 32*1024, extensions: ['svg', 'png'], exclude: ['fontello.svg'], debug:false}))
     .pipe(minifycss({keepSpecialComments: 0}))
     .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest('build/style'))
+    .pipe(gulp.dest(path.build.style))
     .pipe(reload({stream: true}));
 });
 
 // Minify JS
 gulp.task('js', function() {
-  return gulp.src('src/js/*.js')
+  return gulp.src(path.src.js)
     // .pipe(concat('all.js'))
     // .pipe(filesize())
     .pipe(rename({extname: '.min.js'}))
     .pipe(uglify())
-    .pipe(gulp.dest('build/js'))
+    .pipe(gulp.dest(path.build.js))
     // .pipe(filesize());
     .pipe(reload({stream: true}));
 });
 
 // Minify images
 gulp.task('img', function() {
-  return gulp.src('src/img/*.*')
+  return gulp.src(path.src.img)
     .pipe(imagemin({
       progressive: true,
       svgoPlugins: [{ removeViewBox: false }],
       use: [pngquant()],
       interlaced: true
     }))
-    .pipe(gulp.dest('build/img'))
+    .pipe(gulp.dest(path.build.img))
   .pipe(reload({stream: true}));
 });
 
 gulp.task('fonts', function() {
-  gulp.src('src/fonts/*.*')
-    .pipe(gulp.dest('build/fonts')) //spit it to build
+  gulp.src(path.src.font)
+    .pipe(gulp.dest(path.build.font)) //spit it to build
     .pipe(reload({ stream: true })); // reload
 });
 
 // Watch Files For Changes
 gulp.task('watch', function() {
-  gulp.watch('src/js/*.js', ['js']);
-  gulp.watch('src/style/*.scss', ['scss']);
-  gulp.watch('src/img/*.*', ['img']);
-  gulp.watch('src/fonts/**/*.*', ['fonts']);
+  gulp.watch(path.watch.js, ['js']);
+  gulp.watch(path.watch.style, ['scss']);
+  gulp.watch(path.watch.img, ['img']);
+  gulp.watch(path.watch.font, ['fonts']);
+});
+// Usuwa katalog build
+gulp.task('clean', function (cb) {
+    rimraf(path.clean, cb);
 });
 
 // Default Task
-gulp.task('default', ['scss', 'js', 'img', 'fonts', 'webserver', 'watch']);
+gulp.task('default', ['scss', 'js', 'img', 'fonts', 'watch']);
