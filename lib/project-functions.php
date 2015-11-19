@@ -120,13 +120,8 @@ function posts_link_attributes() {
     return 'am-button';
 }
 
+// Ubiera obrazki w figure //
 add_filter('img_caption_shortcode', 'img_caption_shortcode_filter',10,3);
-
-/**
- * Filter to replace the [caption] shortcode text with HTML5 compliant code
- *
- * @return text HTML content describing embedded figure
- **/
 function img_caption_shortcode_filter($val, $attr, $content = null)
 {
     extract(shortcode_atts(array(
@@ -143,13 +138,21 @@ function img_caption_shortcode_filter($val, $attr, $content = null)
     if ( $id ) {
         $id = esc_attr($id);
         $capid = 'id="figcaption_'. $id . '" ';
-        $id = 'id="' . $id . '" aria-labelledby="figcaption_' . $id . '" ';
     }
 
-    return '<figure ' . $id . '>'
-    . do_shortcode( $content ) . '<figcaption ' . $capid
-    . 'class="wp-caption-text">' . $caption . '</figcaption></figure>';
+    return do_shortcode( $content ) . '<figcaption ' . $capid
+    . 'class="wp-caption-text">' . $caption . '</figcaption>';
 }
+// https://css-tricks.com/snippets/wordpress/insert-images-with-figurefigcaption/
+add_filter( 'image_send_to_editor', 'html5_insert_image', 10, 9 );
+function html5_insert_image($html, $id, $caption, $title, $align, $url) {
+  // $id = 'id="' . $id . '" aria-labelledby="figcaption_' . $id . '" ';
+  $html5 = "<figure id='$id'>";
+  $html5 .= "<img src='$url' alt='$title' />";
+  $html5 .= "</figure>";
+  return $html5;
+}
+
 // Wzucanie wszystkich embed do diva
 add_filter( 'embed_oembed_html', 'custom_oembed_filter', 10, 4 ) ;
 
