@@ -3,3 +3,4 @@
 .brackets.json
 node_modules
 bower_components
+.idea

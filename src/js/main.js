@@ -315,7 +315,43 @@ jQuery(function($) {
 
 });
 
-jQuery(".excerpt").text(function(index, currentText) {
+jQuery(function($) {
+  function acts()
+  {
+    var min = $('.post-list-item .post-list-item-content h2').height();
+    $('.post-list-item .post-list-item-content h2').each(function () {
+      if ($(this).height() < min)
+        min = $(this).height();
+    });
+
+    $('.post-list-item .post-list-item-content h2').each(function() {
+      if ($(this).height() == min)
+      {
+        var te = $(this).parent().parent().children('.excerpt');
+        $(te).text(function(index, currentText) {
+          return currentText.substr(0, 150) + '...';
+        });
+      }
+      else if (($(this).height() <(min-1)*3) && ($(this).height() > min))
+      {
+        var te = $(this).parent().parent().children('.excerpt');
+        $(te).text(function(index, currentText) {
+          return currentText.substr(0, 80) + '...';
+        });
+      }
+      else
+      {
+        var te = $(this).parent().parent().children('.excerpt');
+        $(this).text(function(index, currentText) {
+          return currentText.substr(0, 120) + '...';
+        });
+      }
+    });
+  }
+  acts();
+});
+
+jQuery(".card .excerpt").text(function(index, currentText) {
   return currentText.substr(0, 150) + '...';
 });
 

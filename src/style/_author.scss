@@ -87,7 +87,8 @@
 			width: 100%;
 		}
 		.excerpt {
-			padding: 15px 15px 15px 0;
+		  padding: 15px 15px 15px 0;
+		  overflow: hidden;
             @include mq($until:mobile){
                 display: none;
             }

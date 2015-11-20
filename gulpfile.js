@@ -107,7 +107,7 @@ gulp.task('js', function() {
     // .pipe(concat('all.js'))
     // .pipe(filesize())
     .pipe(rename({extname: '.min.js'}))
-    .pipe(uglify())
+    //.pipe(uglify())
     .pipe(gulp.dest(path.build.js))
     // .pipe(filesize());
     .pipe(reload({stream: true}));
