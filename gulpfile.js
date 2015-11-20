@@ -104,10 +104,12 @@ gulp.task('scss', function() {
 // Minify JS
 gulp.task('js', function() {
   return gulp.src(path.src.js)
+  .pipe(sourcemaps.init())
     // .pipe(concat('all.js'))
     // .pipe(filesize())
     .pipe(rename({extname: '.min.js'}))
-    .pipe(uglify())
+    // .pipe(uglify())
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest(path.build.js))
     // .pipe(filesize());
     .pipe(reload({stream: true}));
