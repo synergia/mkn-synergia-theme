@@ -329,26 +329,33 @@ jQuery(function($) {
       {
         var te = $(this).parent().parent().children('.excerpt');
         $(te).text(function(index, currentText) {
-          return currentText.substr(0, 150) + '...';
+          if (currentText.substr(currentText.length - 3) != '...')
+            return currentText.substr(0, 150) + '...';
         });
+        te.css("display" , "inline");
       }
       else if (($(this).height() <(min-1)*3) && ($(this).height() > min))
       {
         var te = $(this).parent().parent().children('.excerpt');
         $(te).text(function(index, currentText) {
-          return currentText.substr(0, 80) + '...';
+            return currentText.substr(0, 80) + '...';
         });
+        te.css("display" , "inline");
       }
       else
       {
         var te = $(this).parent().parent().children('.excerpt');
         $(this).text(function(index, currentText) {
-          return currentText.substr(0, 120) + '...';
+          if ((currentText.substr(currentText.length - 3) != '...') && (currentText.length > 120))
+            return currentText.substr(0, 120) + '...';
+
         });
+        te.css("display" , "none");
       }
     });
   }
   acts();
+  $(window).resize(acts);
 });
 
 jQuery(".card .excerpt").text(function(index, currentText) {
