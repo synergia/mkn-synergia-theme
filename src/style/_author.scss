@@ -82,13 +82,13 @@
       float: left;
       font-weight: 400;
       width: 100%;
+      display: inline;
       @include mq($until:tablet) {
         margin: 10px 0;
       }
     }
     .excerpt {
       padding: 0px 15px 0px 0;
-      display: inline;
       @include mq($until:mobile) {
         display: none;
       }
