@@ -368,10 +368,11 @@ jQuery(function($) {
   });
 });
 // Pakuje mniejsze obrazki bez podpisu w <figure> //
+// Jeśli obrazek ma tytuł, tym się zajmuje php funkscja w project-functions.php
 jQuery(function($) {
   $('.project-content p').each(function(index) {
     var some_img = $(this).find('img');
-    var width = some_img.ht();
+    var width = some_img.width();
     if (width < 980) {
       some_img.wrap("<figure></figure>");
     }
@@ -403,21 +404,8 @@ jQuery(function($) {
 jQuery(function($) {
   $('#management_board li#admin').insertBefore('#management_board li:eq(0)');
 });
-// Ciastka dla banera //
-jQuery(window).load(function() {
-  // Check if cookie
-  if (Cookies.get('synergia_recruitment_banner') !== "closed") {
-    jQuery("#modal").prop('checked', true);
-  }
-  // On button click close and add cookie (expires in 100 days)
-  jQuery('#close_banner').on('click', function() {
-    Cookies.set('synergia_recruitment_banner', 'closed', {
-      expires: 100,
-      path: ''
-    });
-    // jQuery("#modal").prop('checked', false);
-  });
-});
+
+// Animacje dla banera rekrutacji //
 jQuery(function($) {
   $('label[am-button]').on('click', function() {
     $('.fb').addClass('animated fadeInUp');
@@ -435,6 +423,8 @@ jQuery(function($) {
     $('.location span').removeClass('animated slideInRight');
   });
 });
+
+// Notyfikacje, powiadomienia //
 jQuery(function($) {
   $(".note-close").click(function() {
     $(this).parent()

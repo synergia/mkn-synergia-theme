@@ -121,6 +121,8 @@ function posts_link_attributes() {
 }
 
 // Ubiera obrazki w figure //
+// Tylko gdy obrazek ma tytuł jakiś, inaczej działa js, który wrzuca sam obrazek
+// w <figure>
 add_filter('img_caption_shortcode', 'img_caption_shortcode_filter',10,3);
 function img_caption_shortcode_filter($val, $attr, $content = null)
 {
@@ -131,20 +133,24 @@ function img_caption_shortcode_filter($val, $attr, $content = null)
         'caption' => ''
     ), $attr));
 
-    if ( 1 > (int) $width || empty($caption) )
+    if ( 1 > (int) $width || empty($caption) ) {
         return $val;
-
+      }
     $capid = '';
     if ( $id ) {
         $id = esc_attr($id);
         $capid = 'id="figcaption_'. $id . '" ';
     }
-
-    return do_shortcode( $content ) . '<figcaption ' . $capid
-    . 'class="wp-caption-text">' . $caption . '</figcaption>';
+    return do_shortcode( $content ) . '<figure>'.$content.'
+    <figcaption ' . $capid
+    . 'class="wp-caption-text">' . $caption . '</figcaption></figure>';
 }
+
+// Ta funkcja wstawia <figure> od razu w edytorze. Niech tu na wszelki wypadek
+// zostanie
 // https://css-tricks.com/snippets/wordpress/insert-images-with-figurefigcaption/
-add_filter( 'image_send_to_editor', 'html5_insert_image', 10, 9 );
+
+// add_filter( 'image_send_to_editor', 'html5_insert_image', 10, 9 );
 function html5_insert_image($html, $id, $caption, $title, $align, $url) {
   // $id = 'id="' . $id . '" aria-labelledby="figcaption_' . $id . '" ';
   $html5 = "<figure id='$id'>";
