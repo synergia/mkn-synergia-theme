@@ -10,7 +10,7 @@ var filesize = require('gulp-filesize');
 var sourcemaps = require('gulp-sourcemaps');
 var base64 = require('gulp-base64');
 var plumber = require('gulp-plumber');
-// var autoprefixer = require('gulp-autoprefixer');
+var autoprefixer = require('gulp-autoprefixer');
 var minifycss = require('gulp-minify-css');
 var gutil = require('gulp-util');
 var imagemin = require('gulp-imagemin');
@@ -93,7 +93,7 @@ gulp.task('scss', function() {
     .pipe(plumber({ errorHandler: onError }))
     .pipe(sourcemaps.init())
     .pipe(sass({ style: 'expanded'}))
-    // .pipe(autoprefixer(AUTOPREFIXER_BROWSERS))
+    .pipe(autoprefixer(AUTOPREFIXER_BROWSERS))
     .pipe(base64({baseDir: 'src',maxImageSize: 32*1024, extensions: ['svg', 'png'], exclude: ['fontello.svg'], debug:false}))
     .pipe(minifycss({keepSpecialComments: 0}))
     .pipe(sourcemaps.write('./'))

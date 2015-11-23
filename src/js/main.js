@@ -368,7 +368,7 @@ jQuery(function($) {
   });
 });
 // Pakuje mniejsze obrazki bez podpisu w <figure> //
-// Jeśli obrazek ma tytuł, tym się zajmuje php funkscja w project-functions.php
+// Jeśli obrazek ma tytuł, tym się zajmuje php funkcja w project-functions.php
 jQuery(function($) {
   $('.project-content p').each(function(index) {
     var some_img = $(this).find('img');
