@@ -120,7 +120,7 @@ button.disabled:focus {
   }
   .image {
     position: relative;
-    @include background-gradient(transparent, rgba(0, 0, 0, 0.5));
+    background-image: $gradient;
     height: 13.750em;
     @include mq($from: wide) {
       height: 18.750em;

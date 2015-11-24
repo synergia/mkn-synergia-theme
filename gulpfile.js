@@ -80,7 +80,7 @@ var onError = function (err) {
 
 // Browser definitions for autoprefixer
 var AUTOPREFIXER_BROWSERS = [
-  'last 3 versions',
+  '> 1%',
   'ie >= 8',
   'ios >= 7',
   'android >= 4.4',
