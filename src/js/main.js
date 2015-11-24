@@ -381,20 +381,15 @@ jQuery(function($) {
 
 // Dropdown download button //
 
-// http://codepen.io/jakestuts/pen/nEFyw
+// http://codepen.io/georgehastings/pen/vptdb
 jQuery(function($) {
 
-  $("#dropdown button").on("click", function(e) {
-    e.preventDefault();
-
-    if ($(this).hasClass("open")) {
-      $(this).removeClass("open");
-      $(this).siblings("ul").slideUp("fast");
-
-    } else {
-      $(this).addClass("open");
-      $(this).siblings("ul").slideDown("fast");
-    }
+  $(".dropdown").on("click", function(event){
+    $(this).toggleClass("flip");
+    event.stopPropagation();
+  });
+  $(document).on("click", function(event){
+    $(".dropdown").removeClass("flip");
   });
 });
 
