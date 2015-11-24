@@ -123,8 +123,9 @@ function posts_link_attributes() {
 // Ubiera obrazki w figure //
 // Tylko gdy obrazek ma tytuł jakiś, inaczej działa js, który wrzuca sam obrazek
 // w <figure>
-add_filter('img_caption_shortcode', 'img_caption_shortcode_filter',10,3);
-function img_caption_shortcode_filter($val, $attr, $content = null)
+// http://wordpress.stackexchange.com/a/107373
+add_filter('img_caption_shortcode', 'synergia_img_caption_shortcode_filter',10,3);
+function synergia_img_caption_shortcode_filter($val, $attr, $content = null)
 {
     extract(shortcode_atts(array(
         'id'    => '',
@@ -133,16 +134,18 @@ function img_caption_shortcode_filter($val, $attr, $content = null)
         'caption' => ''
     ), $attr));
 
-    if ( 1 > (int) $width || empty($caption) ) {
+    if ( 1 > (int) $width || empty($caption) )
         return $val;
-      }
+
     $capid = '';
     if ( $id ) {
         $id = esc_attr($id);
         $capid = 'id="figcaption_'. $id . '" ';
+        $id = 'id="' . $id . '" aria-labelledby="figcaption_' . $id . '" ';
     }
-    return do_shortcode( $content ) . '<figure>'.$content.'
-    <figcaption ' . $capid
+
+    return '<figure ' . $id . 'class="wp-caption ' . esc_attr($align) . '" >'
+    . do_shortcode( $content ) . '<figcaption ' . $capid
     . 'class="wp-caption-text">' . $caption . '</figcaption></figure>';
 }
 

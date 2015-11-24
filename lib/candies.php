@@ -185,6 +185,13 @@ function remove_post_formats()
 add_filter('enable_post_format_ui', '__return_false');
 
 // Wyłącza niepotrzebne pozycje w menu //
+
+add_action( 'admin_bar_menu', 'remove_some_nodes_from_admin_top_bar_menu', 999 );
+function remove_some_nodes_from_admin_top_bar_menu( $wp_admin_bar ) {
+    $wp_admin_bar->remove_menu( 'customize' );
+    $wp_admin_bar->remove_menu( 'comments' );
+}
+
 function remove_comments_and_links_from_menu()
 {
     remove_menu_page('edit-comments.php');
