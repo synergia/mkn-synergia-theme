@@ -1,7 +1,6 @@
-                @import "vars";
 //BUTTON
 // http://codepen.io/jreece/pen/myeJBN
-[am-button] {
+.button {
     display: block;
     cursor: pointer;
     position: relative;
@@ -22,7 +21,7 @@
         background: #cfcfcf;
     }
     // Raised
-    &[am-button~="raised"] {
+    &.raised {
         box-shadow: 0 0 0.2em $shadowlight, 0 0.2em 0.2em $shadowlight;
         &:active {
             box-shadow: 0 0 0.6em $shadowlight, 0 0.6em 0.6em $shadowlight;
@@ -43,16 +42,30 @@ svg.ink {
 
 // Disabled
 // ------------------------------------------
-[am-button~="disabled"],
-[am-button~="disabled"]:hover,
-[am-button~="disabled"]:focus {
+button.disabled,
+button.disabled:hover,
+button.disabled:focus {
     // Light theme (default)
     box-shadow: none;
     cursor: default;
     background: rgba(black, 0.12);
     color: rgba(black, 0.26);
 } // disabled
-a[am-button] {
+
+.synergia-button {
+    @extend .button;
+    width: auto;
+    margin: 0;
+    font-size: 1rem;
+    background: $synergia-color;
+    color: #ffffff;
+    &:hover {
+        background: $synergia-light-color;
+    }
+}
+
+.pagination {
+  @extend .button;
     margin: 0.625em;
     width: auto;
     display: inline-block;
@@ -86,7 +99,9 @@ a[am-button] {
     }
     .action {
         border-top: $border-light;
-        a[am-button] {
+        a {
+          @extend .button;
+          @extend .pagination;
             margin-right: 1.250em;
             text-transform: uppercase;
             text-decoration: none;
@@ -248,21 +263,6 @@ label {
 
 .github {
     margin: 0.625em;
-}
-
-
-/* user menu settings */
-
-button[am-button] {
-    @extend [am-button];
-    width: auto;
-    margin: 0;
-    font-size: 1rem;
-    background: $synergia-color;
-    color: #ffffff;
-    &:hover {
-        background: $synergia-light-color;
-    }
 }
 
 #dropdown button.open {

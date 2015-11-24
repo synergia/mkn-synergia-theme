@@ -6,7 +6,7 @@ jQuery(function($) {
   //////////////////////////////////////
   $(function() {
     // Touch ripple effect on buttons
-    $('[am-button]:not([am-button~="disabled"])').on('click',
+    $('.button:not(.button.disabled)').on('click',
 
       function(e) {
 
@@ -407,7 +407,7 @@ jQuery(function($) {
 
 // Animacje dla banera rekrutacji //
 jQuery(function($) {
-  $('label[am-button]').on('click', function() {
+  $('label.button').on('click', function() {
     $('.fb').addClass('animated fadeInUp');
     $('.date .icon-container').addClass('animated slideInLeft');
     $('.date span').addClass('animated slideInLeft');

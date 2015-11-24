@@ -61,7 +61,7 @@ function synergia_login_form( $args = array() ) {
 				<input type="text" name="log" id="' . esc_attr( $args['id_username'] ) . '"  value="" required placeholder="Login"/>
 				<input type="password" name="pwd" id="' . esc_attr( $args['id_password'] ) . '" required value="" placeholder="*****"  />
         ' . ( $args['remember'] ? '<input name="rememberme" type="checkbox" value="forever"' . ( $args['value_remember'] ? ' checked="checked"' : '' ) . ' /> ' : '' ) . '
-        <button type="submit" am-button="" name="wp-submit" >'. esc_attr( $args['label_log_in'] ) . '</button>
+        <button type="submit" class="synergia-button button raised" name="wp-submit" >'. esc_attr( $args['label_log_in'] ) . '</button>
         <input type="hidden" name="redirect_to" value="' . esc_url( $args['redirect'] ) . '" />
 		</form>';
 

@@ -117,7 +117,7 @@ add_filter('next_posts_link_attributes', 'posts_link_attributes');
 add_filter('previous_posts_link_attributes', 'posts_link_attributes');
 
 function posts_link_attributes() {
-    return 'am-button';
+    return 'class="button pagination"';
 }
 
 // Ubiera obrazki w figure //
@@ -199,7 +199,7 @@ function download_button ($project_ID) {
     if($files){
  ?>
     <div id="dropdown" class="download-files-container">
-        <button am-button="raised">Pobierz pliki <i class="icon icon-down-open-big"></i></button>
+        <button class="button raised">Pobierz pliki <i class="icon icon-down-open-big"></i></button>
         <ul>
 <?php
     if ( is_array($files) ) {
