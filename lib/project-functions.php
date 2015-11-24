@@ -117,7 +117,7 @@ add_filter('next_posts_link_attributes', 'posts_link_attributes');
 add_filter('previous_posts_link_attributes', 'posts_link_attributes');
 
 function posts_link_attributes() {
-    return 'am-button';
+    return 'class="button pagination"';
 }
 
 // Ubiera obrazki w figure //
@@ -198,20 +198,22 @@ function download_button ($project_ID) {
     $files = get_post_meta($project_ID,'files',true);
     if($files){
  ?>
-    <div id="dropdown" class="download-files-container">
-        <button am-button="raised">Pobierz pliki <i class="icon icon-down-open-big"></i></button>
-        <ul>
-<?php
-    if ( is_array($files) ) {
-        foreach( $files as $file ) {
-            if ( isset( $file['url'] ) || isset( $file['title'] ) ) {
-                echo '<li><a href="'.$file["url"].'">'.$file["title"].'</a></li>';
-            }
-        }
-    }
-    ?>
-        </ul>
-    </div>
+ <div id="dd" class="dropdown raised">
+   <div class="front">
+     <span>Pobierz <i class="icon icon-down-open-big"></i></span>
+   </div>
+   <div class="back">
+     <ul> <?php
+       if ( is_array($files) ) {
+           foreach( $files as $file ) {
+               if ( isset( $file['url'] ) || isset( $file['title'] ) ) {
+                   echo '<li><a href="'.$file["url"].'" target="_blank">'.$file["title"].'</a></li>';
+               }
+           }
+       } ?>
+     </ul>
+   </div>
+ </div>
 <?php
     }
 }

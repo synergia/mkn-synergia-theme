@@ -47,7 +47,7 @@ Template Name: Portfolio
                         <?php the_excerpt(); ?>
                     </div>
                     <div class="action">
-                        <a am-button href="<?php the_permalink(); ?>">Czytaj dalej</a>
+                        <a class="button" href="<?php the_permalink(); ?>">Czytaj dalej</a>
                     </div>
                 </div>
             </div>

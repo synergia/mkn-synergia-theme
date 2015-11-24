@@ -6,7 +6,7 @@ jQuery(function($) {
   //////////////////////////////////////
   $(function() {
     // Touch ripple effect on buttons
-    $('[am-button]:not([am-button~="disabled"])').on('click',
+    $('.button:not(.button.disabled)').on('click',
 
       function(e) {
 
@@ -368,7 +368,7 @@ jQuery(function($) {
   });
 });
 // Pakuje mniejsze obrazki bez podpisu w <figure> //
-// Jeśli obrazek ma tytuł, tym się zajmuje php funkscja w project-functions.php
+// Jeśli obrazek ma tytuł, tym się zajmuje php funkcja w project-functions.php
 jQuery(function($) {
   $('.project-content p').each(function(index) {
     var some_img = $(this).find('img');
@@ -381,20 +381,15 @@ jQuery(function($) {
 
 // Dropdown download button //
 
-// http://codepen.io/jakestuts/pen/nEFyw
+// http://codepen.io/georgehastings/pen/vptdb
 jQuery(function($) {
 
-  $("#dropdown button").on("click", function(e) {
-    e.preventDefault();
-
-    if ($(this).hasClass("open")) {
-      $(this).removeClass("open");
-      $(this).siblings("ul").slideUp("fast");
-
-    } else {
-      $(this).addClass("open");
-      $(this).siblings("ul").slideDown("fast");
-    }
+  $(".dropdown").on("click", function(event){
+    $(this).toggleClass("flip");
+    event.stopPropagation();
+  });
+  $(document).on("click", function(event){
+    $(".dropdown").removeClass("flip");
   });
 });
 
@@ -407,7 +402,7 @@ jQuery(function($) {
 
 // Animacje dla banera rekrutacji //
 jQuery(function($) {
-  $('label[am-button]').on('click', function() {
+  $('label.button').on('click', function() {
     $('.fb').addClass('animated fadeInUp');
     $('.date .icon-container').addClass('animated slideInLeft');
     $('.date span').addClass('animated slideInLeft');
