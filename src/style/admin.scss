@@ -83,29 +83,19 @@
         float: left;
     }
 }
-// #login {
-//   width: 300px;
-// }
-// #login h1 {
-// 	background-color: #282830;
-// 	border-radius: 5px 5px 0 0;
-// 	color: #fff;
-// 	font-size: 14px;
-// 	padding: 20px;
-// 	text-align: center;
-// 	text-transform: uppercase;
-// }
-// body.login {
-//   background-image: url('../img/login_bg.jpg');
-//   background-repeat: no-repeat;
-//   background-attachment: fixed;
-//   background-size: cover;
-//   background-position: center;
-// }
-// .login h1 a {
-//   @include background-image('logo');
-//   background-position: center;
-//   background-size: 200px auto;
-//   height: 50px;
-//   width:200px;
-// }
+.version_baner {
+  img {
+    width:100%;
+    height: auto;
+  }
+  h2 {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: #fff;
+    text-shadow: 0 0 3px $text-color;
+  }
+  .version {
+    font-weight: bold;
+  }
+}

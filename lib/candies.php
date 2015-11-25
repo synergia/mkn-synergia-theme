@@ -270,7 +270,7 @@ function remind_install_dependencies() {
   if ( !is_plugin_active( 'wp-users-media/index.php' ) ) {
     echo '<div class="error"> <p>Należy zainstalować wtyczkę WP Users Media</p></div>';
   }
-  if ( !is_plugin_active( 'custom-uplod-dir/custom_uplod_dir.php' ) ) {
+  if ( !is_plugin_active( 'custom-upload-dir/custom_upload_dir.php' ) ) {
     echo '<div class="error"> <p>Należy zainstalować wtyczkę Custom Upload Dir</p></div>';
   }
 }
