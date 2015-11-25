@@ -261,3 +261,17 @@ function remove_admin_bar_link()
     global $wp_admin_bar;
     $wp_admin_bar->remove_menu('wp-logo');
 } add_action('wp_before_admin_bar_render', 'remove_admin_bar_link');
+
+// Przypomina, by zainstalować wtyczki //
+function remind_install_dependencies() {
+  if ( !is_plugin_active( 'co-authors-plus/co-authors-plus.php' ) ) {
+    echo '<div class="error"> <p>Należy zainstalować wtyczkę Co-Authors Plus</p></div>';
+  }
+  if ( !is_plugin_active( 'wp-users-media/index.php' ) ) {
+    echo '<div class="error"> <p>Należy zainstalować wtyczkę WP Users Media</p></div>';
+  }
+  if ( !is_plugin_active( 'custom-uplod-dir/custom_uplod_dir.php' ) ) {
+    echo '<div class="error"> <p>Należy zainstalować wtyczkę Custom Upload Dir</p></div>';
+  }
+}
+add_action( 'admin_notices', 'remind_install_dependencies' );
