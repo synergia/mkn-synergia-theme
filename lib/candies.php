@@ -66,6 +66,7 @@ add_action('wp_head', 'header_meta_tags');
 
 // OpenGraph //
 // http://www.paulund.co.uk/add-facebook-open-graph-tags-to-wordpress
+// https://adactio.com/journal/9881
 function opengraph()
 {
     global $post;
@@ -82,17 +83,12 @@ function opengraph()
         ?>
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" value="@MKNMSynergia" />
-    <meta property="og:title" content="<?php echo the_title();
-        ?>"/>
-    <meta property="og:description" content="<?php echo $description;
-        ?>"/>
+    <meta name="twitter:title" property="og:title" content="<?php echo the_title(); ?>"/>
+    <meta name="twitter:description" property="og:description" content="<?php echo $description; ?>"/>
     <meta property="og:type" content="article"/>
-    <meta property="og:url" content="<?php echo the_permalink();
-        ?>"/>
-    <meta property="og:site_name" content="<?php echo get_bloginfo('name');
-        ?>"/>
-    <meta property="og:image" content="<?php echo $img_src[0];
-        ?>"/>
+    <meta name="twitter:url" property="og:url" content="<?php echo the_permalink(); ?>"/>
+    <meta property="og:site_name" content="<?php echo get_bloginfo('name'); ?>"/>
+    <meta name="twitter:image" property="og:image" content="<?php echo $img_src[0]; ?>"/>
 
 <?php
 
