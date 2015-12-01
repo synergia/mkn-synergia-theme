@@ -220,13 +220,32 @@ function download_button ($project_ID) {
 <?php
     }
 }
-// Przypomina, by zainstalować wtyczki //
-function remind_install_dependencies() {
-  if ( !is_plugin_active( 'co-authors-plus/co-authors-plus.php' ) ) {
-    echo '<div class="error"> <p>Należy zainstalować wtyczkę Co-Authors Plus</p></div>';
-  }
-  if ( !is_plugin_active( 'wp-users-media/index.php' ) ) {
-    echo '<div class="error"> <p>Należy zainstalować wtyczkę WP Users Media</p></div>';
+
+// Karta projektu //
+// Ta taka malutka ładniutka
+
+function project_card ($query) {
+  if ($query->have_posts()) {
+    while ($query->have_posts()) {
+      $query->the_post(); ?>
+      <div class="gl-lg-4 gl-md-6 gl-cell left">
+        <div class="card">
+          <a href="<?php the_permalink(); ?>">
+            <div class="image">
+              <?php if ( has_post_thumbnail() ) {
+                 the_post_thumbnail('medium');
+               } else { ?><img src="<?php bloginfo('template_directory'); ?>/build/img/def-thumb.jpg" /><?php } ?>
+              <h2 class="title"><?php the_title(); ?></h2>
+            </div>
+          </a>
+          <div class="excerpt">
+            <?php the_excerpt(); ?>
+          </div>
+          <div class="action">
+            <a class="button" href="<?php the_permalink(); ?>">Czytaj dalej</a>
+          </div>
+        </div>
+      </div> <?php
+    }
   }
 }
-add_action( 'admin_notices', 'remind_install_dependencies' );

@@ -36,16 +36,16 @@ add_filter('wp_title', 'wpdocs_theme_name_wp_title', 10, 2);
 function header_meta_tags()
 {   // Favicon //
     // Firefox, Chrome, Safari, IE 11+ and Opera. 196x196 pixels in size
-    echo '<link rel="icon" href="'.get_template_directory_uri().'/img/favicon.png" />'."\n";
+    echo '<link rel="icon" href="'.get_template_directory_uri().'/build/img/favicon.png" />'."\n";
 
     // Apple stuff //
     // Touch Icons - iOS and Android 2.1+ 180x180 pixels in size
-    echo '<link rel="apple-touch-icon-precomposed" href="'.get_template_directory_uri().'/img/apple-touch-icon-precomposed.png">'."\n";
-    echo '<link rel="apple-touch-icon" href="'.get_template_directory_uri().'/img/safari_60.png">'."\n";
-    echo '<link rel="apple-touch-icon" sizes="76x76" href="'.get_template_directory_uri().'/img/safari_76.png">'."\n";
-    echo '<link rel="apple-touch-icon" sizes="120x120" href="'.get_template_directory_uri().'/img/safari_120.png">'."\n";
-    echo '<link rel="apple-touch-icon" sizes="152x152" href="'.get_template_directory_uri().'/img/safari_152.png">'."\n";
-    echo '<link rel="apple-touch-startup-image" href="'.get_template_directory_uri().'/img/apple-touch-icon-precomposed.png">'."\n";
+    echo '<link rel="apple-touch-icon-precomposed" href="'.get_template_directory_uri().'/build/img/apple-touch-icon-precomposed.png">'."\n";
+    echo '<link rel="apple-touch-icon" href="'.get_template_directory_uri().'/build/img/safari_60.png">'."\n";
+    echo '<link rel="apple-touch-icon" sizes="76x76" href="'.get_template_directory_uri().'/build/img/safari_76.png">'."\n";
+    echo '<link rel="apple-touch-icon" sizes="120x120" href="'.get_template_directory_uri().'/build/img/safari_120.png">'."\n";
+    echo '<link rel="apple-touch-icon" sizes="152x152" href="'.get_template_directory_uri().'/build/img/safari_152.png">'."\n";
+    echo '<link rel="apple-touch-startup-image" href="'.get_template_directory_uri().'/build/img/apple-touch-icon-precomposed.png">'."\n";
     // Nazwa aplikacji
     echo '<meta name="apple-mobile-web-app-title" content="'.get_bloginfo('name').'">'."\n";
     // Wygląd statusbaru
@@ -66,6 +66,7 @@ add_action('wp_head', 'header_meta_tags');
 
 // OpenGraph //
 // http://www.paulund.co.uk/add-facebook-open-graph-tags-to-wordpress
+// https://adactio.com/journal/9881
 function opengraph()
 {
     global $post;
@@ -82,17 +83,12 @@ function opengraph()
         ?>
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" value="@MKNMSynergia" />
-    <meta property="og:title" content="<?php echo the_title();
-        ?>"/>
-    <meta property="og:description" content="<?php echo $description;
-        ?>"/>
+    <meta name="twitter:title" property="og:title" content="<?php echo the_title(); ?>"/>
+    <meta name="twitter:description" property="og:description" content="<?php echo $description; ?>"/>
     <meta property="og:type" content="article"/>
-    <meta property="og:url" content="<?php echo the_permalink();
-        ?>"/>
-    <meta property="og:site_name" content="<?php echo get_bloginfo('name');
-        ?>"/>
-    <meta property="og:image" content="<?php echo $img_src[0];
-        ?>"/>
+    <meta name="twitter:url" property="og:url" content="<?php echo the_permalink(); ?>"/>
+    <meta property="og:site_name" content="<?php echo get_bloginfo('name'); ?>"/>
+    <meta name="twitter:image" property="og:image" content="<?php echo $img_src[0]; ?>"/>
 
 <?php
 
@@ -261,3 +257,17 @@ function remove_admin_bar_link()
     global $wp_admin_bar;
     $wp_admin_bar->remove_menu('wp-logo');
 } add_action('wp_before_admin_bar_render', 'remove_admin_bar_link');
+
+// Przypomina, by zainstalować wtyczki //
+function remind_install_dependencies() {
+  if ( !is_plugin_active( 'co-authors-plus/co-authors-plus.php' ) ) {
+    echo '<div class="error"> <p>Należy zainstalować wtyczkę Co-Authors Plus</p></div>';
+  }
+  if ( !is_plugin_active( 'wp-users-media/index.php' ) ) {
+    echo '<div class="error"> <p>Należy zainstalować wtyczkę WP Users Media</p></div>';
+  }
+  if ( !is_plugin_active( 'custom-upload-dir/custom_upload_dir.php' ) ) {
+    echo '<div class="error"> <p>Należy zainstalować wtyczkę Custom Upload Dir</p></div>';
+  }
+}
+add_action( 'admin_notices', 'remind_install_dependencies' );

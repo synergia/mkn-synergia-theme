@@ -87,7 +87,8 @@ button.disabled:focus {
   vertical-align: top;
   position: relative;
   overflow: hidden;
-  margin: 0.625em;
+  margin: 10px;
+
   @include box-shadow;
   @include border-radius(0.125em);
   .excerpt {
@@ -163,9 +164,9 @@ label {
 
     //        @include box-shadow;
     @include border-radius(0.125em);
-    margin: 0.625em;
+    // margin: 0.625em;
     display: none;
-    padding: 1px 10px;
+    // padding: 1px 10px;
   }
   @for $i from 1 through 9 {
 
