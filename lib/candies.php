@@ -36,16 +36,16 @@ add_filter('wp_title', 'wpdocs_theme_name_wp_title', 10, 2);
 function header_meta_tags()
 {   // Favicon //
     // Firefox, Chrome, Safari, IE 11+ and Opera. 196x196 pixels in size
-    echo '<link rel="icon" href="'.get_template_directory_uri().'/img/favicon.png" />'."\n";
+    echo '<link rel="icon" href="'.get_template_directory_uri().'/build/img/favicon.png" />'."\n";
 
     // Apple stuff //
     // Touch Icons - iOS and Android 2.1+ 180x180 pixels in size
-    echo '<link rel="apple-touch-icon-precomposed" href="'.get_template_directory_uri().'/img/apple-touch-icon-precomposed.png">'."\n";
-    echo '<link rel="apple-touch-icon" href="'.get_template_directory_uri().'/img/safari_60.png">'."\n";
-    echo '<link rel="apple-touch-icon" sizes="76x76" href="'.get_template_directory_uri().'/img/safari_76.png">'."\n";
-    echo '<link rel="apple-touch-icon" sizes="120x120" href="'.get_template_directory_uri().'/img/safari_120.png">'."\n";
-    echo '<link rel="apple-touch-icon" sizes="152x152" href="'.get_template_directory_uri().'/img/safari_152.png">'."\n";
-    echo '<link rel="apple-touch-startup-image" href="'.get_template_directory_uri().'/img/apple-touch-icon-precomposed.png">'."\n";
+    echo '<link rel="apple-touch-icon-precomposed" href="'.get_template_directory_uri().'/build/img/apple-touch-icon-precomposed.png">'."\n";
+    echo '<link rel="apple-touch-icon" href="'.get_template_directory_uri().'/build/img/safari_60.png">'."\n";
+    echo '<link rel="apple-touch-icon" sizes="76x76" href="'.get_template_directory_uri().'/build/img/safari_76.png">'."\n";
+    echo '<link rel="apple-touch-icon" sizes="120x120" href="'.get_template_directory_uri().'/build/img/safari_120.png">'."\n";
+    echo '<link rel="apple-touch-icon" sizes="152x152" href="'.get_template_directory_uri().'/build/img/safari_152.png">'."\n";
+    echo '<link rel="apple-touch-startup-image" href="'.get_template_directory_uri().'/build/img/apple-touch-icon-precomposed.png">'."\n";
     // Nazwa aplikacji
     echo '<meta name="apple-mobile-web-app-title" content="'.get_bloginfo('name').'">'."\n";
     // Wygląd statusbaru
