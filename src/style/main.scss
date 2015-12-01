@@ -410,6 +410,9 @@ nav {
 .portfolio-content {
     overflow: hidden;
     display: block;
+    @include mq($from:tablet) {
+      margin: 0 -10px; //kompensacja odstępu dla .card
+    }
 }
 
 @import 'author';

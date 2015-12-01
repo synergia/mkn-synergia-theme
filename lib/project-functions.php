@@ -220,3 +220,32 @@ function download_button ($project_ID) {
 <?php
     }
 }
+
+// Karta projektu //
+// Ta taka malutka ładniutka
+
+function project_card ($query) {
+  if ($query->have_posts()) {
+    while ($query->have_posts()) {
+      $query->the_post(); ?>
+      <div class="gl-lg-4 gl-md-6 gl-cell left">
+        <div class="card">
+          <a href="<?php the_permalink(); ?>">
+            <div class="image">
+              <?php if ( has_post_thumbnail() ) {
+                 the_post_thumbnail('medium');
+               } else { ?><img src="<?php bloginfo('template_directory'); ?>/build/img/def-thumb.jpg" /><?php } ?>
+              <h2 class="title"><?php the_title(); ?></h2>
+            </div>
+          </a>
+          <div class="excerpt">
+            <?php the_excerpt(); ?>
+          </div>
+          <div class="action">
+            <a class="button" href="<?php the_permalink(); ?>">Czytaj dalej</a>
+          </div>
+        </div>
+      </div> <?php
+    }
+  }
+}
