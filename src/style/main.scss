@@ -279,12 +279,14 @@ nav {
   padding: 0;
   overflow: hidden;
   text-align: center;
+
   // @include mq($until: tablet) {
   //   display: none;
   // }
   h2 {
     text-transform: uppercase;
     font-weight: 700;
+
     // font-size: 2em;
     color: $cardbutton-color;
     margin: 40px 0 20px;
@@ -292,6 +294,8 @@ nav {
   }
   img {
     opacity: $image-opacity;
+    filter:alpha(opacity=calc($image-opacity * 100)); // For IE8 and earlier
+    filter:grayscale(1);
     width: 200px;
     margin: 15px;
     height: auto;
@@ -299,6 +303,8 @@ nav {
     &:hover {
       opacity: 1;
       filter:alpha(opacity=100); // For IE8 and earlier
+      filter:grayscale(0);
+
     }
   }
 }
@@ -311,7 +317,6 @@ nav {
     margin-top: 0;
   }
 }
-
 .dmbs-footer {
   border-top: $border-light;
   line-height: 1.2;
