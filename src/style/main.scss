@@ -274,37 +274,26 @@ nav {
     }
   }
 }
-.sponsorowane-left {
+.sponsors-container {
   position: relative;
-  height: 100%;
   padding: 0;
   overflow: hidden;
-  @include mq($until: tablet) {
-    display: none;
-  }
-  h3 {
+  text-align: center;
+  // @include mq($until: tablet) {
+  //   display: none;
+  // }
+  h2 {
     text-transform: uppercase;
-    font-weight: bold;
-    margin-top: 10px;
+    font-weight: 700;
+    // font-size: 2em;
+    color: $cardbutton-color;
+    margin: 40px 0 20px;
+    border-bottom: $border-light;
   }
-}
-.wspolpraca-left {
-  @extend .sponsorowane-left;
-}
-.widget {
-  @extend .wspolpraca-left;
-  h3 {
-    margin-top: 0;
-  }
-}
-.sponsorowane {
-  margin-top: 20px;
-  width: calc( 50% - 10px);
-  float: left;
-  padding: 5px;
   img {
     opacity: $image-opacity;
-    width: 100%;
+    width: 200px;
+    margin: 15px;
     height: auto;
     @include transition;
     &:hover {
@@ -313,9 +302,16 @@ nav {
     }
   }
 }
-.wspolpraca {
-  @extend .sponsorowane;
+.partnership-container {
+  @extend .sponsors-container;
 }
+.widget {
+  @extend .partnership-container;
+  h3 {
+    margin-top: 0;
+  }
+}
+
 .dmbs-footer {
   border-top: $border-light;
   line-height: 1.2;

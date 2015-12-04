@@ -22,6 +22,7 @@ $projects_query = new WP_Query($projects);
     </div>
   </div>
 </div>
+<?php get_template_part('template-part', 'sponsors'); ?>
 
 <!-- end content container -->
 

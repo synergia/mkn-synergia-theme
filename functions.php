@@ -47,7 +47,7 @@ include 'lib/login.php';
     {
         global $version, $snrg_settings;
 
-        wp_register_style('Titillium', 'https://fonts.googleapis.com/css?family=Titillium+Web:400,300,700&subset=latin,latin-ext');
+        wp_register_style('Titillium', 'https://fonts.googleapis.com/css?family=Titillium+Web:200,400,300,700,900&subset=latin,latin-ext');
         wp_register_style('Titillium900', 'https://fonts.googleapis.com/css?family=Titillium+Web:900&subset=latin');
         wp_register_style('main', get_template_directory_uri().'/build/style/main.css', array(), $version, 'all');
         wp_register_style('github', get_template_directory_uri().'/build/style/github.css', array(), $version, 'all');
