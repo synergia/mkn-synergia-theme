@@ -161,6 +161,7 @@ label {
 }
 .tabs {
   & > .tab {
+    margin: 0 -10px;
 
     //        @include box-shadow;
     @include border-radius(0.125em);

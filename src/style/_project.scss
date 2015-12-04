@@ -1,7 +1,9 @@
 	.project-container {
 	    @include box-shadow;
 	    @include border-radius(2px);
-	    margin: 0.625em;
+			@include mq($until:tablet) {
+				margin: 0.625em;
+			}
 //	    overflow: hidden;
 	    // http://stackoverflow.com/a/26921844
 	    .center-cropped {
