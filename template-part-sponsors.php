@@ -28,15 +28,14 @@ function show_links($items) {
   }
 }
 
-// Następnie wywołujemy tę funkcję
+// Następnie wywołujemy tę funkcję w HTMLu
 ?>
-
     <div class="sponsors-container">
-        <h2>Nasi kochani sponsorzy</h2>
+        <h2>Sponsorzy</h2>
         <?php show_links($sponsors); ?>
     </div>
 
     <div class="partnership-container">
-        <h2>A z nimi współpracujemy</h2>
+        <h2>Współpraca</h2>
         <?php show_links($partnerships); ?>
     </div>
