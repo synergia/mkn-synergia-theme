@@ -1,75 +1,78 @@
 ul.member-list {
-    list-style: none;
-    padding: 0;
-    margin: 0.625em;
-    li {
-        padding: 8px 0 8px 0;
-        display: block;
-        position: relative;
-        overflow: hidden;
-        &:after {
-            content: "";
-            background: rgba(0, 0, 0, 0.1);
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            height: 1px;
-            width: calc(100% - 65px);
-        }
-        &:last-child {
-            &:after {
-                background: rgba(0, 0, 0, 0);
-            }
-        }
-        .avatar-image {
-            @include mq($until: tablet) {
-                float: left;
-            }
-        }
-        img {
-            @include circle(50px, #ffffff);
-        }
+  list-style: none;
+  padding: 0;
+  margin: 0.625em;
+  li {
+    padding: 8px 0;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    &:after {
+      content: "";
+      background: rgba(0, 0, 0, 0.1);
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      height: 1px;
+      width: calc(100% - 65px);
     }
-    .name {
-        padding-left: 0.625em;
-        @include mq($until: tablet) {
-            overflow: hidden;
-            padding-left: 0;
-            margin-left: 3.750em;
-        }
+    &:last-child {
+      &:after {
+        background: rgba(0, 0, 0, 0);
+      }
     }
-    .links {
-        @include mq($until: tablet) {
-            margin-left: 3.750em;
-        }
-    }
-    .count {
-        text-align: right;
-        @include mq($until: tablet) {
-            position: absolute;
-            top: 25%;
-            right: 2.750em;
-        }
-    }
-    .memberboard-info {
-        @extend .count;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        @include mq($until: tablet) {
-            right: 1em;
-            width: 30%;
-        }
-    }
-    h3 {
-        //trzeba by skorzystać ze Stylusa, bo Sass "Can't extend .co-author h3: can't extend nested selectors"
+    .avatar-image {
+      @include mq($until: tablet) {
         float: left;
-        margin: 0;
-        font-weight: 400;
-        font-size: 1.5em;
-        a {
-            color: $text-color;
-            text-decoration: none;
-        }
+      }
     }
+    img {
+      @include circle(50px, #ffffff);
+
+      // To wyśrodkowuje i przycina obrazki
+      // http://bit.ly/1lfQIz5
+      object-fit: cover;
+    }
+  }
+  .name {
+    padding-left: 0.625em;
+    @include mq($until: tablet) {
+      overflow: hidden;
+      padding-left: 0;
+      margin-left: 3.750em;
+    }
+  }
+  .links {
+    @include mq($until: tablet) {
+      margin-left: 3.750em;
+    }
+  }
+  .count {
+    text-align: right;
+    @include mq($until: tablet) {
+      position: absolute;
+      top: 25%;
+      right: 2.750em;
+    }
+  }
+  .memberboard-info {
+    @extend .count;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    @include mq($until: tablet) {
+      right: 1em;
+      width: 30%;
+    }
+  }
+  h3 {
+    float: left;
+    margin: 0;
+    font-weight: 400;
+    font-size: 1.5em;
+    a {
+      color: $text-color;
+      text-decoration: none;
+    }
+  }
 }
