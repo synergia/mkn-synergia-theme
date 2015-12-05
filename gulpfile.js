@@ -10,9 +10,66 @@ var filesize = require('gulp-filesize');
 var sourcemaps = require('gulp-sourcemaps');
 var base64 = require('gulp-base64');
 var plumber = require('gulp-plumber');
-// var autoprefixer = require('gulp-autoprefixer');
+var autoprefixer = require('gulp-autoprefixer');
 var minifycss = require('gulp-minify-css');
 var gutil = require('gulp-util');
+var imagemin = require('gulp-imagemin');
+var pngquant = require('imagemin-pngquant');
+var rigger = require('gulp-rigger');
+var browserSync = require("browser-sync");
+var rimraf = require('rimraf'); // do usuwania
+var reload = browserSync.reload;
+
+// Domyślne ścieżki //
+var path = {
+    build: { // Swieżozbudowane pliki wrzucamy do build
+        js: 'build/js/',
+        style: 'build/style/',
+        img: 'build/img/',
+        font: 'build/font/'
+    },
+    src: { // Pliki źródłowe bierzemy stąd
+        js: [
+					'src/js/*.js',
+					// Różne pluginy
+					'bower_components/prism/prism.js'
+				],
+        style: [
+					'src/style/*.scss',
+					// Różne pluginy
+					'bower_components/prism/themes/prism-okaidia.css'
+				],
+        img: 'src/img/**/*.*', // bierzemy wszystko, co jest w tych folderach
+        font: 'src/font/*.*'
+    },
+    watch: { // Wskazujemy, za jakimi plikami śledzimy
+        js: 'src/js/*.js',
+        style: 'src/style/*.scss',
+        img: 'src/img/*.*',
+        font: 'src/font/*.*'
+    },
+    clean: './build'
+};
+
+// Żeby F5 nie męczyć //
+gulp.task('webserver', function() {
+	browserSync.init({
+		// Read here http://www.browsersync.io/docs/options/
+		proxy: '127.0.0.1/synergia/',
+
+		// port: 8080,
+
+		// Tunnel the Browsersync server through a random Public URL
+		// tunnel: true,
+
+		// Attempt to use the URL "http://my-private-site.localtunnel.me"
+		// tunnel: "ppress",
+
+		// Inject CSS changes
+		injectChanges: true
+
+	});
+});
 
 // error function for plumber
 var onError = function (err) {
@@ -23,7 +80,7 @@ var onError = function (err) {
 
 // Browser definitions for autoprefixer
 var AUTOPREFIXER_BROWSERS = [
-  'last 3 versions',
+  '> 1%',
   'ie >= 8',
   'ios >= 7',
   'android >= 4.4',
@@ -31,34 +88,63 @@ var AUTOPREFIXER_BROWSERS = [
 ];
 
 // Compile Our Sass
-gulp.task('sass', function() {
-  return gulp.src('css/scss/*.scss')
+gulp.task('scss', function() {
+  return gulp.src(path.src.style)
     .pipe(plumber({ errorHandler: onError }))
     .pipe(sourcemaps.init())
     .pipe(sass({ style: 'expanded'}))
-    // .pipe(autoprefixer(AUTOPREFIXER_BROWSERS))
-    .pipe(base64({baseDir: './',maxImageSize: 32*1024, extensions: ['svg', 'png'], exclude: ['fontello.svg'], debug:false}))
+    .pipe(autoprefixer(AUTOPREFIXER_BROWSERS))
+    .pipe(base64({baseDir: 'src',maxImageSize: 32*1024, extensions: ['svg', 'png'], exclude: ['fontello.svg'], debug:false}))
     .pipe(minifycss({keepSpecialComments: 0}))
     .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest('css'));
+    .pipe(gulp.dest(path.build.style))
+    .pipe(reload({stream: true}));
 });
 
 // Minify JS
 gulp.task('js', function() {
-  return gulp.src('js/*.js')
+  return gulp.src(path.src.js)
+  .pipe(sourcemaps.init())
     // .pipe(concat('all.js'))
     // .pipe(filesize())
     .pipe(rename({extname: '.min.js'}))
-    .pipe(uglify())
-    .pipe(gulp.dest('js/min'));
+    // .pipe(uglify())
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest(path.build.js))
     // .pipe(filesize());
+    .pipe(reload({stream: true}));
+});
+
+// Minify images
+gulp.task('img', function() {
+  return gulp.src(path.src.img)
+    .pipe(imagemin({
+      progressive: true,
+      svgoPlugins: [{ removeViewBox: false }],
+      use: [pngquant()],
+      interlaced: true
+    }))
+    .pipe(gulp.dest(path.build.img))
+  .pipe(reload({stream: true}));
+});
+
+gulp.task('fonts', function() {
+  gulp.src(path.src.font)
+    .pipe(gulp.dest(path.build.font)) //spit it to build
+    .pipe(reload({ stream: true })); // reload
 });
 
 // Watch Files For Changes
 gulp.task('watch', function() {
-  gulp.watch('js/*.js', ['js']);
-  gulp.watch('css/scss/*.scss', ['sass']);
+  gulp.watch(path.watch.js, ['js']);
+  gulp.watch(path.watch.style, ['scss']);
+  gulp.watch(path.watch.img, ['img']);
+  gulp.watch(path.watch.font, ['fonts']);
+});
+// Usuwa katalog build
+gulp.task('clean', function (cb) {
+    rimraf(path.clean, cb);
 });
 
 // Default Task
-gulp.task('default', ['sass', 'js', 'watch']);
+gulp.task('default', ['scss', 'js', 'img', 'fonts', 'webserver', 'watch']);

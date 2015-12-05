@@ -1,19 +1,43 @@
 MKNM "Synergia" Theme
 =====================
+Strona internetowa naszego koła naukowego zawsze była ważnym miejscem do eksponowania naszych projektów, sukcesów i wydarzeń. Nadchodzące zmiany spowodują, że strona zostanie wyjątkowym instrumentem do przedstawienia swojego projektu.
 
 ### Jak zainstalować
-Po aktywacji motywu należy:
-* utworzyć 4 strony: Główną (szablon "Portfolio"), Aktualności (szablon "Aktualności"),
-Członkowie (szablon "Członkowie"), O nas
-* Główną stronę w Ustawienia->Czytanie ustawić jako statyczną
-* w Wyglądzie->Menu utworzyć nowe menu z Aktualnościami, Członkami i stroną O nas. Zaznaczyć położenie motywu "Main menu" i zapisać.
-* Zainstalować wtyczki Co-Authors Plus oraz WP Users Media. Najściślej motyw jest powiązany z Co-Authors Plus.
 
-Strona internetowa naszego koła naukowego zawsze była ważnym miejscem do eksponowania naszych projektów, sukcesów i wydarzeń. Nadchodzące zmiany spowodują, że strona zostanie wyjątkowym instrumentem do przedstawienia swojego projektu.
+#### Tam
+Po aktywacji motywu należy:
+
+ - utworzyć 4 strony:
+	+ Główną (szablon "Główna")
+	+ Aktualności (szablon "Aktualności")
+	+ Członkowie (szablon "Członkowie")
+	+ O nas
+ - Główną stronę w `Ustawienia->Czytanie` ustawić jako statyczną
+ - w `Wygląd->Menu` utworzyć nowe menu z Aktualnościami, Członkami i stroną O nas. Zaznaczyć położenie motywu "Main menu" i zapisać.
+ - Zainstalować wtyczki `Co-Authors Plus` oraz `WP Users Media`. Najściślej motyw jest powiązany z Co-Authors Plus.
+
+#### Tu
+
+       $ npm install && bower install
+
+
+----------
+
 
 *   1.0.1
 *   1.1.0
 *   1.2.0
+*   1.3.0
+
+### 1.3.0 "Alicia Vikander"
+
+![](http://cs627324.vk.me/v627324187/22aa6/i2a2C9psvMI.jpg)
+
+* Dodano płynne skrolowanie
+* Nowa strona logowania
+* Filtr dla rozpoczętych projektów i ukończonych
+* Osobne foldery dla plików i media projektów
+* Poprawiono mnóstwo błędów
 
 ### 1.2.0 "Emily Blunt"
 
@@ -62,8 +86,6 @@ Strona internetowa naszego koła naukowego zawsze była ważnym miejscem do eksp
 *   [burger](http://codepen.io/lowercase/pen/AxIpD/)
 *   [Material Buttons ](http://codepen.io/jreece/pen/myeJBN)
 *   [Transformer Tabs, minimal JS ](http://codepen.io/Merri/pen/FAtDq)
-*   [Stylish User Settings Dropdown Menu ](http://codepen.io/jakestuts/pen/nEFyw)
 *   [Ikony "Entypo"](http://www.entypo.com/)
-*   [JavaScript Cookie](https://github.com/js-cookie/js-cookie) - A simple, lightweight JavaScript API for handling cookies
 *   [Animate.css](http://daneden.github.io/animate.css/) -  Just-add-water CSS animations
 *   [Gulp](http://gulpjs.com/) - Automate and enhance your workflow

@@ -27,16 +27,6 @@
         $wp_admin_bar->add_node( $args );
     }
 
-////////////////////////////////////////////////////////////////////
-// Add admin.css enqueue
-////////////////////////////////////////////////////////////////////
-
-    function synergia_theme_style() {
-        wp_enqueue_style('synergia-theme', get_template_directory_uri() . '/css/admin.css');
-    }
-    add_action('admin_enqueue_scripts', 'synergia_theme_style');
-
-
 
 ////////////////////////////////////////////////////////////////////
 // Register our settings options (the options we want to use)
@@ -46,6 +36,7 @@
        'recruitment' => false,
 //        'right_sidebar_width' => 3,
         'archiwum' => '',
+        'more_projects' => '',
         'google_anal' => '',
         'recruitment_image_1' => '',
         'recruitment_image_2' => '',
@@ -82,6 +73,7 @@
                     $input['recruitment'] = ( $input['recruitment'] == 1 ? 1 : 0 );
                 }
         $input['archiwum'] = wp_filter_nohtml_kses( $input['archiwum'] );
+        $input['more_projects'] = wp_filter_nohtml_kses( $input['more_projects'] );
         $input['recruitment_image_1'] = wp_filter_nohtml_kses( $input['recruitment_image_1'] );
         $input['recruitment_image_2'] = wp_filter_nohtml_kses( $input['recruitment_image_2'] );
         $input['recruitment_image_3'] = wp_filter_nohtml_kses( $input['recruitment_image_3'] );
@@ -109,7 +101,7 @@
         global $snrg_options, $version, $codename;
 
         //get our logo
-        $logo = get_template_directory_uri() . '/img/logo.png'; ?>
+        $logo = get_template_directory_uri() . '/build/img/logo.png'; ?>
 
         <div class="wrap options_wrap">
 
@@ -186,6 +178,11 @@
                       <tr valign="top"><th scope="row">Link do Archiwum</th>
                         <td>
                             <input type="text" id="archiwum" name="snrg_options[archiwum]" value="<?php esc_attr_e($settings['archiwum']); ?>" />
+                        </td>
+                    </tr>
+                      <tr valign="top"><th scope="row">Link do projektów</th>
+                        <td>
+                            <input type="text" id="more_projects" name="snrg_options[more_projects]" value="<?php esc_attr_e($settings['more_projects']); ?>" />
                         </td>
                     </tr>
                     <tr valign="top"><th scope="row">Google Analytics</th>

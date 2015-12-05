@@ -1,0 +1,72 @@
+//FONTS
+$synergia-fontstack: "Titillium Web", sans-serif;
+$font-size: 16px;
+$line-height: 1.4;
+
+//COLORS
+$text-color: #333;
+$cardbutton-color: #565656;
+$background-color: #fff;
+$synergia-color: #6c4892;
+$synergia-grey-color: #efeff0;
+$synergia-light-color: lighten($synergia-color, 20%);
+
+//BUTTON
+// http://codepen.io/jreece/pen/myeJBN
+$shadowlight: rgba(0, 0, 0, 0.2);
+$shadowdark: rgba(0, 0, 0, 0.6);
+$bezier: cubic-bezier(.4,0,.2,1);
+
+//BORDER
+$border-light: 1px solid rgba(0, 0, 0, 0.1);
+
+//LOGO
+$image-path: 'img' !default;
+$fallback-extension: 'png' !default;
+$retina-suffix: '@2x';
+
+//OTHER
+$container-width: 1000px;
+
+//IMAGES
+$image-opacity: 0.6;
+
+// GRADIENT
+$gradient-black: linear-gradient(transparent, rgba(0, 0, 0, 0.4));
+$gradient-white: linear-gradient(transparent, rgba(255, 255, 255, 1));
+
+// Breakpoints //
+
+$mq-media-type: screen;
+
+$mq-breakpoints: (
+    mobile:  480px,
+    tablet:  768px,
+    desktop: 992px,
+    wide:    1200px
+);
+/**
+* Set up reusable colors
+*/
+$secondary-color: #34495e;
+/**
+* Colors from Flat UI
+* Source: http://flatuicolors.com
+*/
+$pomegranate: #c0392b;
+$alizarin: #e74c3c;
+$pumpkin: #d35400;
+$carrot: #e67e22;
+$orange: #f39c12;
+$sunflower: #f1c40f;
+$emerald: #2ecc71;
+$nephritis: #27ae60;
+$turquoise: #1abc9c;
+$green-sea: #16a085;
+$peter-river: #3498db;
+$belize-hole: #2980b9;
+$amethyst: #9b59b6;
+$wisteria: #8e44ad;
+
+
+$note-spacing: 24px;

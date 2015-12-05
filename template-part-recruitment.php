@@ -1,6 +1,6 @@
 <div class="modal">
   <input id="modal" type="checkbox" name="modal" tabindex="1">
-  <label for="modal" am-button="raised">
+  <label for="modal" class="button synergia-button raised">
     <span class="recruit-text">Rekrutacja</span>
     <i class="icon icon-user-add"></i>
   </label>

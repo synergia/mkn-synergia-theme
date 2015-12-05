@@ -117,17 +117,15 @@ add_filter('next_posts_link_attributes', 'posts_link_attributes');
 add_filter('previous_posts_link_attributes', 'posts_link_attributes');
 
 function posts_link_attributes() {
-    return 'am-button';
+    return 'class="button pagination"';
 }
 
-add_filter('img_caption_shortcode', 'img_caption_shortcode_filter',10,3);
-
-/**
- * Filter to replace the [caption] shortcode text with HTML5 compliant code
- *
- * @return text HTML content describing embedded figure
- **/
-function img_caption_shortcode_filter($val, $attr, $content = null)
+// Ubiera obrazki w figure //
+// Tylko gdy obrazek ma tytuł jakiś, inaczej działa js, który wrzuca sam obrazek
+// w <figure>
+// http://wordpress.stackexchange.com/a/107373
+add_filter('img_caption_shortcode', 'synergia_img_caption_shortcode_filter',10,3);
+function synergia_img_caption_shortcode_filter($val, $attr, $content = null)
 {
     extract(shortcode_atts(array(
         'id'    => '',
@@ -146,10 +144,24 @@ function img_caption_shortcode_filter($val, $attr, $content = null)
         $id = 'id="' . $id . '" aria-labelledby="figcaption_' . $id . '" ';
     }
 
-    return '<figure ' . $id . '>'
+    return '<figure ' . $id . 'class="wp-caption ' . esc_attr($align) . '" >'
     . do_shortcode( $content ) . '<figcaption ' . $capid
     . 'class="wp-caption-text">' . $caption . '</figcaption></figure>';
 }
+
+// Ta funkcja wstawia <figure> od razu w edytorze. Niech tu na wszelki wypadek
+// zostanie
+// https://css-tricks.com/snippets/wordpress/insert-images-with-figurefigcaption/
+
+// add_filter( 'image_send_to_editor', 'html5_insert_image', 10, 9 );
+function html5_insert_image($html, $id, $caption, $title, $align, $url) {
+  // $id = 'id="' . $id . '" aria-labelledby="figcaption_' . $id . '" ';
+  $html5 = "<figure id='$id'>";
+  $html5 .= "<img src='$url' alt='$title' />";
+  $html5 .= "</figure>";
+  return $html5;
+}
+
 // Wzucanie wszystkich embed do diva
 add_filter( 'embed_oembed_html', 'custom_oembed_filter', 10, 4 ) ;
 
@@ -189,20 +201,51 @@ function download_button ($project_ID) {
     $files = get_post_meta($project_ID,'files',true);
     if($files){
  ?>
-    <div id="dropdown" class="download-files-container">
-        <button am-button="raised">Pobierz pliki <i class="icon icon-down-open-big"></i></button>
-        <ul>
+ <div id="dd" class="dropdown raised">
+   <div class="front">
+     <span>Pobierz <i class="icon icon-down-open-big"></i></span>
+   </div>
+   <div class="back">
+     <ul> <?php
+       if ( is_array($files) ) {
+           foreach( $files as $file ) {
+               if ( isset( $file['url'] ) || isset( $file['title'] ) ) {
+                   echo '<li><a href="'.$file["url"].'" target="_blank">'.$file["title"].'</a></li>';
+               }
+           }
+       } ?>
+     </ul>
+   </div>
+ </div>
 <?php
-    if ( is_array($files) ) {
-        foreach( $files as $file ) {
-            if ( isset( $file['url'] ) || isset( $file['title'] ) ) {
-                echo '<li><a href="'.$file["url"].'">'.$file["title"].'</a></li>';
-            }
-        }
     }
-    ?>
-        </ul>
-    </div>
-<?php
+}
+
+// Karta projektu //
+// Ta taka malutka ładniutka
+
+function project_card ($query) {
+  if ($query->have_posts()) {
+    while ($query->have_posts()) {
+      $query->the_post(); ?>
+      <div class="gl-lg-4 gl-md-6 gl-cell left">
+        <div class="card">
+          <a href="<?php the_permalink(); ?>">
+            <div class="image">
+              <?php if ( has_post_thumbnail() ) {
+                 the_post_thumbnail('medium');
+               } else { ?><img src="<?php bloginfo('template_directory'); ?>/build/img/def-thumb.jpg" /><?php } ?>
+              <h2 class="title"><?php the_title(); ?></h2>
+            </div>
+          </a>
+          <div class="excerpt">
+            <?php the_excerpt(); ?>
+          </div>
+          <div class="action">
+            <a class="button" href="<?php the_permalink(); ?>">Czytaj dalej</a>
+          </div>
+        </div>
+      </div> <?php
     }
+  }
 }
