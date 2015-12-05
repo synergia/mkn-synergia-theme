@@ -36,6 +36,7 @@ include 'lib/project-functions.php';
 include 'lib/candies.php';
 include 'lib/additional_attachments.php';
 include 'lib/login.php';
+include 'lib/featured-url.php';
 
 // Szortkody //
 
