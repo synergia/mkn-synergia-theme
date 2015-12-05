@@ -45,6 +45,11 @@
     margin-top: 0;
   }
 }
+.post-list {
+  @include mq($from: tablet) {
+    margin: 0 -10px;
+  }
+}
 .post-list-item {
   height: 150px;
   position: relative;
