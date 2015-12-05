@@ -5,9 +5,9 @@
 function sponsorowane() {
 
 	$labels = array(
-		'name'                => _x( 'Linki sponsorowane', 'Post Type General Name', 'text_domain' ),
-		'singular_name'       => _x( 'Link sponsorowany', 'Post Type Singular Name', 'text_domain' ),
-		'menu_name'           => __( 'Linki sponsorowane', 'text_domain' ),
+		'name'                => _x( 'Linki', 'Post Type General Name', 'text_domain' ),
+		'singular_name'       => _x( 'Link', 'Post Type Singular Name', 'text_domain' ),
+		'menu_name'           => __( 'Linki', 'text_domain' ),
 		'parent_item_colon'   => __( 'Parent Item:', 'text_domain' ),
 		'all_items'           => __( 'Wszystkie linki', 'text_domain' ),
 		'view_item'           => __( 'Zobacz link', 'text_domain' ),
