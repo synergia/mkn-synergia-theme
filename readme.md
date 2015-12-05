@@ -27,6 +27,17 @@ Po aktywacji motywu należy:
 *   1.0.1
 *   1.1.0
 *   1.2.0
+*   1.3.0
+
+### 1.3.0 "Alicia Vikander"
+
+![](http://cs627324.vk.me/v627324187/22aa6/i2a2C9psvMI.jpg)
+
+* Dodano płynne skrolowanie
+* Nowa strona logowania
+* Filtr dla rozpoczętych projektów i ukończonych
+* Osobne foldery dla plików i media projektów
+* Poprawiono mnóstwo błędów
 
 ### 1.2.0 "Emily Blunt"
 
