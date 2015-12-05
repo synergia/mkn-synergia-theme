@@ -12,7 +12,7 @@ Template Name: Członkowie
 <div class="gl">
 
     <?php //left sidebar ?>
-    <?php get_sidebar( 'left' ); ?>
+    <?php //get_sidebar( 'left' ); ?>
     <div class="gl-sm-9 gl-cell">
 
 <?php
@@ -105,5 +105,6 @@ foreach ($members as $management_board_member) {
         ?>
     </div>
 </div>
+<?php //get_template_part('template-part', 'sponsors'); ?>
 
 <?php get_footer(); ?>

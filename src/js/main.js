@@ -314,7 +314,11 @@ jQuery(function($) {
   });
 
 });
-
+// Github.onlyuserActivity({
+//   username: "synergia",
+//   selector: ".github_s",
+//   limit: 5
+// });
 jQuery(function($) {
   function acts() {
     var te;
