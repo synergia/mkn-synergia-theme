@@ -30,8 +30,10 @@
       box-shadow: 0 0 0.6em $shadowlight, 0 0.6em 0.6em $shadowlight;
     }
   }
+
   // raised
 }
+
 // button
 svg.ink {
   position: absolute;
@@ -57,6 +59,7 @@ button.disabled:focus {
   background: rgba(black, 0.12);
   color: rgba(black, 0.26);
 }
+
 // disabled
 .synergia-button {
   @extend .button;
@@ -88,7 +91,6 @@ button.disabled:focus {
   position: relative;
   overflow: hidden;
   margin: 10px;
-
   @include box-shadow;
   @include border-radius(0.125em);
   .excerpt {
@@ -121,7 +123,7 @@ button.disabled:focus {
   }
   .image {
     position: relative;
-    background-image: $gradient;
+    background-image: $gradient-black;
     height: 13.750em;
     @include mq($from: wide) {
       height: 18.750em;
@@ -161,11 +163,16 @@ label {
 }
 .tabs {
   & > .tab {
+    @include mq($from:tablet) {
+      margin: 0 -10px;
+    }
 
     //        @include box-shadow;
     @include border-radius(0.125em);
+
     // margin: 0.625em;
     display: none;
+
     // padding: 1px 10px;
   }
   @for $i from 1 through 9 {
@@ -222,6 +229,9 @@ label {
       overflow: hidden;
       list-style: none;
       margin: 1.250em 0;
+      @include mq($from: tablet) {
+        margin: 0 0 1.250em 0;
+      }
       padding: 2em 0 0;
       position: relative;
       text-align: center;
@@ -278,6 +288,9 @@ label {
 .github {
   margin: 0.625em;
 }
+.github_s {
+  overflow: hidden;
+}
 .dropdown {
   @extend .synergia-button;
   position: relative;
@@ -285,11 +298,12 @@ label {
   font-weight: bold;
   display: inline-block;
   z-index: 1;
+
   // width: 200px;
   color: #fff;
-
   transform-style: preserve-3d;
   perspective: 1500;
+
   // padding: 0;
   &.flip {
     .front {
@@ -299,7 +313,6 @@ label {
     .back {
       height: inherit;
       transform: rotateX(0deg);
-
     }
   }
   .front,

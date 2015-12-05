@@ -349,13 +349,13 @@ function social_links($current_member)
         echo '</a>';
     }
     if ($current_member->github_profile) {
-        echo '<a github href="'.$current_member->github_profile.'"><i class="icon icon-github"></i></a>';
+        echo '<a data-github href="'.$current_member->github_profile.'"><i class="icon icon-github"></i></a>';
     }
     if ($current_member->twitter_profile) {
-        echo '<a twitter href="'.$current_member->twitter_profile.'"><i class="icon icon-twitter"></i></a>';
+        echo '<a data-twitter href="'.$current_member->twitter_profile.'"><i class="icon icon-twitter"></i></a>';
     }
     if ($current_member->facebook_profile) {
-        echo '<a face href="'.$current_member->facebook_profile.'"><i class="icon icon-facebook"></i></a>';
+        echo '<a data-facebook href="'.$current_member->facebook_profile.'"><i class="icon icon-facebook"></i></a>';
     }
 }
 

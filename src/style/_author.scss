@@ -2,6 +2,9 @@
 .userpic {
   @include mq($from: tablet) {
     padding: 0 15px;
+    // To wyśrodkowuje i przycina obrazki
+    // http://bit.ly/1lfQIz5
+    object-fit: cover;
   }
   margin: 0 auto;
   width: 130px;
@@ -40,6 +43,11 @@
   margin-top: 20px;
   @include mq($from: tablet) {
     margin-top: 0;
+  }
+}
+.post-list {
+  @include mq($from: tablet) {
+    margin: 0 -10px;
   }
 }
 .post-list-item {

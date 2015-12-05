@@ -296,25 +296,29 @@ jQuery(function($) {
 jQuery(function($) {
   $('.userinfo a').each(function(index) {
     var profile = $(this).attr('href');
-    var gith = profile.substr(19);
+    var github_profile = profile.substr(19);
     if (profile.indexOf('github') > -1) {
-      $('a[github]').append(gith);
+      $('a[data-github]').append(github_profile);
       Github.onlyuserActivity({
-        username: gith,
+        username: github_profile,
         selector: ".github",
         limit: 10
       });
     }
     if (profile.indexOf('twitter') > -1) {
-      $('a[twitter]').append(profile.substr(20));
+      $('a[data-twitter]').append(profile.substr(20));
     }
-    if (profile.indexOf('face') > -1) {
-      $('a[face]').append(profile.substr(25));
+    if (profile.indexOf('facebook') > -1) {
+      $('a[data-facebook]').append(profile.substr(25));
     }
   });
 
 });
-
+// Github.onlyuserActivity({
+//   username: "synergia",
+//   selector: ".github_s",
+//   limit: 5
+// });
 jQuery(function($) {
   function acts() {
     var te;
@@ -384,11 +388,11 @@ jQuery(function($) {
 // http://codepen.io/georgehastings/pen/vptdb
 jQuery(function($) {
 
-  $(".dropdown").on("click", function(event){
+  $(".dropdown").on("click", function(event) {
     $(this).toggleClass("flip");
     event.stopPropagation();
   });
-  $(document).on("click", function(event){
+  $(document).on("click", function(event) {
     $(".dropdown").removeClass("flip");
   });
 });
@@ -440,5 +444,23 @@ jQuery(function($) {
             $(this).closest(".note").remove();
           });
       });
+  });
+});
+// Płynne skrolowanie //
+// https://css-tricks.com/snippets/jquery/smooth-scrolling/#comment-197181
+
+jQuery(function($) {
+  $('a[href*=#]:not([href=#])').click(function() {
+    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top
+        }, 1000);
+        return false;
+      }
+    }
   });
 });

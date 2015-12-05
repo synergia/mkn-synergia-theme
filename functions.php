@@ -83,7 +83,7 @@ function js()
     wp_register_script('underscore', get_template_directory_uri().'/build/js/underscore.min.js', '1.6.0', true);
     wp_register_script('github.js', get_template_directory_uri().'/build/js/github.min.js', '0.1.3', true);
     wp_register_script('prism', get_template_directory_uri().'/build/js/prism.min.js', '', true);
-    wp_register_script('cookie', get_template_directory_uri().'/build/js/js-cookie.min.js', '', true);
+    // wp_register_script('cookie', get_template_directory_uri().'/build/js/js-cookie.min.js', '', true);
     if (is_author()) {
         wp_enqueue_script('underscore');
         wp_enqueue_script('github.js');
@@ -91,9 +91,9 @@ function js()
     if (is_singular('project')) {
         wp_enqueue_script('prism');
     }
-    if ($snrg_settings['recruitment']) {
-        wp_enqueue_script('cookie');
-    }
+    // if ($snrg_settings['recruitment']) {
+    //     wp_enqueue_script('cookie');
+    // }
     wp_enqueue_script('js', get_template_directory_uri().'/build/js/main.min.js', array('jquery'), $version, true);
 }
 add_action('wp_footer', 'js');

@@ -11,7 +11,7 @@ Template Name: Aktualności
 <!-- end content container -->
 
 	<div class="gl">
-        <?php get_sidebar( 'left' ); ?>
+        <?php //get_sidebar( 'left' ); ?>
 
             <div class="post-list">
             <?php
@@ -58,5 +58,6 @@ Template Name: Aktualności
         endif;
 
                 ?>
+								<?php //get_template_part('template-part', 'sponsors'); ?>
 
 <?php get_footer(); ?>
