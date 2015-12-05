@@ -355,7 +355,7 @@ jQuery(function($) {
 });
 
 jQuery(".card .excerpt").text(function(index, currentText) {
-  return currentText.substr(0, 150) + '...';
+  return currentText.substr(0, 140) + '...';
 });
 
 //Skraca imiona, by nie wychodziły za bloki

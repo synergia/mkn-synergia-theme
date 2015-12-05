@@ -20,7 +20,7 @@ function show_links($items) {
       while ($items->have_posts()) {
           $items->the_post();?>
               <a href="<?php the_title();?>">
-                <?php the_post_thumbnail('medium');?>
+                <?php the_post_thumbnail('sponsor_logo');?>
               </a>
 <?php }
   } else {

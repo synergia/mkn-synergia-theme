@@ -110,7 +110,7 @@ add_theme_support('post-thumbnails');
 add_action( 'init', 'sponsorowane', 0 );
 
 // Obrazki dla portfolio
-add_image_size( 'medium', 355, 300, true );
+add_image_size( 'card_image', 355, 300, true );
 
 //
 add_filter('next_posts_link_attributes', 'posts_link_attributes');
@@ -233,7 +233,7 @@ function project_card ($query) {
           <a href="<?php the_permalink(); ?>">
             <div class="image">
               <?php if ( has_post_thumbnail() ) {
-                 the_post_thumbnail('medium');
+                 the_post_thumbnail('card_image');
                } else { ?><img src="<?php bloginfo('template_directory'); ?>/build/img/def-thumb.jpg" /><?php } ?>
               <h2 class="title"><?php the_title(); ?></h2>
             </div>
