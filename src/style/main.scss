@@ -292,13 +292,16 @@ nav {
     margin: 40px 0 20px;
     border-bottom: $border-light;
   }
+  a:hover {
+    text-decoration: none;
+  }
   img {
     opacity: $image-opacity;
     filter:alpha(opacity=calc($image-opacity * 100)); // For IE8 and earlier
     filter:grayscale(1);
-    width: 200px;
+    width: auto;
     margin: 15px;
-    height: auto;
+    height: 75px;
     @include transition;
     &:hover {
       opacity: 1;
