@@ -1,3 +1,3 @@
 <?php
 
-add_image_size( 'sponsor_logo', 200, auto, false );
+add_image_size( 'sponsor_logo', auto, 75, false );
