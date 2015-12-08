@@ -19,6 +19,10 @@ var rigger = require('gulp-rigger');
 var browserSync = require("browser-sync");
 var rimraf = require('rimraf'); // do usuwania
 var reload = browserSync.reload;
+var environments = require('gulp-environments');
+
+var development = environments.development;
+var production = environments.production;
 
 // Domyślne ścieżki //
 var path = {
@@ -91,12 +95,12 @@ var AUTOPREFIXER_BROWSERS = [
 gulp.task('scss', function() {
   return gulp.src(path.src.style)
     .pipe(plumber({ errorHandler: onError }))
-    .pipe(sourcemaps.init())
+    .pipe(development(sourcemaps.init())) // sourcemapy tylko na devie
     .pipe(sass({ style: 'expanded'}))
     .pipe(autoprefixer(AUTOPREFIXER_BROWSERS))
     .pipe(base64({baseDir: 'src',maxImageSize: 32*1024, extensions: ['svg', 'png'], exclude: ['fontello.svg'], debug:false}))
     .pipe(minifycss({keepSpecialComments: 0}))
-    .pipe(sourcemaps.write('./'))
+    .pipe(development(sourcemaps.write('./'))) // sourcemapy tylko na devie
     .pipe(gulp.dest(path.build.style))
     .pipe(reload({stream: true}));
 });
@@ -104,12 +108,12 @@ gulp.task('scss', function() {
 // Minify JS
 gulp.task('js', function() {
   return gulp.src(path.src.js)
-  .pipe(sourcemaps.init())
+  .pipe(development(sourcemaps.init())) // sourcemapy tylko na devie
     // .pipe(concat('all.js'))
     // .pipe(filesize())
     .pipe(rename({extname: '.min.js'}))
     // .pipe(uglify())
-    .pipe(sourcemaps.write())
+    .pipe(development(sourcemaps.write())) // sourcemapy tylko na devie
     .pipe(gulp.dest(path.build.js))
     // .pipe(filesize());
     .pipe(reload({stream: true}));
@@ -145,6 +149,9 @@ gulp.task('watch', function() {
 gulp.task('clean', function (cb) {
     rimraf(path.clean, cb);
 });
+// Ustawiamy środowisko jako dev
+gulp.task('set-dev', development.task);
 
-// Default Task
-gulp.task('default', ['scss', 'js', 'img', 'fonts', 'webserver', 'watch']);
+// TASKS
+gulp.task('dev', ['set-dev', 'scss', 'js', 'img', 'fonts', 'webserver', 'watch']);
+gulp.task('prod', ['scss', 'js', 'img', 'fonts']);
