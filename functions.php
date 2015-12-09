@@ -28,19 +28,30 @@ if (is_admin()) {
     add_action('admin_enqueue_scripts', 'enqueue_admin');
 }
 
-// Dodatkowe fukcje porozrzucane po plikach //
-include 'lib/theme-options.php';
-include 'lib/post-types.php';
-include 'lib/author-functions.php';
-include 'lib/project-functions.php';
-include 'lib/sponsors-functions.php';
-include 'lib/candies.php';
-include 'lib/additional_attachments.php';
-include 'lib/login.php';
+// Dodatkowe funkcje porozrzucane po plikach //
+// Ustawienia motywu
+include 'lib/options/theme-options.php';
+// Projekt
+include 'lib/projects/post-type.php';
+include 'lib/projects/project.php';
+include 'lib/projects/attachments.php';
+include 'lib/projects/utils.php';
+// Członkowie
+include 'lib/members/profile.php';
+include 'lib/members/capabilities.php';
+include 'lib/members/utils.php';
+// Sponsorzy
+include 'lib/sponsors/post-type.php';
+include 'lib/sponsors/utils.php';
+// Ogólne
+include 'lib/general/removes.php';
+include 'lib/general/utils.php';
+include 'lib/general/meta-tags.php';
 
-// Szortkody //
 
-    include 'lib/shortcodes.php';
+// Login
+include 'lib/login/login.php';
+
 
 // Synergiczne style //
 
@@ -102,7 +113,6 @@ add_action('wp_footer', 'js');
 // Pozostałości po bootstrapie -- do usunięcia //
 
 require_once 'lib/wp_bootstrap_navwalker.php';
-require_once 'lib/bootstrap-custom-menu-widget.php';
 
 // Rejestrujemu menu //
 
