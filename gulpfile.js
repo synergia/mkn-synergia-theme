@@ -36,7 +36,8 @@ var path = {
         js: [
 					'src/js/*.js',
 					// Różne pluginy
-					'bower_components/prism/prism.js'
+					'bower_components/prism/prism.js',
+          'bower_components/Swipe/swipe.js'
 				],
         style: [
 					'src/style/*.scss',

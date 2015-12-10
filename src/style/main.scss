@@ -338,7 +338,8 @@ nav {
     padding: 0.625em;
     @include mq($from: tablet) {
       right: 0;
-      @include vertical-align(absolute);
+      position: absolute;
+      @include vertical-align();
     }
     a {
       i {
@@ -412,12 +413,14 @@ nav {
         font-weight: 600;
         letter-spacing: inherit;
         color: #fff;
-        @include vertical-align(relative);
+        position: relative;
+        @include vertical-align();
       }
     }
   }
 }
 @import 'author';
+@import "slider";
 @import 'components';
 @import 'project';
 @import 'member';
