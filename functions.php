@@ -47,6 +47,7 @@ include 'lib/sponsors/utils.php';
 include 'lib/general/removes.php';
 include 'lib/general/utils.php';
 include 'lib/general/meta-tags.php';
+include 'lib/general/slider.php';
 
 
 // Login
@@ -62,9 +63,11 @@ include 'lib/login/login.php';
         wp_register_style('Titillium', 'https://fonts.googleapis.com/css?family=Titillium+Web:400,300,700&subset=latin,latin-ext');
         wp_register_style('Titillium900', 'https://fonts.googleapis.com/css?family=Titillium+Web:900&subset=latin');
         wp_register_style('main', get_template_directory_uri().'/build/style/main.css', array(), $version, 'all');
+        wp_register_style('bjqs', get_template_directory_uri().'/build/style/bjqs.css', array(), $version, 'all');
         wp_register_style('github', get_template_directory_uri().'/build/style/github.css', array(), $version, 'all');
         wp_register_style('prism', get_template_directory_uri().'/build/style/prism-okaidia.css', array(), $version, 'all');
         wp_enqueue_style('main');
+        wp_enqueue_style('bjqs');
         wp_enqueue_style('Titillium');
         // Dla rekrutacji potrzebna jest ciężka czcionka
         if ($snrg_settings['recruitment']) {
@@ -107,6 +110,7 @@ function js()
     //     wp_enqueue_script('cookie');
     // }
     wp_enqueue_script('js', get_template_directory_uri().'/build/js/main.min.js', array('jquery'), $version, true);
+    wp_enqueue_script('swipe', get_template_directory_uri().'/build/js/swipe.min.js', array('jquery'), $version, true);
 }
 add_action('wp_footer', 'js');
 

@@ -30,8 +30,7 @@
 
 // Vertical align anything
 // http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/
-@mixin vertical-align($position: relative) {
-	position: $position;
+@mixin vertical-align() {
 	top: 50%;
 	-webkit-transform: translateY(-50%);
 	-ms-transform: translateY(-50%);

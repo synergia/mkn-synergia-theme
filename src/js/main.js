@@ -464,3 +464,13 @@ jQuery(function($) {
     }
   });
 });
+
+
+jQuery(document).ready(function() {
+  Slider = jQuery('#slider').Swipe({
+    auto: 0,
+    continuous: true,
+  }).data('Swipe');
+  jQuery('.next').on('click', Slider.next);
+  jQuery('.prev').on('click', Slider.prev);
+});

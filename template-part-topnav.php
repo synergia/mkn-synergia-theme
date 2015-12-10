@@ -19,11 +19,10 @@
                 <?php
                 wp_nav_menu(array(
                         'theme_location' => 'main_menu',
-                        'depth' => 2,
+                        'depth' => 1,
                         'container' => 'div',
                         'container_class' => 'collapse navbar-collapse navbar-1-collapse',
                         'menu_class' => 'navbar-nav',
-                        'fallback_cb' => 'wp_bootstrap_navwalker::fallback',
                         'walker' => new wp_bootstrap_navwalker(), )
                 );
                 ?>
