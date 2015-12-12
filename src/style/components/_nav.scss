@@ -1,0 +1,121 @@
+//colors
+$color_torch_red_approx: #ff0032;
+$white: white;
+$color_red_ribbon_approx: #e6002d;
+$color_monza_approx: #cc0028;
+#nav-trigger {
+  display: block;
+  text-align: center;
+  @include mq($from:tablet) {
+    display: none;
+  }
+  span {
+    display: inline-block;
+    padding: 10px 30px;
+    background-color: $color_torch_red_approx;
+    color: $white;
+    cursor: pointer;
+    text-transform: uppercase;
+    &:after {
+      display: inline-block;
+      margin-left: 10px;
+      width: 20px;
+      height: 10px;
+      content: "";
+      border-left: solid 10px transparent;
+      border-top: solid 10px $white;
+      border-right: solid 10px transparent;
+    }
+    &:hover {
+      background-color: $color_red_ribbon_approx;
+    }
+    &.open:after {
+      border-left: solid 10px transparent;
+      border-top: none;
+      border-bottom: solid 10px $white;
+      border-right: solid 10px transparent;
+    }
+  }
+}
+nav {
+  margin-bottom: 10px;
+  &> a {
+    display: inline-block;
+    overflow: hidden;
+    .logo {
+      width: 300px;
+      height: 50px;
+      @include background-image('logo');
+    }
+  }
+  &#nav-main {
+    padding: 10px 0;
+    display: none;
+    @include mq($from:tablet) {
+      display: block;
+    }
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      display: inline-block;
+      float: right;
+      line-height: 1.90em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    li {
+      display: inline-block;
+      padding: 0;
+      &:last-child {
+        border-right: none;
+      }
+      a {
+        display: block;
+        color: $synergia-color;
+        padding: 10px 15px;
+        text-decoration: none;
+        &:hover {
+          color: $synergia-light-color;
+        }
+      }
+    }
+  }
+  &#nav-mobile {
+    position: relative;
+    display: block;
+    @include mq($from:tablet) {
+      display: none;
+    }
+    ul {
+      display: none;
+      list-style-type: none;
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      background-color: $color_torch_red_approx;
+    }
+    li {
+      display: block;
+      padding: 5px 0;
+      margin: 0 5px;
+      border-bottom: solid 1px $color_monza_approx;
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+    a {
+      display: block;
+      color: $white;
+      padding: 10px 30px;
+      &:hover {
+        background-color: $color_red_ribbon_approx;
+        color: $white;
+      }
+    }
+  }
+}

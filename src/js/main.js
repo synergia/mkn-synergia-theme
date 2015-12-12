@@ -21,12 +21,13 @@ jQuery(function($) {
 
   //= partials/show-nicknames.js
 
-  //= partials/slider.js
 
   //= partials/tabs.js
 
   //= partials/transition.js
-  
+
+  //= partials/nav.js
+
   // Prezes zawsze na pierwszym miejscu //
   $('#management_board li#admin').insertBefore('#management_board li:eq(0)');
 });

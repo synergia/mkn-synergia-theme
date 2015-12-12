@@ -50,7 +50,7 @@ var path = {
       },
       watch: { // Wskazujemy, za jakimi plikami śledzimy
           js: 'src/js/**',
-          style: 'src/style/*.scss',
+          style: 'src/style/**',
           img: 'src/img/*.*',
           font: 'src/font/*.*'
       },
