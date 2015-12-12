@@ -3,7 +3,9 @@
 $(".dropdown").on("click", function(event) {
   $(this).toggleClass("flip");
   event.stopPropagation();
+  console.info("Dropdown-download opened");
 });
 $(document).on("click", function(event) {
   $(".dropdown").removeClass("flip");
+  console.info("Dropdown-download closed");
 });
