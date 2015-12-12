@@ -1,0 +1,129 @@
+//TABS
+// http://codepen.io/Merri/pen/FAtDq
+label {
+  cursor: pointer;
+}
+.tabs {
+  & > .tab {
+    @include mq($from:tablet) {
+      margin: 0 -10px;
+    }
+
+    //        @include box-shadow;
+    @include border-radius(0.125em);
+
+    // margin: 0.625em;
+    display: none;
+
+    // padding: 1px 10px;
+  }
+  @for $i from 1 through 9 {
+
+    // active tab
+    & > input:nth-of-type(#{$i}):checked ~ .tab:nth-of-type(#{$i}) {
+      display: block;
+    }
+
+    // active tab button
+    & > input:nth-of-type(#{$i}):checked ~ .tabs-nav > ul > li:nth-of-type(#{$i}) > label {
+
+      // to make things easier further below we limit styling here
+      color: #ffffff;
+      background-color: $synergia-color;
+    }
+  }
+  .tabs-nav {
+    position: relative;
+    display: table;
+    margin: 0 auto;
+
+    // checkbox controls size of the list
+    & > input {
+      & ~ ul {
+        height: 0;
+        overflow: hidden;
+      }
+      &:checked ~ ul {
+        height: auto;
+        overflow: auto;
+      }
+    }
+
+    // label to control the checkbox
+    & > label {
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      height: 2em;
+      left: 0;
+      line-height: 2em;
+      padding: 0 0.5em;
+      position: absolute;
+      right: 0;
+      text-align: right;
+      top: 0;
+      z-index: 1;
+    }
+
+    // then just some nice mobile styles
+    & > ul {
+      display: block;
+      overflow: hidden;
+      list-style: none;
+      margin: 1.250em 0;
+      @include mq($from: tablet) {
+        margin: 0 0 1.250em 0;
+      }
+      padding: 2em 0 0;
+      position: relative;
+      text-align: center;
+      font-weight: 600;
+      text-transform: uppercase;
+      box-shadow: inset 0 0 0 3px $synergia-color;
+      @include border-radius(5px);
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      & > li {
+        display: inline;
+        float: left;
+        & > label {
+          display: block;
+          color: $synergia-color;
+          &:hover {
+            color: $synergia-light-color;
+            @include transition;
+          }
+        }
+      }
+    }
+  }
+  .tabs-nav {
+
+    // undo the stuff done by the checkbox
+    & > input {
+      & ~ ul,
+      &:checked ~ ul {
+        background: transparent;
+        height: auto;
+        overflow: auto;
+      }
+    }
+
+    // we don't need to control the checkbox
+    & > label {
+      display: none;
+    }
+
+    // minimal changes to tab styles
+    & > ul {
+      padding: 0;
+      & > li {
+        & > label {
+          display: inline-block;
+          padding: 0.5em 1em;
+        }
+      }
+    }
+  }
+}

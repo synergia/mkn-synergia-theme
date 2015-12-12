@@ -4,6 +4,7 @@ var gulp = require('gulp');
 // Include Our Plugins
 var sass = require('gulp-sass');
 // var concat = require('gulp-concat');
+var notify = require("gulp-notify");
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 var filesize = require('gulp-filesize');
@@ -26,34 +27,34 @@ var production = environments.production;
 
 // Domyślne ścieżki //
 var path = {
-    build: { // Swieżozbudowane pliki wrzucamy do build
-        js: 'build/js/',
-        style: 'build/style/',
-        img: 'build/img/',
-        font: 'build/font/'
-    },
-    src: { // Pliki źródłowe bierzemy stąd
-        js: [
-					'src/js/*.js',
-					// Różne pluginy
-					'bower_components/prism/prism.js',
-          'bower_components/Swipe/swipe.js'
-				],
-        style: [
-					'src/style/*.scss',
-					// Różne pluginy
-					'bower_components/prism/themes/prism-okaidia.css'
-				],
-        img: 'src/img/**/*.*', // bierzemy wszystko, co jest w tych folderach
-        font: 'src/font/*.*'
-    },
-    watch: { // Wskazujemy, za jakimi plikami śledzimy
-        js: 'src/js/*.js',
-        style: 'src/style/*.scss',
-        img: 'src/img/*.*',
-        font: 'src/font/*.*'
-    },
-    clean: './build'
+      build: { // Swieżozbudowane pliki wrzucamy do build
+          js: 'build/js/',
+          style: 'build/style/',
+          img: 'build/img/',
+          font: 'build/font/'
+      },
+      src: { // Pliki źródłowe bierzemy stąd
+          js: [
+  					'src/js/*.js',
+  					// Różne pluginy
+  					'bower_components/prism/prism.js',
+            'bower_components/Swipe/swipe.js'
+  				],
+          style: [
+  					'src/style/*.scss',
+  					// Różne pluginy
+  					'bower_components/prism/themes/prism-okaidia.css'
+  				],
+          img: 'src/img/**/*.*', // bierzemy wszystko, co jest w tych folderach
+          font: 'src/font/*.*'
+      },
+      watch: { // Wskazujemy, za jakimi plikami śledzimy
+          js: 'src/js/**',
+          style: 'src/style/*.scss',
+          img: 'src/img/*.*',
+          font: 'src/font/*.*'
+      },
+      clean: './build'
 };
 
 // Żeby F5 nie męczyć //
@@ -95,7 +96,7 @@ var AUTOPREFIXER_BROWSERS = [
 // Compile Our Sass
 gulp.task('scss', function() {
   return gulp.src(path.src.style)
-    .pipe(plumber({ errorHandler: onError }))
+    .pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }))
     .pipe(development(sourcemaps.init())) // sourcemapy tylko na devie
     .pipe(sass({ style: 'expanded'}))
     .pipe(autoprefixer(AUTOPREFIXER_BROWSERS))
@@ -103,20 +104,22 @@ gulp.task('scss', function() {
     .pipe(minifycss({keepSpecialComments: 0}))
     .pipe(development(sourcemaps.write('./'))) // sourcemapy tylko na devie
     .pipe(gulp.dest(path.build.style))
+    .pipe(notify({onLast: true, message: 'scss done'}))
     .pipe(reload({stream: true}));
 });
 
 // Minify JS
 gulp.task('js', function() {
   return gulp.src(path.src.js)
-  .pipe(development(sourcemaps.init())) // sourcemapy tylko na devie
-    // .pipe(concat('all.js'))
+    .pipe(rigger())
+    .pipe(development(sourcemaps.init())) // sourcemapy tylko na devie
     // .pipe(filesize())
     .pipe(rename({extname: '.min.js'}))
     // .pipe(uglify())
     .pipe(development(sourcemaps.write())) // sourcemapy tylko na devie
     .pipe(gulp.dest(path.build.js))
     // .pipe(filesize());
+    .pipe(notify({onLast: true, message: 'js done'}))
     .pipe(reload({stream: true}));
 });
 
