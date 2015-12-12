@@ -113,4 +113,18 @@ function my_excerpt($text, $excerpt)
 
     return apply_filters('wp_trim_excerpt', $text, $excerpt);
 }
- ?>
+
+// Widżet na kokpit //
+add_action('wp_dashboard_setup', 'version_widget');
+function version_widget() {
+global $wp_meta_boxes;
+wp_add_dashboard_widget('synergia_version_widget', 'Aktualna wersja', 'synergia_version');
+}
+function synergia_version() {
+  global $version, $codename, $codeimg;
+  ?>
+<div class="version_baner">
+  <img src="<?php echo $codeimg; ?>">
+  <h2><?php echo '<span class="version">'.$version.'</span> "'.$codename.'"';?></h2>
+</div>
+<?php } ?>

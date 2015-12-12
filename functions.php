@@ -3,8 +3,8 @@
     $theme = wp_get_theme();
     $version = $theme->get('Version');
     $theme_name = $theme->get('Name');
-    $codename = 'Alicia Vikander';
-    $codeimg = 'http://cs627324.vk.me/v627324187/22aa6/i2a2C9psvMI.jpg';
+    $codename = 'Carrie Fisher';
+    $codeimg = 'http://cs628419.vk.me/v628419187/48151/3R20Q-CTUPI.jpg';
 
 // Dodatkowe style i skrypty dla panelu. Odpowiedzialne za otwieranie okna
 // z mediami
@@ -48,8 +48,6 @@ include 'lib/general/removes.php';
 include 'lib/general/utils.php';
 include 'lib/general/meta-tags.php';
 include 'lib/general/slider.php';
-
-
 // Login
 include 'lib/login/login.php';
 
@@ -63,11 +61,9 @@ include 'lib/login/login.php';
         wp_register_style('Titillium', 'https://fonts.googleapis.com/css?family=Titillium+Web:400,300,700&subset=latin,latin-ext');
         wp_register_style('Titillium900', 'https://fonts.googleapis.com/css?family=Titillium+Web:900&subset=latin');
         wp_register_style('main', get_template_directory_uri().'/build/style/main.css', array(), $version, 'all');
-        wp_register_style('bjqs', get_template_directory_uri().'/build/style/bjqs.css', array(), $version, 'all');
         wp_register_style('github', get_template_directory_uri().'/build/style/github.css', array(), $version, 'all');
         wp_register_style('prism', get_template_directory_uri().'/build/style/prism-okaidia.css', array(), $version, 'all');
         wp_enqueue_style('main');
-        wp_enqueue_style('bjqs');
         wp_enqueue_style('Titillium');
         // Dla rekrutacji potrzebna jest ciężka czcionka
         if ($snrg_settings['recruitment']) {
@@ -142,18 +138,3 @@ register_sidebar(
 // Dodajemy wsparcie linków RSS //
 
 add_theme_support('automatic-feed-links');
-
-// Widżet na kokpit //
-add_action('wp_dashboard_setup', 'version_widget');
-function version_widget() {
-global $wp_meta_boxes;
-wp_add_dashboard_widget('synergia_version_widget', 'Aktualna wersja', 'synergia_version');
-}
-function synergia_version() {
-  global $version, $codename, $codeimg;
-  ?>
-<div class="version_baner">
-  <img src="<?php echo $codeimg; ?>">
-  <h2><?php echo '<span class="version">'.$version.'</span> "'.$codename.'"';?></h2>
-</div>
-<?php } ?>

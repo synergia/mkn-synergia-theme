@@ -3,7 +3,73 @@
 @import '../../bower_components/normalize-scss/_normalize';
 @import '../../bower_components/sass-mq/mq';
 @import 'gridlayout';
-@import 'html5boiler';
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+    background: $synergia-color;
+    text-shadow: none;
+    color: #ffffff;
+}
+
+::selection {
+    background: $synergia-color;
+    text-shadow: none;
+    color: #ffffff;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+
 
 // Synergiczne style //
 body {
@@ -101,31 +167,6 @@ img {
   background-color: transparent;
   border-bottom: 4px solid $synergia-color;
   padding-bottom: 5px;
-}
-.logo {
-  @include mq($from: tablet) {
-    width: 300px;
-    height: 50px;
-    position: relative;
-    float: left;
-    @include clearfix;
-    @include background-image('logo');
-  }
-  @include mq($until: tablet) {
-    width: 54px;
-    margin-top: 2px;
-    height: 54px;
-    background-position: 2px 2px;
-    background-repeat: no-repeat;
-    position: relative;
-    border-radius: 4px;
-    float: left;
-    margin-left: 20px;
-    background-color: $background-color;
-    @include background-image('logo');
-    -webkit-box-shadow: 0 0 3px 0 #000;
-    box-shadow: 0 0 3px 0 #000;
-  }
 }
 .navbar {
   position: relative;
@@ -420,13 +461,10 @@ nav {
   }
 }
 @import 'author';
-@import "slider";
 @import 'components';
 @import 'project';
 @import 'member';
-@import 'burger';
-@import 'icons';
 @import 'recruitment';
 @import "login";
 @import 'animate';
-@import 'html5plate';
+@import "print";
