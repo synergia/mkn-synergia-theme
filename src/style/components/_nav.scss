@@ -1,58 +1,53 @@
 //colors
-$color_torch_red_approx: #ff0032;
-$white: white;
-$color_red_ribbon_approx: #e6002d;
-$color_monza_approx: #cc0028;
-#nav-trigger {
+header.header {
+  position: relative;
+}
+.app-name {
+  position: absolute;
   display: block;
   text-align: center;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  font-weight: 300;
+  font-size: 1.5em;
+  line-height: 65px;
+  @include mq($from:tablet) {
+    display: none;
+  }
+}
+#nav-trigger {
+  display: inline-block;
+  float: right;
+  z-index: 2;
+  position: relative;
+  height: 70px;
   @include mq($from:tablet) {
     display: none;
   }
   span {
     display: inline-block;
     padding: 10px 30px;
-    background-color: $color_torch_red_approx;
-    color: $white;
     cursor: pointer;
     text-transform: uppercase;
-    &:after {
-      display: inline-block;
-      margin-left: 10px;
-      width: 20px;
-      height: 10px;
-      content: "";
-      border-left: solid 10px transparent;
-      border-top: solid 10px $white;
-      border-right: solid 10px transparent;
-    }
-    &:hover {
-      background-color: $color_red_ribbon_approx;
-    }
-    &.open:after {
-      border-left: solid 10px transparent;
-      border-top: none;
-      border-bottom: solid 10px $white;
-      border-right: solid 10px transparent;
-    }
   }
 }
 nav {
-  margin-bottom: 10px;
-  &> a {
-    display: inline-block;
-    overflow: hidden;
-    .logo {
-      width: 300px;
-      height: 50px;
-      @include background-image('logo');
-    }
-  }
   &#nav-main {
     padding: 10px 0;
     display: none;
     @include mq($from:tablet) {
       display: block;
+    }
+    &> a {
+      display: inline-block;
+      overflow: hidden;
+      .logo {
+        width: 300px;
+        height: 50px;
+        @include background-image('logo');
+      }
     }
     ul {
       list-style-type: none;
@@ -85,8 +80,20 @@ nav {
   &#nav-mobile {
     position: relative;
     display: block;
+    z-index: 1;
+    height: 70px;
     @include mq($from:tablet) {
       display: none;
+    }
+    &> a {
+      display: inline-block;
+      overflow: hidden;
+      padding: 10px;
+      .logo {
+        width: 50px;
+        height: 50px;
+        @include background-image('logo');
+      }
     }
     ul {
       display: none;
@@ -97,24 +104,47 @@ nav {
       margin-left: auto;
       margin-right: auto;
       text-align: center;
-      background-color: $color_torch_red_approx;
+      background-color: #fff;
+      padding: 0;
+      text-transform: uppercase;
+      font-weight: 700;
+      &:before {
+        content: "";
+        position: absolute;
+        left: 15%;
+        top: 0;
+        height: 1px;
+        width: 70%;
+        border-top: 2px solid $synergia-grey-color;
+      }
+
     }
     li {
       display: block;
       padding: 5px 0;
       margin: 0 5px;
-      border-bottom: solid 1px $color_monza_approx;
-      &:last-child {
-        border-bottom: none;
+      position: relative;
+      &:before {
+        content: "";
+        position: absolute;
+        left: 25%;
+        bottom: 0;
+        height: 1px;
+        width: 50%;
+        // border-bottom: 2px solid $synergia-grey-color;
       }
-    }
-    a {
-      display: block;
-      color: $white;
-      padding: 10px 30px;
-      &:hover {
-        background-color: $color_red_ribbon_approx;
-        color: $white;
+      &:last-child {
+        &:before {
+          display: none;
+        }
+      }
+      a {
+        display: block;
+        text-decoration: none;
+        padding: 10px 30px;
+        &:hover {
+
+        }
       }
     }
   }

@@ -28,6 +28,8 @@ jQuery(function($) {
 
   //= partials/nav.js
 
+  //= partials/burger.js
+
   // Prezes zawsze na pierwszym miejscu //
   $('#management_board li#admin').insertBefore('#management_board li:eq(0)');
 });

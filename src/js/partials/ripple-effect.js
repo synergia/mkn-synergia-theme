@@ -1,8 +1,4 @@
-  //BURGER//////////////////////////////
-  $("button").click(function() { //
-    $(this).toggleClass("close"); //
-  }); //
-  //////////////////////////////////////
+
   $(function() {
     // Touch ripple effect on buttons
     $('.button:not(.button.disabled)').on('click',

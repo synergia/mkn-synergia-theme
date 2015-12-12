@@ -1,90 +1,60 @@
-// =========== General button styles & variables =======================================//
-.lines-button {
-    display: inline-block;
-    margin: 0 1em;
-    border: none;
-    background: none;
-    float: right;
-    span {
-        display: block;
-    }
-    @include mq($from:tablet){
-        display: none;
-    }
-}
-$color : #ffffff;
-$transition: .3s;// increase this to see the transformations happen in slow motion
-
-// ====================== lines button ==================================================
-
-$button-size : 3em;
-//common to all three-liners
-.lines-button {
-  padding: $button-size/2 $button-size/4;
-  transition: .3s;
+// Change to watch in slow motion
+// http://codepen.io/bennettfeely/pen/twbyA
+.navicon-button {
+  display: inline-block;
+  position: relative;
+  padding: 2.0625rem 0.625rem;
+  @include transition;
   cursor: pointer;
   user-select: none;
-//  border-radius: $button-size/7;
-
-  &:hover {
-    opacity: 1;
-  }
-  &:active {
-    transition: 0;
+  .navicon:before,
+  .navicon:after {
+    @include transition;
   }
 }
-//common to all three-liners
-@mixin line {
-  display: inline-block;
-  width: $button-size/1.2;
-  height: $button-size/9;
-  background: $color;
-  border-radius: $button-size/3;
-  transition: $transition;
-}
-//common to all three-liners
-.lines {
-  @include line;
+.navicon {
   position: relative;
-
-  &:before, &:after {
-   @include line;
+  width: 2em;
+  height: 0.2rem;
+  background: $text-color;
+  @include transition;
+  border-radius: 0.2rem;
+  &:before,
+  &:after {
+    display: block;
+    content: "";
+    height: 0.2rem;
+    width: 2rem;
+    background: $text-color;
     position: absolute;
-    left:0;
-    content: '';
-    -webkit-transform-origin: $button-size/14 center;
-            transform-origin: $button-size/14 center;
+    z-index: -1;
+    @include transition;
+    border-radius: 0.2rem;
   }
   &:before {
-    top: $button-size/4;
+    top: 0.625rem;
   }
   &:after {
-    top: -$button-size/4;
+    top: -.625rem;
   }
 }
-
-.lines-button.close {
-  -webkit-transform: scale3d(.8,.8,.8);
-          transform: scale3d(.8,.8,.8);
+.open:not(.steps) .navicon:before,
+.open:not(.steps) .navicon:after {
+  top: 0 !important;
 }
-
-//three-lines to x
-.lines-button.x.close{
-  .lines {
+.open .navicon:before,
+.open .navicon:after {
+  @include transition;
+}
+/* × and + */
+.open.x {
+  .navicon {
     background: transparent;
-    &:before, &:after{
-      -webkit-transform-origin: 50% 50%;
-              transform-origin: 50% 50%;
-      top:0;
-      width: $button-size;
+    &:before {
+      transform: rotate(-45deg);
     }
-    &:before{
-      -webkit-transform: rotate3d(0,0,1,45deg);
-              transform: rotate3d(0,0,1,45deg);
-    }
-    &:after{
-      -webkit-transform: rotate3d(0,0,1,-45deg);
-              transform: rotate3d(0,0,1,-45deg);
+    &:after {
+      transform: rotate(45deg);
     }
   }
 }
