@@ -112,7 +112,7 @@ add_action('wp_footer', 'js');
 
 // Pozostałości po bootstrapie -- do usunięcia //
 
-require_once 'lib/wp_bootstrap_navwalker.php';
+// require_once 'lib/wp_bootstrap_navwalker.php';
 
 // Rejestrujemu menu //
 
