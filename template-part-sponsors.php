@@ -20,8 +20,10 @@ function show_links($items) {
       while ($items->have_posts()) {
           $items->the_post();?>
               <a href="<?php the_title();?>">
-                <?php the_post_thumbnail('sponsor_logo');?>
-              </a>
+                <img class="blazy"
+                     alt="<?php the_title(); ?>"
+                     src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                     data-src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), 'sponsor_logo', true)[0];?>"/>              </a>
 <?php }
   } else {
       echo 'Nic a nic';
