@@ -118,7 +118,7 @@ img {
 }
 .dmbs-container {
   @include mq($from: tablet) {
-    margin-top: 20px;
+    margin-top: 0;
   }
 }
 .container {

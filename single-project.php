@@ -21,7 +21,9 @@
 				</div>
 					<?php get_template_part('template-part', 'authors');?>
                 <div class="project-content"><?php the_content(); ?>
-                    <?php download_button(get_the_ID()); ?>
+									<div class="download-button-container">
+										<?php download_button(get_the_ID()); ?>
+									</div>
             </div>
 				<?php wp_link_pages(); ?>
 			<?php endwhile; ?>
