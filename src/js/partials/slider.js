@@ -3,6 +3,8 @@ $(document).ready(function() {
     auto: 0,
     continuous: true,
   }).data('Swipe');
-  $('.next').on('click', Slider.next);
-  $('.prev').on('click', Slider.prev);
+  if (Slider) {
+    $('.next').on('click', Slider.next);
+    $('.prev').on('click', Slider.prev);
+  }
 });

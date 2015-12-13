@@ -48,6 +48,7 @@ include 'lib/general/removes.php';
 include 'lib/general/utils.php';
 include 'lib/general/meta-tags.php';
 include 'lib/general/slider.php';
+include 'lib/general/lazy.php';
 // Login
 include 'lib/login/login.php';
 
@@ -95,6 +96,7 @@ function js() {
     wp_register_script('prism', get_template_directory_uri().'/build/js/prism.min.js', '', true);
     wp_register_script('main', get_template_directory_uri().'/build/js/main.min.js', array('jquery'), $version, true);
     wp_register_script('swipe', get_template_directory_uri().'/build/js/swipe.min.js', array('jquery'), $version, true);
+    wp_register_script('blazy', get_template_directory_uri().'/build/js/blazy.min.js', array('jquery'), $version, true);
     // wp_register_script('cookie', get_template_directory_uri().'/build/js/js-cookie.min.js', '', true);
     if (is_author()) {
         wp_enqueue_script('underscore');
@@ -107,6 +109,7 @@ function js() {
     //     wp_enqueue_script('cookie');
     // }
     wp_enqueue_script('swipe');
+    wp_enqueue_script('blazy');
     wp_enqueue_script('main');
 }
 add_action('wp_footer', 'js');

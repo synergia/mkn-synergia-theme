@@ -7,5 +7,4 @@ $(".dropdown").on("click", function(event) {
 });
 $(document).on("click", function(event) {
   $(".dropdown").removeClass("flip");
-  console.info("Dropdown-download closed");
 });

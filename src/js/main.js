@@ -3,6 +3,8 @@
 
 jQuery(function($) {
 
+  //= partials/lazy.js
+
   //= partials/dropdown-download.js
 
   //= partials/excerpt.js
@@ -24,6 +26,8 @@ jQuery(function($) {
   //= partials/transition.js
 
   //= partials/nav.js
+
+  //= partials/slider.js
 
   // Prezes zawsze na pierwszym miejscu //
   $('#management_board li#admin').insertBefore('#management_board li:eq(0)');
