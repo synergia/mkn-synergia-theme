@@ -92,11 +92,12 @@ Wszystko, co wyżej oraz:
 *   [GridLayout](https://ghinda.net/gridlayout/) - Lightweight grid system for advanced horizontal and vertical responsive web app layouts, with support for older browsers.
 *   [Github.js](http://akshaykumar6.github.io/github-js/) - Easy way to feature open source contributions on your website or portfolio.
 *   [Prism.js](http://prismjs.com/index.html) - Prism is a lightweight, extensible syntax highlighter, built with modern web standards in mind.
-*   [html5boilerplate](https://html5boilerplate.com/) - The web’s most popular front-end template
 *   [Normalize.css](http://Normalize.css) - A modern, HTML5-ready alternative to CSS resets
-*   [burger](http://codepen.io/lowercase/pen/AxIpD/)
+*   [burger](http://codepen.io/bennettfeely/pen/twbyA)
 *   [Material Buttons ](http://codepen.io/jreece/pen/myeJBN)
 *   [Transformer Tabs, minimal JS ](http://codepen.io/Merri/pen/FAtDq)
 *   [Ikony "Entypo"](http://www.entypo.com/)
 *   [Animate.css](http://daneden.github.io/animate.css/) -  Just-add-water CSS animations
 *   [Gulp](http://gulpjs.com/) - Automate and enhance your workflow
+*   [bLazy.js](http://dinbror.dk/blog/blazy/) - A lazy load image script
+*   [Swipe](https://github.com/thebird/Swipe) -  Swipe is the most accurate touch slider.
