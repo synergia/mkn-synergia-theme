@@ -17,6 +17,7 @@ Po aktywacji motywu należy:
  - Zainstalować wtyczki `Co-Authors Plus` oraz `WP Users Media`. Najściślej motyw jest powiązany z Co-Authors Plus.
 
 #### Tu
+Wszystko, co wyżej oraz:
 
        $ npm install && bower install
 
@@ -28,6 +29,16 @@ Po aktywacji motywu należy:
 *   1.1.0
 *   1.2.0
 *   1.3.0
+*   1.4.0
+
+### 1.4.0 "Carrie Fisher"
+
+![](http://cs628419.vk.me/v628419187/48151/3R20Q-CTUPI.jpg)
+
+* Leniwe ładowanie obrazków
+* Slajder
+* Refaktoryzacja
+* Drobne ulepszenia i poprawki
 
 ### 1.3.0 "Alicia Vikander"
 
