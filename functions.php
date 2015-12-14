@@ -1,10 +1,12 @@
 <?php
 // Info o motywie //
     $theme = wp_get_theme();
+    $logo = get_template_directory_uri() . '/build/img/logo.png';
     $version = $theme->get('Version');
     $theme_name = $theme->get('Name');
     $codename = 'Carrie Fisher';
     $codeimg = 'http://cs628419.vk.me/v628419187/48151/3R20Q-CTUPI.jpg';
+
 
 // Dodatkowe style i skrypty dla panelu. Odpowiedzialne za otwieranie okna
 // z mediami
