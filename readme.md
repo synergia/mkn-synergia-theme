@@ -41,6 +41,7 @@ Wszystko, co wyżej oraz:
 * Leniwe ładowanie obrazków
 * Slajder
 * Refaktoryzacja
+* Dodano wkładki w ustawieniach
 * Drobne ulepszenia i poprawki
 
 ### 1.3.0 "Alicia Vikander"
