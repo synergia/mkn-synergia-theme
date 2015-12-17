@@ -1,9 +1,13 @@
 <?php
 function snrg_options_display() {
+  global $version, $codename, $logo;
 ?>
-    <div class="wrap">
+    <div class="wrap options_wrap">
         <div id="icon-themes" class="icon32"></div>
-        <h2>Essentials Theme Options</h2>
+        <header>
+          <img src="<?php echo $logo;?>"/>
+          <span><?php echo $version.' "'.$codename.'"'; ?></span>
+        </header>
         <?php settings_errors(); ?>
 
         <?php

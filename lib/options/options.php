@@ -105,9 +105,25 @@ add_settings_section(
     'snrg_recruitment_page'
   );
 
-register_setting('snrg_general_page_option', 'snrg_general_page_option');
-register_setting('snrg_recruitment_page_option', 'snrg_recruitment_page_option');
+register_setting('snrg_general_page_option', 'snrg_general_page_option', 'snrg_validate_options');
+register_setting('snrg_recruitment_page_option', 'snrg_recruitment_page_option', 'snrg_validate_options');
 }
 
 $general_options = get_option('snrg_general_page_option');
 $recruitment_options = get_option('snrg_recruitment_page_option');
+
+function snrg_validate_options( $input ) {
+  global $recruitment_options;
+  if ( ! isset( $recruitment_options['enable_recruitment'] ) ) {
+    $recruitment_options['enable_recruitment'] = null;
+  } else {
+    $recruitment_options['enable_recruitment'] = ( $recruitment_options['enable_recruitment'] == 1 ? 1 : 0 );
+  }
+  $input['archive_link'] = wp_filter_nohtml_kses( $input['archive_link'] );
+  $input['projects_link'] = wp_filter_nohtml_kses( $input['projects_link'] );
+  $input['fb_link'] = wp_filter_nohtml_kses( $input['fb_link'] );
+  $input['twitter_link'] = wp_filter_nohtml_kses( $input['twitter_link'] );
+  $input['github_link'] = wp_filter_nohtml_kses( $input['github_link'] );
+  $input['upload_recruitment_image_1'] = wp_filter_nohtml_kses( $input['upload_recruitment_image_1'] );
+  return $input;
+}

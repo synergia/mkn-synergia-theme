@@ -3,11 +3,6 @@
 
 function snrg_enable_recruitment_callback() {
   global $recruitment_options;
-    if ( ! isset( $options['enable_recruitment'] ) ) {
-      $options['enable_recruitment'] = null;
-    } else {
-      $options['enable_recruitment'] = ( $options['enable_recruitment'] == 1 ? 1 : 0 );
-    }
 ?>
 <label>
   <input type='checkbox' id="" name='snrg_recruitment_page_option[enable_recruitment]' value='1' <?php if ( 1 == $recruitment_options['enable_recruitment'] ) echo 'checked="checked"'; ?> />
