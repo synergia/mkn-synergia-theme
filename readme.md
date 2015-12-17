@@ -18,6 +18,7 @@ Po aktywacji motywu należy:
  - Główną stronę w `Ustawienia->Czytanie` ustawić jako statyczną
  - w `Wygląd->Menu` utworzyć nowe menu z Aktualnościami, Członkami i stroną O nas. Zaznaczyć położenie motywu "Main menu" i zapisać.
  - Zainstalować wtyczki `Co-Authors Plus` oraz `WP Users Media`. Najściślej motyw jest powiązany z Co-Authors Plus.
+ - Wyłączyć Gravatars w `Ustawienia->Dyskusja`
 
 #### Tu
 Wszystko, co wyżej oraz:
