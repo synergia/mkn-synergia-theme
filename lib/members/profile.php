@@ -13,6 +13,7 @@ function save_profile_settings($user_id){
     update_user_meta($user_id, 'president', $_POST['president']);
     update_user_meta($user_id, 'show_mail', $_POST['show_mail']);
     update_user_meta($user_id, 'image', $_POST[ 'image' ]);
+    update_user_meta($user_id, 'cv', $_POST[ 'cv' ]);
 }
 
 //removing color scheme
@@ -84,21 +85,36 @@ function add_extra_social_links($user)
         </td>
       </tr>
       <tr>
-        <th><label for="facebook_profile">Github Profile</label></th>
+        <th><label for="github_profile">Github Profile URL</label></th>
         <td><input type="text" name="github_profile" value="<?php echo esc_attr(get_the_author_meta('github_profile', $user->ID));?>" class="regular-text" /></td>
       </tr>
       <tr>
-        <th><label for="twitter_profile">Twitter Profile</label></th>
+        <th><label for="twitter_profile">Twitter Profile URL</label></th>
         <td><input type="text" name="twitter_profile" value="<?php echo esc_attr(get_the_author_meta('twitter_profile', $user->ID));?>" class="regular-text" /></td>
       </tr>
       <tr>
-        <th><label for="google_profile">Facebook Profile</label></th>
+        <th><label for="facebook_profile">Facebook Profile URL</label></th>
         <td><input type="text" name="facebook_profile" value="<?php echo esc_attr(get_the_author_meta('facebook_profile', $user->ID));?>" class="regular-text" /></td>
       </tr>
     </table>
 <?php
 }
 
+// Dodaje CV //
+add_action('show_user_profile', 'add_cv_link');
+add_action('edit_user_profile', 'add_cv_link');
+function add_cv_link($user)
+{
+    ?>
+    <h3>Dodaj swoje CV</h3>
+    <table class="form-table">
+      <tr>
+        <th><label for="cv">Curriculum Vitae</label></th>
+        <td><input type="text" name="cv" value="<?php echo esc_attr(get_the_author_meta('cv', $user->ID));?>" class="regular-text" /></td>
+      </tr>
+    </table>
+<?php
+}
 // Wsparcie dla obrazków profilowych //
 add_action('show_user_profile', 'my_show_extra_profile_fields');
 add_action('edit_user_profile', 'my_show_extra_profile_fields');

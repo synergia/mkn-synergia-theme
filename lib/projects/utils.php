@@ -78,12 +78,12 @@ function the_project_links($project_ID) {
     if( $web || $facebook || $github) {
         echo '<div class="project-links">';
         if($web){
-            echo '<a href="'.get_post_meta($project_ID, "web", true).'"><i class="icon icon-link"></i></a>';
+            echo '<a title="Strona internetowa projektu" href="'.get_post_meta($project_ID, "web", true).'"><i class="icon icon-link"></i></a>';
         }
         if($facebook) {
-            echo '<a href="'.get_post_meta($project_ID, "facebook", true).'"><i class="icon icon-facebook"></i></a>';
+            echo '<a title="Facebook" href="'.get_post_meta($project_ID, "facebook", true).'"><i class="icon icon-facebook"></i></a>';
         }    if($github) {
-            echo '<a href="'.get_post_meta($project_ID, "github", true).'"><i class="icon icon-github"></i></a>';
+            echo '<a title="Github" href="'.get_post_meta($project_ID, "github", true).'"><i class="icon icon-github"></i></a>';
         }
         echo '</div>';
     }
@@ -122,7 +122,7 @@ function project_card ($query) {
       $query->the_post(); ?>
       <div class="gl-lg-4 gl-md-6 gl-cell left">
         <div class="card">
-          <a href="<?php the_permalink(); ?>">
+          <a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>">
             <div class="image">
               <?php if ( has_post_thumbnail() ) { ?>
                 <img class="blazy"
