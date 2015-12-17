@@ -101,8 +101,7 @@ foreach ($members as $management_board_member) {
 } else {
     echo 'No authors found';
 }
-
-        ?>
+?>
     </div>
 </div>
 <?php //get_template_part('template-part', 'sponsors'); ?>

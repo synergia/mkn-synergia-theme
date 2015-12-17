@@ -84,7 +84,7 @@ function show_avatar($current_member)
             echo '<i class="icon crown icon-crown"></i>';
         }
     } else {
-        echo get_avatar($current_member->user_email, '96');
+        echo '<img src="'.get_template_directory_uri().'/build/img/safari_152.png"/>';
     }
 }
 
