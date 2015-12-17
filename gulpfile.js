@@ -3,11 +3,9 @@ var gulp = require('gulp');
 
 // Include Our Plugins
 var sass = require('gulp-sass');
-// var concat = require('gulp-concat');
 var notify = require("gulp-notify");
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
-var filesize = require('gulp-filesize');
 var sourcemaps = require('gulp-sourcemaps');
 var base64 = require('gulp-base64');
 var plumber = require('gulp-plumber');
@@ -38,7 +36,8 @@ var path = {
   					'src/js/*.js',
   					// Różne pluginy
   					'bower_components/prism/prism.js',
-            'bower_components/Swipe/swipe.js'
+            'bower_components/Swipe/swipe.js',
+            'bower_components/bLazy/blazy.js'
   				],
           style: [
   					'src/style/*.scss',
@@ -113,12 +112,10 @@ gulp.task('js', function() {
   return gulp.src(path.src.js)
     .pipe(rigger())
     .pipe(development(sourcemaps.init())) // sourcemapy tylko na devie
-    // .pipe(filesize())
     .pipe(rename({extname: '.min.js'}))
-    // .pipe(uglify())
+    .pipe(production(uglify()))
     .pipe(development(sourcemaps.write())) // sourcemapy tylko na devie
     .pipe(gulp.dest(path.build.js))
-    // .pipe(filesize());
     .pipe(notify({onLast: true, message: 'js done'}))
     .pipe(reload({stream: true}));
 });
@@ -155,7 +152,8 @@ gulp.task('clean', function (cb) {
 });
 // Ustawiamy środowisko jako dev
 gulp.task('set-dev', development.task);
+gulp.task('set-prod', production.task);
 
 // TASKS
 gulp.task('dev', ['set-dev', 'scss', 'js', 'img', 'fonts', 'webserver', 'watch']);
-gulp.task('prod', ['scss', 'js', 'img', 'fonts']);
+gulp.task('prod', ['set-prod', 'scss', 'js', 'img', 'fonts']);

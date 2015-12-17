@@ -83,7 +83,11 @@ button.disabled:focus {
     color: $text-color;
   }
 }
-
+.download-button-container {
+  margin: 0 -30px;
+  padding: 15px 30px;
+  border-top: $border-light;
+}
 .dropdown {
   @extend .synergia-button;
   position: relative;

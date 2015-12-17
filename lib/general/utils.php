@@ -1,5 +1,6 @@
 <?php
 
+
 function wpdocs_theme_name_wp_title($title, $sep)
 {
     if (is_feed()) {

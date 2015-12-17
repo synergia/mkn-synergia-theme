@@ -72,6 +72,10 @@
     margin-right: 10px;
     img {
       @include circle(50px, #ffffff);
+
+      // To wyśrodkowuje i przycina obrazki
+      // http://bit.ly/1lfQIz5
+      object-fit: cover;
     }
     .project-count {
       @include circle(20px, $synergia-color);
@@ -125,10 +129,9 @@
     }
   }
   .project-content {
-    padding: 0 30px 15px;
-
-    //	        overflow: hidden;
+    padding: 0 30px;
     font-size: 1.1em;
+    @include clearfix;
     img {
       max-width: 100%;
       height: auto;

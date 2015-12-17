@@ -28,7 +28,7 @@
                             <?php if (has_post_thumbnail()) {
                         the_post_thumbnail('full');
                         } else { ?>
-                        <img src="<?php bloginfo('template_directory'); ?>/img/defaulth.png"/>
+                        <img src="<?php bloginfo('template_directory'); ?>/build/img/synergia-vertical.png"/>
                         <?php  } ?>
                                 <div class="clear"></div>
 
@@ -52,7 +52,7 @@
                     $thumb_url = wp_get_attachment_image_src($thumb_id, 'medium', true); ?>
             <div id="ln" class="thumb-on-blog gl-sm-5 gl-cell" style="background-image: url(<?php echo $thumb_url[0]; ?>);">
             <?php } else { //jeśli obrazku nie ma, to wykorzystujemy defaultowy?>
-            <div id="ln" class="thumb-on-blog gl-sm-5 gl-cell" style="background-image: url(<?php bloginfo('template_directory'); ?>/img/default.png);">
+            <div id="ln" class="thumb-on-blog gl-sm-5 gl-cell" style="background-image: url(<?php bloginfo('template_directory'); ?>/build/img/default.png);">
             <?php } ?>
                                 </div>
                                 </a>

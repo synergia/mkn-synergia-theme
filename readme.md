@@ -1,6 +1,9 @@
 MKNM "Synergia" Theme
 =====================
+[![devDependency Status](https://david-dm.org/synergia/mknm-synergia-theme/dev-status.svg)](https://david-dm.org/synergia/mknm-synergia-theme#info=devDependencies)
+
 Strona internetowa naszego koła naukowego zawsze była ważnym miejscem do eksponowania naszych projektów, sukcesów i wydarzeń. Nadchodzące zmiany spowodują, że strona zostanie wyjątkowym instrumentem do przedstawienia swojego projektu.
+
 
 ### Jak zainstalować
 
@@ -17,6 +20,7 @@ Po aktywacji motywu należy:
  - Zainstalować wtyczki `Co-Authors Plus` oraz `WP Users Media`. Najściślej motyw jest powiązany z Co-Authors Plus.
 
 #### Tu
+Wszystko, co wyżej oraz:
 
        $ npm install && bower install
 
@@ -28,6 +32,16 @@ Po aktywacji motywu należy:
 *   1.1.0
 *   1.2.0
 *   1.3.0
+*   1.4.0
+
+### 1.4.0 "Carrie Fisher"
+
+![](http://cs628419.vk.me/v628419187/48151/3R20Q-CTUPI.jpg)
+
+* Leniwe ładowanie obrazków
+* Slajder
+* Refaktoryzacja
+* Drobne ulepszenia i poprawki
 
 ### 1.3.0 "Alicia Vikander"
 
@@ -81,11 +95,12 @@ Po aktywacji motywu należy:
 *   [GridLayout](https://ghinda.net/gridlayout/) - Lightweight grid system for advanced horizontal and vertical responsive web app layouts, with support for older browsers.
 *   [Github.js](http://akshaykumar6.github.io/github-js/) - Easy way to feature open source contributions on your website or portfolio.
 *   [Prism.js](http://prismjs.com/index.html) - Prism is a lightweight, extensible syntax highlighter, built with modern web standards in mind.
-*   [html5boilerplate](https://html5boilerplate.com/) - The web’s most popular front-end template
 *   [Normalize.css](http://Normalize.css) - A modern, HTML5-ready alternative to CSS resets
-*   [burger](http://codepen.io/lowercase/pen/AxIpD/)
+*   [burger](http://codepen.io/bennettfeely/pen/twbyA)
 *   [Material Buttons ](http://codepen.io/jreece/pen/myeJBN)
 *   [Transformer Tabs, minimal JS ](http://codepen.io/Merri/pen/FAtDq)
 *   [Ikony "Entypo"](http://www.entypo.com/)
 *   [Animate.css](http://daneden.github.io/animate.css/) -  Just-add-water CSS animations
 *   [Gulp](http://gulpjs.com/) - Automate and enhance your workflow
+*   [bLazy.js](http://dinbror.dk/blog/blazy/) - A lazy load image script
+*   [Swipe](https://github.com/thebird/Swipe) -  Swipe is the most accurate touch slider.

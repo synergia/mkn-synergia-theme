@@ -1,6 +1,7 @@
 //colors
 header.header {
   position: relative;
+  margin: 5px 0;
 }
 .app-name {
   position: absolute;
@@ -52,13 +53,15 @@ nav {
     ul {
       list-style-type: none;
       margin: 0;
-      padding: 0;
+      padding: 9px 0;
       text-align: center;
       display: inline-block;
       float: right;
-      line-height: 1.90em;
       text-transform: uppercase;
       font-weight: 700;
+    }
+    .current_page_item {
+      border-bottom: 4px solid $synergia-color;
     }
     li {
       display: inline-block;
@@ -69,7 +72,7 @@ nav {
       a {
         display: block;
         color: $synergia-color;
-        padding: 10px 15px;
+        padding: 5px 15px;
         text-decoration: none;
         &:hover {
           color: $synergia-light-color;

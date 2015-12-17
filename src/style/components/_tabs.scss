@@ -17,7 +17,7 @@ label {
 
     // padding: 1px 10px;
   }
-  @for $i from 1 through 9 {
+  @for $i from 1 through 3 {
 
     // active tab
     & > input:nth-of-type(#{$i}):checked ~ .tab:nth-of-type(#{$i}) {

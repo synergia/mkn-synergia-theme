@@ -1,0 +1,8 @@
+.blazy {
+  transition: opacity 500ms ease-in-out;
+  max-width: 100%;
+  opacity: 0;
+}
+.blazy.b-loaded {
+  opacity: 1;
+}

@@ -1,10 +1,12 @@
 <?php
 // Info o motywie //
     $theme = wp_get_theme();
+    $logo = get_template_directory_uri() . '/build/img/logo.png';
     $version = $theme->get('Version');
     $theme_name = $theme->get('Name');
     $codename = 'Carrie Fisher';
     $codeimg = 'http://cs628419.vk.me/v628419187/48151/3R20Q-CTUPI.jpg';
+
 
 // Dodatkowe style i skrypty dla panelu. Odpowiedzialne za otwieranie okna
 // z mediami
@@ -30,7 +32,7 @@ if (is_admin()) {
 
 // Dodatkowe funkcje porozrzucane po plikach //
 // Ustawienia motywu
-include 'lib/options/theme-options.php';
+include 'lib/options/options.php';
 // Projekt
 include 'lib/projects/post-type.php';
 include 'lib/projects/project.php';
@@ -48,6 +50,7 @@ include 'lib/general/removes.php';
 include 'lib/general/utils.php';
 include 'lib/general/meta-tags.php';
 include 'lib/general/slider.php';
+include 'lib/general/lazy.php';
 // Login
 include 'lib/login/login.php';
 
@@ -87,13 +90,15 @@ function synergia_admin_styles() {
 
 // Synergiczne skrypty //
 
-function js()
-{
-  global $snrg_settings;
+function js() {
+  global $version, $snrg_settings;
 
     wp_register_script('underscore', get_template_directory_uri().'/build/js/underscore.min.js', '1.6.0', true);
     wp_register_script('github.js', get_template_directory_uri().'/build/js/github.min.js', '0.1.3', true);
     wp_register_script('prism', get_template_directory_uri().'/build/js/prism.min.js', '', true);
+    wp_register_script('main', get_template_directory_uri().'/build/js/main.min.js', array('jquery'), $version, true);
+    wp_register_script('swipe', get_template_directory_uri().'/build/js/swipe.min.js', array('jquery'), $version, true);
+    wp_register_script('blazy', get_template_directory_uri().'/build/js/blazy.min.js', array('jquery'), $version, true);
     // wp_register_script('cookie', get_template_directory_uri().'/build/js/js-cookie.min.js', '', true);
     if (is_author()) {
         wp_enqueue_script('underscore');
@@ -105,14 +110,15 @@ function js()
     // if ($snrg_settings['recruitment']) {
     //     wp_enqueue_script('cookie');
     // }
-    wp_enqueue_script('js', get_template_directory_uri().'/build/js/main.min.js', array('jquery'), $version, true);
-    wp_enqueue_script('swipe', get_template_directory_uri().'/build/js/swipe.min.js', array('jquery'), $version, true);
+    wp_enqueue_script('swipe');
+    wp_enqueue_script('blazy');
+    wp_enqueue_script('main');
 }
 add_action('wp_footer', 'js');
 
 // Pozostałości po bootstrapie -- do usunięcia //
 
-require_once 'lib/wp_bootstrap_navwalker.php';
+// require_once 'lib/wp_bootstrap_navwalker.php';
 
 // Rejestrujemu menu //
 

@@ -124,9 +124,12 @@ function project_card ($query) {
         <div class="card">
           <a href="<?php the_permalink(); ?>">
             <div class="image">
-              <?php if ( has_post_thumbnail() ) {
-                 the_post_thumbnail('card_image');
-               } else { ?><img src="<?php bloginfo('template_directory'); ?>/build/img/def-thumb.jpg" /><?php } ?>
+              <?php if ( has_post_thumbnail() ) { ?>
+                <img class="blazy"
+                     alt="<?php the_title(); ?>"
+                     src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                     data-src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), 'card_image', true)[0];?>"/>
+              <?php } else { ?><img src="<?php bloginfo('template_directory'); ?>/build/img/def-thumb.jpg" /><?php } ?>
               <h2 class="title"><?php the_title(); ?></h2>
             </div>
           </a>
