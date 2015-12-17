@@ -6,14 +6,25 @@ add_action('admin_menu', 'snrg_options_add_to_menu');
 function snrg_options_add_to_menu()
 {
     /* Base Menu */
-    add_menu_page(
+    add_theme_page(
     'Synergopcje',
     'Synergopcje',
     'manage_options',
     'synergoptions',
     'snrg_options_display');
 }
-
+// Adminbar //
+function adminbar_link_to_snrg_options($wp_admin_bar) {
+  $args = array(
+    'id' => 'snrg_options_display',
+    'title' => 'Synergopcje',
+    'href' => home_url().'/wp-admin/themes.php?page=synergoptions',
+    'meta' => array('class' => 'synergoptions'),
+    'parent' => 'site-name',
+    );
+  $wp_admin_bar->add_node($args);
+}
+add_action('admin_bar_menu', 'adminbar_link_to_snrg_options', 999);
 add_action('admin_init', 'snrg_options');
 function snrg_options()
 {
