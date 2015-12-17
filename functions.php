@@ -32,7 +32,7 @@ if (is_admin()) {
 
 // Dodatkowe funkcje porozrzucane po plikach //
 // Ustawienia motywu
-include 'lib/options/theme-options.php';
+include 'lib/options/options.php';
 // Projekt
 include 'lib/projects/post-type.php';
 include 'lib/projects/project.php';

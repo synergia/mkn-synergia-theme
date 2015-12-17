@@ -1,6 +1,7 @@
 MKNM "Synergia" Theme
 =====================
 [![devDependency Status](https://david-dm.org/synergia/mknm-synergia-theme/dev-status.svg)](https://david-dm.org/synergia/mknm-synergia-theme#info=devDependencies)
+
 Strona internetowa naszego koła naukowego zawsze była ważnym miejscem do eksponowania naszych projektów, sukcesów i wydarzeń. Nadchodzące zmiany spowodują, że strona zostanie wyjątkowym instrumentem do przedstawienia swojego projektu.
 
 
