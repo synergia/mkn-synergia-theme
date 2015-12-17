@@ -57,6 +57,9 @@
 	-webkit-border-radius: $width/2;
 	-moz-border-radius: $width/2;
 	border-radius: $width/2;
+	// To wyśrodkowuje i przycina obrazki
+	// http://bit.ly/1lfQIz5
+	object-fit: cover;
 }
 
 @mixin transition() {

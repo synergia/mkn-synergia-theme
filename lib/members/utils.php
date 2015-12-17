@@ -79,39 +79,69 @@ function social_links($current_member){
 function show_avatar($current_member)
 {
     if ($current_member->image) {
-        echo '<img src="'.$current_member->image.'" />';
-        if ($current_member->president && is_author()) {
-            echo '<i class="icon crown icon-crown"></i>';
-        }
+        $avatar_img = '<img src="'.$current_member->image.'" />';
     } else {
-        echo '<img src="'.get_template_directory_uri().'/build/img/safari_152.png"/>';
+        $avatar_img = '<img src="'.get_template_directory_uri().'/build/img/safari_152.png"/>';
     }
+    return $avatar_img;
+}
+
+function is_president($current_member) {
+  if ($current_member->president) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 // Wyświetla liczbę projektów w panelu admin. //
 // Skradziono u co-authors
-function users_events_column($cols){
+function users_projects_column($cols){
     $cols['projects'] = 'Projekty';
     return $cols;
 }
 
-function user_events_column_value($value, $column_name, $id){
+function user_projects_column_value($value, $column_name, $id){
     if ('projects' != $column_name) {
         return $value;
     }
     $user = get_user_by('id', $id);
     return $value .= "<a href='edit.php?author_name=".$user->user_nicename."&post_type=project' title='Zobacz projekty tego członka' class='edit'>$user->project_count</a>";
 }
+add_filter('manage_users_custom_column', 'user_projects_column_value', 10, 3);
+add_filter('manage_users_columns', 'users_projects_column');
 
-add_filter('manage_users_custom_column', 'user_events_column_value', 10, 3);
-add_filter('manage_users_columns', 'users_events_column');
+// Wyświetlanie loga na liście członków //
+// Wrzucenie kolumny z profilowymi przed username
+function users_avatars_column($cols){
+  $cols['avatars'] = 'Profilowe';
+  $crunchify_columns = array();
+  $title = 'username';
+  foreach($cols as $key => $value) {
+    if ($key==$title){
+      $crunchify_columns['avatars'] = '';   // Move date column before title column
+      // Move tags column before title column
+    }
+    $crunchify_columns[$key] = $value;
+  }
+  return $crunchify_columns;
+}
+add_filter('manage_users_columns', 'users_avatars_column');
+
+function user_avatars_column_value($value, $column_name, $id){
+  if ('avatars' != $column_name) {
+      return $value;
+  }
+    $user = get_user_by('id', $id);
+    return show_avatar($user);
+}
+add_filter('manage_users_custom_column', 'user_avatars_column_value', 2, 3);
 
 // Zapisuje liczbę projektów do meta użytkownika //
 
 function project_counter()
 {
     global  $post;
-
     foreach (get_coauthors($post->ID) as $member) {
 
 //        echo $member->ID.":";

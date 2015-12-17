@@ -11,7 +11,7 @@ foreach (get_coauthors() as $curauth):
 			<div class="gl-cell gl-sm-3">
 				<div class="userpic-project">
 					<a href="<?php echo get_author_posts_url($curauth->ID, $curauth->user_nicename); ?>">
-						<?php show_avatar($curauth);?>
+						<?php echo show_avatar($curauth);?>
 					</a>
 					<div class="project-count"><?php echo $curauth->project_count; ?></div>
 				</div>
