@@ -2,7 +2,7 @@
 <?php //http://wordpress.stackexchange.com/a/119946
 global $post;
 $author_id = $post->post_author;
-project_counter();
+count_done_projects();
 
 foreach (get_coauthors() as $curauth):
 ?>

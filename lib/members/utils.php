@@ -146,7 +146,7 @@ add_filter('manage_users_custom_column', 'user_avatars_column_value', 2, 3);
 
 // Zapisuje liczbę projektów do meta użytkownika //
 
-function project_counter()
+function count_done_projects()
 {
     global  $post;
     foreach (get_coauthors($post->ID) as $member) {
@@ -156,6 +156,17 @@ function project_counter()
             'post_type' => 'project ',
             'posts_per_page' => -1,
             'author_name' => $member->user_nicename,
+            'meta_query' => array(
+            'relation' => 'OR',
+            array(
+              'key' => 'project_status',
+              'value' => 'Ukończony',
+              ),
+            array(
+              'key' => 'project_status',
+              'value' => 'W ciągłym doskonaleniu',
+              ),
+            ),
         );
         $items = new WP_Query($args);
         if ($items->have_posts()) {
