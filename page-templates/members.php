@@ -34,7 +34,8 @@ if (!empty($members)) { ?>
 <?php
     // loop trough each member
     foreach ($members as $member) {
-       $current_member = get_userdata($member->ID);  ?>
+       $current_member = get_userdata($member->ID);
+          if (is_member($current_member)) {?>
         <li>
             <div class="gl">
                 <div class="gl-cell gl-md-1 gl-align-middle avatar-image"><a href="<?php echo get_author_posts_url( $current_member->ID, $current_member->user_nicename ); ?>"><?php echo show_avatar($current_member)?></a></div>
@@ -43,7 +44,7 @@ if (!empty($members)) { ?>
                 <div class="gl-cell gl-lg-4 gl-md-1 gl-align-middle count">Projektów: <strong><?php echo $current_member->project_count; ?></strong></div>
             </div>
         </li>
-<?php } ?>
+<?php } }?>
                 </ul>
             </div>
             <div class="tab">

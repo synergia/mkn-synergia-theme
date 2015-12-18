@@ -25,13 +25,8 @@
            </div>
             <div class="gl-md-9 gl-lg-10 gl-cell userinfo">
                 <h2><?php echo $current_member->display_name; ?></h2>
-                <?php //ify sprawdzające czy jest prezesem, członkiem lub byłym członkiem ?>
-					<?php if($current_member->president){ ?><span>Prezes MKNM "Synergia"</span>
-					<?php }else if($current_member->member_of_managment_board){?><span>Członek zarządu MKNM "Synergia"</span>
-                    <?php }else if($synergia_member || $administrator){?><span>Członek MKNM "Synergia"</span>
-					<?php }else if($ex_synergia_member){?><span>Były członek MKNM "Synergia"</span>
-                    <?php } else { echo 'Członkostwo nie potwierdzono'; }?>
-					<?php social_links($current_member); ?>
+                <?php show_membership_status($current_member); ?>
+					      <?php social_links($current_member); ?>
             </div>
         </div>
 
@@ -50,7 +45,7 @@
                 $args = array(
                     'post_type' => 'project ',
                     'posts_per_page' => -1,
-					'author_name' => $current_member->user_nicename,
+					          'author_name' => $current_member->user_nicename,
                    );
                 $items = new WP_Query( $args );
                 if( $items->have_posts() ) {

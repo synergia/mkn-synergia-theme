@@ -173,4 +173,45 @@ function project_counter()
     add_action('save_post', 'project_counter');
     add_action('delete_post', 'project_counter');
     add_action('post_updated', 'project_counter');
+
+// Stan członkostwa //
+function show_membership_status($current_member) {
+  if($current_member->president) {
+    echo '<span>Prezes MKNM "Synergia"</span>';
+  } else if($current_member->member_of_managment_board) {
+    echo '<span>Członek zarządu MKNM "Synergia"</span>';
+  } else if(is_member($current_member) || $administrator) {
+    echo '<span>Członek MKNM "Synergia"</span>';
+  }else if($ex_synergia_member) {
+    echo '<span>Były członek MKNM "Synergia"</span>';
+  } else {
+    echo '<span>Członkostwo nie potwierdzono</span>';
+  }
+}
+
+// Sprawdza, czy członek ukończył przynajmniej jeden projekt //
+function is_member($current_member) {
+  $args = array(
+    'post_type' => 'project ',
+    'posts_per_page' => -1,
+    'author_name' => $current_member->user_nicename,
+    'meta_query' => array(
+    'relation' => 'OR',
+    array(
+      'key' => 'project_status',
+      'value' => 'Ukończony',
+      ),
+    array(
+      'key' => 'project_status',
+      'value' => 'W ciągłym doskonaleniu',
+      ),
+    ),
+  );
+     $projects = new WP_Query( $args );
+     if( $projects->have_posts() ) {
+       return true;
+     }else {
+       return false;
+     }
+}
 ?>
