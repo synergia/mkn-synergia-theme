@@ -13,7 +13,7 @@ function save_profile_settings($user_id){
     update_user_meta($user_id, 'president', $_POST['president']);
     update_user_meta($user_id, 'show_mail', $_POST['show_mail']);
     update_user_meta($user_id, 'image', $_POST[ 'image' ]);
-    update_user_meta($user_id, 'cv', $_POST[ 'cv' ]);
+    update_user_meta($user_id, 'cv', sanitize_text_field($_POST['cv']));
 }
 
 //removing color scheme
@@ -26,9 +26,7 @@ add_action('edit_user_profile', 'management_board');
 function management_board($user)
 {
     global $user_ID;
-    if ($user_ID) {
-        if (current_user_can('level_10')) {
-            //administrator
+    if ($user_ID && is_admin()) {
 ?>
 <h3>Obierz zarząd</h3>
 	<table class="form-table">
@@ -36,32 +34,46 @@ function management_board($user)
 			<th><label>Obierz prezesa</label></th>
 			<td>
         <label>
-				    <input type="checkbox" name="president" id="president" value="yes" checked="<?php if (esc_attr(get_the_author_meta('president', $user->ID)) == true) {echo 'true';}?>" />Zaznacz, jeśli jest prezesem
+          <input type="checkbox"
+                 name="president"
+                 id="president"
+                 value="yes"
+          <?php if (esc_attr(get_the_author_meta('president', $user->ID)) == true) { echo 'checked';}?> />
+          Zaznacz, jeśli jest prezesem
         </label>
 			</td>
     </tr>
     <tr>
       <th><label>Obierz członka zarządu</label></th>
       <td>
-        <label>
-          <input type="checkbox" name="member_of_managment_board" id="member_of_managment_board" value="yes" checked="<?php if (esc_attr(get_the_author_meta('member_of_managment_board', $user->ID)) == true) {echo 'true';}?>" />
+        <label for="member_of_managment_board">
+          <input type="checkbox"
+                 name="member_of_managment_board"
+                 id="member_of_managment_board"
+                 value="yes"
+          <?php if (esc_attr(get_the_author_meta('member_of_managment_board', $user->ID)) == true) { echo 'checked';}?> />
 				Zaznacz, jeśli jest członkiem zarządu
       </label>
 			</td>
 		</tr>
 	</table>
-<script>
-    //Jeśli zaznaczono prezesa, to nie ma potrzeby w drugim checkboxie
-    jQuery('#president').change(function () {
-        if (jQuery(this).attr("checked")) {
-            jQuery('#member_of_managment_board').attr('disabled', true);
-        } else {
-            jQuery('#member_of_managment_board').attr('disabled', false);
-        }
-    });
-</script>
+  <script>
+(function($) {
+  if($('#president').prop('checked') == true) {
+    $('#member_of_managment_board').prop('checked', false).attr("disabled", true);
+  }
+    $('#president').click(function() {
+      if ($(this).prop('checked') == true) {
+        console.log("click");
+      $('#member_of_managment_board').prop('checked', false).attr("disabled", true);
+    } else {
+      $('#member_of_managment_board').attr("disabled", false);
+    }
+  });
+
+})(jQuery);
+  </script>
 <?php
-        }
     }
 }
 

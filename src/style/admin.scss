@@ -108,7 +108,7 @@
   width:65px;
 
   img {
-    @include circle(50px, #fff);
+    @include circle(50px, transparent);
     vertical-align: middle;
   }
 }

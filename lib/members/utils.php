@@ -88,7 +88,7 @@ function show_avatar($current_member)
     if ($current_member->image) {
         $avatar_img = '<img src="'.$current_member->image.'" />';
     } else {
-        $avatar_img = '<img src="'.get_template_directory_uri().'/build/img/safari_152.png"/>';
+        $avatar_img = '<img src="'.get_template_directory_uri().'/build/img/member.png"/>';
     }
     return $avatar_img;
 }
