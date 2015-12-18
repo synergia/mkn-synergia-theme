@@ -28,10 +28,6 @@ ul.member-list {
     }
     img {
       @include circle(50px, #ffffff);
-
-      // To wyśrodkowuje i przycina obrazki
-      // http://bit.ly/1lfQIz5
-      object-fit: cover;
     }
   }
   .name {

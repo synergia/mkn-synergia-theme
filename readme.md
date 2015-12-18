@@ -18,6 +18,7 @@ Po aktywacji motywu należy:
  - Główną stronę w `Ustawienia->Czytanie` ustawić jako statyczną
  - w `Wygląd->Menu` utworzyć nowe menu z Aktualnościami, Członkami i stroną O nas. Zaznaczyć położenie motywu "Main menu" i zapisać.
  - Zainstalować wtyczki `Co-Authors Plus` oraz `WP Users Media`. Najściślej motyw jest powiązany z Co-Authors Plus.
+ - Wyłączyć Gravatars w `Ustawienia->Dyskusja`
 
 #### Tu
 Wszystko, co wyżej oraz:
@@ -41,6 +42,7 @@ Wszystko, co wyżej oraz:
 * Leniwe ładowanie obrazków
 * Slajder
 * Refaktoryzacja
+* Dodano wkładki w ustawieniach
 * Drobne ulepszenia i poprawki
 
 ### 1.3.0 "Alicia Vikander"

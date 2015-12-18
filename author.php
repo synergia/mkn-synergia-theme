@@ -20,7 +20,8 @@
     <div class="gl-md-9 gl-cell">
         <div class="gl usercard">
             <div class="gl-md-3 gl-lg-2 userpic gl-cell">
-				<?php show_avatar($current_member); ?>
+				<?php echo show_avatar($current_member); ?>
+        <?php if (is_president($current_member)) { echo '<i class="icon crown icon-crown"></i>';} ?>
            </div>
             <div class="gl-md-9 gl-lg-10 gl-cell userinfo">
                 <h2><?php echo $current_member->display_name; ?></h2>

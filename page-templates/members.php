@@ -10,10 +10,7 @@ Template Name: Członkowie
 
 <!-- start content container -->
 <div class="gl">
-
-    <?php //left sidebar ?>
-    <?php //get_sidebar( 'left' ); ?>
-    <div class="gl-sm-9 gl-cell">
+  <div class="gl-sm-9 gl-cell">
 
 <?php
 $members = get_members_with_projects();
@@ -36,14 +33,14 @@ if (!empty($members)) { ?>
                 <ul class="member-list">
 <?php
     // loop trough each member
-    foreach ($members as $member)
-    {   $current_member = get_userdata($member->ID);  ?>
+    foreach ($members as $member) {
+       $current_member = get_userdata($member->ID);  ?>
         <li>
             <div class="gl">
-                <div class="gl-cell gl-md-1 gl-align-middle avatar-image"><a href="<?php echo get_author_posts_url( $current_member->ID, $current_member->user_nicename ); ?>"><?php show_avatar($current_member)?></a></div>
+                <div class="gl-cell gl-md-1 gl-align-middle avatar-image"><a href="<?php echo get_author_posts_url( $current_member->ID, $current_member->user_nicename ); ?>"><?php echo show_avatar($current_member)?></a></div>
                 <div class="gl-cell gl-lg-5 gl-md-6 gl-align-middle name"><h3><a href="<?php echo get_author_posts_url( $current_member->ID, $current_member->user_nicename ); ?>"><?php echo $current_member->display_name; ?></a></h3></div>
                 <div class="gl-cell gl-lg-2 gl-md-3 gl-align-middle links"><?php social_links($current_member); ?></div>
-                <div class="gl-cell gl-lg-4 gl-md-1 gl-align-middle count"><strong><?php echo $current_member->project_count; ?></strong></div>
+                <div class="gl-cell gl-lg-4 gl-md-1 gl-align-middle count">Projektów: <strong><?php echo $current_member->project_count; ?></strong></div>
             </div>
         </li>
 <?php } ?>
@@ -60,17 +57,17 @@ foreach ($members as $management_board_member) {
         if($current_member->president) { ?>
         <li id="admin">
             <div class="gl">
-                <div class="gl-cell gl-sm-1  gl-align-middle avatar-image"><a href="<?php echo get_author_posts_url( $current_member->ID, $current_member->user_nicename ); ?>"><?php show_avatar($current_member)?></a></div>
+                <div class="gl-cell gl-sm-1  gl-align-middle avatar-image"><a href="<?php echo get_author_posts_url( $current_member->ID, $current_member->user_nicename ); ?>"><?php echo show_avatar($current_member)?></a></div>
                 <div class="gl-cell gl-sm-5 gl-align-middle name"><h3><a href="<?php echo get_author_posts_url( $current_member->ID, $current_member->user_nicename ); ?>"><?php echo $current_member->display_name; ?></a></h3></div>
                 <div class="gl-cell gl-sm-2  gl-align-middle links"><?php social_links($current_member); ?></div>
                 <div class="gl-cell gl-sm-4  gl-align-middle memberboard-info">Prezes MKNM "Synergia"</div>
 
             </div>
         </li>
-     <? }else if ($current_member->member_of_managment_board){ ?>
+     <? } else if ($current_member->member_of_managment_board){ ?>
         <li>
             <div class="gl">
-                <div class="gl-cell gl-sm-1  gl-align-middle avatar-image"><a href="<?php echo get_author_posts_url( $current_member->ID, $current_member->user_nicename ); ?>"><?php show_avatar($current_member)?></a></div>
+                <div class="gl-cell gl-sm-1  gl-align-middle avatar-image"><a href="<?php echo get_author_posts_url( $current_member->ID, $current_member->user_nicename ); ?>"><?php echo show_avatar($current_member)?></a></div>
                 <div class="gl-cell gl-sm-5 gl-align-middle name"><h3><a href="<?php echo get_author_posts_url( $current_member->ID, $current_member->user_nicename ); ?>"><?php echo $current_member->display_name; ?></a></h3></div>
                 <div class="gl-cell gl-sm-2  gl-align-middle links"><?php social_links($current_member); ?></div>
                 <div class="gl-cell gl-sm-4  gl-align-middle memberboard-info">Członek zarządu MKNM "Synergia"</div>
@@ -83,16 +80,16 @@ foreach ($members as $management_board_member) {
             <div class="tab">
                 <ul class="member-list">
 <?php
-    foreach ($ex_members as $ex_member) {
-        $current_member = get_userdata($ex_member->ID); ?>
-        <li>
-            <div class="gl">
-                <div class="gl-cell gl-md-1 gl-align-middle avatar-image"><a href="<?php echo get_author_posts_url( $current_member->ID, $current_member->user_nicename ); ?>"><?php show_avatar($current_member)?></a></div>
-                <div class="gl-cell gl-lg-5 gl-md-6 gl-align-middle name"><h3><a href="<?php echo get_author_posts_url( $current_member->ID, $current_member->user_nicename ); ?>"><?php echo $current_member->display_name; ?></a></h3></div>
-                <div class="gl-cell gl-lg-2 gl-md-3 gl-align-middle links"><?php social_links($current_member); ?></div>
-                <div class="gl-cell gl-lg-4 gl-md-1 gl-align-middle count"><strong><?php echo $current_member->project_count; ?></strong></div>
-            </div>
-        </li>
+  foreach ($ex_members as $ex_member) {
+    $current_member = get_userdata($ex_member->ID); ?>
+    <li>
+      <div class="gl">
+        <div class="gl-cell gl-md-1 gl-align-middle avatar-image"><a href="<?php echo get_author_posts_url( $current_member->ID, $current_member->user_nicename ); ?>"><?php echo show_avatar($current_member)?></a></div>
+        <div class="gl-cell gl-lg-5 gl-md-6 gl-align-middle name"><h3><a href="<?php echo get_author_posts_url( $current_member->ID, $current_member->user_nicename ); ?>"><?php echo $current_member->display_name; ?></a></h3></div>
+        <div class="gl-cell gl-lg-2 gl-md-3 gl-align-middle links"><?php social_links($current_member); ?></div>
+        <div class="gl-cell gl-lg-4 gl-md-1 gl-align-middle count"><strong><?php echo $current_member->project_count; ?></strong></div>
+      </div>
+    </li>
 <?php } ?>
                 </ul>
             </div>
@@ -101,8 +98,7 @@ foreach ($members as $management_board_member) {
 } else {
     echo 'No authors found';
 }
-
-        ?>
+?>
     </div>
 </div>
 <?php //get_template_part('template-part', 'sponsors'); ?>
