@@ -12,7 +12,7 @@ foreach (get_coauthors() as $curauth):
 					<a href="<?php echo get_author_posts_url($curauth->ID, $curauth->user_nicename); ?>">
 						<?php echo show_avatar($curauth);?>
 					</a>
-					<div class="project-count"><?php echo $curauth->number_of_finished_projects; ?></div>
+					<div class="project-count"><?php show_number_of_projects($curauth, 'finished') ?></div>
 				</div>
 			</div>
 			<div class="gl-cell">

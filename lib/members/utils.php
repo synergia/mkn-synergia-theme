@@ -104,7 +104,7 @@ function is_president($current_member) {
 // Wyświetla liczbę projektów w panelu admin. //
 // Skradziono u co-authors
 function users_projects_column($cols){
-    $cols['projects'] = 'Projekty';
+    $cols['projects'] = 'Ukończone (Realiz.)';
     return $cols;
 }
 
@@ -113,7 +113,7 @@ function user_projects_column_value($value, $column_name, $id){
         return $value;
     }
     $user = get_user_by('id', $id);
-    return $value .= "<a href='edit.php?author_name=".$user->user_nicename."&post_type=project' title='Zobacz projekty tego członka' class='edit'>$user->project_count</a>";
+    return $value .= "<a href='edit.php?author_name=".$user->user_nicename."&post_type=project' title='Zobacz projekty tego członka' class='edit'>$user->number_of_finished_projects ($user->number_of_in_progress_projects)</a>";
 }
 add_filter('manage_users_custom_column', 'user_projects_column_value', 10, 3);
 add_filter('manage_users_columns', 'users_projects_column');
@@ -176,6 +176,17 @@ add_action('publish_post', 'count_projects');
 add_action('save_post', 'count_projects');
 add_action('delete_post', 'count_projects');
 add_action('post_updated', 'count_projects');
+
+// Wyświetla liczbę projektów //
+function show_number_of_projects ($current_member, $project_status) {
+  if (($current_member->number_of_finished_projects) && $project_status == 'finished') {
+    echo $current_member->number_of_finished_projects;
+  } elseif (($current_member->number_of_in_progress_projects) && $project_status == 'in_progress') {
+    echo $current_member->number_of_in_progress_projects;
+  } else {
+    echo 0;
+  }
+}
 
 // Stan członkostwa //
 function show_membership_status($current_member) {
