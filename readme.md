@@ -43,6 +43,8 @@ Wszystko, co wyżej oraz:
 * Slajder
 * Refaktoryzacja
 * Dodano wkładki w ustawieniach
+* Dodano wyświetlanie projektów realizowanych
+* Zaimplementowano "Główny Zamysł"
 * Drobne ulepszenia i poprawki
 
 ### 1.3.0 "Alicia Vikander"

@@ -36,8 +36,8 @@ $ex_synergia_member = in_array( 'ex_synergia_member', (array) $current_member->r
       <input id="tab-2" name="tabset-1" type="radio" hidden />
       <nav class="tabs-nav" role="navigation">
         <ul>
-          <li><label for="tab-1">Ukończone (<?php show_number_of_projects($current_member, 'finished'); ?>)</label></li>
-          <li><label for="tab-2">Realizowane (<?php show_number_of_projects($current_member, 'in_progress') ?>)</label></li>
+          <li><label for="tab-1">Ukończone (<?php echo get_number_of_projects($current_member, 'finished'); ?>)</label></li>
+          <li><label for="tab-2">Realizowane (<?php echo get_number_of_projects($current_member, 'in_progress') ?>)</label></li>
           <li><label for="tab-3">Github</label></li>
         </ul>
       </nav>

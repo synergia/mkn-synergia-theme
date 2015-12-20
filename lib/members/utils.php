@@ -113,7 +113,10 @@ function user_projects_column_value($value, $column_name, $id){
         return $value;
     }
     $user = get_user_by('id', $id);
-    return $value .= "<a href='edit.php?author_name=".$user->user_nicename."&post_type=project' title='Zobacz projekty tego członka' class='edit'>$user->number_of_finished_projects ($user->number_of_in_progress_projects)</a>";
+    $finished = get_number_of_projects($user, 'finished');
+    $in_progress = get_number_of_projects($user, 'in_progress');
+
+    return $value .= "<a href='edit.php?author_name=".$user->user_nicename."&post_type=project' title='Zobacz projekty tego członka' class='edit'>$finished ($in_progress)</a>";
 }
 add_filter('manage_users_custom_column', 'user_projects_column_value', 10, 3);
 add_filter('manage_users_columns', 'users_projects_column');
@@ -174,17 +177,18 @@ function count_projects() {
 // zaktualizowaniu projektu hooki nie działają oO
 add_action('publish_post', 'count_projects');
 add_action('save_post', 'count_projects');
-add_action('delete_post', 'count_projects');
-add_action('post_updated', 'count_projects');
-
+add_action('pre_post_update ', 'count_projects', 1, 0);
+add_action('before_delete_post ', 'count_projects');
+add_action('wp_trash_post', 'count_projects');
+add_action('untrashed_post', 'count_projects');
 // Wyświetla liczbę projektów //
-function show_number_of_projects ($current_member, $project_status) {
+function get_number_of_projects ($current_member, $project_status) {
   if (($current_member->number_of_finished_projects) && $project_status == 'finished') {
-    echo $current_member->number_of_finished_projects;
+    return $current_member->number_of_finished_projects;
   } elseif (($current_member->number_of_in_progress_projects) && $project_status == 'in_progress') {
-    echo $current_member->number_of_in_progress_projects;
+    return $current_member->number_of_in_progress_projects;
   } else {
-    echo 0;
+    return 0;
   }
 }
 
