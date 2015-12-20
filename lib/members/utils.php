@@ -177,8 +177,8 @@ function count_projects() {
 // zaktualizowaniu projektu hooki nie działają oO
 add_action('publish_post', 'count_projects');
 add_action('save_post', 'count_projects');
-add_action('pre_post_update ', 'count_projects', 1, 0);
-add_action('before_delete_post ', 'count_projects');
+add_action('pre_post_update', 'count_projects', 1, 0);
+add_action('before_delete_post', 'count_projects');
 add_action('wp_trash_post', 'count_projects');
 add_action('untrashed_post', 'count_projects');
 // Wyświetla liczbę projektów //
