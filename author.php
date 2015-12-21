@@ -3,7 +3,7 @@
  ?>
 <div class="gl">
 <?php // This sets the $current_member variable
-$current_member = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : get_userdata(intval($author));
+// $current_member = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : get_userdata(intval($author));
 global $wp_query;
 $current_member = $wp_query->get_queried_object();
 
@@ -65,7 +65,7 @@ $ex_synergia_member = in_array( 'ex_synergia_member', (array) $current_member->r
           </div>
 <?php }
   } else {
-    echo 'Nic a nic';
+    echo '<p class="no-projects">Brak projektów</p>';
   }
 ?>
       </div>
@@ -98,7 +98,7 @@ $ex_synergia_member = in_array( 'ex_synergia_member', (array) $current_member->r
                 }
               }
               else {
-                  echo 'Nic a nic';
+                echo '<p class="no-projects">Brak projektów</p>';
               }
             ?>
 

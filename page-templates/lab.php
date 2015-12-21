@@ -9,10 +9,11 @@ Template Name: Lab
 
 <?php
 
-$lab_state = htmlspecialchars($_POST['state']);
+// $lab_state = htmlspecialchars($_POST['state']);
+//
+// file_put_contents('/export/sun1000-2/synergia/public_html/wp-content/uploads/state.txt', $lab_state);
 
-file_put_contents('/export/sun1000-2/synergia/public_html/wp-content/uploads/state.txt', $lab_state);
-
+update_number_of_projects();
 
 ?>
 <?php get_footer(); ?>

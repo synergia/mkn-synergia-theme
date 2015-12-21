@@ -12,10 +12,9 @@ function get_members_with_projects() {
         'role' => 'synergia_member',
         'order' => 'DESC',
         'orderby' => 'meta_value',
-        'meta_key' => 'project_count',
         'meta_query' => array(
             array(
-                'key' => 'project_count',
+                'key' => 'number_of_finished_projects',
                 'compare' => '>',
                 'type' => 'NUMERIC',
                 'value' => '0',
@@ -29,7 +28,7 @@ function get_members_with_projects() {
         'orderby' => 'meta_value',
         'meta_query' => array(
             array(
-                'key' => 'project_count',
+                'key' => 'number_of_finished_projects',
                 'compare' => '>',
                 'type' => 'NUMERIC',
                 'value' => '0',
@@ -147,16 +146,70 @@ function user_avatars_column_value($value, $column_name, $id){
 }
 add_filter('manage_users_custom_column', 'user_avatars_column_value', 2, 3);
 
-
+function update_number_of_projects() {
+  $all_members = get_users();
+  function update_number_of_projects_meta($member, $number_of_projects, $project_status) {
+    if ($project_status == 'finished') {
+        update_user_meta($member->ID, 'number_of_finished_projects', $number_of_projects);
+        if (get_user_meta($member->ID, 'number_of_finished_projects', true) != $number_of_projects) {
+          return false;
+        } else {
+          return true;
+        }
+      } elseif ($project_status == 'in_progress') {
+        update_user_meta($member->ID, 'number_of_in_progress_projects', $number_of_projects);
+        if (get_user_meta($member->ID, 'number_of_in_progress_projects', true) != $number_of_projects) {
+          return false;
+        } else {
+          return true;
+        }
+      }
+    }
+  echo '<ol>';
+  foreach ( $all_members as $member ) {
+	   $finished_projects = new WP_Query(project_args_per_user($member, 'finished'));
+	   $in_progress_projects = new WP_Query(project_args_per_user($member, 'in_progress'));
+     // Jeśli członek ma projekty, to je przelicza
+     if ($finished_projects->have_posts()) {
+       if (update_number_of_projects_meta($member, $finished_projects->found_posts, 'finished')) {
+         echo '<li>Updating Fin '.$member->display_name.' ('.$member->number_of_finished_projects.'): OK</li>';
+       } else {
+         echo '<li>Updating Fin '.$member->display_name.': FAILED</li>';
+       }
+     } else {
+       // Gdy brak ukończonych projktów
+       if (update_number_of_projects_meta($member, 0, 'finished')) {
+         echo '<li>Updating Fin '.$member->display_name.' ('.$member->number_of_finished_projects.'): OK</li>';
+       } else {
+         echo '<li>Updating Fin '.$member->display_name.': FAILED</li>';
+       }
+     }
+     if ($in_progress_projects->have_posts()) {
+       if (update_number_of_projects_meta($member, $in_progress_projects->found_posts, 'in_progress')) {
+         echo '<li>Updating IP '.$member->display_name.' ('.$member->number_of_in_progress_projects.'): OK</li>';
+       } else {
+         echo '<li>Updating IP '.$member->display_name.': FAILED</li>';
+       }
+     } else {
+       // Gdy brak ukończonych projktów
+       if (update_number_of_projects_meta($member, 0, 'in_progress')) {
+         echo '<li>Updating IP '.$member->display_name.' ('.$member->number_of_in_progress_projects.'): OK</li>';
+       } else {
+         echo '<li>Updating IP '.$member->display_name.': FAILED</li>';
+       }
+     }
+   }
+   echo '</ol>';
+}
 
 // Zapisuje liczbę ukończonych projektów do meta użytkownika //
 
 function count_projects() {
-    global  $post;
+  global  $post;
 
     // Pobiera stan projektu
     $project_status = get_post_meta($post->ID, 'project_status', true);
-
+    // get_coauthors() zwraca wszystkich członków przypisanych do tego wpisu
     foreach (get_coauthors($post->ID) as $member) {
       // Sprawdza, jaki licznik zaktualizować
       if($project_status == "Ukończony" || $project_status == "W ciągłym doskonaleniu" ) {
