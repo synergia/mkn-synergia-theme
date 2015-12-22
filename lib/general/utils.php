@@ -49,7 +49,7 @@ add_filter('admin_footer_text', 'synergia_footer_admin');
 
 
 // Przypomina, by zainstalować wtyczki //
-function remind_install_dependencies() {
+function remind_to_do() {
   if ( !is_plugin_active( 'co-authors-plus/co-authors-plus.php' ) ) {
     echo '<div class="error"> <p>Należy zainstalować wtyczkę Co-Authors Plus</p></div>';
   }
@@ -59,8 +59,12 @@ function remind_install_dependencies() {
   if ( !is_plugin_active( 'custom-upload-dir/custom_upload_dir.php' ) ) {
     echo '<div class="error"> <p>Należy zainstalować wtyczkę Custom Upload Dir</p></div>';
   }
+  $current_member = wp_get_current_user();
+  if(!$current_member->image) {
+    echo '<div class="error"> <p>Dodaj zdjęcie profilowe!</p><img src="'.get_template_directory_uri().'/build/img/b.jpg"/></div>';
+  }
 }
-add_action( 'admin_notices', 'remind_install_dependencies' );
+add_action( 'admin_notices', 'remind_to_do' );
 
 // Dynamiczna zmiania roku //
 function comicpress_copyright()
