@@ -128,4 +128,17 @@ function synergia_version() {
   <img src="<?php echo $codeimg; ?>">
   <h2><?php echo '<span class="version">'.$version.'</span> "'.$codename.'"';?></h2>
 </div>
-<?php } ?>
+<?php }
+
+// TODO Usunąć, gdyż aktualizacja ma być codzienna, a nie co minuty //
+function add_new_intervals($schedules)
+{
+	// add weekly and monthly intervals
+	$schedules['every_m'] = array(
+		'interval' => 60,
+		'display' => __('Every minute')
+	);
+
+	return $schedules;
+}
+add_filter( 'cron_schedules', 'add_new_intervals');

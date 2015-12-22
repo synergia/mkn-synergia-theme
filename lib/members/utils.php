@@ -146,6 +146,18 @@ function user_avatars_column_value($value, $column_name, $id){
 }
 add_filter('manage_users_custom_column', 'user_avatars_column_value', 2, 3);
 
+// Aktualizacja musi być codzienna //
+// TODO zmienić częstość aktualizacji //
+function em_event_activation()
+{
+    if ( !wp_next_scheduled( 'update_members_meta' ) ) {
+        wp_schedule_event( current_time( 'timestamp' ), 'every_m', 'update_members_meta');
+    }
+}
+add_action('wp', 'em_event_activation');
+// Aktualizuje liczbę wykonanych projektów wszystkich użytkowników //
+add_action('update_members_meta', 'update_number_of_projects');
+// Make sure this event hasn't been scheduled
 function update_number_of_projects() {
   $all_members = get_users();
   function update_number_of_projects_meta($member, $number_of_projects, $project_status) {
