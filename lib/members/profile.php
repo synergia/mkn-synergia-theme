@@ -26,7 +26,7 @@ add_action('edit_user_profile', 'management_board');
 function management_board($user)
 {
     global $user_ID;
-    if ($user_ID && is_admin()) {
+    if ($user_ID && current_user_can( 'level_10' )) {
 ?>
 <h3>Obierz zarząd</h3>
 	<table class="form-table">
