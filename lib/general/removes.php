@@ -67,9 +67,11 @@ function remove_comments_and_links_from_menu()
 {
     remove_menu_page('edit-comments.php');
     remove_menu_page('link-manager.php');
+    remove_menu_page( 'tools.php' );
     global $submenu;
     unset($submenu['themes.php'][6]); // Customize
     remove_submenu_page('themes.php', 'theme-editor.php');
+
 }
 add_action('admin_menu', 'remove_comments_and_links_from_menu', 999);
 
@@ -85,6 +87,7 @@ function remove_dashboard_widgets() {
 	unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_recent_comments']);
 	unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_primary']);
 	unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_secondary']);
+  remove_action( 'welcome_panel', 'wp_welcome_panel');
 
 }
 

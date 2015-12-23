@@ -51,6 +51,7 @@ include 'lib/general/utils.php';
 include 'lib/general/meta-tags.php';
 include 'lib/general/slider.php';
 include 'lib/general/lazy.php';
+include 'lib/general/dashboard.php';
 // Login
 include 'lib/login/login.php';
 
