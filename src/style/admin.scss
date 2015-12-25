@@ -104,6 +104,9 @@
 .summary_wrap {
   text-align: center;
   height: 300px;
+  h1 {
+    padding-right: 0;
+  }
   .buttons-wrap {
     position: relative;
     margin-top: 25%;

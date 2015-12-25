@@ -131,3 +131,11 @@ function add_new_intervals($schedules)
 	return $schedules;
 }
 add_filter( 'cron_schedules', 'add_new_intervals');
+
+// Zmienia Posts na Blog //
+function change_post_menu_label() {
+    global $menu;
+    $menu[5][0] = 'Blog';
+    echo '';
+}
+add_action( 'admin_menu', 'change_post_menu_label' );
