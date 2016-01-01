@@ -116,7 +116,9 @@ img {
 
 //========================//
 .content-wrapper {
-  margin: 0 -10px;
+  @include mq($from:tablet) {
+    margin: 0 -10px; //kompensacja odstępu dla .card
+  }
 }
 .dmbs-container {
   @include mq($from: tablet) {
@@ -365,12 +367,14 @@ nav {
   }
 }
 .footer-wrapper {
-  position: absolute;
-  height: 105px;
-  width: 100%;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  @include mq($from:tablet) {
+    position: absolute;
+    height: 105px;
+    width: 100%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
 }
 .footer {
   position: relative;
@@ -379,7 +383,9 @@ nav {
   border-bottom: 5px solid $synergia-color;
   border-top: $border-light;
   margin: 0 auto;
-  width: $container-width;
+  @include mq($from:desktop) {
+    width: $container-width;
+  }
   @include clearfix;
   a {
     color: $text-color;

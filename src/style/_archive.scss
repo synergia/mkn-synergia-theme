@@ -1,15 +1,23 @@
 ul.archive-list{
-  text-align: center;
   padding: 0;
   @include clearfix;
   // margin: 0 10px;
   list-style: none;
   & > li > h2 {
     font-weight: bold;
+    overflow: hidden;
     font-size: 2em;
+    display: inline-block;
+    padding: 0.5em 0;
+    margin: 10px;
+    @include mq($from:desktop) {
+      width: 235px;
+    }
+    text-align: center;
+    color: $cardbutton-color;
   }
   & > li {
-    width:50%;
+    width:calc(50% - 10px);
     float: left;
     @include clearfix;
     // @include mq($from:tablet) {
@@ -20,7 +28,7 @@ ul.archive-list{
     // }
   }
   .archive-sub-menu {
-    // width: 250px;
+    // width: 150px;
     position: relative;
     list-style: none;
     padding: 0;
