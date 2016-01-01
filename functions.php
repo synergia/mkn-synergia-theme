@@ -52,6 +52,7 @@ include 'lib/general/meta-tags.php';
 include 'lib/general/slider.php';
 include 'lib/general/lazy.php';
 include 'lib/general/dashboard.php';
+include 'lib/general/create-pages.php';
 // Login
 include 'lib/login/login.php';
 

@@ -86,9 +86,10 @@
   }
 }
 .version_baner {
+  line-height: 0;
   img {
-    width: 100%;
-    height: auto;
+    width: auto;
+    max-height: 300px;
   }
   h2 {
     position: absolute;
