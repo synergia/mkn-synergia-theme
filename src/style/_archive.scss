@@ -1,0 +1,29 @@
+ul.archive-list{
+  text-align: center;
+  padding: 0;
+  @include clearfix;
+  // margin: 0 10px;
+  list-style: none;
+  & > li > h2 {
+    font-weight: bold;
+    font-size: 2em;
+  }
+  & > li {
+    width:50%;
+    float: left;
+    @include clearfix;
+    // @include mq($from:tablet) {
+    //   width: 10%;
+    // }
+    // @include mq($from:desktop) {
+    //   width: 5%;
+    // }
+  }
+  .archive-sub-menu {
+    // width: 250px;
+    position: relative;
+    list-style: none;
+    padding: 0;
+    display: none;
+  }
+}
