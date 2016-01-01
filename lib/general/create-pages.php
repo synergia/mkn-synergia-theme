@@ -16,7 +16,7 @@ function create_nojs()
 );
     if (get_page_by_title('Brak obsługi JavaScript') == null) {
         wp_insert_post($nojs_args);
-        echo '<div class="updated"> <p>Utworzono stronę "Javascript wyłączony"</p></div>';
+        echo '<div class="updated"> <p>Utworzono stronę "Brak obsługi JavaScript"</p></div>';
 
     }
 }

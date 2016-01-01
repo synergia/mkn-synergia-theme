@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Aktualności
+Template Name: Blog
 */
 ?>
 
