@@ -94,20 +94,22 @@ function download_button ($project_ID) {
     $files = get_post_meta($project_ID,'files',true);
     if($files){
  ?>
- <div id="dd" class="dropdown raised">
-   <div class="front">
-     <span>Pobierz <i class="icon icon-down-open-big"></i></span>
-   </div>
-   <div class="back">
-     <ul> <?php
-       if ( is_array($files) ) {
-           foreach( $files as $file ) {
-               if ( isset( $file['url'] ) || isset( $file['title'] ) ) {
-                   echo '<li><a href="'.$file["url"].'" target="_blank">'.$file["title"].'</a></li>';
-               }
-           }
-       } ?>
-     </ul>
+ <div class="download-button-container">
+   <div id="dd" class="dropdown raised">
+     <div class="front">
+       <span>Pobierz <i class="icon icon-down-open-big"></i></span>
+     </div>
+     <div class="back">
+       <ul> <?php
+         if ( is_array($files) ) {
+             foreach( $files as $file ) {
+                 if ( isset( $file['url'] ) || isset( $file['title'] ) ) {
+                     echo '<li><a href="'.$file["url"].'" target="_blank">'.$file["title"].'</a></li>';
+                 }
+             }
+         } ?>
+       </ul>
+     </div>
    </div>
  </div>
 <?php

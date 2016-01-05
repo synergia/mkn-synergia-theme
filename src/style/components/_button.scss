@@ -98,8 +98,10 @@ button.disabled:focus {
 
   // width: 200px;
   color: #fff;
-  transform-style: preserve-3d;
-  perspective: 1500;
+  // z tym przestaje działać dropdown
+  // nie działa klikanie
+  // transform-style: preserve-3d;
+  // perspective: 1500;
 
   // padding: 0;
   &.flip {

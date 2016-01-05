@@ -93,5 +93,6 @@ function remove_dashboard_widgets() {
 
 add_action('wp_dashboard_setup', 'remove_dashboard_widgets' );
 
-
+// Usuwa plik Windows Live Writer //
+remove_action( 'wp_head', 'wlwmanifest_link');
  ?>
