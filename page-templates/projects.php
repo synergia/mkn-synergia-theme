@@ -59,14 +59,18 @@ $done_query = new WP_Query($done);
 
   <?php // Pomysły ?>
   <div class="tab">
-    <div class="gl portfolio-content">
+    <div id="ideas_projects"
+      data-projects-status="ideas"
+      data-total-ideas-projects="<?php echo $ideas_query->found_posts ?>" class="gl portfolio-content">
       <?php project_card($ideas_query); ?>
     </div>
   </div>
 
   <?php // W trakcie realizacji ?>
   <div class="tab">
-    <div class="gl portfolio-content">
+    <div id="in_progress_projects"
+      data-projects-status="in_progress"
+      data-total-in-progress-projects="<?php echo $in_progress_query->found_posts ?>" class="gl portfolio-content">
       <?php project_card($in_progress_query); ?>
     </div>
   </div>

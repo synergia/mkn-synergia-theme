@@ -26,12 +26,24 @@ function preg_lazyload($img_match) {
 // Infinite Scroll //
 function load_projects(){
 
-     $post_contents = "";
-
      $post_offset = $_POST['post_offset'];
+     $projects_status = $_POST['projects_status'];
 
-
-     $done = array(
+     $ideas = array(
+         'numberposts' => -1,
+         'post_type' => 'project',
+         'meta_key' => 'project_status',
+         'meta_value' => 'Pomysł',
+         'offset' => $post_offset
+     );
+     $in_progress = array(
+         'numberposts' => -1,
+         'post_type' => 'project',
+         'meta_key' => 'project_status',
+         'meta_value' => 'W trakcie realizacji',
+         'offset' => $post_offset
+     );
+     $finished = array(
        'numberposts' => -1,
        'post_type' => 'project',
        'meta_query' => array(
@@ -47,11 +59,15 @@ function load_projects(){
        ),
        'offset' => $post_offset
      );
-     $category_posts = new WP_Query($done);
-
-     project_card($category_posts); 
-
-     die($post_contents);
+     if($projects_status == 'ideas') {
+     $projects = new WP_Query($ideas);
+   } else if ($projects_status == 'in_progress') {
+     $projects = new WP_Query($in_progress);
+   } else if ($projects_status == 'finished') {
+     $projects = new WP_Query($finished);
+   }
+     project_card($projects);
+     die();
 }
 
 add_action('wp_ajax_load_projects', 'load_projects');           // for logged in user
