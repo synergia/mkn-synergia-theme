@@ -31,7 +31,9 @@
   acts();
   $(window).resize(acts);
 
-
-$(".card .excerpt").text(function(index, currentText) {
-  return currentText.substr(0, 140) + '\u2026';
-});
+   function cardExcerpt() {
+    $(".card .excerpt").text(function(index, currentText) {
+      return currentText.substr(0, 140) + '\u2026';
+    });
+  }
+  cardExcerpt();

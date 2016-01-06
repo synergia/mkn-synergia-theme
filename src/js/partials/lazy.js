@@ -1,4 +1,3 @@
-$(document).ready(function bLazy_f() {
   var bLazy = new Blazy({
     offset: 20,
     selector: '.blazy',
@@ -25,4 +24,3 @@ $(document).ready(function bLazy_f() {
   }
 
   tabs(bLazy);
-});

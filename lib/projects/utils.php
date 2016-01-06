@@ -145,6 +145,7 @@ function project_card ($query) {
       </div> <?php
     }
   }
+  return $card;
 }
 
  ?>

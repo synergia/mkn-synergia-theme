@@ -44,6 +44,7 @@ $in_progress_query = new WP_Query($in_progress);
 $done_query = new WP_Query($done);
 
 ?>
+<div class="content-wrapper" id="projects" data-ajax-url="<?php echo admin_url('admin-ajax.php'); ?>">
   <div class="tabs">
     <input id="tab-1" name="tabset-1" type="radio" hidden checked/>
     <input id="tab-2" name="tabset-1" type="radio" hidden />
@@ -71,9 +72,13 @@ $done_query = new WP_Query($done);
   </div>
 
   <?php // Ukończone ?>
-  <div class="tab">
-    <div class="gl portfolio-content">
-      <?php project_card($done_query); ?>
+    <div class="tab">
+      <div id="finished_projects"
+        data-projects-status="finished"
+        data-total-finished-projects="<?php echo $done_query->found_posts ?>"
+      class="gl portfolio-content">
+        <?php project_card($done_query); ?>
+      </div>
     </div>
   </div>
 </div>
