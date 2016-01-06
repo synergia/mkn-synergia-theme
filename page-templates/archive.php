@@ -22,15 +22,16 @@ function get_posts_by_months($year) {
 
 function show_nested_archive() {
   foreach(get_posts_by_years() as $year) {
-    echo '<li class="gl-cell gl-sm-6 gl-md-3 gl-lg-3"><h2 class="button">'.$year.'</h2>';
-    echo '<ul class="archive-sub-menu">';
+    echo '<div class="gl-cell gl-md-4 gl-lg-3 left">';
+    echo '<dl class="dropy archive-year"><dt class="dropy__title"><h2>'.$year.'<i class="icon-down-open-mini"></i></h2></dt>';
+    echo '<dd class="dropy__content"><ul>';
     foreach(get_posts_by_months($year) as $month) {
       echo '<li><a href="'.get_month_link($year, $month).'">';
       echo date( 'F', mktime(0, 0, 0, $month) ).'</a>';
       echo '</li>';
     }
-    echo '</ul>';
-    echo '</li>';
+    echo '</ul></dd><input type="hidden" name="first"></dl>';
+    echo '</div>';
    }
 }
  ?>
@@ -39,9 +40,9 @@ function show_nested_archive() {
 <?php get_header(); ?>
 <?php get_template_part('template-part', 'topnav'); ?>
 <div class="content-wrapper">
-  <ul class="gl archive-list">
+  <div class="gl archive-list">
     <?php show_nested_archive(); ?>
-  </ul>
+  </div>
 </div>
 
 <?php get_footer(); ?>

@@ -1,37 +1,10 @@
-ul.archive-list{
-  padding: 0;
-  @include clearfix;
-  // margin: 0 10px;
-  list-style: none;
-  & > li > h2 {
-    font-weight: bold;
-    overflow: hidden;
-    font-size: 2em;
-    display: inline-block;
-    padding: 0.5em 0;
-    margin: 10px;
-    @include mq($from:desktop) {
-      width: 235px;
-    }
+dl.archive-year {
+  margin: 10px;
+  width:235px;
+  display: inline-block;
+  h2 {
+    font-size: 3em;
+    margin-bottom: 0;
     text-align: center;
-    color: $cardbutton-color;
-  }
-  & > li {
-    width:calc(50% - 10px);
-    float: left;
-    @include clearfix;
-    // @include mq($from:tablet) {
-    //   width: 10%;
-    // }
-    // @include mq($from:desktop) {
-    //   width: 5%;
-    // }
-  }
-  .archive-sub-menu {
-    // width: 150px;
-    position: relative;
-    list-style: none;
-    padding: 0;
-    display: none;
   }
 }
