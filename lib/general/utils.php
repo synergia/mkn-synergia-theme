@@ -139,3 +139,14 @@ function change_post_menu_label() {
     echo '';
 }
 add_action( 'admin_menu', 'change_post_menu_label' );
+
+// Wyświetla także projekty w archiwum //
+function namespace_add_custom_types( $query ) {
+  if( is_category() || is_tag() || is_archive() && empty( $query->query_vars['suppress_filters'] ) ) {
+    $query->set( 'post_type', array(
+     'post', 'nav_menu_item', 'project'
+		));
+	  return $query;
+	}
+}
+add_filter( 'pre_get_posts', 'namespace_add_custom_types' );

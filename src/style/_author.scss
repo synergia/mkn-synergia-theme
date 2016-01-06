@@ -46,7 +46,7 @@
 }
 .post-list {
   @include mq($from: tablet) {
-    margin: 0 -10px;
+    // margin: 0 -10px;
   }
 }
 .post-list-item {

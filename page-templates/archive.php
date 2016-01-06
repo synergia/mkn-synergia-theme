@@ -8,14 +8,14 @@ function get_posts_by_years() {
   global $wpdb;
   $years = $wpdb->get_col("SELECT DISTINCT YEAR(post_date)
   FROM $wpdb->posts WHERE post_status = 'publish'
-  AND post_type = 'post' ORDER BY post_date DESC");
+  AND post_type IN ('project', 'post') ORDER BY post_date DESC");
   return $years;
 }
 
 function get_posts_by_months($year) {
   global $wpdb;
   $months = $wpdb->get_col("SELECT DISTINCT MONTH(post_date)
-  FROM $wpdb->posts WHERE post_status = 'publish' AND post_type = 'post'
+  FROM $wpdb->posts WHERE post_status = 'publish' AND post_type IN ('project', 'post')
   AND YEAR(post_date) = '".$year."' ORDER BY post_date DESC");
   return $months;
 }
