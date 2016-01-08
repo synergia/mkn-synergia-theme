@@ -25,7 +25,12 @@ Template Name: Blog
 										<a rel="bookmark" href="<?php the_permalink(); ?>">
 											<time><?php echo get_the_date(); ?></time>
 										</a>
-										<?php the_post_thumbnail("thumbnail"); ?>
+										<?php if ( has_post_thumbnail() ) { ?>
+											<img class="blazy"
+													 alt="<?php the_title(); ?>"
+													 src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+													 data-src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), 'thumbnail', true)[0];?>"/>
+										<?php } else { ?><img class="blazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php bloginfo('template_directory'); ?>/build/img/thumb.png"/><?php } ?>
 									</div>
 									<div class="post-list-item-content">
 										<a rel="bookmark" href="<?php the_permalink(); ?>">

@@ -47,7 +47,7 @@ function synergia_img_caption_shortcode_filter($val, $attr, $content = null)
 function html5_insert_image($html, $id, $caption, $title, $align, $url) {
   // $id = 'id="' . $id . '" aria-labelledby="figcaption_' . $id . '" ';
   $html5 = "<figure id='$id'>";
-  $html5 .= "<img src='$url' alt='$title' />";
+  $html5 .= "<img class='blazy' src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' data-src='$url' alt='$title' />";
   $html5 .= "</figure>";
   return $html5;
 }

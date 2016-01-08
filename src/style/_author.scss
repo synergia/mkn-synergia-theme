@@ -60,6 +60,9 @@
     position: relative;
     overflow: hidden;
     float: left;
+    height: 150px;
+    width:150px;
+    object-fit: cover;
     time {
       position: absolute;
       font-weight: 600;

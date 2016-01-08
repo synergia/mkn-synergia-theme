@@ -15,7 +15,7 @@ add_filter('the_content', 'filter_lazyload');
 
 function preg_lazyload($img_match) {
 
-    $img_replace = $img_match[1] . 'src=data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src' . substr($img_match[2], 3) . $img_match[3];
+    $img_replace = $img_match[1] . 'class="blazy" src=data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw== data-src' . substr($img_match[2], 3) . $img_match[3];
 
     $img_replace = preg_replace('/class\s*=\s*"/i', 'class="blazy ', $img_replace);
 
