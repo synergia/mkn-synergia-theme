@@ -34,6 +34,7 @@ function loadProjects(projects_status, total_projects, loaded_projects) {
   console.info("Loaded %s projects: %d/%d",projects_status, loaded_projects, total_projects);
 
   if (total_projects > loaded_projects) {
+    $('.loader').show(500);
     $.ajax({
       url: ajax_url,
       type: 'POST',
@@ -44,9 +45,11 @@ function loadProjects(projects_status, total_projects, loaded_projects) {
       },
       success: function(data) {
         $('#' + projects_status + '_projects').append(data);
+        // $(data).hide().appendTo('#' + projects_status + '_projects').show(200);
         console.info('Ajax: Loaded more %s projects', projects_status);
         bLazy.revalidate();
         cardExcerpt();
+        $('.loader').hide(500);
       }
     });
   } else {

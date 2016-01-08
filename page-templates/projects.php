@@ -85,6 +85,7 @@ $done_query = new WP_Query($done);
       </div>
     </div>
   </div>
+  <div class="loader">Loading...</div>
 </div>
 <?php wp_reset_query();     // Restore global post data stomped by the_post(). ?>
 

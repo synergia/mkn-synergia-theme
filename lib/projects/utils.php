@@ -122,7 +122,7 @@ function project_card ($query) {
   if ($query->have_posts()) {
     while ($query->have_posts()) {
       $query->the_post(); ?>
-      <div class="gl-lg-4 gl-md-6 gl-cell left">
+      <div class="gl-lg-4 gl-md-6 gl-cell left card-wrapper">
         <div class="card">
           <a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>">
             <div class="image">
@@ -145,7 +145,6 @@ function project_card ($query) {
       </div> <?php
     }
   }
-  return $card;
 }
 
  ?>
