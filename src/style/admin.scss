@@ -86,9 +86,10 @@
   }
 }
 .version_baner {
+  line-height: 0;
   img {
-    width: 100%;
-    height: auto;
+    width: auto;
+    max-height: 300px;
   }
   h2 {
     position: absolute;
@@ -101,12 +102,50 @@
     font-weight: bold;
   }
 }
+.summary_wrap {
+  text-align: center;
+  height: 300px;
+  h1 {
+    padding-right: 0;
+  }
+  .buttons-wrap {
+    position: relative;
+    margin-top: 25%;
+  }
+  .button-big {
+    padding: 20px;
+    line-height: 0;
+    font-size: 16px;
+    margin: 10px auto;
+  }
+  #col-right {
+    float: left;
+    position: relative;
+    height: 100%;
+  }
+  #col-left {
+    @extend #col-right;
+    &:before {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: 10%;
+      height: 80%;
+      width: 1px;
+      /* or 100px */
+      border-right: 1px solid #EEEEEE;
+    }
+  }
+  img {
+    @include circle(150px, transparent);
+    margin-top: 10%;
+  }
+}
 .column-avatars {
-  width:65px;
+  width: 65px;
 }
 .avatars {
-  width:65px;
-
+  width: 65px;
   img {
     @include circle(50px, transparent);
     vertical-align: middle;

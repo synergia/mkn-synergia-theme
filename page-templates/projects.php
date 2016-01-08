@@ -44,6 +44,7 @@ $in_progress_query = new WP_Query($in_progress);
 $done_query = new WP_Query($done);
 
 ?>
+<div class="content-wrapper" id="projects" data-ajax-url="<?php echo admin_url('admin-ajax.php'); ?>">
   <div class="tabs">
     <input id="tab-1" name="tabset-1" type="radio" hidden checked/>
     <input id="tab-2" name="tabset-1" type="radio" hidden />
@@ -58,24 +59,33 @@ $done_query = new WP_Query($done);
 
   <?php // Pomysły ?>
   <div class="tab">
-    <div class="gl portfolio-content">
+    <div id="ideas_projects"
+      data-projects-status="ideas"
+      data-total-ideas-projects="<?php echo $ideas_query->found_posts ?>" class="gl portfolio-content">
       <?php project_card($ideas_query); ?>
     </div>
   </div>
 
   <?php // W trakcie realizacji ?>
   <div class="tab">
-    <div class="gl portfolio-content">
+    <div id="in_progress_projects"
+      data-projects-status="in_progress"
+      data-total-in-progress-projects="<?php echo $in_progress_query->found_posts ?>" class="gl portfolio-content">
       <?php project_card($in_progress_query); ?>
     </div>
   </div>
 
   <?php // Ukończone ?>
-  <div class="tab">
-    <div class="gl portfolio-content">
-      <?php project_card($done_query); ?>
+    <div class="tab">
+      <div id="finished_projects"
+        data-projects-status="finished"
+        data-total-finished-projects="<?php echo $done_query->found_posts ?>"
+      class="gl portfolio-content">
+        <?php project_card($done_query); ?>
+      </div>
     </div>
   </div>
+  <div class="loader">Loading...</div>
 </div>
 <?php wp_reset_query();     // Restore global post data stomped by the_post(). ?>
 

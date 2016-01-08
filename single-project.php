@@ -20,11 +20,9 @@
 					<?php the_post_thumbnail('full'); ?>
 				</div>
 					<?php get_template_part('template-part', 'authors');?>
-                <div class="project-content"><?php the_content(); ?>
-									<div class="download-button-container">
-										<?php download_button(get_the_ID()); ?>
-									</div>
-            </div>
+					<div class="project-content"><?php the_content(); ?>
+						<?php download_button(get_the_ID()); ?>
+					</div>
 				<?php wp_link_pages(); ?>
 			<?php endwhile; ?>
 		<?php else: ?>

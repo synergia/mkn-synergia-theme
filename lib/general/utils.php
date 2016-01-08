@@ -49,7 +49,7 @@ add_filter('admin_footer_text', 'synergia_footer_admin');
 
 
 // Przypomina, by zainstalować wtyczki //
-function remind_install_dependencies() {
+function remind_to_do() {
   if ( !is_plugin_active( 'co-authors-plus/co-authors-plus.php' ) ) {
     echo '<div class="error"> <p>Należy zainstalować wtyczkę Co-Authors Plus</p></div>';
   }
@@ -59,8 +59,12 @@ function remind_install_dependencies() {
   if ( !is_plugin_active( 'custom-upload-dir/custom_upload_dir.php' ) ) {
     echo '<div class="error"> <p>Należy zainstalować wtyczkę Custom Upload Dir</p></div>';
   }
+  $current_member = wp_get_current_user();
+  if(!$current_member->image) {
+    echo '<div class="error"> <p>Dodaj zdjęcie profilowe!</p><img src="'.get_template_directory_uri().'/build/img/b.jpg"/></div>';
+  }
 }
-add_action( 'admin_notices', 'remind_install_dependencies' );
+add_action( 'admin_notices', 'remind_to_do' );
 
 // Dynamiczna zmiania roku //
 function comicpress_copyright()
@@ -115,17 +119,34 @@ function my_excerpt($text, $excerpt)
     return apply_filters('wp_trim_excerpt', $text, $excerpt);
 }
 
-// Widżet na kokpit //
-add_action('wp_dashboard_setup', 'version_widget');
-function version_widget() {
-global $wp_meta_boxes;
-wp_add_dashboard_widget('synergia_version_widget', 'Aktualna wersja', 'synergia_version');
+// TODO Usunąć, gdyż aktualizacja ma być codzienna, a nie co minuty //
+function add_new_intervals($schedules)
+{
+	// add weekly and monthly intervals
+	$schedules['every_m'] = array(
+		'interval' => 60,
+		'display' => __('Every minute')
+	);
+
+	return $schedules;
 }
-function synergia_version() {
-  global $version, $codename, $codeimg;
-  ?>
-<div class="version_baner">
-  <img src="<?php echo $codeimg; ?>">
-  <h2><?php echo '<span class="version">'.$version.'</span> "'.$codename.'"';?></h2>
-</div>
-<?php } ?>
+add_filter( 'cron_schedules', 'add_new_intervals');
+
+// Zmienia Posts na Blog //
+function change_post_menu_label() {
+    global $menu;
+    $menu[5][0] = 'Blog';
+    echo '';
+}
+add_action( 'admin_menu', 'change_post_menu_label' );
+
+// Wyświetla także projekty w archiwum //
+function namespace_add_custom_types( $query ) {
+  if( is_category() || is_tag() || is_archive() && empty( $query->query_vars['suppress_filters'] ) ) {
+    $query->set( 'post_type', array(
+     'post', 'nav_menu_item', 'project'
+		));
+	  return $query;
+	}
+}
+add_filter( 'pre_get_posts', 'namespace_add_custom_types' );

@@ -12,10 +12,9 @@ function get_members_with_projects() {
         'role' => 'synergia_member',
         'order' => 'DESC',
         'orderby' => 'meta_value',
-        'meta_key' => 'project_count',
         'meta_query' => array(
             array(
-                'key' => 'project_count',
+                'key' => 'number_of_finished_projects',
                 'compare' => '>',
                 'type' => 'NUMERIC',
                 'value' => '0',
@@ -29,7 +28,7 @@ function get_members_with_projects() {
         'orderby' => 'meta_value',
         'meta_query' => array(
             array(
-                'key' => 'project_count',
+                'key' => 'number_of_finished_projects',
                 'compare' => '>',
                 'type' => 'NUMERIC',
                 'value' => '0',
@@ -104,7 +103,7 @@ function is_president($current_member) {
 // Wyświetla liczbę projektów w panelu admin. //
 // Skradziono u co-authors
 function users_projects_column($cols){
-    $cols['projects'] = 'Projekty';
+    $cols['projects'] = 'Ukończone (Realiz.)';
     return $cols;
 }
 
@@ -113,7 +112,10 @@ function user_projects_column_value($value, $column_name, $id){
         return $value;
     }
     $user = get_user_by('id', $id);
-    return $value .= "<a href='edit.php?author_name=".$user->user_nicename."&post_type=project' title='Zobacz projekty tego członka' class='edit'>$user->project_count</a>";
+    $finished = get_number_of_projects($user, 'finished');
+    $in_progress = get_number_of_projects($user, 'in_progress');
+
+    return $value .= "<a href='edit.php?author_name=".$user->user_nicename."&post_type=project' title='Zobacz projekty tego członka' class='edit'>$finished ($in_progress)</a>";
 }
 add_filter('manage_users_custom_column', 'user_projects_column_value', 10, 3);
 add_filter('manage_users_columns', 'users_projects_column');
@@ -144,33 +146,173 @@ function user_avatars_column_value($value, $column_name, $id){
 }
 add_filter('manage_users_custom_column', 'user_avatars_column_value', 2, 3);
 
-// Zapisuje liczbę projektów do meta użytkownika //
-
-function project_counter()
+// Aktualizacja musi być codzienna //
+// TODO zmienić częstość aktualizacji //
+function em_event_activation()
 {
-    global  $post;
-    foreach (get_coauthors($post->ID) as $member) {
-
-//        echo $member->ID.":";
-        $args = array(
-            'post_type' => 'project ',
-            'posts_per_page' => -1,
-            'author_name' => $member->user_nicename,
-        );
-        $items = new WP_Query($args);
-        if ($items->have_posts()) {
-            update_user_meta($member->ID, 'project_count', $items->found_posts);
-//            echo $items->found_posts." ";
+    if ( !wp_next_scheduled( 'update_members_meta' ) ) {
+        wp_schedule_event( current_time( 'timestamp' ), 'every_m', 'update_members_meta');
+    }
+}
+add_action('wp', 'em_event_activation');
+// Aktualizuje liczbę wykonanych projektów wszystkich użytkowników //
+add_action('update_members_meta', 'update_number_of_projects');
+// Make sure this event hasn't been scheduled
+function update_number_of_projects() {
+  $all_members = get_users();
+  function update_number_of_projects_meta($member, $number_of_projects, $project_status) {
+    if ($project_status == 'finished') {
+        update_user_meta($member->ID, 'number_of_finished_projects', $number_of_projects);
+        if (get_user_meta($member->ID, 'number_of_finished_projects', true) != $number_of_projects) {
+          return false;
         } else {
-            update_user_meta($member->ID, 'project_count', 0);
+          return true;
         }
+      } elseif ($project_status == 'in_progress') {
+        update_user_meta($member->ID, 'number_of_in_progress_projects', $number_of_projects);
+        if (get_user_meta($member->ID, 'number_of_in_progress_projects', true) != $number_of_projects) {
+          return false;
+        } else {
+          return true;
+        }
+      }
+    }
+  echo '<ol>';
+  foreach ( $all_members as $member ) {
+	   $finished_projects = new WP_Query(project_args_per_user($member, 'finished'));
+	   $in_progress_projects = new WP_Query(project_args_per_user($member, 'in_progress'));
+     // Jeśli członek ma projekty, to je przelicza
+     if ($finished_projects->have_posts()) {
+       if (update_number_of_projects_meta($member, $finished_projects->found_posts, 'finished')) {
+         echo '<li>Updating Fin '.$member->display_name.' ('.$member->number_of_finished_projects.'): OK</li>';
+       } else {
+         echo '<li>Updating Fin '.$member->display_name.': FAILED</li>';
+       }
+     } else {
+       // Gdy brak ukończonych projktów
+       if (update_number_of_projects_meta($member, 0, 'finished')) {
+         echo '<li>Updating Fin '.$member->display_name.' ('.$member->number_of_finished_projects.'): OK</li>';
+       } else {
+         echo '<li>Updating Fin '.$member->display_name.': FAILED</li>';
+       }
+     }
+     if ($in_progress_projects->have_posts()) {
+       if (update_number_of_projects_meta($member, $in_progress_projects->found_posts, 'in_progress')) {
+         echo '<li>Updating IP '.$member->display_name.' ('.$member->number_of_in_progress_projects.'): OK</li>';
+       } else {
+         echo '<li>Updating IP '.$member->display_name.': FAILED</li>';
+       }
+     } else {
+       // Gdy brak ukończonych projktów
+       if (update_number_of_projects_meta($member, 0, 'in_progress')) {
+         echo '<li>Updating IP '.$member->display_name.' ('.$member->number_of_in_progress_projects.'): OK</li>';
+       } else {
+         echo '<li>Updating IP '.$member->display_name.': FAILED</li>';
+       }
+     }
+   }
+   echo '</ol>';
+}
+
+// Zapisuje liczbę ukończonych projektów do meta użytkownika //
+
+function count_projects() {
+  global  $post;
+
+    // Pobiera stan projektu
+    $project_status = get_post_meta($post->ID, 'project_status', true);
+    // get_coauthors() zwraca wszystkich członków przypisanych do tego wpisu
+    foreach (get_coauthors($post->ID) as $member) {
+      // Sprawdza, jaki licznik zaktualizować
+      if($project_status == "Ukończony" || $project_status == "W ciągłym doskonaleniu" ) {
+        $projects = new WP_Query(project_args_per_user($member, 'finished'));
+        if ($projects->have_posts()) {
+          update_user_meta($member->ID, 'number_of_finished_projects', $projects->found_posts);
+        }
+      } else if ($project_status == "W trakcie realizacji") {
+        $projects = new WP_Query(project_args_per_user($member, 'in_progress'));
+        if ($projects->have_posts()) {
+          update_user_meta($member->ID, 'number_of_in_progress_projects', $projects->found_posts);
+        }
+      }
     }
 }
 // Hooki (zdarzenia), przy których się odpala ta funkcja //
 // Przy czym, przy usunięciu członka z projektu i
 // zaktualizowaniu projektu hooki nie działają oO
-    add_action('publish_post', 'project_counter');
-    add_action('save_post', 'project_counter');
-    add_action('delete_post', 'project_counter');
-    add_action('post_updated', 'project_counter');
+add_action('publish_post', 'count_projects');
+add_action('save_post', 'count_projects');
+add_action('pre_post_update', 'count_projects', 1, 0);
+add_action('before_delete_post', 'count_projects');
+add_action('wp_trash_post', 'count_projects');
+add_action('untrashed_post', 'count_projects');
+// Wyświetla liczbę projektów //
+function get_number_of_projects ($current_member, $project_status) {
+  if (($current_member->number_of_finished_projects) && $project_status == 'finished') {
+    return $current_member->number_of_finished_projects;
+  } elseif (($current_member->number_of_in_progress_projects) && $project_status == 'in_progress') {
+    return $current_member->number_of_in_progress_projects;
+  } else {
+    return 0;
+  }
+}
+
+// Stan członkostwa //
+function show_membership_status($current_member) {
+  if(is_president($current_member)) {
+    echo '<span>Prezes MKNM "Synergia"</span>';
+  } else if($current_member->member_of_managment_board) {
+    echo '<span>Członek zarządu MKNM "Synergia"</span>';
+  } else if(has_finished_projects($current_member) || $administrator) {
+    echo '<span>Członek MKNM "Synergia"</span>';
+  }else if($ex_synergia_member) {
+    echo '<span>Były członek MKNM "Synergia"</span>';
+  } else {
+    echo '<span>Członkostwo nie potwierdzono</span>';
+  }
+}
+// Zwraca tablicę argumentów projektów //
+// finished - Ukończone
+// in_progress - W trakcie realizacji
+function project_args_per_user($current_member, $project_status) {
+  if ($project_status == "finished") {
+    $args = array(
+      'post_type' => 'project ',
+      'posts_per_page' => -1,
+      'author_name' => $current_member->user_nicename,
+      'meta_query' => array(
+      'relation' => 'OR',
+      array(
+        'key' => 'project_status',
+        'value' => 'Ukończony',
+        ),
+      array(
+        'key' => 'project_status',
+        'value' => 'W ciągłym doskonaleniu',
+        ),
+      ),
+    );
+    return $args;
+  }
+  elseif ($project_status == "in_progress") {
+    $args = array(
+      'post_type' => 'project ',
+      'posts_per_page' => -1,
+      'author_name' => $current_member->user_nicename,
+      'meta_key' => 'project_status',
+      'meta_value' => 'W trakcie realizacji',
+    );
+    return $args;
+  }
+}
+// Sprawdza, czy członek ukończył przynajmniej jeden projekt //
+// zwraca true, lub false
+function has_finished_projects($current_member) {
+  $projects = new WP_Query( project_args_per_user($current_member, 'finished') );
+     if( $projects->have_posts() ) {
+       return true;
+     }else {
+       return false;
+     }
+}
 ?>

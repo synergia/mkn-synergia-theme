@@ -33,11 +33,11 @@ function show_links($items) {
 // Następnie wywołujemy tę funkcję w HTMLu
 ?>
     <div class="sponsors-container">
-        <h2>Sponsorzy</h2>
+        <h4>Sponsorzy</h4>
         <?php show_links($sponsors); ?>
     </div>
 
     <div class="partnership-container">
-        <h2>Współpraca</h2>
+        <h4>Współpraca</h4>
         <?php show_links($partnerships); ?>
     </div>

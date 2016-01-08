@@ -94,20 +94,22 @@ function download_button ($project_ID) {
     $files = get_post_meta($project_ID,'files',true);
     if($files){
  ?>
- <div id="dd" class="dropdown raised">
-   <div class="front">
-     <span>Pobierz <i class="icon icon-down-open-big"></i></span>
-   </div>
-   <div class="back">
-     <ul> <?php
-       if ( is_array($files) ) {
-           foreach( $files as $file ) {
-               if ( isset( $file['url'] ) || isset( $file['title'] ) ) {
-                   echo '<li><a href="'.$file["url"].'" target="_blank">'.$file["title"].'</a></li>';
-               }
-           }
-       } ?>
-     </ul>
+ <div class="download-button-container">
+   <div id="dd" class="dropdown raised">
+     <div class="front">
+       <span>Pobierz <i class="icon icon-down-open-big"></i></span>
+     </div>
+     <div class="back">
+       <ul> <?php
+         if ( is_array($files) ) {
+             foreach( $files as $file ) {
+                 if ( isset( $file['url'] ) || isset( $file['title'] ) ) {
+                     echo '<li><a href="'.$file["url"].'" target="_blank">'.$file["title"].'</a></li>';
+                 }
+             }
+         } ?>
+       </ul>
+     </div>
    </div>
  </div>
 <?php
@@ -120,7 +122,7 @@ function project_card ($query) {
   if ($query->have_posts()) {
     while ($query->have_posts()) {
       $query->the_post(); ?>
-      <div class="gl-lg-4 gl-md-6 gl-cell left">
+      <div class="gl-lg-4 gl-md-6 gl-cell left card-wrapper">
         <div class="card">
           <a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>">
             <div class="image">
@@ -144,4 +146,5 @@ function project_card ($query) {
     }
   }
 }
+
  ?>

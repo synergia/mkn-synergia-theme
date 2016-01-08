@@ -2,8 +2,7 @@
 <?php //http://wordpress.stackexchange.com/a/119946
 global $post;
 $author_id = $post->post_author;
-project_counter();
-
+// count_projects();
 foreach (get_coauthors() as $curauth):
 ?>
 	<div class="co-author gl-cell gl-sm-1 gl-lg-3 gl-md-4">
@@ -13,7 +12,7 @@ foreach (get_coauthors() as $curauth):
 					<a href="<?php echo get_author_posts_url($curauth->ID, $curauth->user_nicename); ?>">
 						<?php echo show_avatar($curauth);?>
 					</a>
-					<div class="project-count"><?php echo $curauth->project_count; ?></div>
+					<div class="project-count"><?php echo get_number_of_projects($curauth, 'finished') ?></div>
 				</div>
 			</div>
 			<div class="gl-cell">

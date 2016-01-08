@@ -3,9 +3,9 @@
 
 jQuery(function($) {
 
-  //= partials/lazy.js
-
   //= partials/dropdown-download.js
+
+  //= partials/dropdown.js
 
   //= partials/excerpt.js
 
@@ -29,6 +29,14 @@ jQuery(function($) {
 
   //= partials/slider.js
 
+
+  $(document).ready(function() {
+
+    //= partials/lazy.js
+
+    //= partials/infinite-scroll.js
+
+  });
   // Prezes zawsze na pierwszym miejscu //
   $('#management_board li#admin').insertBefore('#management_board li:eq(0)');
 });

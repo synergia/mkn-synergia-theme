@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Aktualności
+Template Name: Blog
 */
 ?>
 
@@ -25,22 +25,22 @@ Template Name: Aktualności
 
             if ($query->have_posts()) :
                 while ($query->have_posts()) : $query->the_post(); ?>
-                      <div class="post-list-item ">
-						  <div class="thumb">
-								<a rel="bookmark" href="<?php the_permalink(); ?>">
-									<time><?php echo get_the_date(); ?></time>
-								</a>
-									<?php the_post_thumbnail("thumbnail"); ?>
-						  </div>
-                        <div class="post-list-item-content">
-                          <a rel="bookmark" href="<?php the_permalink(); ?>">
-                            <h2><?php the_title(); ?></h2>
-                          </a>
-                          <div class="excerpt">
-                            <?php the_excerpt(); ?>
-                          </div>
-                        </div>
-                      </div>
+								<div class="post-list-item ">
+									<div class="thumb">
+										<a rel="bookmark" href="<?php the_permalink(); ?>">
+											<time><?php echo get_the_date(); ?></time>
+										</a>
+										<?php the_post_thumbnail("thumbnail"); ?>
+									</div>
+									<div class="post-list-item-content">
+										<a rel="bookmark" href="<?php the_permalink(); ?>">
+											<h2><?php the_title(); ?></h2>
+										</a>
+										<div class="excerpt">
+											<?php the_excerpt(); ?>
+										</div>
+									</div>
+								</div>
             <?php
                   endwhile;
               ?>

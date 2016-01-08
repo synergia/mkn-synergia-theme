@@ -127,3 +127,8 @@ function snrg_validate_options( $input ) {
   $input['upload_recruitment_image_1'] = wp_filter_nohtml_kses( $input['upload_recruitment_image_1'] );
   return $input;
 }
+// Wyświetla info o aktualizacji danych członków //
+function update_members_meta_page() {
+  $timestamp = wp_next_scheduled('update_members_meta');
+  echo '<h2>Następna aktualizacja: '.date("Y-m-d H:i:s", $timestamp).'</h2>';
+}

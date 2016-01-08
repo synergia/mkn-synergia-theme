@@ -30,6 +30,15 @@ if (is_admin()) {
     add_action('admin_enqueue_scripts', 'enqueue_admin');
 }
 
+
+// Rejestrujemu menu //
+
+register_nav_menus(
+    array(
+        'main_menu' => 'Topbar',
+    )
+);
+
 // Dodatkowe funkcje porozrzucane po plikach //
 // Ustawienia motywu
 include 'lib/options/options.php';
@@ -51,6 +60,8 @@ include 'lib/general/utils.php';
 include 'lib/general/meta-tags.php';
 include 'lib/general/slider.php';
 include 'lib/general/lazy.php';
+include 'lib/general/dashboard.php';
+include 'lib/general/setup.php';
 // Login
 include 'lib/login/login.php';
 
@@ -115,18 +126,6 @@ function js() {
     wp_enqueue_script('main');
 }
 add_action('wp_footer', 'js');
-
-// Pozostałości po bootstrapie -- do usunięcia //
-
-// require_once 'lib/wp_bootstrap_navwalker.php';
-
-// Rejestrujemu menu //
-
-register_nav_menus(
-    array(
-        'main_menu' => 'Main Menu',
-    )
-);
 
 // Rejestrujemy sidebar //
 

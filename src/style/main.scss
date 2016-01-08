@@ -11,30 +11,27 @@
  * These selection rule sets have to be separate.
  * Customize the background color to match your design.
  */
-
-::-moz-selection {
-    background: $synergia-color;
-    text-shadow: none;
-    color: #ffffff;
+ ::-moz-selection {
+  background: $synergia-color;
+  text-shadow: none;
+  color: #ffffff;
 }
-
-::selection {
-    background: $synergia-color;
-    text-shadow: none;
-    color: #ffffff;
+ ::selection {
+  background: $synergia-color;
+  text-shadow: none;
+  color: #ffffff;
 }
 
 /*
  * A better looking default horizontal rule
  */
-
 hr {
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid #ccc;
-    margin: 1em 0;
-    padding: 0;
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
 }
 
 /*
@@ -42,43 +39,43 @@ hr {
  * images, videos and the bottom of their containers:
  * https://github.com/h5bp/html5-boilerplate/issues/440
  */
-
 audio,
 canvas,
 iframe,
 img,
 svg,
 video {
-    vertical-align: middle;
+  vertical-align: middle;
 }
 
 /*
  * Remove default fieldset styles.
  */
-
 fieldset {
-    border: 0;
-    margin: 0;
-    padding: 0;
+  border: 0;
+  margin: 0;
+  padding: 0;
 }
 
 /*
  * Allow only vertical resizing of textareas.
  */
-
 textarea {
-    resize: vertical;
+  resize: vertical;
 }
-
+html {
+  height: 100%;
+}
 
 // Synergiczne style //
 body {
   font-family: $synergia-fontstack;
-
-  //    font-size: $font-size;
+  font-size: $font-size;
   line-height: $line-height;
   color: $text-color;
   background-color: $background-color;
+  position: relative;
+  min-height: 100%;
 }
 input,
 button,
@@ -116,12 +113,20 @@ figure {
 img {
   vertical-align: middle;
 }
+
+//========================//
+.content-wrapper {
+  @include mq($from:tablet) {
+    margin: 0 -10px; //kompensacja odstępu dla .card
+  }
+}
 .dmbs-container {
   @include mq($from: tablet) {
     margin-top: 0;
   }
 }
 .container {
+  padding-bottom: 120px;
   @include clearfix;
   margin-right: auto;
   margin-left: auto;
@@ -324,9 +329,10 @@ nav {
   // @include mq($until: tablet) {
   //   display: none;
   // }
-  h2 {
+  h4 {
     text-transform: uppercase;
     font-weight: 700;
+    @extend h2;
 
     // font-size: 2em;
     color: $cardbutton-color;
@@ -360,19 +366,32 @@ nav {
     margin-top: 0;
   }
 }
-.dmbs-footer {
-  border-top: $border-light;
+.footer-wrapper {
+  @include mq($from:tablet) {
+    position: absolute;
+    height: 105px;
+    width: 100%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+}
+.footer {
+  position: relative;
   line-height: 1.2;
   padding: 10px 0 5px;
-  margin-top: 15px;
   border-bottom: 5px solid $synergia-color;
+  border-top: $border-light;
+  margin: 0 auto;
+  @include mq($from:desktop) {
+    width: $container-width;
+  }
   @include clearfix;
   a {
     color: $text-color;
   }
 }
 .footer-icons {
-  @include preserve-3d;
   div {
     position: relative;
     text-align: center;
@@ -461,6 +480,7 @@ nav {
   }
 }
 @import 'author';
+@import 'archive';
 @import 'components';
 @import 'project';
 @import 'member';

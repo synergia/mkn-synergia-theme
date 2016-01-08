@@ -5,6 +5,7 @@ header.header {
 }
 .app-name {
   position: absolute;
+  pointer-events:none;
   display: block;
   text-align: center;
   width: 100%;

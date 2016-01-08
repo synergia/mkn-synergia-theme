@@ -10,20 +10,25 @@ Strona internetowa naszego koła naukowego zawsze była ważnym miejscem do eksp
 #### Tam
 Po aktywacji motywu należy:
 
- - utworzyć 4 strony:
-	+ Główną (szablon "Główna")
-	+ Aktualności (szablon "Aktualności")
-	+ Członkowie (szablon "Członkowie")
-	+ O nas
- - Główną stronę w `Ustawienia->Czytanie` ustawić jako statyczną
- - w `Wygląd->Menu` utworzyć nowe menu z Aktualnościami, Członkami i stroną O nas. Zaznaczyć położenie motywu "Main menu" i zapisać.
- - Zainstalować wtyczki `Co-Authors Plus` oraz `WP Users Media`. Najściślej motyw jest powiązany z Co-Authors Plus.
+ - Zainstalować wtyczki `Co-Authors Plus`, `WP Users Media` oraz `Github Updater`. Motyw jest najściślej powiązany z Co-Authors Plus. Github Updater jest potrzebny do aktualizacji motywu bezpośrednio z Githuba.
  - Wyłączyć Gravatars w `Ustawienia->Dyskusja`
 
 #### Tu
-Wszystko, co wyżej oraz:
+Wszystko, co wyżej oraz zainstalować zależności:
 
        $ npm install && bower install
+
+Rozpocząć kodowanie:
+
+       $ gulp dev
+
+Zbudować dla produkcji:
+
+       $ gulp prod
+
+Usunąć folder `build`:
+
+       $ gulp clean
 
 
 ----------
@@ -43,7 +48,11 @@ Wszystko, co wyżej oraz:
 * Slajder
 * Refaktoryzacja
 * Dodano wkładki w ustawieniach
+* Dodano wyświetlanie projektów realizowanych
+* Dodano autoładowanie projektów podczas skrolowania
+* Zaimplementowano "Główny Zamysł"
 * Drobne ulepszenia i poprawki
+
 
 ### 1.3.0 "Alicia Vikander"
 
@@ -106,3 +115,4 @@ Wszystko, co wyżej oraz:
 *   [Gulp](http://gulpjs.com/) - Automate and enhance your workflow
 *   [bLazy.js](http://dinbror.dk/blog/blazy/) - A lazy load image script
 *   [Swipe](https://github.com/thebird/Swipe) -  Swipe is the most accurate touch slider.
+*   [Dropy2](http://codepen.io/Tombek/pen/OPvpLe) -  A Simple SCSS & jQuery dropdown
