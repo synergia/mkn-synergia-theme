@@ -9,3 +9,6 @@
   // background-image: url(../img/thumb.png);
   background-image:$gradient-white;
 }
+.center-cropped.loading {
+  @extend .image.loading;
+}

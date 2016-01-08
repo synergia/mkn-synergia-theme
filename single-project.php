@@ -8,7 +8,7 @@
 
 			<?php // theloop
         if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-				<div class="center-cropped">
+				<div class="center-cropped loading">
                     <header>
                         <div class="meta-stuff">
                             <?php the_project_status(get_the_ID()); ?>
