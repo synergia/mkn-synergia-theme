@@ -50,6 +50,7 @@ Usunąć folder `build`:
 * Dodano wkładki w ustawieniach
 * Dodano wyświetlanie projektów realizowanych
 * Dodano autoładowanie projektów podczas skrolowania
+* Przy pierwszej instalacji tworzone są automatycznie strony i menu
 * Zaimplementowano "Główny Zamysł"
 * Drobne ulepszenia i poprawki
 
