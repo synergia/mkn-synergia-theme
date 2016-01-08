@@ -10,20 +10,25 @@ Strona internetowa naszego koła naukowego zawsze była ważnym miejscem do eksp
 #### Tam
 Po aktywacji motywu należy:
 
- - utworzyć 4 strony:
-	+ Główną (szablon "Główna")
-	+ Aktualności (szablon "Aktualności")
-	+ Członkowie (szablon "Członkowie")
-	+ O nas
- - Główną stronę w `Ustawienia->Czytanie` ustawić jako statyczną
- - w `Wygląd->Menu` utworzyć nowe menu z Aktualnościami, Członkami i stroną O nas. Zaznaczyć położenie motywu "Main menu" i zapisać.
- - Zainstalować wtyczki `Co-Authors Plus` oraz `WP Users Media`. Najściślej motyw jest powiązany z Co-Authors Plus.
+ - Zainstalować wtyczki `Co-Authors Plus`, `WP Users Media` oraz `Github Updater`. Motyw jest najściślej powiązany z Co-Authors Plus. Github Updater jest potrzebny do aktualizacji motywu bezpośrednio z Githuba.
  - Wyłączyć Gravatars w `Ustawienia->Dyskusja`
 
 #### Tu
-Wszystko, co wyżej oraz:
+Wszystko, co wyżej oraz zainstalować zależności:
 
        $ npm install && bower install
+
+Rozpocząć kodowanie:
+
+       $ gulp dev
+
+Zbudować dla produkcji:
+
+       $ gulp prod
+
+Usunąć folder `build`:
+
+       $ gulp clean
 
 
 ----------
