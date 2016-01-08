@@ -39,20 +39,6 @@ add_settings_section(
 );
 
     add_settings_field(
-    'archive_link',
-    'Link do archiwum',
-    'snrg_archive_link_callback',
-    'snrg_general_page_option',
-    'snrg_general_page'
-);
-    add_settings_field(
-    'projects_link',
-    'Link do projektów',
-    'snrg_projects_link_callback',
-    'snrg_general_page_option',
-    'snrg_general_page'
-);
-    add_settings_field(
     'fb_link',
     'Link do fanpage\'a',
     'snrg_fb_link_callback',

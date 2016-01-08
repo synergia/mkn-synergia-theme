@@ -19,7 +19,7 @@ $projects_query = new WP_Query($projects);
   <div class="gl portfolio-content">
     <?php project_card($projects_query); ?>
     <div class="bottom-fade">
-      <a class="button synergia-button raised" href="<?php echo $general_options['projects_link'] ?>" title="Zobacz wszystkie projekty">Zobacz wszystkie</a>
+      <a class="button synergia-button raised" href="<?php echo site_url(); ?>/projects" title="Zobacz wszystkie projekty">Zobacz wszystkie</a>
     </div>
   </div>
 </div>

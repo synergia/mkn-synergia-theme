@@ -18,7 +18,7 @@
       </div>
       <div class="gl-sm-5 gl-cell footer-icons">
         <div>
-          <a href="<?php echo $general_options['archive_link'] ?>" title="Archiwum"><i class="icon-archive"></i></a>
+          <a href="<?php echo site_url(); ?>/archive" title="Archiwum"><i class="icon-archive"></i></a>
           <a href="<?php echo $general_options['fb_link'] ?>" title="Polub"><i class="icon-facebook"></i></a>
           <a href="<?php echo $general_options['twitter_link'] ?>" title="Śledź"><i class="icon-twitter"></i></a>
           <a href="<?php echo $general_options['github_link'] ?>" title="Kod"><i class="icon-github"></i></a>
