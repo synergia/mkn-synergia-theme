@@ -18,7 +18,7 @@ Wszystko, co wyżej oraz zainstalować zależności:
 
        $ npm install && bower install
 
-Rozpocząć kodowanie:
+Zbudować dla dalszego rozwoju:
 
        $ gulp dev
 
