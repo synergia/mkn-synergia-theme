@@ -2,14 +2,16 @@
     offset: 20,
     selector: '.blazy',
     loadInvisible: false,
-    success: function() {
+    success: function(element) {
+        $(element).parent().removeClass('loading', 500);
       updateCounter();
     },
-    error: function(ele, msg) {
+    error: function(element, msg) {
       if (msg === 'missing') {
-        // Data-src is missing
+        $(element).parent().removeClass('loading', 500);        // Data-src is missing
         console.error("bLazy: data-src is missing");
       } else if (msg === 'invalid') {
+        $(element).parent().removeClass('loading', 500);
         // Data-src is invalid
         console.error("bLazy: data-src is invalid");
 
@@ -18,6 +20,7 @@
   });
   // not needed, only here to illustrate amount of loaded images
   var imageLoaded = 0;
+
   function updateCounter() {
     imageLoaded++;
     console.info("bLazy: Images loaded: %d", imageLoaded);

@@ -15,7 +15,7 @@ $projects = array(
 );
 $projects_query = new WP_Query($projects);
 ?>
-<div class="showcase">
+<div class="content-wrapper">
   <div class="gl portfolio-content">
     <?php project_card($projects_query); ?>
     <div class="bottom-fade">

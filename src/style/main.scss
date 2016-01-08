@@ -447,35 +447,30 @@ nav {
   display: block;
   position: relative;
 }
-.showcase {
-  @include mq($from:tablet) {
-    margin: 0 -10px; //kompensacja odstępu dla .card
+.portfolio-content {
+  max-height: 520px;
+  @include mq($from:desktop) {
+    max-height: 560px;
   }
-  .portfolio-content {
-    max-height: 520px;
-    @include mq($from:desktop) {
-      max-height: 560px;
-    }
-    .bottom-fade {
-      position: absolute;
-      width: inherit;
-      background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 1));
-      bottom: 0;
-      left: 0;
-      height: 100px;
-      display: table-cell;
-      text-align: center;
-      vertical-align: middle;
-      a {
-        font-weight: 600;
-        display: inline-block;
-        text-decoration: none;
-        font-weight: 600;
-        letter-spacing: inherit;
-        color: #fff;
-        position: relative;
-        @include vertical-align();
-      }
+  .bottom-fade {
+    position: absolute;
+    width: inherit;
+    background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 1));
+    bottom: 0;
+    left: 0;
+    height: 100px;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    a {
+      font-weight: 600;
+      display: inline-block;
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: inherit;
+      color: #fff;
+      position: relative;
+      @include vertical-align();
     }
   }
 }

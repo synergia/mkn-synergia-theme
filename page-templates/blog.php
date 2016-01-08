@@ -3,18 +3,13 @@
 Template Name: Blog
 */
 ?>
-
-
 <?php get_header(); ?>
-
 <?php get_template_part('template-part', 'topnav'); ?>
-<!-- end content container -->
 
+<div class="content-wrapper">
 	<div class="gl">
-        <?php //get_sidebar( 'left' ); ?>
-
-            <div class="post-list">
-            <?php
+    <div class="post-list">
+			<?php
 				$paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
 				$args = array (
 					'pagination'             => true,
@@ -54,10 +49,9 @@ Template Name: Blog
 		<?php wp_reset_postdata();
 
         else :
-            echo "Nic a nic";
+            echo "Brak wpisów";
         endif;
 
                 ?>
-								<?php //get_template_part('template-part', 'sponsors'); ?>
-
+</div>
 <?php get_footer(); ?>

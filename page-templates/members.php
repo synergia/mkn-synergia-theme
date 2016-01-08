@@ -9,8 +9,9 @@ Template Name: Członkowie
 <?php get_template_part('template-part', 'topnav'); ?>
 
 <!-- start content container -->
-<div class="gl">
-  <div class="gl-sm-9 gl-cell">
+<div class="content-wrapper">
+  <div class="gl">
+    <div class="gl-sm-9 gl-cell">
 
 <?php
 $members = get_members_with_projects();
@@ -102,7 +103,8 @@ if (!empty($members)) { ?>
 ?>
     </div>
     <!-- gl9 END -->
-</div><!-- gl END -->
+  </div><!-- gl END -->
+</div>
 <?php //get_template_part('template-part', 'sponsors'); ?>
 
 <?php get_footer(); ?>

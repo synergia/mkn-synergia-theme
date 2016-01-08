@@ -1,8 +1,11 @@
 .blazy {
   transition: opacity 500ms ease-in-out;
-  max-width: 100%;
   opacity: 0;
 }
-.blazy.b-loaded {
+.blazy.b-loaded, .blazy.b-error {
   opacity: 1;
+}
+.image.loading {
+  // background-image: url(../img/thumb.png);
+  background-image:$gradient-white;
 }
