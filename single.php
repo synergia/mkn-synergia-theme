@@ -15,7 +15,15 @@
                         </div>
 				            <h1 class="project-title"><?php the_title(); ?></h1>
                     </header>
-					<?php the_post_thumbnail('full'); ?>
+										<?php if ( has_post_thumbnail() ) { ?>
+											<img class="blazy"
+													 alt="<?php the_title(); ?>"
+													 src="<?php bloginfo('template_directory'); ?>/build/img/full.png"
+													 data-src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), 'full', true)[0];?>"
+													 data-src-small="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), 'card_image', true)[0];?>"/>
+
+										<?php } else { ?><img class="blazy" src="<?php bloginfo('template_directory'); ?>/build/img/full.png"										data-src="<?php bloginfo('template_directory'); ?>/build/img/full.png"
+										data-src-small="<?php bloginfo('template_directory'); ?>/build/img/thumb.png"/><?php } ?>
 				</div>
             <div class="project-content"><?php the_content(); ?></div>
 				<?php wp_link_pages(); ?>
