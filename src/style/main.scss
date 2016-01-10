@@ -127,7 +127,9 @@ img {
   }
 }
 .container {
-  padding-bottom: 120px;
+  @include mq($from: tablet) {
+    padding-bottom: 120px;
+  }
   @include clearfix;
   margin-right: auto;
   margin-left: auto;
@@ -380,7 +382,10 @@ nav {
 .footer {
   position: relative;
   line-height: 1.2;
-  padding: 10px 0 5px;
+  padding: 10px 20px;
+  @include mq($from: desktop) {
+    padding: 10px 0;
+  }
   border-bottom: 5px solid $synergia-color;
   border-top: $border-light;
   margin: 0 auto;
