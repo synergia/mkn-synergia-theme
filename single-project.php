@@ -3,8 +3,8 @@
 	<?php get_template_part('template-part', 'topnav'); ?>
 
 		<!-- start content container -->
-
-		<div class="project-container">
+<div class="content-wrapper">
+	<div class="project-container">
 
 			<?php // theloop
         if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
@@ -40,7 +40,7 @@
 		<?php endif; ?>
 
 		</div>
-
+</div>
 		<!-- end content container -->
 
 		<?php get_footer(); ?>

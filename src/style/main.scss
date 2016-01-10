@@ -116,8 +116,9 @@ img {
 
 //========================//
 .content-wrapper {
+  @include clearfix;
   @include mq($from:tablet) {
-    margin: 0 -10px; //kompensacja odstępu dla .card
+    margin: -10px -10px 0; //kompensacja odstępu dla .card
   }
 }
 .dmbs-container {

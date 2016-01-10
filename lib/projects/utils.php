@@ -146,5 +146,4 @@ function project_card ($query) {
     }
   }
 }
-
  ?>
