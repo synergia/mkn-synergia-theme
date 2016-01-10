@@ -2,7 +2,7 @@
   @include box-shadow;
   @include border-radius(2px);
   margin: 0.625em;
-  
+
   //	    overflow: hidden;
   // http://stackoverflow.com/a/26921844
   .center-cropped {
@@ -17,9 +17,12 @@
     }
     .meta-stuff {
       color: #ffffff;
-      padding: 0 53px;
+      padding: 0 30px;
       font-weight: 400;
       overflow: hidden;
+      @include mq($from:tablet) {
+        padding: 0 53px;
+      }
       span {
         float: left;
         width: 100%;
@@ -56,11 +59,14 @@
       z-index: -1;
     }
     .project-title {
-      padding: 0 1.250em 0.625em;
       margin: 0;
       font-weight: 400;
-      font-size: 2.5em;
       color: #ffffff;
+      font-size: 1.5em;
+      padding: 0 1.250em 0.625em;
+      @include mq($from:tablet) {
+        font-size: 2.5em;
+      }
     }
   }
   .userpic-project {
