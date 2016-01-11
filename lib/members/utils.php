@@ -85,7 +85,7 @@ function social_links($current_member){
 function show_avatar($current_member)
 {
     if ($current_member->image) {
-        $avatar_img = '<img src="'.$current_member->image.'" />';
+        $avatar_img = '<img class="blazy" src="'.get_template_directory_uri().'/build/img/member.png"  data-src="'.$current_member->image.'" />';
     } else {
         $avatar_img = '<img src="'.get_template_directory_uri().'/build/img/member.png"/>';
     }

@@ -40,9 +40,6 @@
 }
 .usercard {
   margin-top: 20px;
-  @include mq($from: tablet) {
-    margin-top: 0;
-  }
 }
 .post-list {
   @include mq($from: tablet) {
@@ -60,6 +57,9 @@
     position: relative;
     overflow: hidden;
     float: left;
+    height: 150px;
+    width:150px;
+    object-fit: cover;
     time {
       position: absolute;
       font-weight: 600;
@@ -119,7 +119,7 @@
 .no-projects {
   // font-style: italic;
   font-size: 3em;
-  color: $synergia-grey-color;
+  color: $shadowlight;
   text-align: center;
   font-weight: 600;
 }

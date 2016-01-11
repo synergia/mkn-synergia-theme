@@ -3,18 +3,13 @@
 Template Name: Blog
 */
 ?>
-
-
 <?php get_header(); ?>
-
 <?php get_template_part('template-part', 'topnav'); ?>
-<!-- end content container -->
 
+<div class="content-wrapper">
 	<div class="gl">
-        <?php //get_sidebar( 'left' ); ?>
-
-            <div class="post-list">
-            <?php
+    <div class="post-list">
+			<?php
 				$paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
 				$args = array (
 					'pagination'             => true,
@@ -30,7 +25,12 @@ Template Name: Blog
 										<a rel="bookmark" href="<?php the_permalink(); ?>">
 											<time><?php echo get_the_date(); ?></time>
 										</a>
-										<?php the_post_thumbnail("thumbnail"); ?>
+										<?php if ( has_post_thumbnail() ) { ?>
+											<img class="blazy"
+													 alt="<?php the_title(); ?>"
+													 src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+													 data-src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), 'thumbnail', true)[0];?>"/>
+										<?php } else { ?><img class="blazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php bloginfo('template_directory'); ?>/build/img/thumb.png"/><?php } ?>
 									</div>
 									<div class="post-list-item-content">
 										<a rel="bookmark" href="<?php the_permalink(); ?>">
@@ -54,10 +54,9 @@ Template Name: Blog
 		<?php wp_reset_postdata();
 
         else :
-            echo "Nic a nic";
+            echo "Brak wpisów";
         endif;
 
                 ?>
-								<?php //get_template_part('template-part', 'sponsors'); ?>
-
+</div>
 <?php get_footer(); ?>

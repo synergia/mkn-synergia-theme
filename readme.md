@@ -18,7 +18,7 @@ Wszystko, co wyżej oraz zainstalować zależności:
 
        $ npm install && bower install
 
-Rozpocząć kodowanie:
+Zbudować dla dalszego rozwoju:
 
        $ gulp dev
 
@@ -33,13 +33,6 @@ Usunąć folder `build`:
 
 ----------
 
-
-*   1.0.1
-*   1.1.0
-*   1.2.0
-*   1.3.0
-*   1.4.0
-
 ### 1.4.0 "Carrie Fisher"
 
 ![](http://cs628419.vk.me/v628419187/48151/3R20Q-CTUPI.jpg)
@@ -50,6 +43,9 @@ Usunąć folder `build`:
 * Dodano wkładki w ustawieniach
 * Dodano wyświetlanie projektów realizowanych
 * Dodano autoładowanie projektów podczas skrolowania
+* Przy pierwszej instalacji tworzone są automatycznie strony i menu
+* Zamiast listy projektów wyświetlane są karty. Rozwiązuje to problem ekscerpcji
+* Jeśli członek nie dodał profil Github, to zakładka nie będzie wyświetlana
 * Zaimplementowano "Główny Zamysł"
 * Drobne ulepszenia i poprawki
 

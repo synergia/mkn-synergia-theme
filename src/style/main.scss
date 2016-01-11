@@ -116,8 +116,9 @@ img {
 
 //========================//
 .content-wrapper {
+  @include clearfix;
   @include mq($from:tablet) {
-    margin: 0 -10px; //kompensacja odstępu dla .card
+    margin: -10px -10px 0; //kompensacja odstępu dla .card
   }
 }
 .dmbs-container {
@@ -126,7 +127,9 @@ img {
   }
 }
 .container {
-  padding-bottom: 120px;
+  @include mq($from: tablet) {
+    padding-bottom: 120px;
+  }
   @include clearfix;
   margin-right: auto;
   margin-left: auto;
@@ -348,7 +351,7 @@ nav {
     filter:grayscale(1);
     width: auto;
     margin: 15px;
-    height: 75px;
+    max-height: 75px;
     @include transition;
     &:hover {
       opacity: 1;
@@ -379,7 +382,10 @@ nav {
 .footer {
   position: relative;
   line-height: 1.2;
-  padding: 10px 0 5px;
+  padding: 10px 20px;
+  @include mq($from: desktop) {
+    padding: 10px 0;
+  }
   border-bottom: 5px solid $synergia-color;
   border-top: $border-light;
   margin: 0 auto;
@@ -446,36 +452,34 @@ nav {
   overflow: hidden;
   display: block;
   position: relative;
-}
-.showcase {
-  @include mq($from:tablet) {
-    margin: 0 -10px; //kompensacja odstępu dla .card
+  @include mq($until:tablet) {
+    max-height: 1440px;
   }
-  .portfolio-content {
+  @include mq($from:tablet) {
     max-height: 520px;
-    @include mq($from:desktop) {
-      max-height: 560px;
-    }
-    .bottom-fade {
-      position: absolute;
-      width: inherit;
-      background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 1));
-      bottom: 0;
-      left: 0;
-      height: 100px;
-      display: table-cell;
-      text-align: center;
-      vertical-align: middle;
-      a {
-        font-weight: 600;
-        display: inline-block;
-        text-decoration: none;
-        font-weight: 600;
-        letter-spacing: inherit;
-        color: #fff;
-        position: relative;
-        @include vertical-align();
-      }
+  }
+  @include mq($from:desktop) {
+    max-height: 560px;
+  }
+  .bottom-fade {
+    position: absolute;
+    width: inherit;
+    background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 1));
+    bottom: 0;
+    left: 0;
+    height: 100px;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    a {
+      font-weight: 600;
+      display: inline-block;
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: inherit;
+      color: #fff;
+      position: relative;
+      @include vertical-align();
     }
   }
 }

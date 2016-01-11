@@ -61,7 +61,7 @@ $done_query = new WP_Query($done);
   <div class="tab">
     <div id="ideas_projects"
       data-projects-status="ideas"
-      data-total-ideas-projects="<?php echo $ideas_query->found_posts ?>" class="gl portfolio-content">
+      data-total-ideas-projects="<?php echo $ideas_query->found_posts ?>" class="gl">
       <?php project_card($ideas_query); ?>
     </div>
   </div>
@@ -70,7 +70,7 @@ $done_query = new WP_Query($done);
   <div class="tab">
     <div id="in_progress_projects"
       data-projects-status="in_progress"
-      data-total-in-progress-projects="<?php echo $in_progress_query->found_posts ?>" class="gl portfolio-content">
+      data-total-in-progress-projects="<?php echo $in_progress_query->found_posts ?>" class="gl">
       <?php project_card($in_progress_query); ?>
     </div>
   </div>
@@ -80,7 +80,7 @@ $done_query = new WP_Query($done);
       <div id="finished_projects"
         data-projects-status="finished"
         data-total-finished-projects="<?php echo $done_query->found_posts ?>"
-      class="gl portfolio-content">
+      class="gl">
         <?php project_card($done_query); ?>
       </div>
     </div>

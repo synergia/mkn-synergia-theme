@@ -56,14 +56,6 @@ function snrg_upload_recruitment_images_callback($args) {
 
 // ================OGÓLNE===================== //
 
-function snrg_archive_link_callback() {
-    global $general_options;
-    echo '<input type="text" id="archive_link_id" name="snrg_general_page_option[archive_link]" value="' . $general_options['archive_link']. '"></input>';
-}
-function snrg_projects_link_callback() {
-  global $general_options;
-    echo '<input type="text" id="projects_link_id" name="snrg_general_page_option[projects_link]" value="' . $general_options['projects_link']. '"></input>';
-}
 function snrg_fb_link_callback() {
   global $general_options;
     echo '<input type="text" id="fb_link_id" name="snrg_general_page_option[fb_link]" value="' . $general_options['fb_link']. '"></input>';

@@ -1,7 +1,8 @@
 <?php get_header(); ?>
 <?php get_template_part('template-part', 'topnav');
  ?>
-<div class="gl">
+<div class="content-wrapper">
+  <div class="gl">
 <?php // This sets the $current_member variable
 // $current_member = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : get_userdata(intval($author));
 global $wp_query;
@@ -39,31 +40,17 @@ $ex_synergia_member = in_array( 'ex_synergia_member', (array) $current_member->r
         <ul>
           <li><label for="tab-1">Ukończone (<?php echo get_number_of_projects($current_member, 'finished'); ?>)</label></li>
           <li><label for="tab-2">Realizowane (<?php echo get_number_of_projects($current_member, 'in_progress') ?>)</label></li>
+          <?php if($current_member->github_profile) { ?>
           <li><label for="tab-3">Github</label></li>
+          <?php } ?>
+
         </ul>
       </nav>
       <div class="tab">
         <div class="post-list">
 <?php
   if( $finished_projects->have_posts() ) {
-    while( $finished_projects->have_posts() ) {
-      $finished_projects->the_post();
-?>
-          <div class="post-list-item ">
-            <div class="thumb">
-              <a rel="bookmark" href="<?php the_permalink(); ?>">
-                <time><?php echo get_the_date(); ?></time>
-              </a>
-              <?php the_post_thumbnail("thumbnail"); ?>
-            </div>
-            <div class="post-list-item-content">
-              <a rel="bookmark" href="<?php the_permalink(); ?>">
-                <h2><?php the_title(); ?></h2>
-              </a>
-              <div class="excerpt"><?php the_excerpt(); ?></div>
-            </div>
-          </div>
-<?php }
+    project_card($finished_projects);
   } else {
     echo '<p class="no-projects">Brak projektów</p>';
   }
@@ -75,27 +62,7 @@ $ex_synergia_member = in_array( 'ex_synergia_member', (array) $current_member->r
       <div class="post-list">
           <?php
               if( $in_progress_projects->have_posts() ) {
-                while( $in_progress_projects->have_posts() ) {
-                  $in_progress_projects->the_post();
-                  ?>
-                    <div class="post-list-item ">
-            <div class="thumb">
-              <a rel="bookmark" href="<?php the_permalink(); ?>">
-                <time><?php echo get_the_date(); ?></time>
-              </a>
-                <?php the_post_thumbnail("thumbnail"); ?>
-            </div>
-                      <div class="post-list-item-content">
-                        <a rel="bookmark" href="<?php the_permalink(); ?>">
-                          <h2><?php the_title(); ?></h2>
-                        </a>
-                        <div class="excerpt">
-                          <?php the_excerpt(); ?>
-                        </div>
-                      </div>
-                    </div>
-          <?php
-                }
+                project_card($in_progress_projects);
               }
               else {
                 echo '<p class="no-projects">Brak projektów</p>';
@@ -109,5 +76,6 @@ $ex_synergia_member = in_array( 'ex_synergia_member', (array) $current_member->r
       </div>
     </div>
   </div>
+</div>
 </div>
 <?php get_footer(); ?>
