@@ -40,7 +40,10 @@ $ex_synergia_member = in_array( 'ex_synergia_member', (array) $current_member->r
         <ul>
           <li><label for="tab-1">Ukończone (<?php echo get_number_of_projects($current_member, 'finished'); ?>)</label></li>
           <li><label for="tab-2">Realizowane (<?php echo get_number_of_projects($current_member, 'in_progress') ?>)</label></li>
+          <?php if($current_member->github_profile) { ?>
           <li><label for="tab-3">Github</label></li>
+          <?php } ?>
+
         </ul>
       </nav>
       <div class="tab">

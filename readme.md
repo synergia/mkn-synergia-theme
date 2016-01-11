@@ -44,6 +44,8 @@ Usunąć folder `build`:
 * Dodano wyświetlanie projektów realizowanych
 * Dodano autoładowanie projektów podczas skrolowania
 * Przy pierwszej instalacji tworzone są automatycznie strony i menu
+* Zamiast listy projektów wyświetlane są karty. Rozwiązuje to problem ekscerpcji
+* Jeśli członek nie dodał profil Github, to zakładka nie będzie wyświetlana
 * Zaimplementowano "Główny Zamysł"
 * Drobne ulepszenia i poprawki
 
