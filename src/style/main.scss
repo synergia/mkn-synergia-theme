@@ -351,7 +351,7 @@ nav {
     filter:grayscale(1);
     width: auto;
     margin: 15px;
-    height: 75px;
+    max-height: 75px;
     @include transition;
     &:hover {
       opacity: 1;

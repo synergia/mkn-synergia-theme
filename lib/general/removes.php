@@ -1,6 +1,9 @@
 <?php
 // Usunięcie wsparcia dla różnych niepotrzebnych rzeczy //
 
+// Usuwa Updraft z adminbaru //
+define('UPDRAFTPLUS_ADMINBAR_DISABLE', true);
+
 function remove_admin_bar_wordpress(){
     global $wp_admin_bar;
     $wp_admin_bar->remove_menu('wp-logo');
@@ -39,11 +42,11 @@ function remove_tinymce_emoji($plugins){
     return array_diff($plugins, array('wpemoji'));
 }
 
-function wpbeginner_remove_version()
+function remove_version()
 {
     return '';
 }
-add_filter('the_generator', 'wpbeginner_remove_version');
+add_filter('the_generator', 'remove_version');
 
 // Remove post formats support //
 // Usuwa różne niepotrzebne formaty postów typu linki, wideo itd.

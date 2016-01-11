@@ -40,9 +40,6 @@
 }
 .usercard {
   margin-top: 20px;
-  @include mq($from: tablet) {
-    margin-top: 0;
-  }
 }
 .post-list {
   @include mq($from: tablet) {
