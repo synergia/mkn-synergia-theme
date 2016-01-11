@@ -452,9 +452,12 @@ nav {
   overflow: hidden;
   display: block;
   position: relative;
-}
-.portfolio-content {
-  max-height: 520px;
+  @include mq($until:tablet) {
+    max-height: 1440px;
+  }
+  @include mq($from:tablet) {
+    max-height: 520px;
+  }
   @include mq($from:desktop) {
     max-height: 560px;
   }
