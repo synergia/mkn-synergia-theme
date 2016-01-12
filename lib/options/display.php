@@ -27,9 +27,6 @@ function snrg_options_display() {
 
             <?php
             if( $active_tab == 'snrg_general_page' ) {
-
-              // echo wp_next_scheduled( 'update_users_meta' );
-              // wp_unschedule_event( wp_next_scheduled( 'update_users_meta' ), 'update_users_meta' );
                 echo '<form method="post" action="options.php">';
                 settings_fields( 'snrg_general_page_option' );
                 do_settings_sections( 'snrg_general_page_option' );
