@@ -47,6 +47,7 @@ Usunąć folder `build`:
 * Zamiast listy projektów wyświetlane są karty. Rozwiązuje to problem ekscerpcji
 * Jeśli członek nie dodał profil Github, to zakładka nie będzie wyświetlana
 * Zaimplementowano "Główny Zamysł"
+* Nowe domyślne obrazki tytułowe
 * Drobne ulepszenia i poprawki
 
 

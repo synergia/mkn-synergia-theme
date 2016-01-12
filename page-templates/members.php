@@ -42,8 +42,16 @@ if (!empty($members)) { ?>
             <div class="gl-cell gl-md-1 gl-align-middle avatar-image"><a href="<?php echo get_author_posts_url( $current_member->ID, $current_member->user_nicename ); ?>"><?php echo show_avatar($current_member)?></a></div>
             <div class="gl-cell gl-lg-5 gl-md-6 gl-align-middle name"><h3><a href="<?php echo get_author_posts_url( $current_member->ID, $current_member->user_nicename ); ?>"><?php echo $current_member->display_name; ?></a></h3></div>
             <div class="gl-cell gl-lg-2 gl-md-3 gl-align-middle links"><?php social_links($current_member); ?></div>
-            <div class="gl-cell gl-lg-4 gl-md-1 gl-align-middle count">Projektów: <strong><?php echo get_number_of_projects($current_member, 'finished'); ?></strong></div>
-            <div class="gl-cell gl-lg-4 gl-md-1 gl-align-middle count">R: <strong><?php echo get_number_of_projects($current_member, 'in_progress') ?></strong></div>
+            <div class="gl-cell gl-lg-4 gl-md-1 gl-align-middle project-count">
+              <a href="<?php echo get_site_url().'/author/'.$current_member->ID;?>/#tab-1" title="Liczba ukończonych projektów">
+                <div class="finished">
+                  <?php echo get_number_of_projects($current_member, 'finished');?>
+                </div>
+              </a>
+              <a href="<?php echo get_site_url().'/author/'.$current_member->ID;?>/#tab-2" title="Liczba realizowanych projektów">
+                <div class="in-progress"><?php echo get_number_of_projects($current_member, 'in_progress') ?></div>
+              </div>
+            </a>
           </div>
         </li>
 <?php }
