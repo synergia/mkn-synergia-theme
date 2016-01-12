@@ -115,6 +115,74 @@ function snrg_validate_options( $input ) {
 }
 // Wyświetla info o aktualizacji danych członków //
 function update_members_meta_page() {
-  $timestamp = wp_next_scheduled('update_members_meta');
-  echo '<h2>Następna aktualizacja: '.date("Y-m-d H:i:s", $timestamp).'</h2>';
+  $timestamp = date('d F Y H:i:s', wp_next_scheduled('update_members_meta'));
+  // $timestamp_s =wp_next_scheduled('update_members_meta');
+  // $current_time = date('d F Y H:i:s', time());
+  // $current_time_s = time();
+  // $countdown = $timestamp_s - $current_time_s; ?>
+  <h1>Do następnej aktualizacji pozostało</h1>
+  <div id="clockdiv" data-event-date="<?php echo $timestamp;?>">
+    <div>
+      <span class="days"></span>
+      <div class="smalltext">Days</div>
+    </div>
+    <div>
+      <span class="hours"></span>
+      <div class="smalltext">Hours</div>
+    </div>
+    <div>
+      <span class="minutes"></span>
+      <div class="smalltext">Minutes</div>
+    </div>
+    <div>
+      <span class="seconds"></span>
+      <div class="smalltext">Seconds</div>
+    </div>
+  </div>
+    <script>
+    // http://codepen.io/SitePoint/pen/MwNPVq
+    function getTimeRemaining(endtime) {
+  var t = Date.parse(endtime) - Date.parse(new Date());
+  var seconds = Math.floor((t / 1000) % 60);
+  var minutes = Math.floor((t / 1000 / 60) % 60);
+  var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+  var days = Math.floor(t / (1000 * 60 * 60 * 24));
+  return {
+    'total': t,
+    'days': days,
+    'hours': hours,
+    'minutes': minutes,
+    'seconds': seconds
+  };
+}
+
+function initializeClock(id, endtime) {
+  var clock = document.getElementById(id);
+  var daysSpan = clock.querySelector('.days');
+  var hoursSpan = clock.querySelector('.hours');
+  var minutesSpan = clock.querySelector('.minutes');
+  var secondsSpan = clock.querySelector('.seconds');
+
+  function updateClock() {
+    var t = getTimeRemaining(endtime);
+
+    daysSpan.innerHTML = t.days;
+    hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+    minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+    secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+
+    if (t.total <= 0) {
+      clearInterval(timeinterval);
+    }
+  }
+
+  updateClock();
+  var timeinterval = setInterval(updateClock, 1000);
+}
+
+var deadline = jQuery('#clockdiv').attr('data-event-date');
+console.log(deadline);
+initializeClock('clockdiv', deadline);
+</script>
+<?php
 }

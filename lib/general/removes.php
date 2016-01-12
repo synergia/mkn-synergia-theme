@@ -1,10 +1,12 @@
 <?php
+
 // Usunięcie wsparcia dla różnych niepotrzebnych rzeczy //
 
 // Usuwa Updraft z adminbaru //
 define('UPDRAFTPLUS_ADMINBAR_DISABLE', true);
 
-function remove_admin_bar_wordpress(){
+function remove_admin_bar_wordpress()
+{
     global $wp_admin_bar;
     $wp_admin_bar->remove_menu('wp-logo');
 } add_action('wp_before_admin_bar_render', 'remove_admin_bar_wordpress');
@@ -34,7 +36,8 @@ function remove_emoji()
 add_action('init', 'remove_emoji');
 // Filter out the tinymce emoji plugin.
 
-function remove_tinymce_emoji($plugins){
+function remove_tinymce_emoji($plugins)
+{
     if (!is_array($plugins)) {
         return array();
     }
@@ -59,43 +62,44 @@ add_filter('enable_post_format_ui', '__return_false');
 
 // Wyłącza niepotrzebne pozycje w menu //
 
-add_action( 'admin_bar_menu', 'remove_some_nodes_from_admin_top_bar_menu', 999 );
-function remove_some_nodes_from_admin_top_bar_menu( $wp_admin_bar ) {
-    $wp_admin_bar->remove_menu( 'customize' );
-    $wp_admin_bar->remove_menu( 'comments' );
-    $wp_admin_bar->remove_menu( 'link-add' );
+add_action('admin_bar_menu', 'remove_some_nodes_from_admin_top_bar_menu', 999);
+function remove_some_nodes_from_admin_top_bar_menu($wp_admin_bar)
+{
+    $wp_admin_bar->remove_menu('customize');
+    $wp_admin_bar->remove_menu('comments');
+    $wp_admin_bar->remove_menu('link-add');
 }
 
 function remove_comments_and_links_from_menu()
 {
     remove_menu_page('edit-comments.php');
     remove_menu_page('link-manager.php');
-    remove_menu_page( 'tools.php' );
+    if (!is_admin()) {
+        remove_menu_page('tools.php');
+    }
     global $submenu;
     unset($submenu['themes.php'][6]); // Customize
     remove_submenu_page('themes.php', 'theme-editor.php');
-
 }
 add_action('admin_menu', 'remove_comments_and_links_from_menu', 999);
 
 // Usuwa zbędne widżety z kokpitu //
-function remove_dashboard_widgets() {
-	global $wp_meta_boxes;
+function remove_dashboard_widgets()
+{
+    global $wp_meta_boxes;
 
-	unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_quick_press']);
-	unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_incoming_links']);
-	unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_right_now']);
-	unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_plugins']);
-	unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_recent_drafts']);
-	unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_recent_comments']);
-	unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_primary']);
-	unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_secondary']);
-  remove_action( 'welcome_panel', 'wp_welcome_panel');
-
+    unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_quick_press']);
+    unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_incoming_links']);
+    unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_right_now']);
+    unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_plugins']);
+    unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_recent_drafts']);
+    unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_recent_comments']);
+    unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_primary']);
+    unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_secondary']);
+    remove_action('welcome_panel', 'wp_welcome_panel');
 }
 
-add_action('wp_dashboard_setup', 'remove_dashboard_widgets' );
+add_action('wp_dashboard_setup', 'remove_dashboard_widgets');
 
 // Usuwa plik Windows Live Writer //
-remove_action( 'wp_head', 'wlwmanifest_link');
- ?>
+remove_action('wp_head', 'wlwmanifest_link');

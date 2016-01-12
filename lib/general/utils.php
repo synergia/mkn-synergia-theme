@@ -118,20 +118,6 @@ function my_excerpt($text, $excerpt)
 
     return apply_filters('wp_trim_excerpt', $text, $excerpt);
 }
-
-// TODO Usunąć, gdyż aktualizacja ma być codzienna, a nie co minuty //
-function add_new_intervals($schedules)
-{
-	// add weekly and monthly intervals
-	$schedules['every_m'] = array(
-		'interval' => 60,
-		'display' => __('Every minute')
-	);
-
-	return $schedules;
-}
-add_filter( 'cron_schedules', 'add_new_intervals');
-
 // Zmienia Posts na Blog //
 function change_post_menu_label() {
     global $menu;

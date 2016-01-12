@@ -129,9 +129,9 @@ function project_card ($query) {
               <?php if ( has_post_thumbnail() ) { ?>
                 <img class="blazy"
                      alt="<?php the_title(); ?>"
-                     src="<?php bloginfo('template_directory'); ?>/build/img/thumb.png"
+                     src="<?php bloginfo('template_directory'); ?>/build/img/card.png"
                      data-src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), 'card_image', true)[0];?>"/>
-              <?php } else { ?><img class="blazy" src="<?php bloginfo('template_directory'); ?>/build/img/thumb.png" /><?php } ?>
+              <?php } else { ?><img class="blazy" src="<?php bloginfo('template_directory'); ?>/build/img/card.png" /><?php } ?>
               <h2 class="title"><?php the_title(); ?></h2>
             </div>
           </a>

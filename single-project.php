@@ -25,7 +25,7 @@
 													 data-src-small="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), 'card_image', true)[0];?>"/>
 
 										<?php } else { ?><img class="blazy" src="<?php bloginfo('template_directory'); ?>/build/img/full.png"										data-src="<?php bloginfo('template_directory'); ?>/build/img/full.png"
-										data-src-small="<?php bloginfo('template_directory'); ?>/build/img/thumb.png"/><?php } ?>
+										data-src-small="<?php bloginfo('template_directory'); ?>/build/img/card.png"/><?php } ?>
 				</div>
 					<?php get_template_part('template-part', 'authors');?>
 					<div class="project-content"><?php the_content(); ?>
