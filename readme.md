@@ -41,12 +41,14 @@ Usunąć folder `build`:
 * Slajder
 * Refaktoryzacja
 * Dodano wkładki w ustawieniach
+* Dodano licznik w ustawieniach do następnej aktualizacji liczby projektów
 * Dodano wyświetlanie projektów realizowanych
 * Dodano autoładowanie projektów podczas skrolowania
 * Przy pierwszej instalacji tworzone są automatycznie strony i menu
 * Zamiast listy projektów wyświetlane są karty. Rozwiązuje to problem ekscerpcji
 * Jeśli członek nie dodał profil Github, to zakładka nie będzie wyświetlana
 * Zaimplementowano "Główny Zamysł"
+* Strona członków wyświetla liczbę ukończonych i realizowanych projektów
 * Nowe domyślne obrazki tytułowe
 * Drobne ulepszenia i poprawki
 
