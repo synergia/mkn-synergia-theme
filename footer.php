@@ -25,6 +25,9 @@
         </div>
       </div>
     </div>
+    <div class="hidden-footer">
+      <span>Zrobione z <i class="icon-heart"></i> we Wrocławiu.</span>
+    </div>
   </div>
 </div>
 <!-- end main container -->

@@ -103,3 +103,21 @@ add_action('wp_dashboard_setup', 'remove_dashboard_widgets');
 
 // Usuwa plik Windows Live Writer //
 remove_action('wp_head', 'wlwmanifest_link');
+
+// Usuwa wp-embed.min.js //
+function my_deregister_scripts(){
+  wp_deregister_script( 'wp-embed' );
+}
+add_action( 'wp_footer', 'my_deregister_scripts' );
+
+
+ // Dequeue jQuery migrate script in WordPress //
+ // Mogą nie działać niektóre wtyczki //
+
+function isa_remove_jquery_migrate( &$scripts) {
+    if(!is_admin()) {
+        $scripts->remove( 'jquery');
+        $scripts->add( 'jquery', false, array( 'jquery-core' ), '1.11.3' );
+    }
+}
+add_filter( 'wp_default_scripts', 'isa_remove_jquery_migrate' );

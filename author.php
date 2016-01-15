@@ -52,7 +52,7 @@ $ex_synergia_member = in_array( 'ex_synergia_member', (array) $current_member->r
   if( $finished_projects->have_posts() ) {
     project_card($finished_projects);
   } else {
-    echo '<p class="no-projects">Brak projektów</p>';
+    echo '<p class="no-projects">Brak ukończonych projektów</p>';
   }
 ?>
       </div>
@@ -65,7 +65,7 @@ $ex_synergia_member = in_array( 'ex_synergia_member', (array) $current_member->r
                 project_card($in_progress_projects);
               }
               else {
-                echo '<p class="no-projects">Brak projektów</p>';
+                echo '<p class="no-projects">Brak realizowanych projektów</p>';
               }
             ?>
 
