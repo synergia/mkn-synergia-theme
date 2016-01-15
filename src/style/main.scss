@@ -3,16 +3,83 @@
 @import '../../bower_components/normalize-scss/_normalize';
 @import '../../bower_components/sass-mq/mq';
 @import 'gridlayout';
-@import 'html5boiler';
-
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+ ::-moz-selection {
+  background: $synergia-color;
+  text-shadow: none;
+  color: #ffffff;
+}
+ ::selection {
+  background: $synergia-color;
+  text-shadow: none;
+  color: #ffffff;
+}
+/*
+ * A better looking default horizontal rule
+ */
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid $shadowlight;
+  margin: 1em 0;
+  padding: 0;
+}
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+/*
+ * Remove default fieldset styles.
+ */
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+/*
+ * Allow only vertical resizing of textareas.
+ */
+textarea {
+  resize: vertical;
+}
+html {
+  height: 100%;
+}
+blockquote {
+  position: relative;
+  z-index: 1;
+  margin: 20px -30px;
+  padding: 0 10%;
+  font-size: 2em;
+  font-weight: 200;
+  background-color: $grey;
+  @include clearfix;
+}
 // Synergiczne style //
 body {
   font-family: $synergia-fontstack;
-
-  //    font-size: $font-size;
+  font-size: $font-size;
   line-height: $line-height;
   color: $text-color;
   background-color: $background-color;
+  position: relative;
+  min-height: 100%;
 }
 input,
 button,
@@ -50,12 +117,22 @@ figure {
 img {
   vertical-align: middle;
 }
+//========================//
+.content-wrapper {
+  @include clearfix;
+  @include mq($from:tablet) {
+    margin: -10px -10px 0; //kompensacja odstępu dla .card
+  }
+}
 .dmbs-container {
   @include mq($from: tablet) {
-    margin-top: 20px;
+    margin-top: 0;
   }
 }
 .container {
+  @include mq($from: tablet) {
+    padding-bottom: 120px;
+  }
   @include clearfix;
   margin-right: auto;
   margin-left: auto;
@@ -102,34 +179,8 @@ img {
   border-bottom: 4px solid $synergia-color;
   padding-bottom: 5px;
 }
-.logo {
-  @include mq($from: tablet) {
-    width: 300px;
-    height: 50px;
-    position: relative;
-    float: left;
-    @include clearfix;
-    @include background-image('logo');
-  }
-  @include mq($until: tablet) {
-    width: 54px;
-    margin-top: 2px;
-    height: 54px;
-    background-position: 2px 2px;
-    background-repeat: no-repeat;
-    position: relative;
-    border-radius: 4px;
-    float: left;
-    margin-left: 20px;
-    background-color: $background-color;
-    @include background-image('logo');
-    -webkit-box-shadow: 0 0 3px 0 #000;
-    box-shadow: 0 0 3px 0 #000;
-  }
-}
 .navbar {
   position: relative;
-
   //    height: 56px;
   margin-bottom: 20px;
   border: 1px solid transparent;
@@ -204,7 +255,6 @@ nav {
 .container-fluid > .navbar-header,
 .container > .navbar-collapse,
 .container-fluid > .navbar-collapse {
-
   //  margin-right: -15px;
   margin-left: -15px;
   @include clearfix;
@@ -248,7 +298,6 @@ nav {
       font-weight: bold;
       float: left;
       > a {
-
         //                padding-top: 15px;
         //                padding-bottom: 15px;
       }
@@ -279,15 +328,14 @@ nav {
   padding: 0;
   overflow: hidden;
   text-align: center;
-
   // @include mq($until: tablet) {
   //   display: none;
   // }
-  h2 {
+  h4 {
     text-transform: uppercase;
     font-weight: 700;
-
-    // font-size: 2em;
+    @extend h2;
+    font-size: 1.25em;
     color: $cardbutton-color;
     margin: 40px 0 20px;
     border-bottom: $border-light;
@@ -301,7 +349,7 @@ nav {
     filter:grayscale(1);
     width: auto;
     margin: 15px;
-    height: 75px;
+    max-height: 75px;
     @include transition;
     &:hover {
       opacity: 1;
@@ -319,26 +367,77 @@ nav {
     margin-top: 0;
   }
 }
-.dmbs-footer {
-  border-top: $border-light;
+.footer-wrapper {
+  @include mq($from:tablet) {
+    position: absolute;
+    height: 105px;
+    width: 100%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+}
+.footer {
+  position: relative;
   line-height: 1.2;
-  padding: 10px 0 5px;
-  margin-top: 15px;
-  border-bottom: 5px solid $synergia-color;
+  padding: 10px 20px;
+  @include mq($from: desktop) {
+    padding: 10px 0 15px;
+  }
+  border-top: $border-light;
+  margin: 0 auto;
+  @include mq($from:desktop) {
+    width: $container-width;
+  }
   @include clearfix;
   a {
     color: $text-color;
   }
+  .hidden-footer {
+    width: 100%;
+    height: 5px;
+    position: absolute;
+    bottom: 0;
+    overflow: hidden;
+    background: $synergia-color;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, $synergia-color , $synergia-light-color);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, $synergia-color , $synergia-light-color);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    @include transition;
+    color: #fff;
+    font-size: 1.5em;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:hover {
+      height: 100%;
+    }
+    &:hover span {
+      color: rgba(#fff,0.8);
+    }
+    span {
+      font-weight: 200;
+      margin: 5px;
+      color: transparent;
+      display: inline-block;
+    }
+  }
 }
 .footer-icons {
-  @include preserve-3d;
   div {
     position: relative;
     text-align: center;
     padding: 0.625em;
     @include mq($from: tablet) {
       right: 0;
-      @include vertical-align(absolute);
+      position: absolute;
+      @include vertical-align();
     }
     a {
       i {
@@ -385,45 +484,44 @@ nav {
   overflow: hidden;
   display: block;
   position: relative;
-}
-.showcase {
-  @include mq($from:tablet) {
-    margin: 0 -10px; //kompensacja odstępu dla .card
+  @include mq($until:tablet) {
+    max-height: 1440px;
   }
-  .portfolio-content {
+  @include mq($from:tablet) {
     max-height: 520px;
-    @include mq($from:desktop) {
-      max-height: 560px;
-    }
-    .bottom-fade {
-      position: absolute;
-      width: inherit;
-      background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 1));
-      bottom: 0;
-      left: 0;
-      height: 100px;
-      display: table-cell;
-      text-align: center;
-      vertical-align: middle;
-      a {
-        font-weight: 600;
-        display: inline-block;
-        text-decoration: none;
-        font-weight: 600;
-        letter-spacing: inherit;
-        color: #fff;
-        @include vertical-align(relative);
-      }
+  }
+  @include mq($from:desktop) {
+    max-height: 560px;
+  }
+  .bottom-fade {
+    position: absolute;
+    width: inherit;
+    background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 1));
+    bottom: 0;
+    left: 0;
+    height: 100px;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    a {
+      font-weight: 600;
+      display: inline-block;
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: inherit;
+      color: #fff;
+      position: relative;
+      @include vertical-align();
     }
   }
 }
 @import 'author';
+@import 'archive';
 @import 'components';
 @import 'project';
 @import 'member';
-@import 'burger';
-@import 'icons';
 @import 'recruitment';
 @import "login";
 @import 'animate';
-@import 'html5plate';
+@import "lazy";
+@import "print";

@@ -1,0 +1,95 @@
+// Notyfikacje //
+// http://codepen.io/keithpickering/pen/ibtEa
+/**
+* Notification Styles
+*/
+.note {
+  position: relative;
+  overflow: hidden;
+  color: white;
+  background-color: $synergia-color;
+}
+.note-secondary {
+  background-color: $secondary-color;
+}
+.note-success {
+  background-color: $nephritis;
+}
+.note-warning {
+  background-color: $orange;
+}
+.note-error {
+  background-color: $alizarin;
+}
+.note-info {
+  background-color: $peter-river;
+}
+.note-icon,
+.note-text {
+  padding: $note-spacing;
+}
+.note-icon {
+  min-width: ($note-spacing * 2) + 32px;
+  text-align: center;
+  font-size: 2rem;
+  background-color: rgba(black, 0.25);
+  padding: 0;
+}
+.note-text {
+  padding-right: $note-spacing * 2;
+}
+.note-close {
+  position: absolute;
+  top: $note-spacing / 2;
+  right: $note-spacing / 2;
+  line-height: 30px;
+  font-size: 24px;
+  text-align: center;
+  color: white;
+  background-color: rgba(black, 0.25);
+  opacity: 0;
+  transition: all 0.25s;
+  &:hover {
+    background-color: rgba(black, 0.15);
+    color: #fff;
+  }
+  .note:hover & {
+    opacity: 1;
+  }
+}
+
+/**
+ * Flag Object
+ * Original Source: http://csswizardry.com/2013/05/the-flag-object/
+ */
+.flag {
+  @extend .margin;
+  display: table;
+  width: 100%;
+}
+.flag-image,
+.flag-body {
+  display: table-cell;
+  vertical-align: middle;
+  .flag--top & {
+    vertical-align: top;
+  }
+  .flag-bottom & {
+    vertical-align: bottom;
+  }
+}
+.flag-image {
+
+  //  padding-right: $note-spacing;
+  > img {
+    display: block;
+    max-width: none;
+  }
+  .flag-rev & {
+    padding-right: 0;
+    padding-left: $note-spacing;
+  }
+}
+.flag-body {
+  width: 100%;
+}

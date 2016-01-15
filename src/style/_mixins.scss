@@ -30,8 +30,7 @@
 
 // Vertical align anything
 // http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/
-@mixin vertical-align($position: relative) {
-	position: $position;
+@mixin vertical-align() {
 	top: 50%;
 	-webkit-transform: translateY(-50%);
 	-ms-transform: translateY(-50%);
@@ -58,6 +57,9 @@
 	-webkit-border-radius: $width/2;
 	-moz-border-radius: $width/2;
 	border-radius: $width/2;
+	// To wyśrodkowuje i przycina obrazki
+	// http://bit.ly/1lfQIz5
+	object-fit: cover;
 }
 
 @mixin transition() {
@@ -79,4 +81,20 @@
   opacity: $opacity;
   $opacity-ie: $opacity * 100;
   filter: alpha(opacity=$opacity-ie); //IE8
+}
+@mixin word-wrap() {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+@mixin ellipsis() {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }

@@ -4,7 +4,6 @@
     padding: 0 15px;
     // To wyśrodkowuje i przycina obrazki
     // http://bit.ly/1lfQIz5
-    object-fit: cover;
   }
   margin: 0 auto;
   width: 130px;
@@ -41,13 +40,10 @@
 }
 .usercard {
   margin-top: 20px;
-  @include mq($from: tablet) {
-    margin-top: 0;
-  }
 }
 .post-list {
   @include mq($from: tablet) {
-    margin: 0 -10px;
+    // margin: 0 -10px;
   }
 }
 .post-list-item {
@@ -61,6 +57,9 @@
     position: relative;
     overflow: hidden;
     float: left;
+    height: 150px;
+    width:150px;
+    // object-fit: cover;
     time {
       position: absolute;
       font-weight: 600;
@@ -116,4 +115,11 @@
   @include mq($until:tablet) {
     right: -11px;
   }
+}
+.no-projects {
+  // font-style: italic;
+  font-size: 3em;
+  color: $shadowlight;
+  text-align: center;
+  font-weight: 600;
 }

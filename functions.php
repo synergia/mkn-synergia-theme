@@ -1,10 +1,12 @@
 <?php
 // Info o motywie //
     $theme = wp_get_theme();
+    $logo = get_template_directory_uri() . '/build/img/logo.png';
     $version = $theme->get('Version');
     $theme_name = $theme->get('Name');
-    $codename = 'Alicia Vikander';
-    $codeimg = 'http://cs627324.vk.me/v627324187/22aa6/i2a2C9psvMI.jpg';
+    $codename = 'Carrie Fisher';
+    $codeimg = 'http://cs628419.vk.me/v628419187/48151/3R20Q-CTUPI.jpg';
+
 
 // Dodatkowe style i skrypty dla panelu. Odpowiedzialne za otwieranie okna
 // z mediami
@@ -28,19 +30,44 @@ if (is_admin()) {
     add_action('admin_enqueue_scripts', 'enqueue_admin');
 }
 
-// Dodatkowe fukcje porozrzucane po plikach //
-include 'lib/theme-options.php';
-include 'lib/post-types.php';
-include 'lib/author-functions.php';
-include 'lib/project-functions.php';
-include 'lib/sponsors-functions.php';
-include 'lib/candies.php';
-include 'lib/additional_attachments.php';
-include 'lib/login.php';
 
-// Szortkody //
+// Rejestrujemu menu //
 
-    include 'lib/shortcodes.php';
+register_nav_menus(
+    array(
+        'main_menu' => 'Topbar',
+    )
+);
+
+// Dodatkowe funkcje porozrzucane po plikach //
+// Ustawienia motywu
+include 'lib/options/options.php';
+// Projekt
+include 'lib/projects/post-type.php';
+include 'lib/projects/project.php';
+include 'lib/projects/attachments.php';
+include 'lib/projects/utils.php';
+// Posts
+include 'lib/posts/post.php';
+include 'lib/posts/utils.php';
+// Członkowie
+include 'lib/members/profile.php';
+include 'lib/members/capabilities.php';
+include 'lib/members/utils.php';
+// Sponsorzy
+include 'lib/sponsors/post-type.php';
+include 'lib/sponsors/utils.php';
+// Ogólne
+include 'lib/general/removes.php';
+include 'lib/general/utils.php';
+include 'lib/general/meta-tags.php';
+include 'lib/general/slider.php';
+include 'lib/general/lazy.php';
+include 'lib/general/dashboard.php';
+include 'lib/general/setup.php';
+// Login
+include 'lib/login/login.php';
+
 
 // Synergiczne style //
 
@@ -77,13 +104,15 @@ function synergia_admin_styles() {
 
 // Synergiczne skrypty //
 
-function js()
-{
-  global $snrg_settings;
+function js() {
+  global $version, $snrg_settings;
 
     wp_register_script('underscore', get_template_directory_uri().'/build/js/underscore.min.js', '1.6.0', true);
     wp_register_script('github.js', get_template_directory_uri().'/build/js/github.min.js', '0.1.3', true);
     wp_register_script('prism', get_template_directory_uri().'/build/js/prism.min.js', '', true);
+    wp_register_script('main', get_template_directory_uri().'/build/js/main.min.js', array('jquery'), $version, true);
+    wp_register_script('swipe', get_template_directory_uri().'/build/js/swipe.min.js', array('jquery'), $version, true);
+    wp_register_script('blazy', get_template_directory_uri().'/build/js/blazy.min.js', array('jquery'), $version, true);
     // wp_register_script('cookie', get_template_directory_uri().'/build/js/js-cookie.min.js', '', true);
     if (is_author()) {
         wp_enqueue_script('underscore');
@@ -95,22 +124,11 @@ function js()
     // if ($snrg_settings['recruitment']) {
     //     wp_enqueue_script('cookie');
     // }
-    wp_enqueue_script('js', get_template_directory_uri().'/build/js/main.min.js', array('jquery'), $version, true);
+    wp_enqueue_script('swipe');
+    wp_enqueue_script('blazy');
+    wp_enqueue_script('main');
 }
 add_action('wp_footer', 'js');
-
-// Pozostałości po bootstrapie -- do usunięcia //
-
-require_once 'lib/wp_bootstrap_navwalker.php';
-require_once 'lib/bootstrap-custom-menu-widget.php';
-
-// Rejestrujemu menu //
-
-register_nav_menus(
-    array(
-        'main_menu' => 'Main Menu',
-    )
-);
 
 // Rejestrujemy sidebar //
 
@@ -128,18 +146,3 @@ register_sidebar(
 // Dodajemy wsparcie linków RSS //
 
 add_theme_support('automatic-feed-links');
-
-// Widżet na kokpit //
-add_action('wp_dashboard_setup', 'version_widget');
-function version_widget() {
-global $wp_meta_boxes;
-wp_add_dashboard_widget('synergia_version_widget', 'Aktualna wersja', 'synergia_version');
-}
-function synergia_version() {
-  global $version, $codename, $codeimg;
-  ?>
-<div class="version_baner">
-  <img src="<?php echo $codeimg; ?>">
-  <h2><?php echo '<span class="version">'.$version.'</span> "'.$codename.'"';?></h2>
-</div>
-<?php } ?>

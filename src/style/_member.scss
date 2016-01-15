@@ -28,10 +28,6 @@ ul.member-list {
     }
     img {
       @include circle(50px, #ffffff);
-
-      // To wyśrodkowuje i przycina obrazki
-      // http://bit.ly/1lfQIz5
-      object-fit: cover;
     }
   }
   .name {
@@ -47,12 +43,55 @@ ul.member-list {
       margin-left: 3.750em;
     }
   }
-  .count {
-    text-align: right;
+  .project-count {
+    cursor: pointer;
+    @include clearfix;
     @include mq($until: tablet) {
       position: absolute;
       top: 25%;
       right: 2.750em;
+    }
+    &:hover .finished {
+      right: 50px;
+    }
+    &:hover .in-progress {
+      right: 10px;
+      z-index: 0;
+    }
+    a {
+      color: #fff;
+      text-decoration: none;
+      &:hover {
+        color: #fff;
+      }
+    }
+    .finished {
+      @include transition();
+      border-radius: 50%;
+      background-color: $synergia-color;
+      color: #fff;
+      height: 30px;
+      width: 30px;
+      text-align: center;
+      line-height: 30px;
+      font-weight: 600;
+      position: absolute;
+      right: 10px;
+      top: 25%;
+      z-index: 0;
+      @include mq($until: tablet) {
+        right: 40px;
+      }
+    }
+    .in-progress {
+      @extend .finished;
+      z-index: -1;
+      background-color: $synergia-light-color;
+      right: 10px;
+      @include mq($until: tablet) {
+        right: 0;
+        z-index: 0;
+      }
     }
   }
   .memberboard-info {
