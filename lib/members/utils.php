@@ -168,8 +168,6 @@ function em_event_activation()
 add_action('wp', 'em_event_activation');
 // Make sure this event hasn't been scheduled
 
-add_action('after_switch_theme', 'update_number_of_projects');
-
 function update_number_of_projects() {
   $all_members = get_users();
   function update_number_of_projects_meta($member, $number_of_projects, $project_status) {
@@ -201,7 +199,7 @@ function update_number_of_projects() {
          echo '<li>Updating Fin '.$member->display_name.': FAILED</li>';
        }
      } else {
-       // Gdy brak ukończonych projktów
+       // Gdy brak ukończonych projektów
        if (update_number_of_projects_meta($member, 0, 'finished')) {
          echo '<li>Updating Fin '.$member->display_name.' ('.$member->number_of_finished_projects.'): OK</li>';
        } else {
@@ -215,7 +213,7 @@ function update_number_of_projects() {
          echo '<li>Updating IP '.$member->display_name.': FAILED</li>';
        }
      } else {
-       // Gdy brak ukończonych projktów
+       // Gdy brak ukończonych projektów
        if (update_number_of_projects_meta($member, 0, 'in_progress')) {
          echo '<li>Updating IP '.$member->display_name.' ('.$member->number_of_in_progress_projects.'): OK</li>';
        } else {
