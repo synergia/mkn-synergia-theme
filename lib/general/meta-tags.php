@@ -80,7 +80,8 @@ function doctype_opengraph($output)
 {
     return $output.'
     xmlns:og="http://opengraphprotocol.org/schema/"
-    xmlns:fb="http://www.facebook.com/2008/fbml"';
+    xmlns:fb="http://www.facebook.com/2008/fbml"
+    itemscope itemtype="http://schema.org/EducationalOrganization"';
 }
 add_filter('language_attributes', 'doctype_opengraph');
 

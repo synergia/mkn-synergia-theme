@@ -3,7 +3,7 @@
 
 <head>
   <meta http-equiv="content-type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
-  <meta name="description" content="<?php echo esc_attr(get_bloginfo('description')); ?>" />
+  <meta itemprop="description" name="description" content="<?php echo esc_attr(get_bloginfo('description')); ?>" />
   <title><?php wp_title(""); ?></title>
   <?php if(is_page('login') || is_page('no_script')){ ?>
     <meta name="robots" content="noindex,nofollow">
