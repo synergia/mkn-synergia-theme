@@ -128,9 +128,11 @@ add_action( 'admin_menu', 'change_post_menu_label' );
 
 // Wyświetla także projekty w archiwum //
 function namespace_add_custom_types( $query ) {
-  if( is_category() || is_tag() || is_archive() && empty( $query->query_vars['suppress_filters'] ) ) {
+  if ( is_admin() || ! $query->is_main_query() )
+        return;
+  if(is_category() || is_tag() || is_archive() && empty( $query->query_vars['suppress_filters'] ) ) {
     $query->set( 'post_type', array(
-     'post', 'nav_menu_item', 'project'
+     'post', 'project'
 		));
 	  return $query;
 	}
