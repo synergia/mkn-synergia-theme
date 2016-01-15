@@ -25,6 +25,11 @@
 										<?php } else { ?><img class="blazy" src="<?php bloginfo('template_directory'); ?>/build/img/full.png"										data-src="<?php bloginfo('template_directory'); ?>/build/img/full.png"
 										data-src-small="<?php bloginfo('template_directory'); ?>/build/img/card.png"/><?php } ?>
 				</div>
+				<?php
+				if(pokaz_autora_wpisu_get_meta( 'pokaz_autora_wpisu_show_author_of_post' )) {
+					get_template_part('template-part', 'authors');
+				}
+				?>
             <div class="project-content"><?php the_content(); ?></div>
 				<?php wp_link_pages(); ?>
 			<?php endwhile; ?>
