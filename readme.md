@@ -38,7 +38,7 @@ Usunąć folder `build`:
 ![](http://cs628419.vk.me/v628419187/48151/3R20Q-CTUPI.jpg)
 
 * Leniwe ładowanie obrazków
-* Slajder
+* Dodając galerię, tworzy się slajder
 * Refaktoryzacja
 * Dodano wkładki w ustawieniach
 * Dodano licznik w ustawieniach do następnej aktualizacji liczby projektów
@@ -46,10 +46,11 @@ Usunąć folder `build`:
 * Dodano autoładowanie projektów podczas skrolowania
 * Przy pierwszej instalacji tworzone są automatycznie strony i menu
 * Zamiast listy projektów wyświetlane są karty. Rozwiązuje to problem ekscerpcji
-* Jeśli członek nie dodał profil Github, to zakładka nie będzie wyświetlana
+* Zakładka "Github" nie będzie się wyświetlać, jeśli członek nie dodał link w profilu
 * Zaimplementowano "Główny Zamysł"
 * Strona członków wyświetla liczbę ukończonych i realizowanych projektów
 * Nowe domyślne obrazki tytułowe
+* Teraz można włączyć lub wyłączyć wyświetlanie autora wpisu
 * Drobne ulepszenia i poprawki
 
 
