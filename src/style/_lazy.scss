@@ -5,6 +5,14 @@
 .blazy.b-loaded, .blazy.b-error {
   opacity: 1;
 }
+
+.sponsors-container .blazy.b-loaded {
+  opacity: 0.6;
+  &:hover {
+    opacity: 1;
+  }
+}
+
 .image.loading {
   // background-image: url(../img/card.png);
   background-image:$gradient-white;
