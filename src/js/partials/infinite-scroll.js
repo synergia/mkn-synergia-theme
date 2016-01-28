@@ -1,5 +1,7 @@
 // http://arresteddeveloper.net/wordpress-infinite-scroll-with-wordpress-posts-and-waypoints-js/
 
+// Chyba z tego zrobić należy objekt
+
 var project_status = jQuery('#finished_projects').attr('data-projects-status');
 var ajax_url = jQuery('#projects').attr('data-ajax-url');
 var total_finished_projects = jQuery('#finished_projects').attr('data-total-finished-projects');
@@ -8,10 +10,10 @@ var total_ideas_projects = jQuery('#ideas_projects').attr('data-total-ideas-proj
 var post_offset = 0;
 var loaded_finished_projects = 0;
 
-// Skrolujemy do stopki, wttedy uruchamia się funkcja loadProjects()
+// Skrolujemy do stopki, wtedy uruchamia się funkcja loadProjects()
 if (ajax_url) {
   $(window).scroll(function() {
-    if ($(window).scrollTop() == $(document).height() - $(window).height()) {
+    if ($(window).scrollTop() >= $(document).height() - $(window).height() - 100) {
       if ($('#ideas_projects').is(':visible')) {
         loaded_ideas_projects = $('#ideas_projects').children().length;
         loadProjects('ideas', total_ideas_projects, loaded_ideas_projects);
@@ -34,7 +36,7 @@ function loadProjects(projects_status, total_projects, loaded_projects) {
   console.info("Loaded %s projects: %d/%d",projects_status, loaded_projects, total_projects);
 
   if (total_projects > loaded_projects) {
-    $('.loader').show(500);
+    $('.loader').show();
     $.ajax({
       url: ajax_url,
       type: 'POST',
@@ -49,7 +51,7 @@ function loadProjects(projects_status, total_projects, loaded_projects) {
         console.info('Ajax: Loaded more %s projects', projects_status);
         bLazy.revalidate();
         cardExcerpt();
-        $('.loader').hide(500);
+        $('.loader').hide();
       }
     });
   } else {

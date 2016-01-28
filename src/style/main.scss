@@ -380,8 +380,8 @@ nav {
 .footer {
   position: relative;
   line-height: 1.2;
-  padding: 10px 20px;
-  @include mq($from: desktop) {
+  // padding: 10px 20px;
+  @include mq($from: tablet) {
     padding: 10px 0 15px;
   }
   border-top: $border-light;
