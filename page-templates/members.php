@@ -103,10 +103,7 @@ if (!empty($members)) { ?>
                 <?php echo get_number_of_projects($current_member, 'finished');?>
               </div>
             </a>
-            <a href="<?php echo get_site_url().'/author/'.$current_member->user_nicename;?>/#tab-2" title="Liczba realizowanych projektów">
-              <div class="in-progress"><?php echo get_number_of_projects($current_member, 'in_progress') ?></div>
-            </a>
-            </div>
+          </div>
         </div>
       </li>
 <?php } ?>

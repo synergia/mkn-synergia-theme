@@ -29,6 +29,8 @@ jQuery(function($) {
 
   //= partials/slider.js
 
+  //= partials/smooth-scrolling.js
+
 
   $(document).ready(function() {
 

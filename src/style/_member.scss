@@ -49,7 +49,14 @@ ul.member-list {
     @include mq($until: tablet) {
       position: absolute;
       top: 25%;
-      right: 2.750em;
+      right: 0;
+      &:hover .finished {
+        right: 40px;
+      }
+      &:hover .in-progress {
+        right: 10px;
+        z-index: 0;
+      }
     }
     &:hover .finished {
       right: 50px;
