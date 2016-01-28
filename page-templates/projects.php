@@ -85,7 +85,11 @@ $done_query = new WP_Query($done);
       </div>
     </div>
   </div>
-  <div class="loader">Loading...</div>
+  <div class="loader">
+    <span id="bubblingG_1"></span>
+    <span id="bubblingG_2"></span>
+    <span id="bubblingG_3"></span>
+  </div>
 </div>
 <?php wp_reset_query();     // Restore global post data stomped by the_post(). ?>
 
