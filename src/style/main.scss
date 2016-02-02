@@ -328,9 +328,9 @@ nav {
   padding: 0;
   overflow: hidden;
   text-align: center;
-  // @include mq($until: tablet) {
-  //   display: none;
-  // }
+  @include mq($until: tablet) {
+    display: none;
+  }
   h4 {
     text-transform: uppercase;
     font-weight: 700;
@@ -350,6 +350,7 @@ nav {
     width: auto;
     margin: 15px;
     max-height: 75px;
+    max-width: 200px;
     @include transition;
     &:hover {
       opacity: 1;
