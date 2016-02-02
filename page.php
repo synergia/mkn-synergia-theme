@@ -10,9 +10,6 @@
         if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 				<div class="center-cropped">
                     <header>
-                        <div class="meta-stuff">
-                            <time><?php the_date(); ?></time>
-                        </div>
 				            <h1 class="project-title"><?php the_title(); ?></h1>
                     </header>
 										<?php if ( has_post_thumbnail() ) { ?>
