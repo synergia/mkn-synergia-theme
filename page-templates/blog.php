@@ -14,7 +14,7 @@ Template Name: Blog
 				$args = array (
 					'pagination'             => true,
 					'posts_per_page'         => '5',
-					'paged' => $paged
+					'paged' 				 => $paged
 				);
             $query = new WP_Query( $args );
 

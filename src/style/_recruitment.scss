@@ -24,7 +24,7 @@
         }
       }
       &:hover {
-        background: $synergia-light-color;
+        background: $synergia-color-light;
       }
     }
   }
@@ -54,7 +54,7 @@
     font-size: 2em;
     width: 2em;
     text-shadow: 0 1px 2px $text-color;
-    @include transition;
+    @include transition($bezier);
     &:hover {
       text-shadow: 0 0 3px #fff;
     }
@@ -141,7 +141,7 @@
   -webkit-transform: scale(0.5);
   -ms-transform: scale(0.5);
   transform: scale(0.5);
-  @include transition;
+  @include transition($bezier);
 }
 input:checked ~ .modal-background {
   opacity: 1;

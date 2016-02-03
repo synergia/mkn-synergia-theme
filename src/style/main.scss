@@ -99,11 +99,11 @@ ol {
 a {
   color: $synergia-color;
   text-decoration: none;
-  @include transition;
+  @include transition($bezier);
 }
 a:hover,
 a:focus {
-  color: $synergia-light-color;
+  color: $synergia-color-light;
   text-decoration: underline;
 }
 a:focus {
@@ -153,10 +153,10 @@ img {
       > a {
         color: $synergia-color;
         &:hover {
-          color: $synergia-light-color;
+          color: $synergia-color-light;
         }
         @include mq($until: tablet) {
-          color: $synergia-light-color;
+          color: $synergia-color-light;
           &:hover {
             color: #fff;
           }
@@ -351,7 +351,7 @@ nav {
     margin: 15px;
     max-height: 75px;
     max-width: 200px;
-    @include transition;
+    @include transition($bezier);
     &:hover {
       opacity: 1;
       filter:alpha(opacity=100); // For IE8 and earlier
@@ -402,11 +402,11 @@ nav {
     overflow: hidden;
     background: $synergia-color;
     /* fallback for old browsers */
-    background: -webkit-linear-gradient(to left, $synergia-color , $synergia-light-color);
+    background: -webkit-linear-gradient(to left, $synergia-color , $synergia-color-light);
     /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to left, $synergia-color , $synergia-light-color);
+    background: linear-gradient(to left, $synergia-color , $synergia-color-light);
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    @include transition;
+    @include transition($bezier);
     color: #fff;
     font-size: 1.5em;
     display: -webkit-box;
@@ -485,15 +485,6 @@ nav {
   overflow: hidden;
   display: block;
   position: relative;
-  @include mq($until:tablet) {
-    max-height: 1440px;
-  }
-  @include mq($from:tablet) {
-    max-height: 520px;
-  }
-  @include mq($from:desktop) {
-    max-height: 560px;
-  }
   .bottom-fade {
     position: absolute;
     width: inherit;

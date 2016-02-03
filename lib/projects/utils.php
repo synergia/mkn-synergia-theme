@@ -1,15 +1,6 @@
 <?php
 // Różne funkcje //
 
-// Dodaje style dla paginacji //
-add_filter('next_posts_link_attributes', 'posts_link_attributes');
-add_filter('previous_posts_link_attributes', 'posts_link_attributes');
-
-function posts_link_attributes() {
-    return 'class="button pagination"';
-}
-
-
 // Ubiera obrazki w figure //
 // Tylko gdy obrazek ma tytuł jakiś, inaczej działa js, który wrzuca sam obrazek
 // w <figure>
@@ -139,7 +130,7 @@ function project_card ($query) {
             <?php the_excerpt(); ?>
           </div>
           <div class="action">
-            <a class="button" href="<?php the_permalink(); ?>">Czytaj dalej</a>
+            <a class="btn btn--readmore" href="<?php the_permalink(); ?>">Czytaj dalej</a>
           </div>
         </div>
       </div> <?php

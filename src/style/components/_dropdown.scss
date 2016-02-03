@@ -28,11 +28,11 @@ dd{
   display: block;
   text-decoration: none;
   cursor: pointer;
-  transition: all .2s $bezier;
+  @include transition($bezier);
   border-bottom: 4px solid $shadowlight;
   color: $cardbutton-color;
   &:hover{
-    border-color: $synergia-light-color;
+    border-color: $synergia-color-light;
     color: $text-color;
   }
 }
@@ -54,7 +54,7 @@ dd{
     max-height: 0;
     opacity: 0;
     padding: 0;
-    transition: opacity .2s $bezier, max-height .2s $bezier;
+    @include transition($bezier);
 
     list-style: none;
     background: $white;
@@ -77,7 +77,7 @@ dd{
     color: $cardbutton-color;
     text-decoration: none;
     cursor: pointer;
-    transition: background-color .2s $bezier, color .2s $bezier;
+    @include transition($bezier);
 
     &:hover{
       color: $darkGray;

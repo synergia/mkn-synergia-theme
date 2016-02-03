@@ -73,7 +73,7 @@ ul.member-list {
       }
     }
     .finished {
-      @include transition();
+      @include transition($bezier);
       border-radius: 50%;
       background-color: $synergia-color;
       color: #fff;
@@ -93,7 +93,7 @@ ul.member-list {
     .in-progress {
       @extend .finished;
       z-index: -1;
-      background-color: $synergia-light-color;
+      background-color: $synergia-color-light;
       right: 10px;
       @include mq($until: tablet) {
         right: 0;

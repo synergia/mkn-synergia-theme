@@ -28,7 +28,7 @@
     cursor: pointer;
     @include vertical-align();
     color: $shadowlight;
-    @include transition;
+    @include transition($bezier);
     &:hover {
       color: $shadowdark;
 

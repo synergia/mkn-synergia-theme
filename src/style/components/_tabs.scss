@@ -87,8 +87,8 @@ label {
           display: block;
           color: $synergia-color;
           &:hover {
-            color: $synergia-light-color;
-            @include transition;
+            color: $synergia-color-light;
+            @include transition($bezier);
           }
         }
       }

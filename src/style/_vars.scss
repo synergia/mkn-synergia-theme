@@ -4,13 +4,19 @@ $font-size: 16px;
 $line-height: 1.4;
 
 //COLORS
-$text-color: #333;
-$cardbutton-color: #565656;
-$background-color: #fff;
-$synergia-color: #6c4892;
-$grey: #F8F8F8;
-$synergia-grey-color: #efeff0;
-$synergia-light-color: lighten($synergia-color, 20%);
+$text-color:           #333;
+$cardbutton-color:     #565656;
+$background-color:     #fff;
+$grey:                 #D2D2D2;
+$grey-dark:            darken($grey, 20%);
+$grey-light:           lighten($grey, 20%);
+$synergia-grey-color:  #efeff0;
+$synergia-color:       #6c4892;
+$synergia-color-light: lighten($synergia-color, 20%);
+$synergia-color-dark:  darken($synergia-color, 20%);
+
+//OTHER
+$container-width: 1000px;
 
 //BUTTON
 // http://codepen.io/jreece/pen/myeJBN
@@ -20,14 +26,12 @@ $bezier: cubic-bezier(.4,0,.2,1);
 
 //BORDER
 $border-light: 1px solid rgba(0, 0, 0, 0.1);
+$radius: 0.125em;
 
 //LOGO
 $image-path: 'img' !default;
 $fallback-extension: 'png' !default;
 $retina-suffix: '@2x';
-
-//OTHER
-$container-width: 1000px;
 
 //IMAGES
 $image-opacity: 0.6;
@@ -37,7 +41,6 @@ $gradient-black: linear-gradient(transparent, rgba(0, 0, 0, 0.4));
 $gradient-white: linear-gradient(transparent, rgba(255, 255, 255, 1));
 
 // Breakpoints //
-
 $mq-media-type: screen;
 
 $mq-breakpoints: (
@@ -55,19 +58,19 @@ $secondary-color: #34495e;
 * Source: http://flatuicolors.com
 */
 $pomegranate: #c0392b;
-$alizarin: #e74c3c;
-$pumpkin: #d35400;
-$carrot: #e67e22;
-$orange: #f39c12;
-$sunflower: #f1c40f;
-$emerald: #2ecc71;
-$nephritis: #27ae60;
-$turquoise: #1abc9c;
-$green-sea: #16a085;
+$alizarin:    #e74c3c;
+$pumpkin:     #d35400;
+$carrot:      #e67e22;
+$orange:      #f39c12;
+$sunflower:   #f1c40f;
+$emerald:     #2ecc71;
+$nephritis:   #27ae60;
+$turquoise:   #1abc9c;
+$green-sea:   #16a085;
 $peter-river: #3498db;
 $belize-hole: #2980b9;
-$amethyst: #9b59b6;
-$wisteria: #8e44ad;
+$amethyst:    #9b59b6;
+$wisteria:    #8e44ad;
 
 
 $note-spacing: 24px;

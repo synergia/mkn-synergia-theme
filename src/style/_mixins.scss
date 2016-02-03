@@ -62,8 +62,8 @@
 	object-fit: cover;
 }
 
-@mixin transition() {
-	transition: all 0.2s $bezier;
+@mixin transition($transition-type) {
+	transition: all 0.2s $transition-type;
 }
 
 @mixin box-shadow {

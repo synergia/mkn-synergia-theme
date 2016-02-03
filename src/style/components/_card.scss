@@ -21,10 +21,9 @@
   }
   .action {
     border-top: $border-light;
+    padding: 0.625em;
     a {
-      @extend .button;
-      @extend .pagination;
-      margin-right: 1.250em;
+      margin:0;
       text-transform: uppercase;
       text-decoration: none;
       font-weight: 600;
