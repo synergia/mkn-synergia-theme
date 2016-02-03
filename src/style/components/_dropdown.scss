@@ -31,8 +31,8 @@ dd {
     right: 0;
     left: 0;
     width: 300px;
+    z-index: 1;
     ul {
-        z-index: 1;
         overflow: hidden;
         @include border-radius($radius);
         max-height: 0;
