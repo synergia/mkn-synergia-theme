@@ -1,70 +1,58 @@
 //CARD
 .card {
-  display: inline-block;
-  vertical-align: top;
-  position: relative;
-  overflow: hidden;
-  margin: 10px;
-  @include box-shadow;
-  @include border-radius(0.125em);
-  .excerpt {
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+    border: $border-light;
+    @include border-radius($radius);
+}
+.card__excerpt {
     padding: 1.250em;
     font-weight: 300;
     border-radius: 0 0 0.125em 0.125em;
     height: 5.000em;
+    background-color: #fff;
     @include mq($until: desktop) {
-      height: 6em;
+        height: 6em;
     }
-  }
-  p {
-    margin: 0;
-  }
-  .action {
+}
+.card__action {
     border-top: $border-light;
-    padding: 0.625em;
-    a {
-      margin:0;
-      text-transform: uppercase;
-      text-decoration: none;
-      font-weight: 600;
-      letter-spacing: inherit;
-      color: $cardbutton-color;
-      &:hover {
-        color: $text-color;
-      }
-    }
-  }
-  .image {
+    padding: 0.625em 0;
+    background-color: #fff;
+}
+.card__overimage {
     position: relative;
-    background-image:$gradient-black;
+    background-image: $gradient-black;
     height: 13.750em;
     @include mq($from: wide) {
-      height: 18.750em;
+        height: 18.750em;
     }
     overflow: hidden;
     width: inherit;
     @include mq($from:desktop) {
-      height: 15.875em;
+        height: 15.875em;
     }
+    // Brzydko, ale bLazy nie może dodać klasę, gdy już jest tam jakaś
     img {
-      border-radius: 0.125em 0.125em 0 0;
-      position: relative;
-      left: 0;
-      right: 0;
-      top: 0;
-      bottom: 0;
-      width: 100%;
-      z-index: -1;
-      height: auto;
+        position: relative;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        z-index: -1;
+        height: auto;
     }
-    .title {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      padding: 1.250em 1.250em 0.625em;
-      color: #ffffff;
-      margin: 0;
-      font-weight: 400;
-    }
-  }
+}
+.card__title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 1.250em 1.250em 0.625em;
+    color: #ffffff;
+    margin: 0;
+    font-weight: 400;
 }

@@ -113,20 +113,20 @@ function project_card ($query) {
       <div class="gl-lg-4 gl-md-6 gl-cell left card-wrapper">
         <div class="card">
           <a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>">
-            <div class="image loading">
+            <div class="card__overimage loading">
               <?php if ( has_post_thumbnail() ) { ?>
                 <img class="blazy"
                      alt="<?php the_title(); ?>"
                      src="<?php bloginfo('template_directory'); ?>/build/img/card.png"
                      data-src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), 'card_image', true)[0];?>"/>
               <?php } else { ?><img class="blazy" src="<?php bloginfo('template_directory'); ?>/build/img/card.png" /><?php } ?>
-              <h2 class="title"><?php the_title(); ?></h2>
+              <h2 class="card__title"><?php the_title(); ?></h2>
             </div>
           </a>
-          <div class="excerpt">
-            <?php the_excerpt(); ?>
+          <div class="card__excerpt">
+            <?php echo get_the_excerpt(); ?>
           </div>
-          <div class="action">
+          <div class="card__action">
             <a class="btn btn--readmore" href="<?php the_permalink(); ?>">Czytaj dalej</a>
           </div>
         </div>

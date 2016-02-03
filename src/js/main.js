@@ -15,8 +15,6 @@ jQuery(function($) {
 
   //= partials/recruitment.js
 
-  //= partials/ripple-effect.js
-
   //= partials/show-nicknames.js
 
   //= partials/tabs.js

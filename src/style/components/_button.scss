@@ -21,7 +21,7 @@ $default-ratio: 10%;
     vertical-align: middle;
     text-align: center;
     border: none;
-    @include border-radius($radius);
+    @include border-radius(2px);
     margin: 0;
     cursor: pointer;
     overflow: visible;
@@ -51,7 +51,11 @@ $default-ratio: 10%;
     &--readmore {
         margin: 0 10px;
         font-weight: bold;
+        color: $text-color-light;
         @include btn-states($grey);
+        &:hover {
+          color: $text-color;
+        }
     }
     &--synergia {
         background-color: $synergia-color-light;
