@@ -86,11 +86,9 @@ function download_button ($project_ID) {
     if($files){
  ?>
  <div class="download-button-container">
-   <div id="dd" class="dropdown raised">
-     <div class="front">
-       <span>Pobierz <i class="icon icon-down-open-big"></i></span>
-     </div>
-     <div class="back">
+   <dl class="dropy">
+     <dt class="dropy__title btn btn--synergia btn--raised">Pobierz <i class="icon icon-down-open-big"></i></dt>
+     <dd class="dropy__content">
        <ul> <?php
          if ( is_array($files) ) {
              foreach( $files as $file ) {
@@ -100,8 +98,7 @@ function download_button ($project_ID) {
              }
          } ?>
        </ul>
-     </div>
-   </div>
+     </dd><input type="hidden" name="first"></dl>
  </div>
 <?php
     }

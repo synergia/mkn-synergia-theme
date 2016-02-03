@@ -3,8 +3,6 @@
 
 jQuery(function($) {
 
-  //= partials/dropdown-download.js
-
   //= partials/dropdown.js
 
   //= partials/excerpt.js

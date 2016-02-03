@@ -9,11 +9,11 @@ $cardbutton-color:     #565656;
 $background-color:     #fff;
 $grey:                 #D2D2D2;
 $grey-dark:            darken($grey, 20%);
-$grey-light:           lighten($grey, 20%);
+$grey-light:           lighten($grey, 10%);
 $synergia-grey-color:  #efeff0;
 $synergia-color:       #6c4892;
-$synergia-color-light: lighten($synergia-color, 20%);
-$synergia-color-dark:  darken($synergia-color, 20%);
+$synergia-color-light: lighten($synergia-color, 10%);
+$synergia-color-dark:  darken($synergia-color, 10%);
 
 //OTHER
 $container-width: 1000px;
