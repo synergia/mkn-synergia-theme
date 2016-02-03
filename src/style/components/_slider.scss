@@ -27,10 +27,10 @@
     font-size: 2em;
     cursor: pointer;
     @include vertical-align();
-    color: $shadowlight;
+    color: $grey;
     @include transition($bezier);
     &:hover {
-      color: $shadowdark;
+      color: $grey-dark;
 
     }
     @include mq($until: tablet) {

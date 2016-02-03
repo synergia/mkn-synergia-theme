@@ -13,10 +13,10 @@
   }
 }
 
-.image.loading {
+.card__overimage.loading {
   // background-image: url(../img/card.png);
   background-image:$gradient-white;
 }
 .center-cropped.loading {
-  @extend .image.loading;
+  @extend .card__overimage.loading ;
 }
