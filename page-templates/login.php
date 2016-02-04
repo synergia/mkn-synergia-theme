@@ -39,9 +39,9 @@ if ( $login === "failed" ) { ?>
 }
 ?>
 
-    <div id="login-form">
-      <a href="<?php echo get_option('siteurl') ?>"><h3></h3></a>
-      <fieldset>
+    <div class="loginbox">
+      <a href="<?php echo get_option('siteurl') ?>"><h3 class="loginbox__title"></h3></a>
+      <fieldset class="loginbox__fieldset">
         <?php synergia_login_form(  ); ?>
         <!-- <a href="<?php echo wp_lostpassword_url(); ?>">Lost</a> -->
       </fieldset>

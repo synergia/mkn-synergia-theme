@@ -58,10 +58,10 @@ function synergia_login_form( $args = array() ) {
 
 	$form = '
 		<form name="' . $args['form_id'] . '"  action="' . esc_url( wp_login_url() ) . '" method="post">
-				<input type="text" name="log" id="' . esc_attr( $args['id_username'] ) . '"  value="" required placeholder="Login"/>
-				<input type="password" name="pwd" id="' . esc_attr( $args['id_password'] ) . '" required value="" placeholder="*****"  />
-        ' . ( $args['remember'] ? '<input name="rememberme" type="checkbox" value="forever"' . ( $args['value_remember'] ? ' checked="checked"' : '' ) . ' /> ' : '' ) . '
-        <button type="submit" class="synergia-button button raised" name="wp-submit" >'. esc_attr( $args['label_log_in'] ) . '</button>
+				<input class="loginbox__input loginbox__input--login" type="text" name="log" id="' . esc_attr( $args['id_username'] ) . '"  value="" required placeholder="Login"/>
+				<input class="loginbox__input loginbox__input--password" type="password" name="pwd" id="' . esc_attr( $args['id_password'] ) . '" required value="" placeholder="*****"  />
+        ' . ( $args['remember'] ? '<input class="loginbox__input loginbox__input--checkbox" name="rememberme" type="checkbox" value="forever"' . ( $args['value_remember'] ? ' checked="checked"' : '' ) . ' /> ' : '' ) . '
+        <button type="submit" class="btn btn--synergia btn--full btn--raised" name="wp-submit" >'. esc_attr( $args['label_log_in'] ) . '</button>
         <input type="hidden" name="redirect_to" value="' . esc_url( $args['redirect'] ) . '" />
 		</form>';
 
