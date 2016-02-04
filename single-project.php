@@ -4,21 +4,21 @@
 
 		<!-- start content container -->
 <div class="content-wrapper">
-	<div class="project-container">
+	<div class="project">
 
 			<?php // theloop
         if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-				<div class="center-cropped loading">
-                    <header>
-                        <div class="meta-stuff">
+				<header class="project__header loading">
+                    <div class="bottom">
+                        <div class="project__meta">
                             <?php the_project_status(get_the_ID()); ?>
-                            <time><?php the_date(); ?></time>
+                            <time class="project__time"><?php the_date(); ?></time>
                             <?php the_project_links(get_the_ID()); ?>
                         </div>
-				            <h1 class="project-title"><?php the_title(); ?></h1>
-                    </header>
+				            <h1 class="project__title"><?php the_title(); ?></h1>
+                    </div>
 										<?php if ( has_post_thumbnail() ) { ?>
-											<img class="blazy"
+											<img class="project__featuredimg blazy"
 													 alt="<?php the_title(); ?>"
 													 src="<?php bloginfo('template_directory'); ?>/build/img/full.png"
 													 data-src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), 'full', true)[0];?>"
@@ -26,9 +26,9 @@
 
 										<?php } else { ?><img class="blazy" src="<?php bloginfo('template_directory'); ?>/build/img/full.png"										data-src="<?php bloginfo('template_directory'); ?>/build/img/full.png"
 										data-src-small="<?php bloginfo('template_directory'); ?>/build/img/card.png"/><?php } ?>
-				</div>
+				</header>
 					<?php get_template_part('template-part', 'authors');?>
-					<div class="project-content"><?php the_content(); ?>
+					<div class="project__content"><?php the_content(); ?>
 						<?php download_button(get_the_ID()); ?>
 					</div>
 				<?php wp_link_pages(); ?>

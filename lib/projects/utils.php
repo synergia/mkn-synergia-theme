@@ -55,9 +55,9 @@ function custom_oembed_filter($html, $url, $attr, $post_ID) {
 function the_project_status($project_ID) {
     $project_status = get_post_meta($project_ID, "project_status", true);
     if($project_status){
-        echo '<span>Stan: '.$project_status.'</span>';
+        echo '<span class="project__status">Stan: '.$project_status.'</span>';
     }else {
-        echo '<span>Stan: Nieznany</span>';
+        echo '<span class="project__status">Stan: Nieznany</span>';
     }
 }
 
@@ -67,7 +67,7 @@ function the_project_links($project_ID) {
     $facebook = get_post_meta($project_ID, "facebook", true);
     $github = get_post_meta($project_ID, "github", true);
     if( $web || $facebook || $github) {
-        echo '<div class="project-links">';
+        echo '<div class="project__links">';
         if($web){
             echo '<a title="Strona internetowa projektu" href="'.get_post_meta($project_ID, "web", true).'"><i class="icon icon-link"></i></a>';
         }

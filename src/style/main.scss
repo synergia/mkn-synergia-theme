@@ -514,10 +514,12 @@ nav {
 @import 'author';
 @import 'archive';
 @import 'components';
+// Style z project także wykorzystywane są w single i page
 @import 'project';
 @import 'member';
 @import 'recruitment';
 @import "login";
 @import 'animate';
 @import "lazy";
+@import "helpers";
 @import "print";
