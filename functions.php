@@ -65,6 +65,7 @@ include 'lib/general/slider.php';
 include 'lib/general/lazy.php';
 include 'lib/general/dashboard.php';
 include 'lib/general/setup.php';
+include 'lib/general/walker.php';
 // Login
 include 'lib/login/login.php';
 

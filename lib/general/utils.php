@@ -146,3 +146,15 @@ add_filter('previous_posts_link_attributes', 'posts_link_attributes');
 function posts_link_attributes() {
     return 'class="btn btn--pagination"';
 }
+
+// // Nawigacja //
+// // http://wordpress.stackexchange.com/a/91207/86477
+// add_filter('nav_menu_css_class', 'add_active_class_to_nav_menu');
+//
+// function add_active_class_to_nav_menu($classes) {
+//     if (in_array('current-menu-item', $classes, true) || in_array('current_page_item', $classes, true)) {
+//         $classes = array_diff($classes, array('current-menu-item', 'current_page_item', 'active'));
+//         $classes[] = 'active';
+//     }
+//     return $classes;
+// }
