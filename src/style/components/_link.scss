@@ -1,0 +1,27 @@
+.link {
+    // PODSTAWOWY //
+    color: $synergia-color;
+    text-decoration: none;
+    @include transition($bezier);
+    &:hover {
+        color: $synergia-color-light;
+        text-decoration: underline;
+        text-decoration: none;
+    }
+    &:focus {
+        outline: none;
+        outline: 5px auto -webkit-focus-ring-color;
+        outline-offset: -2px;
+    }
+    // MODYFIKATORY //
+    &--logo {
+        @include background-image('logo');
+        display: block;
+        width: 50px;
+        height: 50px;
+        @include mq($from:tablet) {
+            width: 300px;
+            height: 50px;
+        }
+    }
+}
