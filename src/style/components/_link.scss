@@ -24,4 +24,24 @@
             height: 50px;
         }
     }
+    &--project {
+        color: #ffffff;
+        &:hover {
+            text-shadow: 0 0 2px #FFFFFF;
+            color: #ffffff;
+        }
+    }
+    &--name {
+        color: $text-color;
+        text-decoration: none;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        &:hover {
+            color: $text-color;
+        }
+    }
+    &--social {
+        color: $text-color;
+    }
 }

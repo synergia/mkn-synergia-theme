@@ -37,12 +37,6 @@
         display: inline;
         padding: 0 5px;
         border-left: 1px solid rgba(255, 255, 255, 0.2);
-        a {
-            color: #ffffff;
-            &:hover {
-                text-shadow: 0 0 2px #FFFFFF;
-            }
-        }
     }
     &__featuredimg {
         height: auto;
@@ -158,12 +152,5 @@
         width: calc(100% - 65px);
         font-size: 1.5em;
         padding-left: 10px;
-        a {
-            color: $text-color;
-            text-decoration: none;
-            text-overflow: ellipsis;
-            overflow: hidden;
-            white-space: nowrap;
-        }
     }
 }
