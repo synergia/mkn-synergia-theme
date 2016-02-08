@@ -108,7 +108,6 @@ Usunąć folder `build`:
 *   [Prism.js](http://prismjs.com/index.html) - Prism is a lightweight, extensible syntax highlighter, built with modern web standards in mind.
 *   [Normalize.css](http://Normalize.css) - A modern, HTML5-ready alternative to CSS resets
 *   [burger](http://codepen.io/bennettfeely/pen/twbyA)
-*   [Material Buttons ](http://codepen.io/jreece/pen/myeJBN)
 *   [Transformer Tabs, minimal JS ](http://codepen.io/Merri/pen/FAtDq)
 *   [Ikony "Entypo"](http://www.entypo.com/)
 *   [Animate.css](http://daneden.github.io/animate.css/) -  Just-add-water CSS animations

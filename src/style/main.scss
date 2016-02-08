@@ -96,21 +96,6 @@ ol {
     margin-top: 0;
     margin-bottom: 10px;
 }
-a {
-    color: $synergia-color;
-    text-decoration: none;
-    @include transition($bezier);
-}
-a:hover,
-a:focus {
-    color: $synergia-color-light;
-    text-decoration: underline;
-}
-a:focus {
-    outline: none;
-    outline: 5px auto -webkit-focus-ring-color;
-    outline-offset: -2px;
-}
 figure {
     margin: 0;
 }
@@ -513,6 +498,7 @@ nav {
 }
 @import 'author';
 @import "topbar";
+@import "nojs";
 @import 'archive';
 @import 'components';
 // Style z project także wykorzystywane są w single i page

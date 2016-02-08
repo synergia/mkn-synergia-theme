@@ -37,4 +37,7 @@ jQuery(function($) {
   });
   // Prezes zawsze na pierwszym miejscu //
   $('#management_board li#admin').insertBefore('#management_board li:eq(0)');
+
+  // Dodaje do <a> klasę "link"
+  $('.project__content a').addClass('link');
 });

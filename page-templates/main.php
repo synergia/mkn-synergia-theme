@@ -6,7 +6,7 @@ Template Name: Główna
 <?php global $snrg_option_global; ?>
 
 <?php get_header(); ?>
-<?php get_template_part('template-part', 'topnav'); ?>
+<?php get_template_part('template-part', 'topbar'); ?>
 <?php // args
 $projects = array(
     'numberposts' => -1,
