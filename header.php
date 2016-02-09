@@ -25,4 +25,4 @@
         </div>
     </noscript>
     <div class="global">
-      <div class="container dmbs-container">
+      <div class="container">

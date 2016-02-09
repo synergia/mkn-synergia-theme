@@ -9,7 +9,7 @@ Template Name: Członkowie
 <?php get_template_part('template-part', 'topbar'); ?>
 
 <!-- start content container -->
-<div class="content-wrapper">
+<div class="compensator">
   <div class="gl">
     <div class="gl-sm-9 gl-cell">
 

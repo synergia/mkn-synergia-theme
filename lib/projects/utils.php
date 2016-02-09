@@ -110,12 +110,11 @@ function project_card ($query) {
   if ($query->have_posts()) {
     while ($query->have_posts()) {
       $query->the_post(); ?>
-      <div class="gl-lg-4 gl-md-6 gl-cell left card-wrapper">
         <div class="card">
           <a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>">
             <div class="card__overimage loading">
               <?php if ( has_post_thumbnail() ) { ?>
-                <img class="blazy"
+                <img class="card__image blazy"
                      alt="<?php the_title(); ?>"
                      src="<?php bloginfo('template_directory'); ?>/build/img/card.png"
                      data-src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), 'card_image', true)[0];?>"/>
@@ -130,7 +129,7 @@ function project_card ($query) {
             <a class="btn btn--readmore" href="<?php the_permalink(); ?>">Czytaj dalej</a>
           </div>
         </div>
-      </div> <?php
+ <?php
     }
   }
 }

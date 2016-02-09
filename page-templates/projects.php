@@ -44,7 +44,7 @@ $in_progress_query = new WP_Query($in_progress);
 $done_query = new WP_Query($done);
 
 ?>
-<div class="content-wrapper" id="projects" data-ajax-url="<?php echo admin_url('admin-ajax.php'); ?>">
+<div class="compensator" id="projects" data-ajax-url="<?php echo admin_url('admin-ajax.php'); ?>">
   <div class="tabs">
     <input id="tab-1" name="tabset-1" type="radio" hidden checked/>
     <input id="tab-2" name="tabset-1" type="radio" hidden />

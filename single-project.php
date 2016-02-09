@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 <?php get_template_part('template-part', 'topbar'); ?>
 
-<div class="content-wrapper">
+<div class="compensator">
 	<div class="project">
 
 <?php // theloop

@@ -1,11 +1,13 @@
 //CARD
 .card {
+    box-sizing: border-box;
     display: inline-block;
     vertical-align: top;
     position: relative;
     overflow: hidden;
     margin: 10px;
     border: $border-light;
+    width: 320px;
     @include border-radius($radius);
     &__excerpt {
         padding: 1.250em;
@@ -26,25 +28,22 @@
         position: relative;
         background-image: $gradient-black;
         height: 13.750em;
-        @include mq($from: wide) {
-            height: 18.750em;
-        }
+        z-index: 2;
         overflow: hidden;
         width: inherit;
         @include mq($from:desktop) {
             height: 15.875em;
         }
-        // Brzydko, ale bLazy nie może dodać klasę, gdy już jest tam jakaś
-        img {
-            position: relative;
-            left: 0;
-            right: 0;
-            top: 0;
-            bottom: 0;
-            width: 100%;
-            z-index: -1;
-            height: auto;
-        }
+    }
+    &__image {
+        position: relative;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        z-index: 1;
+        height: auto;
     }
     &__title {
         position: absolute;

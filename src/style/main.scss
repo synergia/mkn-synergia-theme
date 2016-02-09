@@ -111,37 +111,29 @@ img {
     background-color: $background-color;
     z-index: 1;
     margin-bottom: 100vh;
+    box-shadow: $shadow-light-bottom;
     @include mq($from:tablet) {
         margin-bottom: 75vh;
     }
 }
-
-.content-wrapper {
+.compensator {
     @include clearfix;
     @include mq($from:tablet) {
-        margin: -10px -10px 0; //kompensacja odstępu dla .card
-    }
-}
-.dmbs-container {
-    @include mq($from: tablet) {
-        margin-top: 0;
+        margin: -10px -10px 0; //kompensacja odstępu
     }
 }
 .container {
-    @include mq($from: tablet) {
-        bottom: 50vh;
-    }
     @include clearfix;
     margin-right: auto;
     margin-left: auto;
     @include mq($from: tablet) {
-        width: 750px;
+        width: $container-tablet;
     }
     @include mq($from: desktop) {
-        width: 970px;
+        width: $container-desktop;
     }
     @include mq($from: wide) {
-        width: $container-width;
+        width: $container-wide;
     }
 }
 .sponsors-container {
@@ -189,31 +181,13 @@ img {
         margin-top: 0;
     }
 }
-
 .portfolio-content {
-    overflow: hidden;
-    display: block;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
     position: relative;
-    .bottom-fade {
-        position: absolute;
-        width: inherit;
-        background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 1));
-        bottom: 0;
-        left: 0;
-        height: 100px;
-        display: table-cell;
-        text-align: center;
-        vertical-align: middle;
-        a {
-            font-weight: 600;
-            display: inline-block;
-            text-decoration: none;
-            font-weight: 600;
-            letter-spacing: inherit;
-            color: #fff;
-            position: relative;
-            @include vertical-align();
-        }
+    @include mq($from: tablet) {
+        align-content: flex-start;
     }
 }
 @import 'author';

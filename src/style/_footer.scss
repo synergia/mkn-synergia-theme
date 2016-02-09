@@ -5,7 +5,7 @@
     bottom: 0;
     width: 100%;
     z-index: -1;
-    background:linear-gradient(210deg, #5566e2, #6c42a4, #b226f9);
+    background:linear-gradient(210deg, #5566e2, #b226f9, #6c42a4);
     background-size: 600% 600%;
     animation: AnimationName 30s ease infinite;
     @keyframes AnimationName {
@@ -33,7 +33,7 @@
     margin: 0 auto;
     text-align: center;
     @include mq($from:desktop) {
-        width: $container-width;
+        width: $container-wide;
     }
     &__pwr {
         height: 200px;

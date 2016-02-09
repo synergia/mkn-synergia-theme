@@ -15,8 +15,8 @@ $projects = array(
 );
 $projects_query = new WP_Query($projects);
 ?>
-<div class="content-wrapper">
-  <div class="gl portfolio-content">
+<div class="compensator">
+  <div class="portfolio-content">
     <?php project_card($projects_query); ?>
   </div>
 </div>
