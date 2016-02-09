@@ -8,6 +8,7 @@
     margin: 10px;
     border: $border-light;
     width: 320px;
+    z-index: 3;
     @include border-radius($radius);
     &__excerpt {
         padding: 1.250em;
@@ -28,7 +29,7 @@
         position: relative;
         background-image: $gradient-black;
         height: 13.750em;
-        z-index: 2;
+        z-index: initial;
         overflow: hidden;
         width: inherit;
         @include mq($from:desktop) {
@@ -42,7 +43,7 @@
         top: 0;
         bottom: 0;
         width: 100%;
-        z-index: 1;
+        z-index: -1;
         height: auto;
     }
     &__title {
@@ -53,5 +54,6 @@
         color: #ffffff;
         margin: 0;
         font-weight: 400;
+        z-index: 2;
     }
 }
