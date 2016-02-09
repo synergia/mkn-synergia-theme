@@ -1,0 +1,55 @@
+.footer-wrapper {
+    background-color: $synergia-color;
+    height: 100vh;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background:linear-gradient(210deg, #5566e2, #6c42a4, #b226f9);
+    background-size: 600% 600%;
+    animation: AnimationName 30s ease infinite;
+    @keyframes AnimationName {
+        0% {
+            background-position: 0 51%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0 51%;
+        }
+    }
+    @include mq($from:tablet) {
+        height: 75vh;
+    }
+}
+.footer {
+    color: #ffffff;
+    display: flex;
+    height: inherit;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 0 auto;
+    text-align: center;
+    @include mq($from:desktop) {
+        width: $container-width;
+    }
+    &__pwr {
+        height: 200px;
+        margin: 40px;
+        width: auto;
+        fill: #ffffff;
+        @include transition($bezier);
+    }
+    &__mknm {
+        margin: 5px 10px 10px;
+    }
+    &__others {
+        margin: 10px 10px 5px;
+        font-size: 0.75em;
+    }
+    &__social {
+        margin: 20px;
+        font-size: 2em;
+    }
+}

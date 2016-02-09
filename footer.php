@@ -2,31 +2,27 @@
 </div>
 <div class="footer-wrapper">
   <div class="footer">
-    <div class="gl">
-      <div class="mknm-footer gl-sm-5 gl-cell">
-        <a href="<?php echo esc_url(home_url('/')); ?>">Międzywydziałowe Koło Naukowe<br>Mechatroniki "Synergia"</a> <?php echo comicpress_copyright(); ?>
-        <ul>
-          <li><a href="http://tmm.pwr.wroc.pl">Zakład Teorii Maszyn i Układów Mechatronicznych</a></li>
-          <li><a href="http://wmech.pwr.wroc.pl/">Wydział Mechaniczny</a></li>
-          <li><a href="http://weka.pwr.wroc.pl/">Wydział Elektroniki</a></li>
-        </ul>
+      <a href="http://www.pwr.edu.pl/index.dhtml" target="_blank">
+          <?php get_template_part('template-part', 'pwr'); ?>
+      </a>
+      <span class="footer__social">
+          <a class="link link--footer" href="<?php echo site_url(); ?>/archive" title="Archiwum"><i class="icon-archive"></i></a>
+          <a class="link link--footer" href="<?php echo $general_options['fb_link'] ?>" title="Polub"><i class="icon-facebook"></i></a>
+          <a class="link link--footer" href="<?php echo $general_options['twitter_link'] ?>" title="Śledź"><i class="icon-twitter"></i></a>
+          <a class="link link--footer" href="<?php echo $general_options['github_link'] ?>" title="Kod"><i class="icon-github"></i></a>
+      </span>
+      <span class="footer__others">
+          <a class="link link--footer" href="http://wmech.pwr.wroc.pl/">Wydział Mechaniczny</a> &middot;
+          <a class="link link--footer" href="http://tmm.pwr.wroc.pl">Zakład Teorii Maszyn i Układów Mechatronicznych</a> &middot;
+          <a class="link link--footer" href="http://weka.pwr.wroc.pl/">Wydział Elektroniki</a>
+      </span>
+      <span class="footer__mknm">
+          <a class="link link--footer" href="<?php echo esc_url(home_url('/')); ?>">Międzywydziałowe Koło Naukowe Mechatroniki "Synergia"</a> <?php echo comicpress_copyright(); ?>
+      </span>
       </div>
-      <div class="gl-sm-2 gl-cell">
-        <a href="http://www.pwr.edu.pl/index.dhtml" target="_blank">
-          <div class="pwr"></div>
-        </a>
-      </div>
-      <div class="gl-sm-5 gl-cell footer-icons">
-        <div>
-          <a href="<?php echo site_url(); ?>/archive" title="Archiwum"><i class="icon-archive"></i></a>
-          <a href="<?php echo $general_options['fb_link'] ?>" title="Polub"><i class="icon-facebook"></i></a>
-          <a href="<?php echo $general_options['twitter_link'] ?>" title="Śledź"><i class="icon-twitter"></i></a>
-          <a href="<?php echo $general_options['github_link'] ?>" title="Kod"><i class="icon-github"></i></a>
-        </div>
-      </div>
-    </div>
-    <div class="hidden-footer">
-      <span>Zrobione z <i class="icon-heart"></i> we Wrocławiu.</span>
+
+
+
     </div>
   </div>
 </div>

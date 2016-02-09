@@ -14,6 +14,7 @@
         outline-offset: -2px;
     }
     // MODYFIKATORY //
+    // --TOPBAR //
     &--logo {
         @include background-image('logo');
         display: block;
@@ -24,6 +25,7 @@
             height: 50px;
         }
     }
+    // --PROJEKT //
     &--project {
         color: #ffffff;
         &:hover {
@@ -43,5 +45,14 @@
     }
     &--social {
         color: $text-color;
+    }
+    // --FOOTER //
+    &--footer {
+        color: #ffffff;
+        margin: 0 2px;
+        &:hover {
+            color: #ffffff;
+            text-shadow: 0 0 2px #FFFFFF;
+        }
     }
 }
