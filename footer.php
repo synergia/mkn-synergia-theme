@@ -1,5 +1,6 @@
 <?php global $general_options; ?>
-</div>
+    </div>
+</div><!--Closes Global -->
 <div class="footer-wrapper">
   <div class="footer">
       <a href="http://www.pwr.edu.pl/index.dhtml" target="_blank">

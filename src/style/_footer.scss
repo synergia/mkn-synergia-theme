@@ -4,6 +4,7 @@
     position: fixed;
     bottom: 0;
     width: 100%;
+    z-index: -1;
     background:linear-gradient(210deg, #5566e2, #6c42a4, #b226f9);
     background-size: 600% 600%;
     animation: AnimationName 30s ease infinite;

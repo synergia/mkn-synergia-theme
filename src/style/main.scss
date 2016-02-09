@@ -107,6 +107,15 @@ img {
     }
 }
 //========================//
+.global {
+    background-color: $background-color;
+    z-index: 1;
+    margin-bottom: 100vh;
+    @include mq($from:tablet) {
+        margin-bottom: 75vh;
+    }
+}
+
 .content-wrapper {
     @include clearfix;
     @include mq($from:tablet) {
