@@ -58,23 +58,23 @@ function get_ex_members() {
 
 function social_links($current_member){
     if ($current_member->show_mail) {
-        echo '<a title="Poczta" data-email href="mailto:'.$current_member->user_email.'"><i class="icon icon-mail"></i>';
+        echo '<a class="link" title="Poczta" data-email href="mailto:'.$current_member->user_email.'"><i class="icon icon-mail"></i>';
         if (is_author()) {
             echo 'napisz';
         }
         echo '</a>';
     }
     if ($current_member->github_profile) {
-        echo '<a data-github title="Github" href="'.$current_member->github_profile.'"><i class="icon icon-github"></i></a>';
+        echo '<a class="link" data-github title="Github" href="'.$current_member->github_profile.'"><i class="icon icon-github"></i></a>';
     }
     if ($current_member->twitter_profile) {
-        echo '<a data-twitter title="Twitter" href="'.$current_member->twitter_profile.'"><i class="icon icon-twitter"></i></a>';
+        echo '<a class="link" data-twitter title="Twitter" href="'.$current_member->twitter_profile.'"><i class="icon icon-twitter"></i></a>';
     }
     if ($current_member->facebook_profile) {
-        echo '<a data-facebook title="Facebook" href="'.$current_member->facebook_profile.'"><i class="icon icon-facebook"></i></a>';
+        echo '<a class="link" data-facebook title="Facebook" href="'.$current_member->facebook_profile.'"><i class="icon icon-facebook"></i></a>';
     }
     if ($current_member->cv) {
-      echo '<a data-cv title="Zobacz moje CV" href="'.$current_member->cv.'"><i class="icon icon-briefcase"></i>';
+      echo '<a class="link" data-cv title="Zobacz moje CV" href="'.$current_member->cv.'"><i class="icon icon-briefcase"></i>';
       if (is_author()) {
           echo 'cv';
       }

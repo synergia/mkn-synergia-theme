@@ -4,9 +4,9 @@ Template Name: Blog
 */
 ?>
 <?php get_header(); ?>
-<?php get_template_part('template-part', 'topnav'); ?>
+<?php get_template_part('template-part', 'topbar'); ?>
 
-<div class="content-wrapper">
+<div class="compensator">
 	<div class="gl">
     <div class="post-list">
 			<?php
@@ -14,7 +14,7 @@ Template Name: Blog
 				$args = array (
 					'pagination'             => true,
 					'posts_per_page'         => '5',
-					'paged' => $paged
+					'paged' 				 => $paged
 				);
             $query = new WP_Query( $args );
 

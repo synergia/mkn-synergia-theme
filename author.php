@@ -1,7 +1,7 @@
 <?php get_header(); ?>
-<?php get_template_part('template-part', 'topnav');
+<?php get_template_part('template-part', 'topbar');
  ?>
-<div class="content-wrapper">
+<div class="compensator">
   <div class="gl">
 <?php // This sets the $current_member variable
 // $current_member = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : get_userdata(intval($author));

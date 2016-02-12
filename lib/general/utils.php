@@ -19,7 +19,7 @@ function wpdocs_theme_name_wp_title($title, $sep)
 
     // Add a page number if necessary:
     if (($paged >= 2 || $page >= 2) && !is_404()) {
-        $title .= " $sep ".sprintf(__('Page %s', '_s'), max($paged, $page));
+        $title .= " $sep ".sprintf(__('Strona %s', '_s'), max($paged, $page));
     }
 
     return $title;
@@ -138,3 +138,11 @@ function namespace_add_custom_types( $query ) {
 	}
 }
 add_filter( 'pre_get_posts', 'namespace_add_custom_types' );
+
+// Dodaje style dla paginacji //
+add_filter('next_posts_link_attributes', 'posts_link_attributes');
+add_filter('previous_posts_link_attributes', 'posts_link_attributes');
+
+function posts_link_attributes() {
+    return 'class="btn btn--pagination"';
+}

@@ -32,7 +32,7 @@
   $(window).resize(acts);
 
    function cardExcerpt() {
-    $(".card .excerpt").text(function(index, currentText) {
+    $(".card__excerpt").text(function(index, currentText) {
       return currentText.substr(0, 140) + '\u2026';
     });
   }

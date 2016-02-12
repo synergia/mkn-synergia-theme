@@ -62,11 +62,14 @@
 	object-fit: cover;
 }
 
-@mixin transition() {
-	transition: all 0.2s $bezier;
+@mixin transition($transition-type) {
+	transition: all 0.2s $transition-type;
 }
 
 @mixin box-shadow {
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26), 0 2px 10px 0 rgba(0, 0, 0, 0.22)
+}
+@mixin box-shadow-pushed {
 	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
 @mixin border-radius($radius) {

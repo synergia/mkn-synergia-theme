@@ -4,12 +4,12 @@
   display: inline-block;
   position: relative;
   padding: 2.0625rem 0.625rem;
-  @include transition;
+  @include transition($bezier);
   cursor: pointer;
   user-select: none;
   .navicon:before,
   .navicon:after {
-    @include transition;
+    @include transition($bezier);
   }
 }
 .navicon {
@@ -17,7 +17,7 @@
   width: 2em;
   height: 0.2rem;
   background: $text-color;
-  @include transition;
+  @include transition($bezier);
   border-radius: 0.2rem;
   &:before,
   &:after {
@@ -28,7 +28,7 @@
     background: $text-color;
     position: absolute;
     z-index: -1;
-    @include transition;
+    @include transition($bezier);
     border-radius: 0.2rem;
   }
   &:before {
@@ -44,7 +44,7 @@
 }
 .open .navicon:before,
 .open .navicon:after {
-  @include transition;
+  @include transition($bezier);
 }
 /* × and + */
 .open.x {

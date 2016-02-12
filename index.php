@@ -1,8 +1,8 @@
 <?php get_header(); ?>
 
-<?php get_template_part('template-part', 'topnav'); ?>
+<?php get_template_part('template-part', 'topbar'); ?>
 <!-- end content container -->
-<div class="content-wrapper">
+<div class="compensator">
 	<div class="gl">
 		<div class="post-list">
 			<?php	while ( have_posts() ) : the_post(); ?>

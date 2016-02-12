@@ -1,0 +1,67 @@
+.link {
+    // PODSTAWOWY //
+    color: $synergia-color;
+    text-decoration: none;
+    @include transition($bezier);
+    &:hover {
+        color: $synergia-color-light;
+        text-decoration: underline;
+        text-decoration: none;
+    }
+    &:focus {
+        outline: none;
+        outline: 5px auto -webkit-focus-ring-color;
+        outline-offset: -2px;
+    }
+    // MODYFIKATORY //
+    // --TOPBAR //
+    &--logo {
+    }
+    // --PROJEKT //
+    &--glowing {
+        color: #ffffff;
+        &:hover {
+            text-shadow: 0 0 2px #FFFFFF;
+            color: #ffffff;
+        }
+    }
+    &--name {
+        color: $text-color;
+        text-decoration: none;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        &:hover {
+            color: $text-color;
+        }
+    }
+    &--social {
+        color: $text-color;
+    }
+    // --FOOTER //
+    &--footer {
+        color: #ffffff;
+        padding: 2px;
+
+        margin: 0 2px;
+        box-sizing: border-box;
+        position: relative;
+        &:before {
+            content: '';
+            border-bottom:solid 1px #fff;
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            height: 1px;
+            width: 100%;
+            opacity: 0;
+            @include transition($bezier);
+        }
+        &:hover {
+            color: #ffffff;
+            &:before {
+                opacity: 1;
+            }
+        }
+    }
+}

@@ -6,7 +6,7 @@ Template Name: Główna
 <?php global $snrg_option_global; ?>
 
 <?php get_header(); ?>
-<?php get_template_part('template-part', 'topnav'); ?>
+<?php get_template_part('template-part', 'topbar'); ?>
 <?php // args
 $projects = array(
     'numberposts' => -1,
@@ -15,12 +15,9 @@ $projects = array(
 );
 $projects_query = new WP_Query($projects);
 ?>
-<div class="content-wrapper">
-  <div class="gl portfolio-content">
+<div class="compensator">
+  <div class="portfolio-content">
     <?php project_card($projects_query); ?>
-    <div class="bottom-fade">
-      <a class="button synergia-button raised" href="<?php echo site_url(); ?>/projects" title="Zobacz wszystkie projekty">Zobacz wszystkie</a>
-    </div>
   </div>
 </div>
 <?php get_template_part('template-part', 'sponsors'); ?>

@@ -4,8 +4,8 @@
     $logo = get_template_directory_uri() . '/build/img/logo.png';
     $version = $theme->get('Version');
     $theme_name = $theme->get('Name');
-    $codename = 'Carrie Fisher';
-    $codeimg = 'http://cs628419.vk.me/v628419187/48151/3R20Q-CTUPI.jpg';
+    $codename = 'No Name';
+    $codeimg = '';
 
 
 // Dodatkowe style i skrypty dla panelu. Odpowiedzialne za otwieranie okna
@@ -65,6 +65,7 @@ include 'lib/general/slider.php';
 include 'lib/general/lazy.php';
 include 'lib/general/dashboard.php';
 include 'lib/general/setup.php';
+include 'lib/general/walker.php';
 // Login
 include 'lib/login/login.php';
 

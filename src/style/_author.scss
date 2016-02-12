@@ -70,7 +70,7 @@
       height: 150px;
       line-height: 150px;
       color: #ffffff;
-      @include transition;
+      @include transition($bezier);
     }
   }
   &:hover .thumb time {
@@ -119,7 +119,7 @@
 .no-projects {
   // font-style: italic;
   font-size: 3em;
-  color: $shadowlight;
+  color: $grey;
   text-align: center;
   font-weight: 600;
 }

@@ -38,8 +38,8 @@ function show_nested_archive() {
 
 
 <?php get_header(); ?>
-<?php get_template_part('template-part', 'topnav'); ?>
-<div class="content-wrapper">
+<?php get_template_part('template-part', 'topbar'); ?>
+<div class="compensator">
   <div class="gl archive-list">
     <?php show_nested_archive(); ?>
   </div>

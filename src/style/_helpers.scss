@@ -1,0 +1,13 @@
+.bottom {
+    position: absolute;
+    bottom: 0;
+}
+.left {
+    float: left;
+}
+.text-right {
+    text-align: right;
+}
+.w1000 {
+    @extend .container;
+}

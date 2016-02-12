@@ -1,9 +1,9 @@
 // main.js //
 // Wszystko wrzucamy tu
 
-jQuery(function($) {
+//= ../../bower_components/scroll-up-bar/src/scroll-up-bar.js
 
-  //= partials/dropdown-download.js
+jQuery(function($) {
 
   //= partials/dropdown.js
 
@@ -16,8 +16,6 @@ jQuery(function($) {
   //= partials/notifications.js
 
   //= partials/recruitment.js
-
-  //= partials/ripple-effect.js
 
   //= partials/show-nicknames.js
 
@@ -38,7 +36,13 @@ jQuery(function($) {
 
     //= partials/infinite-scroll.js
 
+    //= partials/topbar.js
   });
+
   // Prezes zawsze na pierwszym miejscu //
   $('#management_board li#admin').insertBefore('#management_board li:eq(0)');
+
+  // Dodaje do <a> klasę "link"
+  $('.project__content a').addClass('link');
+
 });
