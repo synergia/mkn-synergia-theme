@@ -16,17 +16,9 @@
     // MODYFIKATORY //
     // --TOPBAR //
     &--logo {
-        @include background-image('logo');
-        display: block;
-        width: 50px;
-        height: 50px;
-        @include mq($from:tablet) {
-            width: 300px;
-            height: 50px;
-        }
     }
     // --PROJEKT //
-    &--project {
+    &--glowing {
         color: #ffffff;
         &:hover {
             text-shadow: 0 0 2px #FFFFFF;
@@ -49,10 +41,27 @@
     // --FOOTER //
     &--footer {
         color: #ffffff;
+        padding: 2px;
+
         margin: 0 2px;
+        box-sizing: border-box;
+        position: relative;
+        &:before {
+            content: '';
+            border-bottom:solid 1px #fff;
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            height: 1px;
+            width: 100%;
+            opacity: 0;
+            @include transition($bezier);
+        }
         &:hover {
             color: #ffffff;
-            text-shadow: 0 0 2px #FFFFFF;
+            &:before {
+                opacity: 1;
+            }
         }
     }
 }

@@ -24,5 +24,3 @@
             </div>
         </div>
     </noscript>
-    <div class="global">
-      <div class="container">

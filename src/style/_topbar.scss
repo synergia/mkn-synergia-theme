@@ -1,19 +1,46 @@
-//colors
+.topbarWrapper {
+    top: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    z-index: 4;
+    @include transition($bezier);
+    border-bottom: 1px solid transparent;
+    &--hidden {
+        top: -80px;
+    }
+    &--visible {
+        background-color: rgba(255, 255, 255, 1);
+        border-bottom: $border-light;
+    }
+}
 .topbar {
-    position: relative;
     @include clearfix;
     padding: 10px;
-    background-color: #ffffff;
     height: 50px;
     border-bottom: $border-light;
+    display: flex;
     @include mq($from:tablet) {
         background-color: transparent;
         padding: 10px 0;
-        margin: 5px 0;
+        margin: 5px auto;
         border-bottom: 0;
+        width: $container-wide;
     }
     &__logo {
-        float: left;
+        @include transition($bezier);
+        @include background-image('logo');
+        display: block;
+        width: 50px;
+        height: 50px;
+        @include mq($from:tablet) {
+            width: 300px;
+            height: 50px;
+        }
+    }
+    &__logo--circle {
+        height: 50px;
+        width: 50px;
     }
     &__appname {
         position: absolute;
@@ -52,13 +79,13 @@
     z-index: 1;
     height: 70px;
     @include clearfix;
-
     @include mq($from:tablet) {
         display: inline-block;
         padding: 0;
         height: 50px;
-        float: right;
+        margin-left: auto;
     }
+
     &__menu {
         display: none;
         overflow: hidden;
@@ -90,8 +117,7 @@
             border-bottom: 0;
             box-shadow: $shadow-none;
         }
-        &--expanded {
-        }
+        &--expanded {}
     }
     &__item {
         display: block;

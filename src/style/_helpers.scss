@@ -8,3 +8,6 @@
 .text-right {
     text-align: right;
 }
+.w1000 {
+    @extend .container;
+}

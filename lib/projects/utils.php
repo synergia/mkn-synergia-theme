@@ -69,12 +69,12 @@ function the_project_links($project_ID) {
     if( $web || $facebook || $github) {
         echo '<div class="project__links">';
         if($web){
-            echo '<a class="link link--project" title="Strona internetowa projektu" href="'.get_post_meta($project_ID, "web", true).'"><i class="icon icon-link"></i></a>';
+            echo '<a class="link link--glowing" title="Strona internetowa projektu" href="'.get_post_meta($project_ID, "web", true).'"><i class="icon icon-link"></i></a>';
         }
         if($facebook) {
-            echo '<a class="link link--project" title="Facebook" href="'.get_post_meta($project_ID, "facebook", true).'"><i class="icon icon-facebook"></i></a>';
+            echo '<a class="link link--glowing" title="Facebook" href="'.get_post_meta($project_ID, "facebook", true).'"><i class="icon icon-facebook"></i></a>';
         }    if($github) {
-            echo '<a class="link link--project" title="Github" href="'.get_post_meta($project_ID, "github", true).'"><i class="icon icon-github"></i></a>';
+            echo '<a class="link link--glowing" title="Github" href="'.get_post_meta($project_ID, "github", true).'"><i class="icon icon-github"></i></a>';
         }
         echo '</div>';
     }

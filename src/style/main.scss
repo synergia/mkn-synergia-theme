@@ -114,6 +114,7 @@ img {
     box-shadow: $shadow-light-bottom;
     @include mq($from:tablet) {
         margin-bottom: 75vh;
+        padding-top: 80px;
     }
 }
 .compensator {
@@ -134,6 +135,9 @@ img {
     }
     @include mq($from: wide) {
         width: $container-wide;
+    }
+    &--full {
+        width:100%;
     }
 }
 .sponsors-container {
