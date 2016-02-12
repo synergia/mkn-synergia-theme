@@ -1,5 +1,5 @@
 <header class="topbarWrapper">
-    <div class="topbar">
+    <div class="topbar container">
         <a itemprop="url" class="topbar__logo link--logo" title="<?php bloginfo('name'); ?>" href="<?php echo site_url(); ?>" aria-label="Logo Synergii" role="presentation"></a>
         <h1 itemprop="name" class="topbar__appname"><?php bloginfo('name'); ?></h1>
 
