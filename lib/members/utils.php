@@ -84,11 +84,11 @@ function social_links($current_member){
 
 function show_avatar($current_member)
 {
-    $avatar_img = '<a href="'.get_author_posts_url( $current_member->ID, $current_member->user_nicename );
+    $avatar_img = '<a href="'.get_author_posts_url( $current_member->ID, $current_member->user_nicename ).'">';
     if ($current_member->image) {
-        $avatar_img = '<img class="blazy avatar" src="'.get_template_directory_uri().'/build/img/member.png"  data-src="'.$current_member->image.'" /></a>';
+        $avatar_img .= '<img class="blazy avatar" src="'.get_template_directory_uri().'/build/img/member.png"  data-src="'.$current_member->image.'" /></a>';
     } else {
-        $avatar_img = '<img class="avatar" src="'.get_template_directory_uri().'/build/img/member.png"/></a>';
+        $avatar_img .= '<img class="avatar" src="'.get_template_directory_uri().'/build/img/member.png"/></a>';
     }
     return $avatar_img;
 }
