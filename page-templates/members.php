@@ -10,8 +10,6 @@ Template Name: Członkowie
 
 <!-- start content container -->
 <div class="compensator">
-  <div class="gl">
-    <div class="gl-sm-9 gl-cell">
 
 <?php
 $members = get_members_with_projects();
@@ -30,33 +28,15 @@ if (!empty($members)) { ?>
         <li><label for="tab-3">Byli</label></li>
       </ul>
     </nav>
-    <div class="tab">
-      <ul class="member-list">
+    <div class="cardsWrapper">
 <?php
   // loop trough each member
   foreach ($members as $member) {
     $current_member = get_userdata($member->ID);
-    if (has_finished_projects($current_member)) {?>
-        <li>
-          <div class="gl">
-            <div class="gl-cell gl-md-1 gl-align-middle avatar-image"><a href="<?php echo get_author_posts_url( $current_member->ID, $current_member->user_nicename ); ?>"><?php echo show_avatar($current_member)?></a></div>
-            <div class="gl-cell gl-lg-5 gl-md-6 gl-align-middle name"><h3><a href="<?php echo get_author_posts_url( $current_member->ID, $current_member->user_nicename ); ?>"><?php echo $current_member->display_name; ?></a></h3></div>
-            <div class="gl-cell gl-lg-2 gl-md-3 gl-align-middle links"><?php social_links($current_member); ?></div>
-            <div class="gl-cell gl-lg-4 gl-md-1 gl-align-middle project-count">
-              <a href="<?php echo get_site_url().'/author/'.$current_member->user_nicename;?>/#tab-1" title="Liczba ukończonych projektów">
-                <div class="finished">
-                  <?php echo get_number_of_projects($current_member, 'finished');?>
-                </div>
-              </a>
-              <a href="<?php echo get_site_url().'/author/'.$current_member->user_nicename;?>/#tab-2" title="Liczba realizowanych projektów">
-                <div class="in-progress"><?php echo get_number_of_projects($current_member, 'in_progress') ?></div>
-              </a>
-              </div>
-          </div>
-        </li>
-<?php }
- }?>
-      </ul>
+    if (has_finished_projects($current_member)) {
+        include(locate_template('template-part-membercard.php'));
+    }
+}?>
     </div>
     <div class="tab">
       <ul id="management_board" class="member-list">
@@ -107,7 +87,6 @@ if (!empty($members)) { ?>
         </div>
       </li>
 <?php } ?>
-    </ul>
   </div>
 </div>
 <?php
@@ -115,10 +94,6 @@ if (!empty($members)) { ?>
     echo 'No authors found';
 }
 ?>
-    </div>
-    <!-- gl9 END -->
-  </div><!-- gl END -->
 </div>
-<?php //get_template_part('template-part', 'sponsors'); ?>
 
 <?php get_footer(); ?>

@@ -84,17 +84,23 @@ function social_links($current_member){
 
 function show_avatar($current_member)
 {
+    $avatar_img = '<a href="'.get_author_posts_url( $current_member->ID, $current_member->user_nicename );
     if ($current_member->image) {
-        $avatar_img = '<img class="blazy" src="'.get_template_directory_uri().'/build/img/member.png"  data-src="'.$current_member->image.'" />';
+        $avatar_img = '<img class="blazy avatar" src="'.get_template_directory_uri().'/build/img/member.png"  data-src="'.$current_member->image.'" /></a>';
     } else {
-        $avatar_img = '<img src="'.get_template_directory_uri().'/build/img/member.png"/>';
+        $avatar_img = '<img class="avatar" src="'.get_template_directory_uri().'/build/img/member.png"/></a>';
     }
     return $avatar_img;
 }
+function get_member_name($current_member) {
+    $member_url = get_author_posts_url( $current_member->ID, $current_member->user_nicename );
+    return '<a class="link link--name" href="'.$member_url.'">'.$current_member->display_name.'</a>';
+}
+
 function show_avatar_admin($current_member)
 {
     if ($current_member->image) {
-        $avatar_img = '<img class="blazy" src="'.$current_member->image.'" />';
+        $avatar_img = '<img src="'.$current_member->image.'" />';
     } else {
         $avatar_img = '<img src="'.get_template_directory_uri().'/build/img/member.png"/>';
     }
@@ -270,13 +276,13 @@ function get_number_of_projects ($current_member, $project_status) {
 // Stan członkostwa //
 function show_membership_status($current_member) {
   if(is_president($current_member)) {
-    echo '<span>Prezes MKNM "Synergia"</span>';
+    echo '<span>Prezes</span>';
   } else if($current_member->member_of_managment_board) {
-    echo '<span>Członek zarządu MKNM "Synergia"</span>';
+    echo '<span>Członek zarządu</span>';
   } else if(has_finished_projects($current_member) || $administrator) {
-    echo '<span>Członek MKNM "Synergia"</span>';
+    echo '<span>Członek</span>';
   }else if($ex_synergia_member) {
-    echo '<span>Były członek MKNM "Synergia"</span>';
+    echo '<span>Były członek</span>';
   } else {
     echo '<span>Członkostwo nie potwierdzono</span>';
   }

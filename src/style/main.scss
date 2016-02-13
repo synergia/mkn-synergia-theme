@@ -186,13 +186,14 @@ img {
         margin-top: 0;
     }
 }
-.portfolio-content {
+.cardsWrapper {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
     position: relative;
     @include mq($from: tablet) {
         align-content: flex-start;
+        justify-content: flex-start;
     }
 }
 @import 'author';
@@ -201,6 +202,7 @@ img {
 @import "nojs";
 @import 'archive';
 @import 'components';
+@import "404";
 // Style z project także wykorzystywane są w single i page
 @import 'project';
 @import 'member';

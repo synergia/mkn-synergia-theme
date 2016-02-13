@@ -29,6 +29,7 @@ jQuery(function($) {
 
   //= partials/smooth-scrolling.js
 
+  //= partials/404.js
 
   $(document).ready(function() {
 

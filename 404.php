@@ -1,7 +1,8 @@
 <?php get_header(); ?>
 
-<?php get_template_part('template-part', 'topbar'); ?>
+<canvas id="canvas"></canvas>
 
-To jest błąd 404.
+<?php wp_footer(); ?>
 
-<?php get_footer(); ?>
+</body>
+</html>

@@ -1,0 +1,72 @@
+.avatar {
+    object-fit: cover;
+    width: 128px;
+    height: 128px;
+    @include circle(128px, #ffffff);
+}
+.counter {
+    line-height: 1.2;
+    width: 50%;
+    text-align: center;
+    position: relative;
+    font-size: 2.3rem;
+    font-weight: 100;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    &__label {
+        padding: 0 10px;
+        font-size: 0.8rem;
+    }
+}
+.membercard {
+    box-sizing: border-box;
+    margin: 10px;
+    width: 230px;
+    height: 350px;
+    // padding: 25px 20px;
+    display: flex;
+    position: relative;
+    align-items: center;
+    flex-flow: column nowrap;
+    background-color: #ffffff;
+    border: $border-light;
+    overflow: hidden;
+    @include border-radius($radius);
+    &__avatar {
+        overflow: hidden;
+        margin: 25px 0 0;
+    }
+    &__name {
+        width: calc(100% - 10px);
+        text-align: center;
+        margin:20px 0 0;
+        font-size: 1.7rem;
+        height: 42px;
+        &--tooLong {
+            text-align: justify;
+            display: block;
+            // Nie wygląda to najlepiej, ale niech już będzie
+            &:hover > .link {
+                @include transition($bezier);
+                // Gdy imie jest za długie
+                margin-left: calc( 100% - 245px);
+            }
+        }
+    }
+    &__status {
+        text-align: center;
+        font-weight: 400;
+        font-size: 1em;
+        font-style: italic;
+        line-height: 1;
+    }
+    &__counter {
+        margin-top: 15px;
+        display: flex;
+        position: relative;
+        justify-content: space-between;
+        width: 100%;
+    }
+}

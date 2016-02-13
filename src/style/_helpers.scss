@@ -5,9 +5,11 @@
 .left {
     float: left;
 }
-.text-right {
+.textRight {
     text-align: right;
 }
-.w1000 {
-    @extend .container;
+.noWrap {
+    // text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
