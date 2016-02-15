@@ -2,96 +2,57 @@
 /*
 Template Name: Członkowie
 */
+get_header();
+
+get_template_part('template-part', 'topbar');
+
+$members    = get_members_with_projects();
+$ex_members = get_ex_members();
 ?>
 
-<?php get_header(); ?>
-
-<?php get_template_part('template-part', 'topbar'); ?>
-
-<!-- start content container -->
+<!-- start compensator -->
 <div class="compensator">
-
-<?php
-$members = get_members_with_projects();
-$ex_members = get_ex_members();
-// Get the results
-// Check for results
-if (!empty($members)) { ?>
-  <div class="tabs">
-    <input id="tab-1" name="tabset-1" type="radio" hidden checked/>
-    <input id="tab-2" name="tabset-1" type="radio" hidden />
-    <input id="tab-3" name="tabset-1" type="radio" hidden />
-    <nav class="tabs-nav" role="navigation">
-      <ul>
-        <li><label for="tab-1">Aktualni</label></li>
-        <li><label for="tab-2">Zarząd</label></li>
-        <li><label for="tab-3">Byli</label></li>
-      </ul>
-    </nav>
-    <div class="cardsWrapper">
-<?php
-  // loop trough each member
-  foreach ($members as $member) {
-    $current_member = get_userdata($member->ID);
-    if (has_finished_projects($current_member)) {
-        include(locate_template('template-part-membercard.php'));
-    }
-}?>
-    </div>
-    <div class="tab">
-      <ul id="management_board" class="member-list">
-<?php
-  foreach ($members as $management_board_member) {
-    // get all the user's data
-    $current_member = get_userdata($management_board_member->ID);
-    $administrator = in_array( 'administrator', (array) $current_member->roles );
-    if(is_president($current_member)) { ?>
-        <li id="admin">
-          <div class="gl">
-            <div class="gl-cell gl-sm-1  gl-align-middle avatar-image"><a href="<?php echo get_author_posts_url( $current_member->ID, $current_member->user_nicename ); ?>"><?php echo show_avatar($current_member)?></a></div>
-            <div class="gl-cell gl-sm-5 gl-align-middle name"><h3><a href="<?php echo get_author_posts_url( $current_member->ID, $current_member->user_nicename ); ?>"><?php echo $current_member->display_name; ?></a></h3></div>
-            <div class="gl-cell gl-sm-2  gl-align-middle links"><?php social_links($current_member); ?></div>
-            <div class="gl-cell gl-sm-4  gl-align-middle memberboard-info">Prezes MKNM "Synergia"</div>
-          </div>
+    <ul class="tabsMenu">
+        <li class="tabsMenu__item tabsMenu__item--current">
+            <a class="link link--tab" href="#tab-1">Aktualni</a>
         </li>
-  <? } else if ($current_member->member_of_managment_board){ ?>
-        <li>
-          <div class="gl">
-            <div class="gl-cell gl-sm-1  gl-align-middle avatar-image"><a href="<?php echo get_author_posts_url( $current_member->ID, $current_member->user_nicename ); ?>"><?php echo show_avatar($current_member)?></a></div>
-            <div class="gl-cell gl-sm-5 gl-align-middle name"><h3><a href="<?php echo get_author_posts_url( $current_member->ID, $current_member->user_nicename ); ?>"><?php echo $current_member->display_name; ?></a></h3></div>
-            <div class="gl-cell gl-sm-2  gl-align-middle links"><?php social_links($current_member); ?></div>
-            <div class="gl-cell gl-sm-4  gl-align-middle memberboard-info">Członek zarządu MKNM "Synergia"</div>
-          </div>
+        <li class="tabsMenu__item">
+            <a class="link link--tab" href="#tab-2">Byli</a>
         </li>
-  <? }
-  } ?>
     </ul>
-  </div>
-  <div class="tab">
-    <ul class="member-list">
 <?php
-  foreach ($ex_members as $ex_member) {
-    $current_member = get_userdata($ex_member->ID); ?>
-      <li>
-        <div class="gl">
-          <div class="gl-cell gl-md-1 gl-align-middle avatar-image"><a href="<?php echo get_author_posts_url( $current_member->ID, $current_member->user_nicename ); ?>"><?php echo show_avatar($current_member)?></a></div>
-          <div class="gl-cell gl-lg-5 gl-md-6 gl-align-middle name"><h3><a href="<?php echo get_author_posts_url( $current_member->ID, $current_member->user_nicename ); ?>"><?php echo $current_member->display_name; ?></a></h3></div>
-          <div class="gl-cell gl-lg-2 gl-md-3 gl-align-middle links"><?php social_links($current_member); ?></div>
-          <div class="gl-cell gl-lg-4 gl-md-1 gl-align-middle project-count">
-            <a href="<?php echo get_site_url().'/author/'.$current_member->user_nicename;?>/#tab-1" title="Liczba ukończonych projektów">
-              <div class="finished">
-                <?php echo get_number_of_projects($current_member, 'finished');?>
-              </div>
-            </a>
-          </div>
+
+if (!empty($members)) { ?>
+        <div class="tab">
+            <div id="tab-1" class="tab__content">
+                <div class="cardsWrapper">
+            <?php
+                // AKTUALNI //
+              // loop trough each member
+              foreach ($members as $member) {
+                $current_member = get_userdata($member->ID);
+                if (has_finished_projects($current_member)) {
+                    include(locate_template('template-part-membercard.php'));
+                }
+            }?>
+                </div>
+            </div>
+            <div id="tab-2" class="tab__content">
+                <div class="cardsWrapper">
+            <?php
+                // BYLI //
+              // loop trough each member
+              foreach ($ex_members as $ex_member) {
+                $current_member = get_userdata($ex_member->ID);
+                include(locate_template('template-part-membercard.php'));
+                }?>
+                </div>
+            </div>
         </div>
-      </li>
-<?php } ?>
-  </div>
 </div>
 <?php
 } else {
-    echo 'No authors found';
+    echo 'Coś tu jest źle';
 }
 ?>
 </div>
