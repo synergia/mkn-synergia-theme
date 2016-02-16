@@ -1,8 +1,11 @@
 <?php get_header(); ?>
+<?php get_template_part('template-part', 'topbar'); ?>
 
-<canvas id="canvas"></canvas>
 
-<?php wp_footer(); ?>
+<div class="pictures">
+    
+</div>
+<?php get_footer(); ?>
 
 </body>
 </html>

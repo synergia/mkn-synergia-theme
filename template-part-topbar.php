@@ -19,5 +19,5 @@
       <!-- <nav id="nav-mobile"></nav> -->
   </div>
 </header>
-<div class="global">
+<div class="global" data-ajax-url="<?php echo admin_url('admin-ajax.php'); ?>">
   <div class="container">

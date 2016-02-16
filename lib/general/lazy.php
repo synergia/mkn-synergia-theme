@@ -72,3 +72,35 @@ function load_projects(){
 
 add_action('wp_ajax_load_projects', 'load_projects');           // for logged in user
 add_action('wp_ajax_nopriv_load_projects', 'load_projects');
+
+
+function social_links(){
+    $id = $_POST['id'];
+    $current_member = get_userdata($id);
+    if ($current_member->show_mail) {
+        echo '<a class="link" title="Poczta" data-email href="mailto:'.$current_member->user_email.'"><i class="icon icon-mail"></i>';
+        if (is_author()) {
+            echo 'napisz';
+        }
+        echo '</a>';
+    }
+    if ($current_member->github_profile) {
+        echo '<a class="link" data-github title="Github" href="'.$current_member->github_profile.'"><i class="icon icon-github"></i></a>';
+    }
+    if ($current_member->twitter_profile) {
+        echo '<a class="link" data-twitter title="Twitter" href="'.$current_member->twitter_profile.'"><i class="icon icon-twitter"></i></a>';
+    }
+    if ($current_member->facebook_profile) {
+        echo '<a class="link" data-facebook title="Facebook" href="'.$current_member->facebook_profile.'"><i class="icon icon-facebook"></i></a>';
+    }
+    if ($current_member->cv) {
+      echo '<a class="link" data-cv title="Zobacz moje CV" href="'.$current_member->cv.'"><i class="icon icon-briefcase"></i>';
+      if (is_author()) {
+          echo 'cv';
+      }
+      echo '</a>';
+    }
+    die();
+}
+add_action('wp_ajax_social_links', 'social_links');           // for logged in user
+add_action('wp_ajax_nopriv_social_links', 'social_links');

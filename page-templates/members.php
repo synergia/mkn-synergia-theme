@@ -14,17 +14,17 @@ $ex_members = get_ex_members();
 <div class="compensator">
     <ul class="tabsMenu">
         <li class="tabsMenu__item tabsMenu__item--current">
-            <a class="link link--tab" href="#tab-1">Aktualni</a>
+            <a class="link link--tab" href="#current_members">Aktualni</a>
         </li>
         <li class="tabsMenu__item">
-            <a class="link link--tab" href="#tab-2">Byli</a>
+            <a class="link link--tab" href="#ex_members">Byli</a>
         </li>
     </ul>
 <?php
 
 if (!empty($members)) { ?>
         <div class="tab">
-            <div id="tab-1" class="tab__content">
+            <div id="current_members" class="tab__content">
                 <div class="cardsWrapper">
             <?php
                 // AKTUALNI //
@@ -37,7 +37,7 @@ if (!empty($members)) { ?>
             }?>
                 </div>
             </div>
-            <div id="tab-2" class="tab__content">
+            <div id="ex_members" class="tab__content">
                 <div class="cardsWrapper">
             <?php
                 // BYLI //

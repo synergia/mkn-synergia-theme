@@ -19,8 +19,6 @@ jQuery(function($) {
 
   //= partials/show-nicknames.js
 
-  //= partials/transition.js
-
   //= partials/nav.js
 
   //= partials/slider.js
@@ -33,6 +31,8 @@ jQuery(function($) {
     //= partials/lazy.js
 
     //= partials/tabs.js
+
+    //= member.js
 
     //= partials/infinite-scroll.js
 

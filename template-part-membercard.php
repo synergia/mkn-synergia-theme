@@ -1,4 +1,4 @@
-<div class="membercard">
+<div class="membercard" data-id="<?php echo $current_member->ID; ?>">
     <div class="membercard__avatar">
         <?php echo show_avatar($current_member)?>
     </div>
@@ -20,7 +20,8 @@
                 <?php echo get_number_of_projects($current_member, 'in_progress') ?>
             </a>
             <span class="counter__label">Projekty realizowane</span>
-
         </div>
+    </div>
+    <div class="ikonki">
     </div>
 </div>
