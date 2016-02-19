@@ -36,33 +36,69 @@
     background-color: #ffffff;
     border: $border-light;
     overflow: hidden;
+    transition: 1s all $bezier;
     @include border-radius($radius);
+    &--full {
+        width: 100%;
+        height: auto;
+        background-color: transparent;
+        border: none;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-flow: row wrap;
+
+    }
+    &__close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        display: none;
+        &--visible {
+            display: block;
+        }
+    }
     &__avatar {
         overflow: hidden;
         margin: 25px 0 0;
     }
-    &__name {
+    &__info {
+        text-align: center;
         width: calc(100% - 10px);
+        overflow: hidden;
+        &--full {
+            margin-left: 25px;
+            width: auto;
+            text-align: left;
+        }
+    }
+    &__socialLinks {
+        margin: 10px 0;
+    }
+    &__name {
         text-align: center;
         margin:20px 0 0;
         font-size: 1.7rem;
-        height: 42px;
+        font-weight: 400;
+        // height: 42px;
+        &--full {
+            font-size: 3rem;
+            font-weight: 300;
+        }
         &--tooLong {
             text-align: justify;
             display: block;
             // Nie wygląda to najlepiej, ale niech już będzie
             &:hover > .link {
-                @include transition($bezier);
+                @include transition($bezier) ;
                 // Gdy imie jest za długie
                 margin-left: calc( 100% - 245px);
             }
         }
     }
     &__status {
-        text-align: center;
-        font-weight: 400;
+        font-weight: 300;
         font-size: 1em;
-        font-style: italic;
+        // font-style: italic;
         line-height: 1;
     }
     &__counter {

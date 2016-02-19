@@ -116,6 +116,10 @@ img {
     @include mq($from:tablet) {
         margin-bottom: 75vh;
     }
+    &--full {
+        margin-bottom: 0;
+        height: 100vh;
+    }
 }
 .compensator {
     @include clearfix;
