@@ -57,6 +57,8 @@ var animationState = (function() {
         if (animationState.value()) {
             $('.membercard').not(membercard).addClass('hidden');
             $('.global').addClass('global--full');
+            $('.tabsMenu').addClass('hidden');
+
 
             membercard.addClass('membercard--full');
             membercard.children('.membercard__close').addClass('membercard__close--visible');
@@ -66,6 +68,8 @@ var animationState = (function() {
         } else {
             $('.membercard').not(membercard).removeClass('hidden');
             $('.global').removeClass('global--full');
+            $('.tabsMenu').removeClass('hidden');
+
 
             membercard.removeClass('membercard--full');
             membercard.children('.membercard__close').removeClass('membercard__close--visible');

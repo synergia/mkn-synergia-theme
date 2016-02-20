@@ -6,7 +6,7 @@ get_header();
 
 get_template_part('template-part', 'topbar');
 
-$members    = get_members_with_projects();
+$members = get_members_with_projects();
 $ex_members = get_ex_members();
 ?>
 
@@ -22,7 +22,8 @@ $ex_members = get_ex_members();
     </ul>
 <?php
 
-if (!empty($members)) { ?>
+if (!empty($members)) {
+    ?>
         <div class="tab">
             <div id="current_members" class="tab__content">
                 <div class="cardsWrapper">
@@ -30,11 +31,12 @@ if (!empty($members)) { ?>
                 // AKTUALNI //
               // loop trough each member
               foreach ($members as $member) {
-                $current_member = get_userdata($member->ID);
-                if (has_finished_projects($current_member)) {
-                    include(locate_template('template-part-membercard.php'));
-                }
-            }?>
+                  $current_member = get_userdata($member->ID);
+                  if (has_finished_projects($current_member)) {
+                      include locate_template('template-part-membercard.php');
+                  }
+              }
+    ?>
                 </div>
             </div>
             <div id="ex_members" class="tab__content">
@@ -43,14 +45,16 @@ if (!empty($members)) { ?>
                 // BYLI //
               // loop trough each member
               foreach ($ex_members as $ex_member) {
-                $current_member = get_userdata($ex_member->ID);
-                include(locate_template('template-part-membercard.php'));
-                }?>
+                  $current_member = get_userdata($ex_member->ID);
+                  include locate_template('template-part-membercard.php');
+              }
+    ?>
                 </div>
             </div>
         </div>
 </div>
 <?php
+
 } else {
     echo 'Coś tu jest źle';
 }
