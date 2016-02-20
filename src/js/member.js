@@ -1,3 +1,4 @@
+// Zwraca stan animacji. Jeśli true, to animacja zostanie odpalona
 var animationState = (function() {
     var value = true;
     return {
@@ -9,6 +10,22 @@ var animationState = (function() {
         }
     };
 })();
+
+// Oblicza o ile pixeli przesunąć kartę
+function pixelsToCenter(block) {
+    var viewCenterX = Math.floor(window.innerWidth / 2);
+    var viewCenterY = Math.floor(window.innerHeight / 2);
+    var offset = block.offset();
+    return {
+        x: function() {
+            return viewCenterX - Math.floor(offset.left + block.outerWidth() / 2);
+        },
+        y: function() {
+            return viewCenterY - Math.floor(offset.top + block.outerHeight() / 2);
+
+        }
+    };
+}
 
 (function() {
     'strict use';
@@ -34,6 +51,7 @@ var animationState = (function() {
             console.log(event.type);
 
             membercard = $(this).parents('.membercard');
+
             var id = membercard.attr('data-id');
             var url = membercard.find('.link--name').attr('href');
 
@@ -54,16 +72,21 @@ var animationState = (function() {
     }
 
     function animateMembercard(membercard) {
+
         if (animationState.value()) {
-            $('.membercard').not(membercard).addClass('hidden');
             $('.global').addClass('global--full');
-            $('.tabsMenu').addClass('hidden');
+            $('.membercard').not(membercard).addClass('hidden');
+
+            var centerMembercard = pixelsToCenter(membercard);
 
 
-            membercard.addClass('membercard--full');
-            membercard.children('.membercard__close').addClass('membercard__close--visible');
-            membercard.children('.membercard__info').addClass('membercard__info--full');
-            membercard.find('.membercard__name').addClass('membercard__name--full');
+            console.log(centerMembercard.x(), centerMembercard.y());
+
+            membercard.addClass('membercard--full').css({
+                transform: "translate3d(" + centerMembercard.x() + "px, " + (centerMembercard.y()-75) + "px, 0)"
+            });
+
+
             console.log("Changing state:", animationState.value());
         } else {
             $('.membercard').not(membercard).removeClass('hidden');
@@ -71,7 +94,9 @@ var animationState = (function() {
             $('.tabsMenu').removeClass('hidden');
 
 
-            membercard.removeClass('membercard--full');
+            membercard.removeClass('membercard--full').css({
+                transform: "translate3d(" + 0 + "px, " + 0 + "px, 0)"
+            });
             membercard.children('.membercard__close').removeClass('membercard__close--visible');
             membercard.children('.membercard__info').removeClass('membercard__info--full');
             membercard.find('.membercard__name').removeClass('membercard__name--full');

@@ -14,5 +14,6 @@
     white-space: nowrap;
 }
 .hidden {
-    display: none;
+    opacity: 0;
+    visibility: hidden;
 }

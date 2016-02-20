@@ -36,16 +36,14 @@
     background-color: #ffffff;
     border: $border-light;
     overflow: hidden;
-    transition: 1s all $bezier;
     @include border-radius($radius);
+    @include transition($bezier);
+    transform: translateZ(0);
     &--full {
-        width: 100%;
         height: auto;
-        background-color: transparent;
-        border: none;
-        align-items: flex-start;
-        justify-content: flex-start;
-        flex-flow: row wrap;
+
+        z-index: 7;
+
 
     }
     &__close {
@@ -60,6 +58,12 @@
     &__avatar {
         overflow: hidden;
         margin: 25px 0 0;
+        width: 100%;
+        text-align: center;
+        &--full {
+            position: absolute;
+            left:0;
+        }
     }
     &__info {
         text-align: center;

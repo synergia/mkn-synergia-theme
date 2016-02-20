@@ -109,7 +109,7 @@ img {
 .global {
     background-color: $background-color;
     z-index: 1;
-    margin-bottom: 100vh;
+    margin-bottom: 100%;
     box-shadow: $shadow-light-bottom;
     padding-top: 91px;
 
@@ -211,7 +211,7 @@ img {
 @import 'member';
 @import 'recruitment';
 @import "login";
-@import 'animate';
+@import 'animations';
 @import "lazy";
 @import "helpers";
 @import "print";
