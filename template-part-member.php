@@ -2,14 +2,8 @@
 
 // Ukończone i w trakcie realizacji projekty //
 $finished_projects = new WP_Query( project_args_per_user($current_member, 'finished'));
-$in_progress_projects = new WP_Query( project_args_per_user($current_member, 'in_progress'));
+$in_progress_projects = new WP_Query( project_args_per_user($current_member, 'in_progress')); ?>
 
-// project_counter();
-//dla sprawdzenia konkretnej roli, wrzucamy je do zmiennych
-// $synergia_member = in_array( 'synergia_member', (array) $current_member->roles );
-// $administrator = in_array( 'administrator', (array) $current_member->roles );
-// $ex_synergia_member = in_array( 'ex_synergia_member', (array) $current_member->roles );
- ?>
 <div class="memberInfo">
     <div class="memberInfo__avatar">
         <?php echo show_avatar($current_member); ?>
