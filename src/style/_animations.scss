@@ -1,0 +1,15 @@
+@keyframes fadeOut {
+    99%{
+      opacity : 0;
+      visibility: visible;
+    }
+    100%{
+      opacity : 0;
+      visibility: hidden;
+    }
+  }
+  @keyframes collapse {
+     to {
+        height: 0;
+      }
+    }
