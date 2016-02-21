@@ -38,42 +38,27 @@
     overflow: hidden;
     @include border-radius($radius);
     @include transition($bezier);
-    transform: translateZ(0);
-    &--full {
-        height: auto;
-
-        z-index: 7;
-
-
-    }
-    &__close {
-        position: absolute;
-        top: 10px;
-        right: 10px;
+    &__fullProfile {
+        position: fixed;
+        top:0;
+        left:0;
+        right:0;
+        bottom:0;
+        background-color: black;
         display: none;
-        &--visible {
-            display: block;
-        }
     }
     &__avatar {
         overflow: hidden;
         margin: 25px 0 0;
         width: 100%;
         text-align: center;
-        &--full {
-            position: absolute;
-            left:0;
-        }
+
     }
     &__info {
         text-align: center;
         width: calc(100% - 10px);
         overflow: hidden;
-        &--full {
-            margin-left: 25px;
-            width: auto;
-            text-align: left;
-        }
+
     }
     &__socialLinks {
         margin: 10px 0;
@@ -84,10 +69,7 @@
         font-size: 1.7rem;
         font-weight: 400;
         // height: 42px;
-        &--full {
-            font-size: 3rem;
-            font-weight: 300;
-        }
+
         &--tooLong {
             text-align: justify;
             display: block;

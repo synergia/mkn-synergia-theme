@@ -2,9 +2,6 @@
     data-id="<?php echo $current_member->ID; ?>"
     data-uname="<?php echo $current_member->user_nicename; ?>">
 
-    <div class="membercard__close">
-        <i class="icon-cancel"></i>
-    </div>
     <div class="membercard__avatar">
         <?php echo show_avatar($current_member)?>
     </div>
@@ -15,7 +12,7 @@
         <div class="membercard__status">
             <?php show_membership_status($current_member); ?>
         </div>
-        <div class="membercard__socialLinks"></div>
+        <div class="membercard__fullProfile"></div>
     </div>
 
     <div class="membercard__counter">

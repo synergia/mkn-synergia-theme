@@ -52,13 +52,11 @@ if (!empty($members)) {
                 </div>
             </div>
         </div>
-</div>
-<?php
+        <?php
 
 } else {
     echo 'Coś tu jest źle';
 }
 ?>
 </div>
-
 <?php get_footer(); ?>

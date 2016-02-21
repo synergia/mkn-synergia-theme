@@ -54,6 +54,7 @@ include 'lib/posts/utils.php';
 include 'lib/members/profile.php';
 include 'lib/members/capabilities.php';
 include 'lib/members/utils.php';
+include 'lib/members/ajax.php';
 // Sponsorzy
 include 'lib/sponsors/post-type.php';
 include 'lib/sponsors/utils.php';

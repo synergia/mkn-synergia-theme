@@ -43,7 +43,7 @@ function pixelsToCenter(block) {
 
         // Dodaje dane w odpowiednie miejsce
         var addData = function(data) {
-            membercard.find('.membercard__socialLinks').append(data);
+            membercard.find('.membercard__fullProfile').append(data);
         };
 
         if (event.type === 'click') {
@@ -57,7 +57,7 @@ function pixelsToCenter(block) {
 
             changeUrl(url);
             request({
-                action: 'social_links',
+                action: 'load_member_page',
                 id: id
             }, addData);
             animateMembercard(membercard);
@@ -74,32 +74,12 @@ function pixelsToCenter(block) {
     function animateMembercard(membercard) {
 
         if (animationState.value()) {
-            $('.global').addClass('global--full');
-            $('.membercard').not(membercard).addClass('hidden');
-
-            var centerMembercard = pixelsToCenter(membercard);
-
-
-            console.log(centerMembercard.x(), centerMembercard.y());
-
-            membercard.addClass('membercard--full').css({
-                transform: "translate3d(" + centerMembercard.x() + "px, " + (centerMembercard.y()-75) + "px, 0)"
-            });
+            membercard.children('membercard__fullProfile').addClass('visible');
 
 
             console.log("Changing state:", animationState.value());
         } else {
-            $('.membercard').not(membercard).removeClass('hidden');
-            $('.global').removeClass('global--full');
-            $('.tabsMenu').removeClass('hidden');
 
-
-            membercard.removeClass('membercard--full').css({
-                transform: "translate3d(" + 0 + "px, " + 0 + "px, 0)"
-            });
-            membercard.children('.membercard__close').removeClass('membercard__close--visible');
-            membercard.children('.membercard__info').removeClass('membercard__info--full');
-            membercard.find('.membercard__name').removeClass('membercard__name--full');
             console.log("Changing state:", animationState.value());
         }
 
