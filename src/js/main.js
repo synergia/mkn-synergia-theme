@@ -17,7 +17,7 @@ jQuery(function($) {
 
   //= partials/recruitment.js
 
-  //= partials/show-nicknames.js
+  //// = partials/show-nicknames.js
 
   //= partials/nav.js
 

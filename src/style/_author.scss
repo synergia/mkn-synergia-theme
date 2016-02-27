@@ -1,34 +1,61 @@
 .memberInfo {
     position: relative;
-    display: flex;
-    justify-content: flex-start;
+
     margin: 10px;
+    overflow: hidden;
+    border: $border-light;
+    @include border-radius($radius);
+    z-index: 1;
     &__nameWrapper {
         display: flex;
-        flex-flow: column nowrap;
-        text-align: center;
-        @include mq($from: tablet) {
-            text-align: left;
-        }
-        @include mq($from: desktop) {
-            padding-left: 15px;
-        }
+        justify-content: flex-start;
+        align-items: baseline;
+        position: absolute;
+        bottom: 0;
+        left: 180px;
     }
     &__status {
-        font-style: italic;
+        margin-left: 180px;
+        margin-top: 5px;
+        display: block;
+        font-size: 1.03rem;
     }
     &__social {
-        margin: 5px 0;
+        margin: 5px 10px;
     }
     &__avatar {
-
+        height: 128px;
+        width:128px;
+        margin-top: 30px;
+        display: inline-block;
+        border: 5px solid #fff;
+        border-radius: 100%;
+        background-color: #fff;
     }
     &__name {
-        font-size: 3em;
+        font-size: 2.5em;
         line-height: 1.3;
         font-weight: 300;
         margin: 0;
+        color: #fff;
     }
+}
+
+.violetWrapper {
+    background-color: $synergia-color;
+    width: 100%;
+    height: 80px;
+    padding: 20px;
+    z-index: 1;
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+
+}
+.whiteWrapper {
+    background-color: #fff;
+    width: 100%;
+    height: 80px;
 }
 
 
