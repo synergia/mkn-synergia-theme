@@ -29,4 +29,8 @@
             <span class="counter__label">Projekty realizowane</span>
         </div>
     </div>
+    <!--The hidden stuff -->
+        <div class="profile">
+
+        </div>
 </div>

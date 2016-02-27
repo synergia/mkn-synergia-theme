@@ -5,6 +5,7 @@
     clear: both;
     list-style: none;
     padding-left: 0;
+    @include transition($bezier);
     &__item {
         display: flex;
         justify-content: center;

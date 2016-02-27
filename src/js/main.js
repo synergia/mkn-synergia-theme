@@ -32,7 +32,7 @@ jQuery(function($) {
 
     //= partials/tabs.js
 
-    ////= member.js
+    //= member.js
 
     //= partials/infinite-scroll.js
 

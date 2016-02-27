@@ -10,6 +10,26 @@
   }
   @keyframes collapse {
      to {
-        height: 0;
+        width: 0;
+        margin: 0;
       }
     }
+  @keyframes collapse-reverse {
+     to {
+        width: auto;
+        margin: auto;
+      }
+    }
+@keyframes cardMorphing {
+    0% {
+
+    }
+    25% {
+
+    }
+
+    100% {
+        width: 1000px;
+        left:-100%;
+    }
+}

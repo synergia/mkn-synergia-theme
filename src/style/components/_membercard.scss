@@ -38,15 +38,6 @@
     overflow: hidden;
     @include border-radius($radius);
     @include transition($bezier);
-    &__fullProfile {
-        position: fixed;
-        top:0;
-        left:0;
-        right:0;
-        bottom:0;
-        background-color: black;
-        display: none;
-    }
     &__avatar {
         overflow: hidden;
         margin: 25px 0 0;

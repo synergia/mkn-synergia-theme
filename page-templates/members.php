@@ -12,6 +12,13 @@ $ex_members = get_ex_members();
 
 <!-- start compensator -->
 <div class="compensator">
+    <div class="memberOverlay">
+        <div class="container">
+            <div class="memberWrapper" data-current-member="">
+
+            </div>
+        </div>
+    </div>
     <ul class="tabsMenu">
         <li class="tabsMenu__item tabsMenu__item--current">
             <a class="link link--tab" href="#current_members">Aktualni</a>
