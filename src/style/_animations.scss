@@ -8,28 +8,11 @@
       visibility: hidden;
     }
   }
-  @keyframes collapse {
-     to {
-        width: 0;
-        margin: 0;
+  @keyframes fadeIn {
+      0%{
+        opacity : 0;
+      }
+      100%{
+        opacity : 1;
       }
     }
-  @keyframes collapse-reverse {
-     to {
-        width: auto;
-        margin: auto;
-      }
-    }
-@keyframes cardMorphing {
-    0% {
-
-    }
-    25% {
-
-    }
-
-    100% {
-        width: 1000px;
-        left:-100%;
-    }
-}
