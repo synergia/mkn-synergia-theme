@@ -12,8 +12,8 @@ var tabs = (function() {
         },
         reset: function() {
             // Z tym #tabsReset, to taki hack. Wykorzystywany dlatego, że
-            // po kliknięciu chowają się wszystkie taby, oprócz tej z odpowiednim id 
-            currentTab = $('#tabsReset .link--tab').first().attr('href');
+            // po kliknięciu chowają się wszystkie taby, oprócz tej z odpowiednim id
+            currentTab = $('#tabsReset .link--tab').attr('href');
             $(currentTab).removeClass("tab__content--hidden").addClass("tab__content--visible");
             console.info('Tabs initiated:', currentTab);
         }
