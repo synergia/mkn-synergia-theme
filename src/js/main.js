@@ -23,20 +23,22 @@ jQuery(function($) {
 
   //= partials/slider.js
 
-  //= partials/smooth-scrolling.js
+  // przez to gnwo nie działa .on()
+  ////= partials/smooth-scrolling.js
 
   //= partials/404.js
 
   $(document).ready(function() {
     //= partials/lazy.js
 
-    //= partials/tabs.js
-
     //= member.js
 
     //= partials/infinite-scroll.js
 
     //= partials/topbar.js
+
+    //= partials/tabs.js
+
   });
 
   // Prezes zawsze na pierwszym miejscu //

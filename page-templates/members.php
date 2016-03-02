@@ -20,7 +20,7 @@ $ex_members = get_ex_members();
         </div>
     </div>
     <ul class="tabsMenu">
-        <li class="tabsMenu__item tabsMenu__item--current">
+        <li id="tabsReset" class="tabsMenu__item tabsMenu__item--current">
             <a class="link link--tab" href="#current_members">Aktualni</a>
         </li>
         <li class="tabsMenu__item">

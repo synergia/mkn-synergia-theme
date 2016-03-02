@@ -26,7 +26,7 @@ $in_progress_projects = new WP_Query(project_args_per_user($current_member, 'in_
 
 
 
-<ul class="tabsMenu">
+<ul id="qw" class="tabsMenu">
     <li class="tabsMenu__item tabsMenu__item--current">
         <a class="link link--tab" href="#finished">Ukończone (<?php echo get_number_of_projects($current_member, 'finished'); ?>)</a>
     </li>

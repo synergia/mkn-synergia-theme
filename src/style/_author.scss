@@ -1,8 +1,7 @@
 .memberInfo {
     position: relative;
-
-    margin: 10px;
     overflow: hidden;
+    margin-bottom: 20px;
     border: $border-light;
     @include border-radius($radius);
     z-index: 1;

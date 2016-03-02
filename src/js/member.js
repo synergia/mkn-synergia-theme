@@ -25,13 +25,15 @@ var animationState = (function() {
         // KLIK //
         if (event.type === 'click') {
             event.preventDefault();
-            console.log(event.type);
+            // Skrolujemy do góry, by pokazać topbar
+            $('html').scrollTop(0);
 
+            console.log(event.type);
             membercard = $(this).parents('.membercard');
             var id = membercard.attr('data-id');
             var memberUrl = membercard.find('.link--name').attr('href');
             changeUrl(memberUrl);
-            memberWrapper.addClass('hidden');
+            animateMemberPage('hide');
 
             // zapobiega powtórnemu ładowaniu tego samego członka
             if (memberWrapper.attr('data-current-member') !== id) {
@@ -40,30 +42,24 @@ var animationState = (function() {
                     id: id
                 }, addData);
                 changeAttrId(id);
-                animateTransition();
+                animateOverlay();
 
             }else {
-                animateMemberPage();
-                animateTransition();
+                animateMemberPage('show');
+                animateOverlay();
             }
             // TĘDY-SIĘDY //
         } else if (event.type === 'popstate') {
             console.log(event.type);
-
-            animateTransition();
+            animateOverlay();
             changeUrl(prevUrl);
+            tabs.reset();
         }
     }
 
-    function animateTransition() {
+    function animateOverlay() {
         if (animationState.value()) {
-            $('.memberOverlay').addClass('memberOverlay--visible')
-                .one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend',
-                    function(e) {
-                        // $('.violetWrapper').addClass('violetWrapper--fullHeight');
-                        // $('.violetWrapper').removeClass('violetWrapper--fullHeight');
-
-                    });
+            $('.memberOverlay').addClass('memberOverlay--visible');
             console.log("Changing state:", animationState.value());
         } else {
             $('.memberOverlay').removeClass('memberOverlay--visible');
@@ -72,10 +68,13 @@ var animationState = (function() {
         animationState.change();
         console.log("State changed to:", animationState.value());
     }
-    function animateMemberPage() {
-        // if (animationState.value()) {
+
+    function animateMemberPage(state) {
+        if (state==='show') {
             memberWrapper.removeClass('hidden');
-        // }
+        }else if (state==='hide') {
+            memberWrapper.addClass('hidden');
+        }
     }
 
     function changeUrl(url) {
@@ -92,9 +91,9 @@ var animationState = (function() {
         if (memberWrapper.children().length > 1) {
             memberWrapper.empty();
         }
-        memberWrapper.removeClass('hidden');
-
+        animateMemberPage('show');
         memberWrapper.append(data);
+        tabs.init();
     };
 
     function request(requestingData, addData) {
@@ -114,6 +113,6 @@ var animationState = (function() {
     }
 
     function changeAttrId(id) {
-        document.getElementsByClassName('memberWrapper')[0].setAttribute('data-current-member', id);
+        memberWrapper[0].setAttribute('data-current-member', id);
     }
 })();
