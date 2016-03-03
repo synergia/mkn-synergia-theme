@@ -112,10 +112,11 @@ img {
     z-index: 1;
     margin-bottom: 100%;
     box-shadow: $shadow-light-bottom;
-    padding-top: 91px;
-
+    min-height: 100vh;
+    padding-top: 70px;
     @include mq($from:tablet) {
         margin-bottom: 75vh;
+        padding-top: 91px;
     }
     &--full {
         margin-bottom: 0;
@@ -142,7 +143,7 @@ img {
         width: $container-wide;
     }
     &--full {
-        width:100%;
+        width: 100%;
     }
 }
 .sponsors-container {
@@ -206,8 +207,7 @@ img {
 @import "nojs";
 @import 'archive';
 @import 'components';
-@import "404";
-// Style z project także wykorzystywane są w single i page
+@import "404"; // Style z project także wykorzystywane są w single i page
 @import 'project';
 @import 'member';
 @import 'recruitment';

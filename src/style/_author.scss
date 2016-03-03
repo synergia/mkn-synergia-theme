@@ -3,35 +3,52 @@
     overflow: hidden;
     margin-bottom: 20px;
     border: $border-light;
-    @include border-radius($radius);
+    border-right: 0;
+    border-left: 0;
     z-index: 1;
-    animation: fadeIn .5s $bezier forwards;
+    animation: fadeIn 0.5s $bezier forwards;
+    @include mq($from: tablet) {
+        @include border-radius($radius);
+        border-right: $border-light;
+        border-left: $border-light;
+    }
     &__nameWrapper {
         display: flex;
-        justify-content: flex-start;
-        align-items: baseline;
-        position: absolute;
-        bottom: 0;
-        left: 180px;
-
+        position: relative;
+        align-items: center;
+        flex-flow: column nowrap;
+        @include mq($from: tablet) {
+            position: absolute;
+            bottom: 0;
+            left: 180px;
+            justify-content: flex-start;
+            align-items: baseline;
+            flex-flow: row;
+        }
     }
     &__status {
-        margin-left: 180px;
-        margin-top: 5px;
         display: block;
         font-size: 1.03rem;
+        text-align: center;
+        @include mq($from: tablet) {
+            margin-left: 175px;
+            text-align: left;
+        }
     }
     &__social {
         margin: 5px 10px;
     }
     &__avatar {
         height: 128px;
-        width:128px;
-        margin-top: 30px;
+        width: 128px;
+        // margin-top: 10px;
         display: inline-block;
         border: 5px solid #fff;
         border-radius: 100%;
         background-color: #fff;
+        @include mq($from: tablet) {
+            margin-top: 30px;
+        }
     }
     &__name {
         font-size: 2.5em;
@@ -41,24 +58,30 @@
         color: #fff;
     }
 }
-
 .violetWrapper {
     background-color: $synergia-color;
-    width: 100%;
-    height: 80px;
     padding: 20px;
     z-index: 1;
-    display: flex;
-    justify-content: flex-start;
     position: relative;
+    display: flex;
+    align-items: center;
+    flex-flow: column nowrap;
+    @include mq($from: tablet) {
+        height: 80px;
+        display: flex;
+        flex-flow: row;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
 }
 .whiteWrapper {
     background-color: #fff;
     width: 100%;
-    height: 80px;
+    padding: 5px;
+    @include mq($from: tablet) {
+        height: 80px;
+    }
 }
-
-
 .usercard {
     margin-top: 20px;
 }
@@ -147,10 +170,10 @@
 .memberOverlay {
     padding-top: 90px;
     position: fixed;
-    top:0;
-    left:0;
+    top: 0;
+    left: 0;
     right: 0;
-    bottom:0;
+    bottom: 0;
     background-color: $background-color;
     z-index: 3;
     visibility: hidden;
