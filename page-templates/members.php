@@ -14,8 +14,8 @@ $ex_members = get_ex_members();
 <div class="compensator">
     <div class="memberOverlay">
         <div class="container">
-            <div class="memberWrapper" data-current-member="">
-
+            <div class="compensator">
+                <div class="memberWrapper" data-current-member=""></div>
             </div>
         </div>
     </div>

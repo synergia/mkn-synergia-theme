@@ -44,7 +44,7 @@ var animationState = (function() {
                 changeAttrId(id);
                 animateOverlay();
 
-            }else {
+            } else {
                 animateMemberPage('show');
                 animateOverlay();
             }
@@ -70,9 +70,9 @@ var animationState = (function() {
     }
 
     function animateMemberPage(state) {
-        if (state==='show') {
+        if (state === 'show') {
             memberWrapper.removeClass('hidden');
-        }else if (state==='hide') {
+        } else if (state === 'hide') {
             memberWrapper.addClass('hidden');
         }
     }
@@ -115,4 +115,5 @@ var animationState = (function() {
     function changeAttrId(id) {
         memberWrapper[0].setAttribute('data-current-member', id);
     }
+
 })();
