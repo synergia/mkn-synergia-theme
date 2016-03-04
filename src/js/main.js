@@ -31,7 +31,7 @@ jQuery(function($) {
   $(document).ready(function() {
     //= partials/lazy.js
 
-    ////= member.js
+    //= member.js
 
     //= partials/infinite-scroll.js
 

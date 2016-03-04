@@ -60,9 +60,15 @@ var animationState = (function() {
     function animateOverlay() {
         if (animationState.value()) {
             $('.memberOverlay').addClass('memberOverlay--visible');
+            $('html').css({'overflow': 'hidden'});
+            $.scrollupbar.destroy('.topbarWrapper');
+
             console.log("Changing state:", animationState.value());
         } else {
+            initTopbar();
             $('.memberOverlay').removeClass('memberOverlay--visible');
+            $('html').css({'overflow': 'auto'});
+
             console.log("Changing state:", animationState.value());
         }
         animationState.change();
@@ -116,4 +122,7 @@ var animationState = (function() {
         memberWrapper[0].setAttribute('data-current-member', id);
     }
 
+    $('.memberOverlay').on('scroll', function () {
+        $('html').scrollTop($(this).scrollTop());
+    });
 })();
