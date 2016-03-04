@@ -196,7 +196,7 @@ img {
     flex-flow: row wrap;
     justify-content: center;
     position: relative;
-    @include mq($from: tablet) {
+    @include mq($from: wide) {
         align-content: flex-start;
         justify-content: flex-start;
     }

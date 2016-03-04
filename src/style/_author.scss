@@ -5,12 +5,13 @@
     border-right: 0;
     border-left: 0;
     z-index: 1;
-    margin: 0 10px 20px;
+    margin: 0 0 20px;
     animation: fadeIn 0.5s $bezier forwards;
     @include mq($from: tablet) {
         @include border-radius($radius);
         border-right: $border-light;
         border-left: $border-light;
+        margin:0 10px 20px;
     }
     &__nameWrapper {
         display: flex;
@@ -90,76 +91,7 @@
         // margin: 0 -10px;
     }
 }
-.post-list-item {
-    height: 150px;
-    position: relative;
-    overflow: hidden;
-    margin: 0.625em;
-    @include box-shadow;
-    @include border-radius(0.125em);
-    .thumb {
-        position: relative;
-        overflow: hidden;
-        float: left;
-        height: 150px;
-        width: 150px;
-        // object-fit: cover;
-        time {
-            position: absolute;
-            font-weight: 600;
-            display: block;
-            @include opacity(0);
-            width: 100%;
-            text-align: center;
-            height: 150px;
-            line-height: 150px;
-            color: #ffffff;
-            @include transition($bezier);
-        }
-    }
-    &:hover .thumb time {
-        @include opacity(1);
-        background-color: rgba(108, 72, 146, 0.7);
-    }
-    img {
-        float: left;
-    }
-    .post-list-item-content {
-        float: left;
-        width: calc(100% - 165px);
-        position: relative;
-        padding-left: 15px;
-        h2 {
-            float: left;
-            font-weight: 400;
-            width: 100%;
-            display: inline;
-            @include mq($until:tablet) {
-                margin: 10px 0;
-            }
-        }
-        .excerpt {
-            padding: 0 15px 0 0;
-            @include mq($until:mobile) {
-                display: none;
-            }
-        }
-    }
-}
-.crown {
-    position: absolute;
-    font-size: 3em;
-    right: 31px;
-    top: -25px;
-    color: gold;
-    text-shadow: 0 2px 3px rgba(0,0,0,0.5);
-    @include mq($from:desktop) {
-        right: 12px;
-    }
-    @include mq($until:tablet) {
-        right: -11px;
-    }
-}
+
 .no-projects {
     // font-style: italic;
     font-size: 3em;

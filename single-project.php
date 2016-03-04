@@ -15,6 +15,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
                 </div>
 				<h1 class="project__title"><?php the_title(); ?></h1>
             </div>
+			<div class="project__overimage">
 			<?php if ( has_post_thumbnail() ) { ?>
 				<img class="project__featuredimg blazy"
 				 	alt="<?php the_title(); ?>"
@@ -26,6 +27,8 @@ if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 				<img class="blazy"
 					src="<?php bloginfo('template_directory'); ?>/build/img/full.png"										data-src="<?php bloginfo('template_directory'); ?>/build/img/full.png"
 					data-src-small="<?php bloginfo('template_directory'); ?>/build/img/card.png"/><?php } ?>
+			</div>
+
 		</header>
 		<?php get_template_part('template-part', 'authors');?>
 		<div class="project__content"><?php the_content(); ?>
