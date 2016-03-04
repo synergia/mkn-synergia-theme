@@ -16,13 +16,13 @@
 
     <div class="membercard__counter">
         <div class="counter">
-            <a class="link" href="">
+            <a class="link" href="<?php echo get_author_posts_url( $current_member->ID, $current_member->user_nicename ); ?>">
                 <?php echo get_number_of_projects($current_member, 'finished');?>
             </a>
             <span class="counter__label">Projekty ukończone</span>
         </div>
         <div class="counter">
-            <a class="link" href="">
+            <a class="link" href="<?php echo get_author_posts_url( $current_member->ID, $current_member->user_nicename ); ?>">
                 <?php echo get_number_of_projects($current_member, 'in_progress') ?>
             </a>
             <span class="counter__label">Projekty realizowane</span>
