@@ -1,6 +1,5 @@
-<div class="membercard"
-    data-id="<?php echo $current_member->ID; ?>"
-    data-uname="<?php echo $current_member->user_nicename; ?>">
+<div class="membercard" <?php if($current_member->president) echo "id='president'" ?>
+    data-id="<?php echo $current_member->ID; ?>">
 
     <div class="membercard__avatar">
         <?php echo show_avatar($current_member)?>

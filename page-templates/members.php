@@ -28,6 +28,7 @@ $ex_members = get_ex_members();
         </li>
     </ul>
 <?php
+usort($members, 'cmp');  //usort sorts our $users array with our function cmp()
 
 if (!empty($members)) {
     ?>

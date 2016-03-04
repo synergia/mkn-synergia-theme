@@ -255,7 +255,7 @@ function show_membership_status($current_member) {
   } else if($current_member->member_of_managment_board) {
     echo '<span>Członek zarządu</span>';
   } else if(has_finished_projects($current_member) || $administrator) {
-    echo '<span>Członek</span>';
+    echo '<span>Członek koła</span>';
   }else if($ex_synergia_member) {
     echo '<span>Były członek</span>';
   } else {
@@ -332,5 +332,11 @@ function social_links($current_member)
         // }
         echo '</a>';
     }
+}
+function cmp($a, $b){  //The function to order our authors
+  if ($a->member_of_managment_board == $b->member_of_managment_board) {  //This is where the name of our custom meta key is entered, I named mine "order"
+    return 0;
+  }
+  return ($b->member_of_managment_board < $a->member_of_managment_board ) ? -1 : 1;  //The actual sorting is done here. Change ">" to "<" to reverse order
 }
 ?>

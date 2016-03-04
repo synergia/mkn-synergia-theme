@@ -8,9 +8,6 @@ $in_progress_projects = new WP_Query(project_args_per_user($current_member, 'in_
     <div class="violetWrapper">
         <div class="memberInfo__avatar">
             <?php echo show_avatar($current_member); ?>
-            <?php if (is_president($current_member)) {
-        echo '<i class="icon crown icon-crown"></i>';
-    } ?>
         </div>
         <div class="memberInfo__nameWrapper">
             <div class="memberInfo__name"><?php echo $current_member->display_name; ?></div>
