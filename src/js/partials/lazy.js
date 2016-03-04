@@ -30,4 +30,4 @@
     console.info("bLazy: Images loaded: %d", imageLoaded);
   }
 
-  tabs(bLazy);
+  // tabs(bLazy);

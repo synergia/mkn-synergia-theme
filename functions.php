@@ -54,6 +54,7 @@ include 'lib/posts/utils.php';
 include 'lib/members/profile.php';
 include 'lib/members/capabilities.php';
 include 'lib/members/utils.php';
+include 'lib/members/ajax.php';
 // Sponsorzy
 include 'lib/sponsors/post-type.php';
 include 'lib/sponsors/utils.php';
@@ -77,19 +78,15 @@ include 'lib/login/login.php';
         global $version, $snrg_settings;
         $style_path = get_template_directory_uri().'/build/style';
 
-        wp_register_style('Titillium', 'https://fonts.googleapis.com/css?family=Titillium+Web:400,300,700&subset=latin,latin-ext');
+        wp_register_style('Titillium', 'https://fonts.googleapis.com/css?family=Titillium+Web:400,400italic,300,700&subset=latin,latin-ext');
         wp_register_style('Titillium900', 'https://fonts.googleapis.com/css?family=Titillium+Web:900&subset=latin');
         wp_register_style('main', $style_path.'/main.css', array(), $version, 'all');
-        wp_register_style('github', $style_path.'/github.css', array(), $version, 'all');
         wp_register_style('prism', $style_path.'/prism-okaidia.css', array(), $version, 'all');
         wp_enqueue_style('main');
         wp_enqueue_style('Titillium');
         // Dla rekrutacji potrzebna jest ciężka czcionka
         if ($snrg_settings['recruitment']) {
             wp_enqueue_style('Titillium900');
-        }
-        if (is_author()) {
-            wp_enqueue_style('github');
         }
         if (is_singular('project') || is_single()) {
             wp_enqueue_style('prism');
@@ -110,17 +107,11 @@ function js() {
   global $version, $snrg_settings;
   $js_path = get_template_directory_uri().'/build/js';
 
-    wp_register_script('underscore', $js_path.'/underscore.min.js', '1.6.0', true);
-    wp_register_script('github.js', $js_path.'/github.min.js', '0.1.3', true);
     wp_register_script('prism', $js_path.'/prism.min.js', '', true);
     wp_register_script('main', $js_path.'/main.min.js', array('jquery'), $version, true);
     wp_register_script('swipe', $js_path.'/swipe.min.js', array('jquery'), $version, true);
     wp_register_script('blazy', $js_path.'/blazy.min.js', array('jquery'), $version, true);
     // wp_register_script('cookie', get_template_directory_uri().'/build/js/js-cookie.min.js', '', true);
-    if (is_author()) {
-        wp_enqueue_script('underscore');
-        wp_enqueue_script('github.js');
-    }
     if (is_singular('project') || is_single()) {
         wp_enqueue_script('prism');
     }

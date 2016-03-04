@@ -17,30 +17,32 @@ jQuery(function($) {
 
   //= partials/recruitment.js
 
-  //= partials/show-nicknames.js
-
-  //= partials/tabs.js
-
-  //= partials/transition.js
+  //// = partials/show-nicknames.js
 
   //= partials/nav.js
 
   //= partials/slider.js
 
-  //= partials/smooth-scrolling.js
+  // przez to gnwo nie działa .on()
+  ////= partials/smooth-scrolling.js
 
+  //= partials/404.js
 
   $(document).ready(function() {
-
     //= partials/lazy.js
+
+    ////= member.js
 
     //= partials/infinite-scroll.js
 
     //= partials/topbar.js
+
+    //= partials/tabs.js
+
   });
 
   // Prezes zawsze na pierwszym miejscu //
-  $('#management_board li#admin').insertBefore('#management_board li:eq(0)');
+  $('.membercard#president').insertBefore('#current_members .cardsWrapper div:eq(0)');
 
   // Dodaje do <a> klasę "link"
   $('.project__content a').addClass('link');

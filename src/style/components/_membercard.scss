@@ -1,0 +1,96 @@
+.avatar {
+    object-fit: cover;
+    width: 128px;
+    height: 128px;
+    @include circle(128px, #ffffff);
+}
+.counter {
+    line-height: 1.2;
+    width: 50%;
+    text-align: center;
+    position: relative;
+    font-size: 2.3rem;
+    font-weight: 100;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    &:first-of-type {
+        border-right: $border-light;
+    }
+    &__label {
+        padding: 0 10px;
+        font-size: 0.8rem;
+    }
+}
+.membercard {
+    box-sizing: border-box;
+    margin: 10px;
+    width: 235px;
+    height: 350px;
+    // padding: 25px 20px;
+    display: flex;
+    position: relative;
+    align-items: center;
+    flex-flow: column nowrap;
+    background-color: #ffffff;
+    border: $border-light;
+    overflow: hidden;
+    @include border-radius($radius);
+    @include transition($bezier);
+    &__avatar {
+        overflow: hidden;
+        margin: 25px 0 0;
+        width: 100%;
+        text-align: center;
+
+    }
+    &__info {
+        text-align: center;
+        width: calc(100% - 10px);
+        overflow: hidden;
+
+    }
+    &__socialLinks {
+        margin: 10px 0;
+    }
+    &__name {
+        text-align: center;
+        margin:20px 0 0;
+        font-size: 1.7rem;
+        font-weight: 400;
+        position: relative;
+        &--tooLong {
+            text-align: justify;
+            display: block;
+            // Nie wygląda to najlepiej, ale niech już będzie
+            &:hover > .link {
+                @include transition($bezier) ;
+                // Gdy imie jest za długie
+                margin-left: calc( 100% - 245px);
+            }
+            &:after {
+                display: block;
+                height: 42px;
+                width: 15px;
+                background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+                content: "";
+                position: absolute;
+                top:0;
+                right:0;
+            }
+        }
+    }
+    &__status {
+        font-weight: 300;
+        font-size: 1em;
+        font-style: italic;
+    }
+    &__counter {
+        margin-top: 15px;
+        display: flex;
+        position: relative;
+        justify-content: space-between;
+        width: 100%;
+    }
+}

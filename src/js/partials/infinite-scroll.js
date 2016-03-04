@@ -2,7 +2,7 @@
 
 // Chyba z tego zrobić należy objekt
 
-var project_status = jQuery('#finished_projects').attr('data-projects-status');
+var project_status = $('#finished_projects').attr('data-projects-status');
 var ajax_url = jQuery('#projects').attr('data-ajax-url');
 var total_finished_projects = jQuery('#finished_projects').attr('data-total-finished-projects');
 var total_in_progress_projects = jQuery('#in_progress_projects').attr('data-total-in-progress-projects');

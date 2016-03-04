@@ -10,9 +10,10 @@ if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
         	<div class="bottom">
 				<h1 class="project__title"><?php the_title(); ?></h1>
             </div>
+			<div class="project__overimage">
 			<?php if ( has_post_thumbnail() ) { ?>
 				<img class="project__featuredimg blazy"
-				 	alt="<?php the_title(); ?>"
+					alt="<?php the_title(); ?>"
 					src="<?php bloginfo('template_directory'); ?>/build/img/full.png"
 					data-src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), 'full', true)[0];?>"
 					data-src-small="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), 'card_image', true)[0];?>"/>
@@ -21,6 +22,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 				<img class="blazy"
 					src="<?php bloginfo('template_directory'); ?>/build/img/full.png"										data-src="<?php bloginfo('template_directory'); ?>/build/img/full.png"
 					data-src-small="<?php bloginfo('template_directory'); ?>/build/img/card.png"/><?php } ?>
+			</div>
 		</header>
 		<div class="project__content"><?php the_content(); ?></div>
 		<?php wp_link_pages(); ?>

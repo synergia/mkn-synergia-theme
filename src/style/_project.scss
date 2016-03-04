@@ -10,7 +10,7 @@
         overflow: hidden;
         position: relative;
         @include border-radius(3px 3px 0 0);
-        background-image: $gradient-black;
+        z-index: 3;
         @include mq($from: desktop) {
             height: 25em;
         }
@@ -37,6 +37,10 @@
         display: inline;
         padding: 0 5px;
         border-left: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    &__overimage {
+        background-image: $gradient-black;
+        width:100%;
     }
     &__featuredimg {
         height: auto;

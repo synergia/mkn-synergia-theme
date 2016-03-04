@@ -56,45 +56,26 @@ function get_ex_members() {
     return $ex_synergia_members;
 }
 
-function social_links($current_member){
-    if ($current_member->show_mail) {
-        echo '<a class="link" title="Poczta" data-email href="mailto:'.$current_member->user_email.'"><i class="icon icon-mail"></i>';
-        if (is_author()) {
-            echo 'napisz';
-        }
-        echo '</a>';
-    }
-    if ($current_member->github_profile) {
-        echo '<a class="link" data-github title="Github" href="'.$current_member->github_profile.'"><i class="icon icon-github"></i></a>';
-    }
-    if ($current_member->twitter_profile) {
-        echo '<a class="link" data-twitter title="Twitter" href="'.$current_member->twitter_profile.'"><i class="icon icon-twitter"></i></a>';
-    }
-    if ($current_member->facebook_profile) {
-        echo '<a class="link" data-facebook title="Facebook" href="'.$current_member->facebook_profile.'"><i class="icon icon-facebook"></i></a>';
-    }
-    if ($current_member->cv) {
-      echo '<a class="link" data-cv title="Zobacz moje CV" href="'.$current_member->cv.'"><i class="icon icon-briefcase"></i>';
-      if (is_author()) {
-          echo 'cv';
-      }
-      echo '</a>';
-    }
-}
 
 function show_avatar($current_member)
 {
+    $avatar_img = '<a class="link--name" href="'.get_author_posts_url( $current_member->ID, $current_member->user_nicename ).'">';
     if ($current_member->image) {
-        $avatar_img = '<img class="blazy" src="'.get_template_directory_uri().'/build/img/member.png"  data-src="'.$current_member->image.'" />';
+        $avatar_img .= '<img class="blazy avatar" src="'.get_template_directory_uri().'/build/img/member.png"  data-src="'.$current_member->image.'" /></a>';
     } else {
-        $avatar_img = '<img src="'.get_template_directory_uri().'/build/img/member.png"/>';
+        $avatar_img .= '<img class="avatar" src="'.get_template_directory_uri().'/build/img/member.png"/></a>';
     }
     return $avatar_img;
 }
+function get_member_name($current_member) {
+    $member_url = get_author_posts_url( $current_member->ID, $current_member->user_nicename );
+    return '<a class="link link--name" href="'.$member_url.'">'.$current_member->display_name.'</a>';
+}
+
 function show_avatar_admin($current_member)
 {
     if ($current_member->image) {
-        $avatar_img = '<img class="blazy" src="'.$current_member->image.'" />';
+        $avatar_img = '<img src="'.$current_member->image.'" />';
     } else {
         $avatar_img = '<img src="'.get_template_directory_uri().'/build/img/member.png"/>';
     }
@@ -270,13 +251,13 @@ function get_number_of_projects ($current_member, $project_status) {
 // Stan członkostwa //
 function show_membership_status($current_member) {
   if(is_president($current_member)) {
-    echo '<span>Prezes MKNM "Synergia"</span>';
+    echo '<span>Prezes</span>';
   } else if($current_member->member_of_managment_board) {
-    echo '<span>Członek zarządu MKNM "Synergia"</span>';
+    echo '<span>Członek zarządu</span>';
   } else if(has_finished_projects($current_member) || $administrator) {
-    echo '<span>Członek MKNM "Synergia"</span>';
+    echo '<span>Członek koła</span>';
   }else if($ex_synergia_member) {
-    echo '<span>Były członek MKNM "Synergia"</span>';
+    echo '<span>Były członek</span>';
   } else {
     echo '<span>Członkostwo nie potwierdzono</span>';
   }
@@ -324,5 +305,38 @@ function has_finished_projects($current_member) {
      }else {
        return false;
      }
+}
+
+function social_links($current_member)
+{
+    if ($current_member->show_mail) {
+        echo '<a class="link link--glowing" title="Poczta" data-email href="mailto:'.$current_member->user_email.'"><i class="icon icon-mail"></i>';
+        // if (is_author()) {
+        //     echo 'napisz';
+        // }
+        echo '</a>';
+    }
+    if ($current_member->github_profile) {
+        echo '<a class="link link--glowing" data-github title="Github" href="'.$current_member->github_profile.'"><i class="icon icon-github"></i></a>';
+    }
+    if ($current_member->twitter_profile) {
+        echo '<a class="link link--glowing" data-twitter title="Twitter" href="'.$current_member->twitter_profile.'"><i class="icon icon-twitter"></i></a>';
+    }
+    if ($current_member->facebook_profile) {
+        echo '<a class="link link--glowing" data-facebook title="Facebook" href="'.$current_member->facebook_profile.'"><i class="icon icon-facebook"></i></a>';
+    }
+    if ($current_member->cv) {
+        echo '<a class="link link--glowing" data-cv title="Zobacz moje CV" href="'.$current_member->cv.'"><i class="icon icon-briefcase"></i>';
+        // if (is_author()) {
+        //     echo 'cv';
+        // }
+        echo '</a>';
+    }
+}
+function cmp($a, $b){  //The function to order our authors
+  if ($a->member_of_managment_board == $b->member_of_managment_board) {  //This is where the name of our custom meta key is entered, I named mine "order"
+    return 0;
+  }
+  return ($b->member_of_managment_board < $a->member_of_managment_board ) ? -1 : 1;  //The actual sorting is done here. Change ">" to "<" to reverse order
 }
 ?>

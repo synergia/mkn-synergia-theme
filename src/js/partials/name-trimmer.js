@@ -1,8 +1,9 @@
 //Skraca imiona, by nie wychodziły za bloki
-$('.authors__name a').each(function(index) {
+$('.membercard__name a').each(function(index) {
   var length = $(this).html().length;
-  if (length > 13) {
+  if (length > 17) {
     var name = $(this).text();
+    $(this).parent().addClass('membercard__name--tooLong');
     // console.log(name);
     var trimmed_name = name.charAt(0) + ". " + name.substr(name.indexOf(' ') + 1);
     // console.log(trimmed_name);

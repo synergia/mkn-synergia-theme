@@ -18,7 +18,7 @@ foreach (get_coauthors() as $curauth):
 			<div class="gl-cell">
 				<div class="gl-vertical gl">
 						<h3 class="gl-cell authors__name">
-							<a class="link link--name" href="<?php echo get_author_posts_url($curauth->ID, $curauth->user_nicename); ?>"  rel="author"><?php echo $curauth->display_name; ?></a>
+							<a class="link link--name noWrap" href="<?php echo get_author_posts_url($curauth->ID, $curauth->user_nicename); ?>"  rel="author"><?php echo $curauth->display_name; ?></a>
 						</h3>
 					<div class="gl-cell">
 						<div class="authors__icons">
