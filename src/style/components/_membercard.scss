@@ -59,8 +59,7 @@
         margin:20px 0 0;
         font-size: 1.7rem;
         font-weight: 400;
-        // height: 42px;
-
+        position: relative;
         &--tooLong {
             text-align: justify;
             display: block;
@@ -69,6 +68,16 @@
                 @include transition($bezier) ;
                 // Gdy imie jest za długie
                 margin-left: calc( 100% - 245px);
+            }
+            &:after {
+                display: block;
+                height: 42px;
+                width: 15px;
+                background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+                content: "";
+                position: absolute;
+                top:0;
+                right:0;
             }
         }
     }
