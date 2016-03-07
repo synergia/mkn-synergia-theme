@@ -56,6 +56,14 @@ function get_ex_members() {
     return $ex_synergia_members;
 }
 
+function get_member_avatar_url($current_member) {
+    if ($current_member->image) {
+        return $current_member->image;
+    } else {
+        return get_template_directory_uri().'/build/img/member.png';
+    }
+}
+// TODO to trzeba przepisać, uwzględniając powyższą funkcję
 
 function show_avatar($current_member)
 {
@@ -251,15 +259,15 @@ function get_number_of_projects ($current_member, $project_status) {
 // Stan członkostwa //
 function show_membership_status($current_member) {
   if(is_president($current_member)) {
-    echo '<span>Prezes</span>';
+    echo 'Prezes';
   } else if($current_member->member_of_managment_board) {
-    echo '<span>Członek zarządu</span>';
+    echo 'Członek zarządu';
   } else if(has_finished_projects($current_member) || $administrator) {
-    echo '<span>Członek koła</span>';
+    echo 'Członek koła';
   }else if($ex_synergia_member) {
-    echo '<span>Były członek</span>';
+    echo 'Były członek';
   } else {
-    echo '<span>Członkostwo nie potwierdzono</span>';
+    echo 'Członkostwo nie potwierdzono';
   }
 }
 // Zwraca tablicę argumentów projektów //
