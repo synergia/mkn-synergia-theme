@@ -15,8 +15,7 @@
     <noscript>
       <META HTTP-EQUIV="Refresh" CONTENT="0;URL=nojs">
     </noscript>
-  <?php } ?>
-  <?php wp_head(); ?>
+  <?php } wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>

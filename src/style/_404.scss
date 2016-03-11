@@ -1,3 +1,41 @@
-.error404 {
-  background-color: $synergia-color;
+.gradient404 {
+  position: absolute;
+  z-index: 2;
+  top: -150px;
+  height: 400px;
+  width: 100%;
+  background: transparent; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient($synergia-color, transparent); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient($synergia-color, transparent); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient($synergia-color, transparent); /* For Firefox 3.6 to 15 */
+  background: linear-gradient($synergia-color, transparent); /* Standard syntax (must be last) */
 }
+
+.gif {
+  height: 100vh;
+  width: 100%;
+}
+
+.topbarholder {
+  position: absolute;
+  margin: 1em;
+  z-index: 3;
+  .write404 {
+    float: right;
+    color: white;
+    font-size: 36px;
+  }
+  .logo404 {
+    @include background-image('synergia-mono-horizontal-inverted');
+    height: 50px;
+    width: 311px;
+    background-size: 100% 100%;
+    float: left;
+  }
+  .arrow {
+    float:left;
+    font-size: 36px;
+    color: white;
+  }
+}
+
