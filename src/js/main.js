@@ -28,6 +28,8 @@ jQuery(function($) {
 
   //= partials/404.js
 
+  //= partials/tooltip.js
+
   $(document).ready(function() {
     //= partials/lazy.js
 

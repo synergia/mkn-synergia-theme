@@ -1,6 +1,7 @@
 .link {
     // PODSTAWOWY //
     color: $synergia-color;
+    position: relative;
     text-decoration: none;
     @include transition($bezier);
     &:hover {
