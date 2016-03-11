@@ -8,7 +8,6 @@ $('document').ready(function () {
         'api_key': 'dc6zaTOxFJmzC',
         'tag': tags[Math.floor(Math.random() * tags.length)]
     }, function (data) {
-        //console.log('data ' + data.url);
         $('.gif').html('<img src="' + data.data.image_original_url + '" height="100%" width="100%"></img>');
     });
 
