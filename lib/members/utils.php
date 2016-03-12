@@ -330,6 +330,9 @@ function social_links($current_member)
     if ($current_member->facebook_profile) {
         echo '<a class="link link--glowing" data-facebook title="Facebook" href="'.$current_member->facebook_profile.'"><i class="icon icon-facebook"></i></a>';
     }
+    if ($current_member->lastfm_profile) {
+        echo '<a class="link link--glowing" data-lastfm href="'.$current_member->lastfm_profile.'"><i class="icon icon-facebook"></i><div class="tooltip"></div></a>';
+    }
     if ($current_member->cv) {
         echo '<a class="link link--glowing" data-cv title="Zobacz moje CV" href="'.$current_member->cv.'"><i class="icon icon-briefcase"></i>';
         echo '</a>';

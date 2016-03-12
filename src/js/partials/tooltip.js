@@ -6,9 +6,15 @@
 
     $('[data-github]').hover(function(e) {
         loadGithub();
-        $('.tooltip').addClass('tooltip--active');
+        $(this).children('.tooltip').addClass('tooltip--active');
     }, function(e) {
-        $('.tooltip').removeClass('tooltip--active');
+        $(this).children('.tooltip').removeClass('tooltip--active');
+    });
 
+    $('[data-lastfm]').hover(function(e) {
+        loadLastfm();
+        $(this).children('.tooltip').addClass('tooltip--active');
+    }, function(e) {
+        $(this).children('.tooltip').removeClass('tooltip--active');
     });
 })();

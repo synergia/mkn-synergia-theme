@@ -1,0 +1,25 @@
+.lf {
+    display: flex;
+    min-height: 40px;
+    width: 150px;
+    position: relative;
+    @include transition($bezier);
+    line-height: 1.1;
+    &__cover {
+        height: 36px;
+        width: 36px;
+        margin-right: 8px;
+        @include border-radius($radius);
+    }
+    &__song {
+        width: 100%;
+    }
+    &__artist {
+        font-size: 0.9rem;
+        width: 100%;
+    }
+    &__trackInfo{
+        display: flex;
+        flex-flow: column nowrap;
+    }
+}

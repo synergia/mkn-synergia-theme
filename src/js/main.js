@@ -32,6 +32,7 @@ jQuery(function($) {
 
   //= partials/github.js
 
+  //= partials/lastfm.js
 
   $(document).ready(function() {
     //= partials/lazy.js
