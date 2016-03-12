@@ -9,7 +9,7 @@
             <?php echo get_member_name($current_member); ?>
         </h5>
         <div class="membercard__status">
-            <?php show_membership_status($current_member); ?>
+            <?php show_membership_status($current_member, $is_ex); ?>
         </div>
         <div class="membercard__fullProfile"></div>
     </div>

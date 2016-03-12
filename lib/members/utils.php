@@ -257,15 +257,15 @@ function get_number_of_projects ($current_member, $project_status) {
 }
 
 // Stan członkostwa //
-function show_membership_status($current_member) {
+function show_membership_status($current_member, $is_ex) {
   if(is_president($current_member)) {
     echo 'Prezes';
-  } else if($current_member->member_of_managment_board) {
+} else if($current_member->member_of_managment_board && !$is_ex) {
     echo 'Członek zarządu';
-  } else if(has_finished_projects($current_member) || $administrator) {
+} else if((has_finished_projects($current_member) || $administrator) && !$is_ex) {
     echo 'Członek koła';
-  }else if($ex_synergia_member) {
-    echo 'Były członek';
+}else if($is_ex) {
+    echo 'Były członek koła';
   } else {
     echo 'Członkostwo nie potwierdzono';
   }
