@@ -1,12 +1,12 @@
 .tooltip {
     cursor: default;
     position: absolute;
-    bottom: -36px;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
     color: $text-color;
-    width: 200px;
-    padding: 5px;
+    min-width: 100px;
+    min-height: 45px;
+    padding: 8px;
     border: $border-light;
     background-color: #fff;
     @include border-radius($radius);
@@ -30,5 +30,7 @@
     &--active {
         visibility: visible;
         opacity: 1;
+        transform: translate3d(-50%, 10px, 0);
+
     }
 }

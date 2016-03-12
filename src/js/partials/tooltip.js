@@ -5,6 +5,7 @@
     });
 
     $('[data-github]').hover(function(e) {
+        loadGithub();
         $('.tooltip').addClass('tooltip--active');
     }, function(e) {
         $('.tooltip').removeClass('tooltip--active');

@@ -30,6 +30,9 @@ jQuery(function($) {
 
   //= partials/tooltip.js
 
+  //= partials/github.js
+
+
   $(document).ready(function() {
     //= partials/lazy.js
 

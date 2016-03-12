@@ -322,7 +322,7 @@ function social_links($current_member)
         echo '</a>';
     }
     if ($current_member->github_profile) {
-        echo '<a class="link link--glowing" data-github title="Github" href="'.$current_member->github_profile.'"><i class="icon icon-github"></i><div class="tooltip">Jakiś komit</div></a>';
+        echo '<a class="link link--glowing" data-github href="'.$current_member->github_profile.'"><i class="icon icon-github"></i><div class="tooltip"></div></a>';
     }
     if ($current_member->twitter_profile) {
         echo '<a class="link link--glowing" data-twitter title="Twitter" href="'.$current_member->twitter_profile.'"><i class="icon icon-twitter"></i></a>';
