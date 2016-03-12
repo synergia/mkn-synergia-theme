@@ -45,6 +45,8 @@ jQuery(function($) {
 
     //= partials/tabs.js
 
+    //= partials/odmiana.js
+
   });
 
   // Prezes zawsze na pierwszym miejscu //
