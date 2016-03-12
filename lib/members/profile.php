@@ -7,8 +7,13 @@ add_action('edit_user_profile_update', 'save_profile_settings');
 // Zapis ustawień
 function save_profile_settings($user_id){
     update_user_meta($user_id, 'facebook_profile', sanitize_text_field($_POST['facebook_profile']));
+
     update_user_meta($user_id, 'twitter_profile', sanitize_text_field($_POST['twitter_profile']));
+
     update_user_meta($user_id, 'github_profile', sanitize_text_field($_POST['github_profile']));
+
+    update_user_meta($user_id, 'lastfm_profile', sanitize_text_field($_POST['lastfm_profile']));
+
     update_user_meta($user_id, 'member_of_managment_board', $_POST['member_of_managment_board']);
     update_user_meta($user_id, 'president', $_POST['president']);
     update_user_meta($user_id, 'show_mail', $_POST['show_mail']);
@@ -107,6 +112,10 @@ function add_extra_social_links($user)
       <tr>
         <th><label for="facebook_profile">Facebook Profile URL</label></th>
         <td><input type="text" name="facebook_profile" value="<?php echo esc_attr(get_the_author_meta('facebook_profile', $user->ID));?>" class="regular-text" /></td>
+      </tr>
+      <tr>
+        <th><label for="lastfm_profile">Last.fm Profile URL</label></th>
+        <td><input type="text" name="lastfm_profile" value="<?php echo esc_attr(get_the_author_meta('lastfm_profile', $user->ID));?>" class="regular-text" /></td>
       </tr>
     </table>
 <?php

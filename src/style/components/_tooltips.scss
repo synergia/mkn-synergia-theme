@@ -1,0 +1,36 @@
+.tooltip {
+    cursor: default;
+    position: absolute;
+    left: 50%;
+    transform: translate3d(-50%, 0, 0);
+    color: $text-color;
+    min-width: 100px;
+    min-height: 30px;
+    padding: 8px;
+    border: $border-light;
+    background-color: #fff;
+    @include border-radius($radius);
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+    @include transition($bezier);
+    &:before {
+        content: "";
+        width: 5px;
+        height: 5px;
+        border: 1px solid #dfdfdf;
+        position: absolute;
+        top: -2px;
+        left: calc(50% - 1px);
+        transform: rotate(45deg) translateX(-50%);
+        border-right: 0;
+        border-bottom: 0;
+        background-color: #fff;
+    }
+    &--active {
+        visibility: visible;
+        opacity: 1;
+        transform: translate3d(-50%, 10px, 0);
+
+    }
+}

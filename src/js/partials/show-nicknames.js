@@ -13,9 +13,3 @@ $('.memberInfo__social a').each(function(index) {
     $('a[data-facebook]').append(profile.substr(25));
   }
 });
-
-// Github.onlyuserActivity({
-//   username: "synergia",
-//   selector: ".github_s",
-//   limit: 5
-// });

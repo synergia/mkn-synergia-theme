@@ -28,6 +28,12 @@ jQuery(function($) {
 
   //= partials/404.js
 
+  //= partials/tooltip.js
+
+  //= partials/github.js
+
+  //= partials/lastfm.js
+
   $(document).ready(function() {
     //= partials/lazy.js
 
@@ -38,6 +44,8 @@ jQuery(function($) {
     //= partials/topbar.js
 
     //= partials/tabs.js
+
+    //= partials/odmiana.js
 
   });
 

@@ -56,6 +56,14 @@ function get_ex_members() {
     return $ex_synergia_members;
 }
 
+function get_member_avatar_url($current_member) {
+    if ($current_member->image) {
+        return $current_member->image;
+    } else {
+        return get_template_directory_uri().'/build/img/member.png';
+    }
+}
+// TODO to trzeba przepisać, uwzględniając powyższą funkcję
 
 function show_avatar($current_member)
 {
@@ -251,15 +259,15 @@ function get_number_of_projects ($current_member, $project_status) {
 // Stan członkostwa //
 function show_membership_status($current_member) {
   if(is_president($current_member)) {
-    echo '<span>Prezes</span>';
+    echo 'Prezes';
   } else if($current_member->member_of_managment_board) {
-    echo '<span>Członek zarządu</span>';
+    echo 'Członek zarządu';
   } else if(has_finished_projects($current_member) || $administrator) {
-    echo '<span>Członek koła</span>';
+    echo 'Członek koła';
   }else if($ex_synergia_member) {
-    echo '<span>Były członek</span>';
+    echo 'Były członek';
   } else {
-    echo '<span>Członkostwo nie potwierdzono</span>';
+    echo 'Członkostwo nie potwierdzono';
   }
 }
 // Zwraca tablicę argumentów projektów //
@@ -311,13 +319,10 @@ function social_links($current_member)
 {
     if ($current_member->show_mail) {
         echo '<a class="link link--glowing" title="Poczta" data-email href="mailto:'.$current_member->user_email.'"><i class="icon icon-mail"></i>';
-        // if (is_author()) {
-        //     echo 'napisz';
-        // }
         echo '</a>';
     }
     if ($current_member->github_profile) {
-        echo '<a class="link link--glowing" data-github title="Github" href="'.$current_member->github_profile.'"><i class="icon icon-github"></i></a>';
+        echo '<a class="link link--glowing" data-github href="'.$current_member->github_profile.'"><i class="icon icon-github"></i><div class="tooltip"></div></a>';
     }
     if ($current_member->twitter_profile) {
         echo '<a class="link link--glowing" data-twitter title="Twitter" href="'.$current_member->twitter_profile.'"><i class="icon icon-twitter"></i></a>';
@@ -325,11 +330,11 @@ function social_links($current_member)
     if ($current_member->facebook_profile) {
         echo '<a class="link link--glowing" data-facebook title="Facebook" href="'.$current_member->facebook_profile.'"><i class="icon icon-facebook"></i></a>';
     }
+    if ($current_member->lastfm_profile) {
+        echo '<a class="link link--glowing" data-lastfm href="'.$current_member->lastfm_profile.'"><i class="icon icon-facebook"></i><div class="tooltip"></div></a>';
+    }
     if ($current_member->cv) {
         echo '<a class="link link--glowing" data-cv title="Zobacz moje CV" href="'.$current_member->cv.'"><i class="icon icon-briefcase"></i>';
-        // if (is_author()) {
-        //     echo 'cv';
-        // }
         echo '</a>';
     }
 }
