@@ -12,6 +12,7 @@ $ex_members = get_ex_members();
 
 <!-- start compensator -->
 <div class="compensator">
+    <!--experiment-->
     <div class="memberOverlay">
         <div class="container">
             <div class="compensator">
@@ -54,7 +55,6 @@ if (!empty($members)) {
               // loop trough each member
               foreach ($ex_members as $ex_member) {
                   $current_member = get_userdata($ex_member->ID);
-                  $is_ex = true;
                   include locate_template('template-part-membercard.php');
               }
     ?>
