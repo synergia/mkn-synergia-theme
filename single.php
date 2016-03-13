@@ -1,5 +1,6 @@
 <?php get_header(); ?>
-<?php get_template_part('template-part', 'topbar'); ?>
+<?php get_template_part('parts/topbar');
+ ?>
 
 <div class="compensator">
 	<div class="project">
@@ -30,7 +31,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 		</header>
 		<?php
 		if(pokaz_autora_wpisu_get_meta( 'pokaz_autora_wpisu_show_author_of_post' )) {
-		    get_template_part('template-part', 'authors');
+		    get_template_part('parts/membercard-small');
 		}
 		?>		<div class="project__content"><?php the_content(); ?></div>
 		<?php wp_link_pages(); ?>

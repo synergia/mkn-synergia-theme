@@ -1,6 +1,7 @@
 <?php get_header(); ?>
 
-<?php get_template_part('template-part', 'topbar'); ?>
+<?php get_template_part('parts/topbar');
+ ?>
 <!-- end content container -->
 <div class="compensator">
 	<div class="gl">

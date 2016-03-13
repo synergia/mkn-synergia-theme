@@ -4,7 +4,8 @@ Template Name: Członkowie
 */
 get_header();
 
-get_template_part('template-part', 'topbar');
+get_template_part('parts/topbar');
+
 
 $members = get_members_with_projects();
 $ex_members = get_ex_members();
@@ -42,7 +43,7 @@ if (!empty($members)) {
               foreach ($members as $member) {
                   $current_member = get_userdata($member->ID);
                   if (has_finished_projects($current_member)) {
-                      include locate_template('template-part-membercard.php');
+                      include locate_template('parts/membercard.php');
                   }
               }
     ?>
@@ -55,7 +56,7 @@ if (!empty($members)) {
               // loop trough each member
               foreach ($ex_members as $ex_member) {
                   $current_member = get_userdata($ex_member->ID);
-                  include locate_template('template-part-membercard.php');
+                  include locate_template('parts/membercard.php');
               }
     ?>
                 </div>
