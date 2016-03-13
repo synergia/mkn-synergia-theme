@@ -68,6 +68,10 @@ function snrg_github_link_callback() {
   global $general_options;
     echo '<input type="text" id="github_link_id" name="snrg_general_page_option[github_link]" value="' . $general_options['github_link']. '"></input>';
 }
+function snrg_instagram_link_callback() {
+  global $general_options;
+    echo '<input type="text" id="instagram_link_id" name="snrg_general_page_option[instagram_link]" value="' . $general_options['instagram_link']. '"></input>';
+}
 function snrg_g_anal_callback() {
   global $general_options;
   ?>
