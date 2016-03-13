@@ -60,6 +60,13 @@ add_settings_section(
     'snrg_general_page'
 );
     add_settings_field(
+    'instagram_link',
+    'Link do Instagramu',
+    'snrg_instagram_link_callback',
+    'snrg_general_page_option',
+    'snrg_general_page'
+);
+    add_settings_field(
     'g_anal',
     'Google Analytics',
     'snrg_g_anal_callback',

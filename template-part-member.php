@@ -16,7 +16,11 @@ $in_progress_projects = new WP_Query(project_args_per_user($current_member, 'in_
     </div>
     <div class="whiteWrapper">
         <span class="memberInfo__status"><?php show_membership_status($current_member); ?></span>
-
+        <?php if($current_member->description) {?>
+            <span class="memberInfo__desc">
+                <?php echo $current_member->description ?>
+            </span>
+        <?php } ?>
     </div>
 </div>
 

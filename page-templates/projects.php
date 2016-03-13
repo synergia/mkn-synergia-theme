@@ -45,45 +45,44 @@ $done_query = new WP_Query($done);
 
 ?>
 <div class="compensator" id="projects" data-ajax-url="<?php echo admin_url('admin-ajax.php'); ?>">
-  <div class="tabs">
-    <input id="tab-1" name="tabset-1" type="radio" hidden checked/>
-    <input id="tab-2" name="tabset-1" type="radio" hidden />
-    <input id="tab-3" name="tabset-1" type="radio" hidden />
-    <nav class="tabs-nav" role="navigation">
-      <ul>
-        <li><label for="tab-1">Pomysły</label></li>
-        <li><label for="tab-2">Realizowane</label></li>
-        <li><label for="tab-3">Ukończone</label></li>
-      </ul>
-    </nav>
-
-  <?php // Pomysły ?>
+    <ul class="tabsMenu">
+        <li id="tabsReset" class="tabsMenu__item">
+            <a class="link link--tab" href="#ideas_projects">Pomysły</a>
+        </li>
+        <li class="tabsMenu__item tabsMenu__item--current">
+            <a class="link link--tab" href="#in_progress_projects">Realizowane</a>
+        </li>
+        <li class="tabsMenu__item">
+            <a class="link link--tab" href="#finished_projects">Ukończone</a>
+        </li>
+    </ul>
   <div class="tab">
-    <div id="ideas_projects"
+  <?php // Pomysły ?>
+    <div class="tab__content" id="ideas_projects"
       data-projects-status="ideas"
-      data-total-ideas-projects="<?php echo $ideas_query->found_posts ?>" class="gl">
-      <?php project_card($ideas_query); ?>
+      data-total-ideas-projects="<?php echo $ideas_query->found_posts ?>">
+        <div class="cardsWrapper">
+            <?php project_card($ideas_query); ?>
+        </div>
     </div>
-  </div>
 
   <?php // W trakcie realizacji ?>
-  <div class="tab">
-    <div id="in_progress_projects"
+    <div class="tab__content" id="in_progress_projects"
       data-projects-status="in_progress"
-      data-total-in-progress-projects="<?php echo $in_progress_query->found_posts ?>" class="gl">
-      <?php project_card($in_progress_query); ?>
+      data-total-in-progress-projects="<?php echo $in_progress_query->found_posts ?>">
+        <div class="cardsWrapper">
+            <?php project_card($in_progress_query); ?>
+        </div>
     </div>
-  </div>
 
   <?php // Ukończone ?>
-    <div class="tab">
-      <div id="finished_projects"
+      <div class="tab__content" id="finished_projects"
         data-projects-status="finished"
-        data-total-finished-projects="<?php echo $done_query->found_posts ?>"
-      class="gl">
-        <?php project_card($done_query); ?>
+        data-total-finished-projects="<?php echo $done_query->found_posts ?>">
+            <div class="cardsWrapper">
+                <?php project_card($done_query); ?>
+            </div>
       </div>
-    </div>
   </div>
   <div class="loader">
     <span id="bubblingG_1"></span>

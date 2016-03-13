@@ -111,9 +111,12 @@ img {
     background-color: $background-color;
     z-index: 1;
     margin-bottom: 100%;
-    box-shadow: $shadow-light-bottom;
     min-height: 100vh;
-    padding-top: 70px;
+    padding: 70px 0 40px;
+    @include angle(after, false, 1.5deg);
+    &:after {
+        box-shadow: $shadow-dark-bottom;
+    }
     @include mq($from:tablet) {
         margin-bottom: 75vh;
         padding-top: 91px;

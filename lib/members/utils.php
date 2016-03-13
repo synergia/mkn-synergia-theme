@@ -258,14 +258,15 @@ function get_number_of_projects ($current_member, $project_status) {
 
 // Stan członkostwa //
 function show_membership_status($current_member) {
+    $role = array_shift($current_member->roles);
   if(is_president($current_member)) {
     echo 'Prezes';
-  } else if($current_member->member_of_managment_board) {
+} else if($current_member->member_of_managment_board && ($role != 'ex_synergia_member')) {
     echo 'Członek zarządu';
-  } else if(has_finished_projects($current_member) || $administrator) {
+} else if((has_finished_projects($current_member) || $administrator) && ($role != 'ex_synergia_member')) {
     echo 'Członek koła';
-  }else if($ex_synergia_member) {
-    echo 'Były członek';
+}else if($role = 'ex_synergia_member') {
+    echo 'Były członek koła';
   } else {
     echo 'Członkostwo nie potwierdzono';
   }
@@ -328,10 +329,10 @@ function social_links($current_member)
         echo '<a class="link link--glowing" data-twitter title="Twitter" href="'.$current_member->twitter_profile.'"><i class="icon icon-twitter"></i></a>';
     }
     if ($current_member->facebook_profile) {
-        echo '<a class="link link--glowing" data-facebook title="Facebook" href="'.$current_member->facebook_profile.'"><i class="icon icon-facebook"></i></a>';
+        echo '<a class="link link--glowing" data-facebook title="Facebook" href="'.$current_member->facebook_profile.'"><i class="icon icon-facebook-squared"></i></a>';
     }
     if ($current_member->lastfm_profile) {
-        echo '<a class="link link--glowing" data-lastfm href="'.$current_member->lastfm_profile.'"><i class="icon icon-facebook"></i><div class="tooltip"></div></a>';
+        echo '<a class="link link--glowing" data-lastfm href="'.$current_member->lastfm_profile.'"><i class="icon icon-lastfm"></i><div class="tooltip"></div></a>';
     }
     if ($current_member->cv) {
         echo '<a class="link link--glowing" data-cv title="Zobacz moje CV" href="'.$current_member->cv.'"><i class="icon icon-briefcase"></i>';

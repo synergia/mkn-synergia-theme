@@ -8,9 +8,10 @@
       </a>
       <span class="footer__social">
           <a class="link link--glowing" href="<?php echo site_url(); ?>/archive" title="Archiwum"><i class="icon-archive"></i></a>
-          <a class="link link--glowing" href="<?php echo $general_options['fb_link'] ?>" title="Polub"><i class="icon-facebook"></i></a>
+          <a class="link link--glowing" href="<?php echo $general_options['fb_link'] ?>" title="Polub"><i class="icon-facebook-squared"></i></a>
+          <a class="link link--glowing" href="<?php echo $general_options['instagram_link'] ?>" title="Zobacz"><i class="icon-instagram"></i></a>
           <a class="link link--glowing" href="<?php echo $general_options['twitter_link'] ?>" title="Śledź"><i class="icon-twitter"></i></a>
-          <a class="link link--glowing" href="<?php echo $general_options['github_link'] ?>" title="Kod"><i class="icon-github"></i></a>
+          <a class="link link--glowing" href="<?php echo $general_options['github_link'] ?>" title="Koduj"><i class="icon-github"></i></a>
       </span>
       <span class="footer__others">
           <a class="link link--footer" href="http://wmech.pwr.wroc.pl/">Wydział Mechaniczny</a> &middot;

@@ -41,6 +41,7 @@
     &__overimage {
         background-image: $gradient-black;
         width:100%;
+        height: inherit;
     }
     &__featuredimg {
         height: auto;
