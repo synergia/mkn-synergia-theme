@@ -4,7 +4,8 @@ Template Name: Blog
 */
 ?>
 <?php get_header(); ?>
-<?php get_template_part('template-part', 'topbar'); ?>
+<?php get_template_part('parts/topbar');
+ ?>
 
 <div class="compensator">
 	<div class="gl">

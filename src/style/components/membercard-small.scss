@@ -1,0 +1,47 @@
+.membercardSmallContainer {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    background-color: #fff;
+    border-bottom: $border-light;
+    flex-flow: row wrap;
+    padding: 0 10px;
+}
+.membercardSmall {
+    position: relative;
+    display: flex;
+    min-width: 235px;
+    &__avatarWrapper {
+        position: relative;
+        height: 50px;
+        width: 50px;
+        margin: 10px;
+
+    }
+    &__avatar {
+        position: relative;
+        overflow: hidden;
+        height: 50px;
+        width: 50px;
+        @include circle(50px, #ffffff);
+    }
+    &__counter {
+        @include circle(20px, $synergia-color);
+        position: absolute;
+        right: -3px;
+        top: -3px;
+        font-weight: 600;
+        font-size: 10px;
+        text-align: center;
+        line-height: 20px;
+        color: #ffffff;
+    }
+    &__name {
+        margin: 10px 0 0;
+        line-height: 1.1;
+        font-weight: 400;
+        width: calc(100% - 65px);
+        font-size: 1.5em;
+    }
+}

@@ -5,7 +5,8 @@ Template Name: Projekty
 ?>
 
 <?php get_header(); ?>
-<?php get_template_part('template-part', 'topbar'); ?>
+<?php get_template_part('parts/topbar');
+ ?>
 
 <?php
 // http://www.advancedcustomfields.com/resources/query-posts-custom-fields/

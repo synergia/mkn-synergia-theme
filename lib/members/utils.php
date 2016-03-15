@@ -65,13 +65,13 @@ function get_member_avatar_url($current_member) {
 }
 // TODO to trzeba przepisać, uwzględniając powyższą funkcję
 
-function show_avatar($current_member)
+function show_avatar($current_member, $css_class)
 {
     $avatar_img = '<a class="link--name" href="'.get_author_posts_url( $current_member->ID, $current_member->user_nicename ).'">';
     if ($current_member->image) {
-        $avatar_img .= '<img class="blazy avatar" src="'.get_template_directory_uri().'/build/img/member.png"  data-src="'.$current_member->image.'" /></a>';
+        $avatar_img .= '<img class="blazy '.$css_class.'" src="'.get_template_directory_uri().'/build/img/member.png"  data-src="'.$current_member->image.'" /></a>';
     } else {
-        $avatar_img .= '<img class="avatar" src="'.get_template_directory_uri().'/build/img/member.png"/></a>';
+        $avatar_img .= '<img class="'.$css_class.'" src="'.get_template_directory_uri().'/build/img/member.png"/></a>';
     }
     return $avatar_img;
 }
@@ -316,26 +316,26 @@ function has_finished_projects($current_member) {
      }
 }
 
-function social_links($current_member)
+function social_links($current_member, $css_class)
 {
     if ($current_member->show_mail) {
-        echo '<a class="link link--glowing" title="Poczta" data-email href="mailto:'.$current_member->user_email.'"><i class="icon icon-mail"></i>';
+        echo '<a class="link '.$css_class.'" title="Poczta" data-email href="mailto:'.$current_member->user_email.'"><i class="icon icon-mail"></i>';
         echo '</a>';
     }
     if ($current_member->github_profile) {
-        echo '<a class="link link--glowing" data-github href="'.$current_member->github_profile.'"><i class="icon icon-github"></i><div class="tooltip"></div></a>';
+        echo '<a class="link '.$css_class.'" data-github href="'.$current_member->github_profile.'"><i class="icon icon-github"></i><div class="tooltip"></div></a>';
     }
     if ($current_member->twitter_profile) {
-        echo '<a class="link link--glowing" data-twitter title="Twitter" href="'.$current_member->twitter_profile.'"><i class="icon icon-twitter"></i></a>';
+        echo '<a class="link '.$css_class.'" data-twitter title="Twitter" href="'.$current_member->twitter_profile.'"><i class="icon icon-twitter"></i></a>';
     }
     if ($current_member->facebook_profile) {
-        echo '<a class="link link--glowing" data-facebook title="Facebook" href="'.$current_member->facebook_profile.'"><i class="icon icon-facebook-squared"></i></a>';
+        echo '<a class="link '.$css_class.'" data-facebook title="Facebook" href="'.$current_member->facebook_profile.'"><i class="icon icon-facebook-squared"></i></a>';
     }
     if ($current_member->lastfm_profile) {
-        echo '<a class="link link--glowing" data-lastfm href="'.$current_member->lastfm_profile.'"><i class="icon icon-lastfm"></i><div class="tooltip"></div></a>';
+        echo '<a class="link '.$css_class.'" data-lastfm href="'.$current_member->lastfm_profile.'"><i class="icon icon-lastfm"></i><div class="tooltip"></div></a>';
     }
     if ($current_member->cv) {
-        echo '<a class="link link--glowing" data-cv title="Zobacz moje CV" href="'.$current_member->cv.'"><i class="icon icon-briefcase"></i>';
+        echo '<a class="link '.$css_class.'" data-cv title="Zobacz moje CV" href="'.$current_member->cv.'"><i class="icon icon-briefcase"></i>';
         echo '</a>';
     }
 }

@@ -6,7 +6,7 @@ Template Name: Główna
 <?php global $snrg_option_global; ?>
 
 <?php get_header(); ?>
-<?php get_template_part('template-part', 'topbar'); ?>
+<?php get_template_part('parts/topbar'); ?>
 <?php // args
 $projects = array(
     'numberposts' => -1,
@@ -20,7 +20,8 @@ $projects_query = new WP_Query($projects);
     <?php project_card($projects_query); ?>
   </div>
 </div>
-<?php get_template_part('template-part', 'sponsors'); ?>
+<?php get_template_part('parts/sponsors');
+ ?>
 
 <!-- end content container -->
 

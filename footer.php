@@ -4,7 +4,7 @@
 <div class="footer-wrapper">
   <div class="footer">
       <a href="http://www.pwr.edu.pl/index.dhtml" target="_blank">
-          <?php get_template_part('template-part', 'pwr'); ?>
+          <?php get_template_part('parts/pwr'); ?>
       </a>
       <span class="footer__social">
           <a class="link link--glowing" href="<?php echo site_url(); ?>/archive" title="Archiwum"><i class="icon-archive"></i></a>
