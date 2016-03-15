@@ -31,7 +31,9 @@ if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 			</div>
 
 		</header>
-		<?php get_template_part('parts/membercard-small');?>
+        <div class="membercardSmallContainer">
+            <?php get_template_part('parts/membercard-small');?>
+        </div>
 		<div class="project__content"><?php the_content(); ?>
 			<?php download_button(get_the_ID()); ?>
 		</div>

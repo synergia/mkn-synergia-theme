@@ -11,7 +11,7 @@ $in_progress_projects = new WP_Query(project_args_per_user($current_member, 'in_
         </div>
         <div class="memberInfo__nameWrapper">
             <div class="memberInfo__name"><?php echo $current_member->display_name; ?></div>
-            <span class="memberInfo__social"><?php social_links($current_member); ?></span>
+            <span class="memberInfo__social"><?php social_links($current_member, 'link--glowing'); ?></span>
         </div>
     </div>
     <div class="whiteWrapper">

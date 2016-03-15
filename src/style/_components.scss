@@ -1,6 +1,7 @@
 // Komponenty UI //
 
 @import "components/membercard";
+@import "components/membercard-small";
 @import "components/burger";
 @import "components/link";
 @import "components/button";
@@ -14,11 +15,3 @@
 @import "components/tooltips";
 @import "components/github";
 @import "components/lastfm";
-
-
-.github {
-  margin: 0.625em;
-}
-.github_s {
-  overflow: hidden;
-}

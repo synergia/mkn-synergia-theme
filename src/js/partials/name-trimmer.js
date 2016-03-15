@@ -10,3 +10,14 @@ $('.membercard__name a').each(function(index) {
     $(this).text(trimmed_name);
   }
 });
+
+$('.membercardSmall__name a').each(function(index) {
+  var length = $(this).html().length;
+  if (length > 14) {
+    var name = $(this).text();
+    // console.log(name);
+    var trimmed_name = name.charAt(0) + ". " + name.substr(name.indexOf(' ') + 1);
+    // console.log(trimmed_name);
+    $(this).text(trimmed_name);
+  }
+});
