@@ -40,6 +40,9 @@
             color: $text-color-light;
         }
     }
+    &--tag {
+        @extend .link--social;
+    }
     // --FOOTER //
     &--footer {
         color: #ffffff;
