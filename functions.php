@@ -4,8 +4,8 @@
     $logo = get_template_directory_uri() . '/build/img/logo.png';
     $version = $theme->get('Version');
     $theme_name = $theme->get('Name');
-    $codename = 'No Name';
-    $codeimg = '';
+    $codename = 'Jessica Alba';
+    $codeimg = 'http://cs633618.vk.me/v633618187/1a842/cNH0Mgb-jHU.jpg';
 
 
 // Dodatkowe style i skrypty dla panelu. Odpowiedzialne za otwieranie okna

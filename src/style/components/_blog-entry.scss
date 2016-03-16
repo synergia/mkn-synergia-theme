@@ -1,0 +1,13 @@
+.blogEntry {
+    border: $border-light;
+    @include border-radius($radius);
+    max-height: 150px;
+    display: flex;
+    position: relative;
+    margin: 10px;
+    background-color: #fff;
+    overflow: hidden;
+    // flex-flow: row nowrap;
+    &__title {
+    }
+}
