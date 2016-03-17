@@ -17,7 +17,7 @@ $posts = new WP_Query($args);
 <div class="compensator">
     <ul class="tabsMenu">
         <li id="tabsReset" class="tabsMenu__item tabsMenu__item--current">
-            <a class="link link--tab" href="#last_posts">Ostatnie wpisy</a>
+            <a class="link link--tab" href="#posts">Wpisy</a>
         </li>
         <li class="tabsMenu__item">
             <a class="link link--tab" href="#archive">Archiwum</a>
@@ -27,10 +27,11 @@ $posts = new WP_Query($args);
         </li>
     </ul>
     <div class="tab">
-        <div class="tab__content" id="last_posts">
+        <div class="tab__content" id="posts">
             <div class="cardsWrapper">
                 <?php project_card($posts); ?>
             </div>
+            <button id="load_more" class="btn btn--synergia">Zobacz starsze<div class="spinner"></div></button>
         </div>
         <div class="tab__content" id="archive">
             <?php get_template_part('parts/archive'); ?>

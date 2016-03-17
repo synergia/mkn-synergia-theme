@@ -30,6 +30,7 @@ $default-ratio: 10%;
     @include transition($bezier);
     color: $text-color;
     line-height: 1.3;
+    position: relative;
     &:hover {
         text-decoration: none;
     }

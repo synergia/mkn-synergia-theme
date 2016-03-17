@@ -41,6 +41,8 @@ jQuery(function($) {
 
     //= partials/infinite-scroll.js
 
+    //= partials/load-more.js
+
     //= partials/topbar.js
 
     //= partials/tabs.js
