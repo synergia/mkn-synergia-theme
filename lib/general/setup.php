@@ -21,20 +21,6 @@ function create_pages()
         echo '<div class="updated"> <p>Utworzono stronę "Główna"</p></div>';
     }
 
-    // Argument dla strony Archiwum
-    $archive_page_args = array(
-        'post_status' => 'publish',
-        'post_type' => 'page',
-        'post_name' => 'archive',
-        'page_template' => 'page-templates/archive.php',
-        'post_title' => 'Archiwum',
-        'post_content' => '',
-    );
-
-    if (get_page_by_title('Archiwum') == null) {
-        wp_insert_post($archive_page_args);
-        echo '<div class="updated"> <p>Utworzono stronę "Archiwum"</p></div>';
-    }
 
     // Argument dla strony Blog
     $blog_page_args = array(

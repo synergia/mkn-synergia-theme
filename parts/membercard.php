@@ -2,7 +2,7 @@
     data-id="<?php echo $current_member->ID; ?>">
 
     <div class="membercard__avatar">
-        <?php echo show_avatar($current_member)?>
+        <?php echo show_avatar($current_member, 'avatar')?>
     </div>
     <div class="membercard__info">
         <h5 class="membercard__name noWrap">

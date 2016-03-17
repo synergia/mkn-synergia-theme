@@ -19,9 +19,6 @@
             background-position: 0 51%;
         }
     }
-    @include mq($from:tablet) {
-        height: 75vh;
-    }
 }
 .footer {
     color: #ffffff;
@@ -43,7 +40,7 @@
         @include transition($bezier);
     }
     &__mknm {
-        margin: 5px 10px 10px;
+        margin: 5px 10px 50px;
     }
     &__others {
         margin: 10px 10px 5px;

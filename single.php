@@ -11,7 +11,6 @@ if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
         	<div class="bottom">
             	<div class="project__meta">
                     <time class="project__time"><?php the_date(); ?></time>
-                    <?php the_project_links(get_the_ID()); ?>
                 </div>
 				<h1 class="project__title"><?php the_title(); ?></h1>
             </div>

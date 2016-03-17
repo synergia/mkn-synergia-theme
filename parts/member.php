@@ -7,7 +7,7 @@ $in_progress_projects = new WP_Query(project_args_per_user($current_member, 'in_
 <div class="memberInfo">
     <div class="violetWrapper">
         <div class="memberInfo__avatar">
-            <?php echo show_avatar($current_member); ?>
+            <?php echo show_avatar($current_member, 'avatar'); ?>
         </div>
         <div class="memberInfo__nameWrapper">
             <div class="memberInfo__name"><?php echo $current_member->display_name; ?></div>
@@ -43,7 +43,7 @@ $in_progress_projects = new WP_Query(project_args_per_user($current_member, 'in_
          if ($finished_projects->have_posts()) {
              project_card($finished_projects);
          } else {
-             echo '<p class="no-projects">Brak ukończonych projektów</p>';
+             echo '<p class="emptyState">Brak ukończonych projektów</p>';
          }
         ?><!-- UKOŃCZONE END -->
         </div>
@@ -53,7 +53,7 @@ $in_progress_projects = new WP_Query(project_args_per_user($current_member, 'in_
             if ($in_progress_projects->have_posts()) {
                 project_card($in_progress_projects);
             } else {
-                echo '<p class="no-projects">Brak realizowanych projektów</p>';
+                echo '<p class="emptyState">Brak realizowanych projektów</p>';
             }
           ?>
     </div>

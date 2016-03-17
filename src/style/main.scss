@@ -117,7 +117,7 @@ img {
         box-shadow: $shadow-dark-bottom;
     }
     @include mq($from:tablet) {
-        margin-bottom: 75vh;
+        margin-bottom: 90vh;
         padding-top: 91px;
     }
     &--full {
