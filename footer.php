@@ -7,7 +7,6 @@
           <?php get_template_part('parts/pwr'); ?>
       </a>
       <span class="footer__social">
-          <a class="link link--glowing" href="<?php echo site_url(); ?>/archive" title="Archiwum"><i class="icon-archive"></i></a>
           <a class="link link--glowing" href="<?php echo $general_options['fb_link'] ?>" title="Polub"><i class="icon-facebook-squared"></i></a>
           <a class="link link--glowing" href="<?php echo $general_options['instagram_link'] ?>" title="Zobacz"><i class="icon-instagram"></i></a>
           <a class="link link--glowing" href="<?php echo $general_options['twitter_link'] ?>" title="Śledź"><i class="icon-twitter"></i></a>
