@@ -131,6 +131,8 @@ function project_card ($query) {
         </div>
  <?php
     }
-  }
+} else {
+    echo 'Brak wpisów.';
+}
 }
  ?>

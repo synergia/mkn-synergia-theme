@@ -1,9 +1,4 @@
 <?php
-/*
-Template Name: Archiwum
-*/
-?>
-<?php
 function get_posts_by_years() {
   global $wpdb;
   $years = $wpdb->get_col("SELECT DISTINCT YEAR(post_date)
@@ -36,14 +31,8 @@ function show_nested_archive() {
 }
  ?>
 
-
-<?php get_header(); ?>
-<?php get_template_part('parts/topbar');
- ?>
 <div class="compensator">
   <div class="gl archive-list">
     <?php show_nested_archive(); ?>
   </div>
 </div>
-
-<?php get_footer(); ?>
