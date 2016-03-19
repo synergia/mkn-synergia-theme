@@ -50,6 +50,7 @@ include 'lib/projects/utils.php';
 // Posts
 include 'lib/posts/post.php';
 include 'lib/posts/utils.php';
+include 'lib/posts/ajax.php';
 // Członkowie
 include 'lib/members/profile.php';
 include 'lib/members/capabilities.php';
