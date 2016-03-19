@@ -24,6 +24,19 @@
             }
         };
     })();
+    var loadingButton = (function(button){
+        return {
+            showSpinner: function(button) {
+                button.html('<div class="spinner"></div>');
+            },
+            showCaption: function(button) {
+                button.html('Zobacz starsze');
+            },
+            hide: function(button) {
+                button.hide();
+            }
+        };
+    })();
 
     $('#load_more_posts').on('click', loadMore);
     $('#load_more').on('click', loadProjects);
@@ -63,7 +76,7 @@
         post_offset = parseInt(post_offset) + incNumber;
 
         if (projects.getTotal() > projects.getLoaded()) {
-            $(this).html('<div class="spinner"></div>');
+            loadingButton.showSpinner($('#load_more'));
             $.ajax({
                 url: ajax_url,
                 type: 'POST',
@@ -76,14 +89,16 @@
                     thisParent.children('.cardsWrapper').append(data);
                     bLazy.revalidate();
                     cardExcerpt();
-                    $('#load_more').html('Zobacz starsze');
+                    loadingButton.showCaption($('#load_more'));
                     projects.incLoaded();
                     console.info('Ajax: Loaded more %s projects: %d/%d', projects_status, projects.getLoaded(), projects.getTotal());
+                    if (projects.getTotal() <= projects.getLoaded()) {
+                        loadingButton.hide($('#load_more'));
+                    }
                 }
             });
         } else {
             return false;
         }
     }
-
 })();
