@@ -39,7 +39,7 @@ jQuery(function($) {
 
     ////= member.js
 
-    //= partials/infinite-scroll.js
+    ////= partials/infinite-scroll.js
 
     //= partials/load-more.js
 

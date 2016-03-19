@@ -61,7 +61,7 @@ $done_query = new WP_Query($done);
   <?php // Pomysły ?>
     <div class="tab__content" id="ideas_projects"
       data-projects-status="ideas"
-      data-total-ideas-projects="<?php echo $ideas_query->found_posts ?>">
+      data-total ="<?php echo $ideas_query->found_posts ?>">
         <div class="cardsWrapper">
             <?php project_card($ideas_query); ?>
         </div>
@@ -70,7 +70,7 @@ $done_query = new WP_Query($done);
   <?php // W trakcie realizacji ?>
     <div class="tab__content" id="in_progress_projects"
       data-projects-status="in_progress"
-      data-total-in-progress-projects="<?php echo $in_progress_query->found_posts ?>">
+      data-total ="<?php echo $in_progress_query->found_posts ?>">
         <div class="cardsWrapper">
             <?php project_card($in_progress_query); ?>
         </div>
@@ -79,16 +79,12 @@ $done_query = new WP_Query($done);
   <?php // Ukończone ?>
       <div class="tab__content" id="finished_projects"
         data-projects-status="finished"
-        data-total-finished-projects="<?php echo $done_query->found_posts ?>">
+        data-total="<?php echo $done_query->found_posts ?>">
             <div class="cardsWrapper">
                 <?php project_card($done_query); ?>
             </div>
+            <button id="load_more" class="btn btn--loadMore  btn--synergia">Zobacz starsze</div></button>
       </div>
-  </div>
-  <div class="loader">
-    <span id="bubblingG_1"></span>
-    <span id="bubblingG_2"></span>
-    <span id="bubblingG_3"></span>
   </div>
 </div>
 <?php wp_reset_query();     // Restore global post data stomped by the_post(). ?>
