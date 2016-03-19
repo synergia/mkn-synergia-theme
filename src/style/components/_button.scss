@@ -59,6 +59,15 @@ $default-ratio: 10%;
           color: $text-color;
         }
     }
+    &--loadMore {
+        margin: 0 auto;
+        text-transform: uppercase;
+        min-width: 151px;
+        min-height: 46px;
+        position: relative;
+        text-align: center;
+        display: block;
+    }
     &--synergia {
         background-color: $synergia-color-light;
         color: #ffffff;

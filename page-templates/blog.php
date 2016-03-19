@@ -31,7 +31,7 @@ $posts = new WP_Query($args);
             <div class="cardsWrapper">
                 <?php project_card($posts); ?>
             </div>
-            <button id="load_more" class="btn btn--synergia">Zobacz starsze<div class="spinner"></div></button>
+            <button id="load_more_posts" class="btn btn--loadMore  btn--synergia">Zobacz starsze</div></button>
         </div>
         <div class="tab__content" id="archive">
             <?php get_template_part('parts/archive'); ?>
