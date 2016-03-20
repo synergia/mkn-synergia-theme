@@ -3,6 +3,8 @@
 
 //= ../../bower_components/scroll-up-bar/src/scroll-up-bar.js
 
+//= ../../bower_components/df-visible/jquery.visible.js
+
 jQuery(function($) {
 
   //= partials/dropdown.js
@@ -48,6 +50,8 @@ jQuery(function($) {
     //= partials/tabs.js
 
     //= partials/odmiana.js
+
+    //= partials/footer.js
 
   });
 

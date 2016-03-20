@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "basic-slider": "*",
-    "scroll-up-bar": "~0.3.0"
+    "scroll-up-bar": "~0.3.0",
+    "df-visible": "jquery-visible#^1.2.0"
   }
 }
