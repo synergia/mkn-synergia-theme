@@ -9,6 +9,8 @@ jQuery(function($) {
 
   //= partials/dropdown.js
 
+  //= partials/banner.js
+
   //= partials/excerpt.js
 
   //= partials/image-wrapper.js

@@ -7,6 +7,7 @@ Template Name: Główna
 
 <?php get_header(); ?>
 <?php get_template_part('parts/topbar'); ?>
+<?php get_template_part('parts/banner'); ?>
 <?php // args
 $projects = array(
     'numberposts' => -1,

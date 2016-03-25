@@ -19,5 +19,7 @@
       <!-- <nav id="nav-mobile"></nav> -->
   </div>
 </header>
+<?php if (!is_front_page()) { ?>
 <div class="global" data-ajax-url="<?php echo admin_url('admin-ajax.php'); ?>">
   <div class="container">
+<?php } ?>
