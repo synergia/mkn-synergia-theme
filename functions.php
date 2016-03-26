@@ -85,10 +85,7 @@ include 'lib/login/login.php';
         wp_register_style('prism', $style_path.'/prism-okaidia.css', array(), $version, 'all');
         wp_enqueue_style('main');
         wp_enqueue_style('Titillium');
-        // Dla rekrutacji potrzebna jest ciężka czcionka
-        if ($snrg_settings['recruitment']) {
-            wp_enqueue_style('Titillium900');
-        }
+        wp_enqueue_style('Titillium900');
         if (is_singular('project') || is_single()) {
             wp_enqueue_style('prism');
         }
