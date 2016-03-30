@@ -124,6 +124,9 @@ img {
         margin-bottom: 0;
         height: 100vh;
     }
+    &--frontpage {
+        padding-top: 40px;
+    }
 }
 .compensator {
     @include clearfix;

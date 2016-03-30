@@ -1,28 +1,55 @@
+<?php
+global $banner_options;
+
+$left_page = $banner_options['left_page'];
+$right_page = $banner_options['right_page'];
+$middle_page = $banner_options['middle_page'];
+
+$args_left = array(
+  'name'        => $left_page,
+  'post_type'   => array( 'post', ' project' ),
+  'post_status' => 'publish',
+  'numberposts' => 1);
+$args_right = array(
+  'name'        => $right_page,
+  'post_type'   => array( 'post', ' project' ),
+  'post_status' => 'publish',
+  'numberposts' => 1);
+$args_middle = array(
+  'name'        => $middle_page,
+  'post_type'   => array( 'post', ' project' ),
+  'post_status' => 'publish',
+  'numberposts' => 1);
+$left_post = get_posts($args_left);
+$right_post = get_posts($args_right);
+$middle_post = get_posts($args_middle);
+?>
+
 <div class="banner">
     <div class="banner__left">
         <a href="#">
-            <h3 class="banner__titleLeft">Synerift</h3>
+            <h3 class="banner__titleLeft"><?php echo get_the_title($left_post[0]); ?></h3>
         </a>
         <a href="#">
-            <img class="banner__leftImg" src="https://images.unsplash.com/photo-1449960238630-7e720e630019?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=2e62fe094cfdd848dd713e9f03087a1a" / />
+            <img class="banner__leftImg" src="<?php echo get_the_post_thumbnail($left_post[0]); ?>" / />
         </a>
     </div>
     <div class="banner__middle">
         <a href="#">
-            <h3 class="banner__middleTitle">Robodrift</h3>
+            <h3 class="banner__middleTitle"><?php echo get_the_title($middle_post[0]); ?></h3>
         </a>
         <a href="#">
-            <img class="banner__middleImg" src="https://images.unsplash.com/photo-1443926886562-c91054221a5c?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=fdb4c038e96e8968420707c1561f4cee" />
+            <img class="banner__middleImg" src="<?php echo get_the_post_thumbnail($middle_post[0]); ?>" />
         <a href="#">
     </div>
     <div class="banner__right">
         <a href="#">
-            <h3 class="banner__titleRight">Rekrutacja</h3>
+            <h3 class="banner__titleRight"><?php echo get_the_title($right_post[0]); ?></h3>
         </a>
         <a href="#">
-            <img class="banner__rightImg" src="https://images.unsplash.com/photo-1433190152045-5a94184895da?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=57115141c5d099ff83a0aa55c0b219a9"/>
+            <img class="banner__rightImg" src="<?php echo get_the_post_thumbnail($right_post[0]); ?>"/>
         </a>
     </div>
 </div>
-<div class="global" data-ajax-url="<?php echo admin_url('admin-ajax.php'); ?>">
+<div class="global global--frontpage" data-ajax-url="<?php echo admin_url('admin-ajax.php'); ?>">
   <div class="container">

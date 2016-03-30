@@ -10,7 +10,8 @@
     &__middle {
         text-align: center;
         width: 100%;
-        position: relative;;
+        position: relative;
+        @include box-shadow;
         @include mq($from:desktop) {
             border-left: 8px solid $synergia-color;
             border-right: 8px solid $synergia-color;
@@ -21,7 +22,7 @@
             margin-right: auto;
             left: 0;
             right: 0;
-            z-index: 1;
+            z-index: 3;
             transform: skewX(-15deg);
             overflow: hidden;
             transition: all 0.6s $bezier;
@@ -43,8 +44,8 @@
         @include mq($from:tablet, $until:desktop) {
             font-size: 9rem;
             top: 7%;
-
         }
+        white-space: nowrap;
         font-size: 7rem;
         color: #fff;
         font-weight: 900;
@@ -62,6 +63,7 @@
         }
     }
     &__titleLeft {
+        white-space: nowrap;
         color: #fff;
         text-transform: uppercase;
         font-weight: 900;
@@ -77,6 +79,7 @@
         @include transition($bezier);
     }
     &__titleRight {
+        white-space: nowrap;
         color: #fff;
         text-transform: uppercase;
         font-weight: 900;
@@ -104,6 +107,7 @@
             height: auto;
             object-fit: cover;
             transform: skewX(15deg);
+            margin-left: -80px;
         }
     }
     &__right {
@@ -112,10 +116,13 @@
             z-index: 0;
             transition: all 0.6s $bezier;
             display: block;
+            opacity: .9;
         }
         display: none;
         &--mvL {
             transform: translate3d(-200px, 0, 0);
+            opacity: 1;
+            z-index: 2;
         }
         &:hover .banner__titleRight {
             opacity: 1;
@@ -129,6 +136,8 @@
         @extend .banner__right;
         &--mvR {
             transform: translate3d(200px, 0, 0);
+            opacity: 1;
+            z-index: 2;
         }
         &:hover .banner__titleLeft {
             opacity: 1;
