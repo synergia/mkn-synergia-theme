@@ -3,7 +3,6 @@
 
 function snrg_left_page_callback() {
   global $banner_options;
-  var_dump($banner_options);
   echo '<input type="text" id="left_page" name="snrg_banner_page_option[left_page]" value="' . $banner_options['left_page']. '"></input>';
  }
 function snrg_middle_page_callback() {

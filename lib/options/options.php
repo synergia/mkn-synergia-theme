@@ -83,21 +83,21 @@ add_settings_section(
 
     add_settings_field(
     'left_page',
-    'Wybierz stronę do wyświetlania (po lewej)',
+    'Wybierz stronę do wyświetlania po lewej (slug)',
     'snrg_left_page_callback',
     'snrg_banner_page_option',
     'snrg_banner_page'
 );
     add_settings_field(
     'middle_page',
-    'Wybierz stronę do wyświetlania (pośrodku)',
+    'Wybierz stronę do wyświetlania pośrodku (slug)',
     'snrg_middle_page_callback',
     'snrg_banner_page_option',
     'snrg_banner_page'
 );
     add_settings_field(
     'right_page',
-    'Wybierz stronę do wyświetlania (po prawej)',
+    'Wybierz stronę do wyświetlania po prawej (slug)',
     'snrg_right_page_callback',
     'snrg_banner_page_option',
     'snrg_banner_page'

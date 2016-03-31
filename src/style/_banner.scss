@@ -7,11 +7,13 @@
     justify-content: center;
     overflow: hidden;
     cursor: pointer;
+    animation: 1s $bezier bannerAnimation;
     &__middle {
         text-align: center;
         width: 100%;
         position: relative;
         @include box-shadow;
+        background-color: $synergia-color;
         @include mq($from:desktop) {
             border-left: 8px solid $synergia-color;
             border-right: 8px solid $synergia-color;
@@ -26,6 +28,7 @@
             transform: skewX(-15deg);
             overflow: hidden;
             transition: all 0.6s $bezier;
+            // animation: 1s $bezier 1s bannerMiddleAnimation forwards;
         }
         &--collapsedL {
             transform: translate3d(365px, 0, 0) skewX(-15deg);

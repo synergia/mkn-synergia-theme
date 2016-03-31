@@ -31,7 +31,7 @@ $middle_post = get_posts($args_middle);
             <h3 class="banner__titleLeft"><?php echo get_the_title($left_post[0]); ?></h3>
         </a>
         <a href="#">
-            <img class="banner__leftImg" src="<?php echo get_the_post_thumbnail($left_post[0]); ?>" / />
+            <img class="banner__leftImg blazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=" data-src="<?php echo wp_get_attachment_url( get_post_thumbnail_id($left_post[0])); ?>" / />
         </a>
     </div>
     <div class="banner__middle">
@@ -39,7 +39,7 @@ $middle_post = get_posts($args_middle);
             <h3 class="banner__middleTitle"><?php echo get_the_title($middle_post[0]); ?></h3>
         </a>
         <a href="#">
-            <img class="banner__middleImg" src="<?php echo get_the_post_thumbnail($middle_post[0]); ?>" />
+            <img class="banner__middleImg blazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=" data-src="<?php echo wp_get_attachment_url( get_post_thumbnail_id($middle_post[0])); ?>"/>
         <a href="#">
     </div>
     <div class="banner__right">
@@ -47,7 +47,7 @@ $middle_post = get_posts($args_middle);
             <h3 class="banner__titleRight"><?php echo get_the_title($right_post[0]); ?></h3>
         </a>
         <a href="#">
-            <img class="banner__rightImg" src="<?php echo get_the_post_thumbnail($right_post[0]); ?>"/>
+            <img class="banner__rightImg blazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=" data-src="<?php echo wp_get_attachment_url( get_post_thumbnail_id($right_post[0])); ?>"/>
         </a>
     </div>
 </div>
