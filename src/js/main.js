@@ -9,8 +9,6 @@ jQuery(function($) {
 
   //= partials/dropdown.js
 
-  //= partials/banner.js
-
   //= partials/excerpt.js
 
   //= partials/image-wrapper.js
@@ -54,6 +52,8 @@ jQuery(function($) {
     //= partials/odmiana.js
 
     //= partials/footer.js
+
+    //= partials/banner.js
 
   });
 

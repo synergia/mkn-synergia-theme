@@ -1,4 +1,18 @@
 (function() {
+    $(".banner__middleTitle").one('animationend webkitAnimationEnd oAnimationEnd oanimationend MSAnimationEnd',
+    function() {
+        $(this).removeClass('banner__middleTitle--animation');
+    });
+    $(".banner__leftTitle").one('animationend webkitAnimationEnd oAnimationEnd oanimationend MSAnimationEnd',
+    function() {
+        $(this).removeClass('banner__leftTitle--animation');
+    });
+    $(".banner__rightTitle").one('animationend webkitAnimationEnd oAnimationEnd oanimationend MSAnimationEnd',
+    function() {
+        $(this).removeClass('banner__rightTitle--animation');
+    });
+
+
     $('.banner__left').hover(function() {
         $('.banner__middle').addClass('banner__middle--collapsedL');
         $('.banner__middleTitle').addClass('banner__middleTitle--opacity80');
