@@ -29,8 +29,7 @@ add_action('admin_init', 'snrg_options');
 function snrg_options()
 {
 
-// ================OGÓLNE===================== //
-// =========================================== //
+// ===============OGÓLNE===================== //
 add_settings_section(
     'snrg_general_page',
     'Ogólne',
@@ -74,50 +73,55 @@ add_settings_section(
     'snrg_general_page'
 );
 
-// ================REKRUTACJA================= //
-// =========================================== //
+// ===============BANER================= //
 add_settings_section(
-    'snrg_recruitment_page',
-    'Rekrutacja (na razie nie działa)',
+    'snrg_banner_page',
+    'Baner',
     false,
-    'snrg_recruitment_page_option'
+    'snrg_banner_page_option'
 );
 
     add_settings_field(
-    'enable_recruitment',
-    'Włącz rekrutację',
-    'snrg_enable_recruitment_callback',
-    'snrg_recruitment_page_option',
-    'snrg_recruitment_page'
+    'left_page',
+    'Wybierz stronę do wyświetlania po lewej (slug)',
+    'snrg_left_page_callback',
+    'snrg_banner_page_option',
+    'snrg_banner_page'
 );
     add_settings_field(
-    'upload_recruitment_image_1',
-    'Dodaj obrazek',
-    'snrg_upload_recruitment_images_callback',
-    'snrg_recruitment_page_option',
-    'snrg_recruitment_page'
-  );
+    'middle_page',
+    'Wybierz stronę do wyświetlania pośrodku (slug)',
+    'snrg_middle_page_callback',
+    'snrg_banner_page_option',
+    'snrg_banner_page'
+);
+    add_settings_field(
+    'right_page',
+    'Wybierz stronę do wyświetlania po prawej (slug)',
+    'snrg_right_page_callback',
+    'snrg_banner_page_option',
+    'snrg_banner_page'
+);
 
-register_setting('snrg_general_page_option', 'snrg_general_page_option', 'snrg_validate_options');
-register_setting('snrg_recruitment_page_option', 'snrg_recruitment_page_option', 'snrg_validate_options');
+register_setting('snrg_general_page_option', 'snrg_general_page_option', 'snrg_validate_general_options');
+register_setting('snrg_banner_page_option', 'snrg_banner_page_option', 'snrg_validate_banner_options');
 }
 
 $general_options = get_option('snrg_general_page_option');
-$recruitment_options = get_option('snrg_recruitment_page_option');
+$banner_options = get_option('snrg_banner_page_option');
 
-function snrg_validate_options( $input ) {
-  global $recruitment_options;
-  if ( ! isset( $recruitment_options['enable_recruitment'] ) ) {
-    $recruitment_options['enable_recruitment'] = null;
-  } else {
-    $recruitment_options['enable_recruitment'] = ( $recruitment_options['enable_recruitment'] == 1 ? 1 : 0 );
-  }
+function snrg_validate_general_options( $input ) {
   $input['archive_link'] = wp_filter_nohtml_kses( $input['archive_link'] );
   $input['projects_link'] = wp_filter_nohtml_kses( $input['projects_link'] );
   $input['fb_link'] = wp_filter_nohtml_kses( $input['fb_link'] );
   $input['twitter_link'] = wp_filter_nohtml_kses( $input['twitter_link'] );
   $input['github_link'] = wp_filter_nohtml_kses( $input['github_link'] );
-  $input['upload_recruitment_image_1'] = wp_filter_nohtml_kses( $input['upload_recruitment_image_1'] );
+  return $input;
+}
+function snrg_validate_banner_options( $input ) {
+    if ( !isset( $input['left_page'] ) ) {
+      $input['left_page'] = null;
+  }
   return $input;
 }
 // Wyświetla info o aktualizacji danych członków //

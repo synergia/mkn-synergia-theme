@@ -109,7 +109,7 @@ img {
 .global {
     background-color: $background-color;
     z-index: 1;
-    margin-bottom: 100%;
+    margin-bottom: 100vh;
     min-height: 100vh;
     padding: 70px 0 40px;
     @include angle(after, false, 1.5deg);
@@ -123,6 +123,9 @@ img {
     &--full {
         margin-bottom: 0;
         height: 100vh;
+    }
+    &--frontpage {
+        padding-top: 40px;
     }
 }
 .compensator {
@@ -205,6 +208,7 @@ img {
 }
 @import 'author';
 @import "topbar";
+@import "banner";
 @import "footer";
 @import "nojs";
 @import 'archive';
