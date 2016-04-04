@@ -1,0 +1,89 @@
+.about {
+    box-sizing: border-box;
+    @extend .project;
+    background-color: #fff;
+    &__header {
+        height: auto;
+        max-height: 500px;
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+        @include border-radius(3px 3px 0 0);
+        z-index: 3;
+    }
+    &__overimage {
+        // background-color: rgba(#000, .3);
+        width: 100%;
+        height: auto;
+    }
+    &__featuredimg {
+        @extend .project__featuredimg;
+    }
+}
+.counters {
+    @extend .cardsWrapper;
+    z-index: 3;
+    border-bottom: $border-light;
+    @include mq($from:wide) {
+        margin-top: -85px;
+        justify-content: center;
+        border: none;
+    }
+    @include mq($until:tablet) {
+        flex-flow: wrap;
+    }
+    &__counter {
+        box-sizing: border-box;
+        background-color: #fff;
+        width: 25%;
+        min-width: 150px;
+        font-size: 4rem;
+        line-height: 1;
+        font-weight: 300;
+        color: $text-color;
+        text-align: center;
+        height: 170px;
+        display: flex;
+        flex-flow: column nowrap;
+        // align-items: center;
+        // justify-content: center;
+        position: relative;
+        padding-top: 25px;
+        @include mq($from:wide) {
+            margin: 10px;
+            width: 219.5px; // przepraszam
+            @include border-radius($radius);
+            border: $border-light;
+        }
+    }
+    &__divider {
+        position: relative;
+        height: 4px;
+        width: 25%;
+        // background-color: $synergia-color;
+        margin: 5px 0 10px;
+    }
+    &__label {
+        font-size: 1.1rem;
+        font-weight: 400;
+        width: 150px;
+        margin: 0 auto;
+    }
+    &__count {
+        position: relative;
+        // color: $synergia-color;
+        &:after {
+            content: '';
+            display: block;
+            background: $grey-dark;
+            height: 4px;
+            max-width: 150px;
+            width: 50%;
+            margin: 0 auto;
+            // margin-top: -11px;
+            margin-bottom: 5px;
+            // position: absolute;
+
+        }
+    }
+}
