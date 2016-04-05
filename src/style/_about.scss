@@ -56,13 +56,6 @@
             border: $border-light;
         }
     }
-    &__divider {
-        position: relative;
-        height: 4px;
-        width: 25%;
-        // background-color: $synergia-color;
-        margin: 5px 0 10px;
-    }
     &__label {
         font-size: 1.1rem;
         font-weight: 400;
@@ -71,18 +64,14 @@
     }
     &__count {
         position: relative;
-        // color: $synergia-color;
         &:after {
             content: '';
             display: block;
-            background: $grey-dark;
+            background: $text-color-light;
             height: 4px;
             max-width: 150px;
             width: 50%;
-            margin: 0 auto;
-            // margin-top: -11px;
-            margin-bottom: 5px;
-            // position: absolute;
+            margin: 10px auto 10px;
 
         }
     }
