@@ -57,6 +57,8 @@ jQuery(function($) {
 
     //= partials/banner.js
 
+    //= partials/map.js
+
   });
 
   // Prezes zawsze na pierwszym miejscu //

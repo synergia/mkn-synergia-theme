@@ -19,6 +19,9 @@
     &__featuredimg {
         @extend .project__featuredimg;
     }
+    &__content {
+        @extend .project__content;
+    }
 }
 .counters {
     @extend .cardsWrapper;

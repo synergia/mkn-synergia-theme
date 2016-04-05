@@ -72,7 +72,12 @@ if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
                 <span class="counters__label">Edycje RoboDrift</span>
             </div>
         </section>
-		<div class="project__content"><?php the_content(); ?></div>
+		<div class="about__content"><?php the_content(); ?></div>
+        <section class="map" id="snrg-google-map">
+            <div class="map__container" id="snrg-map"></div>
+            <div class="map__zoomIn btn--synergia" id="snrg-zoom-in"><i class="icon-plus "></i></div>
+	        <div class="map__zoomOut btn--synergia" id="snrg-zoom-out"><i class="icon-minus"></i></div>
+        </section>
 		<?php wp_link_pages(); ?>
 	<?php endwhile; ?>
 <?php else: ?>
