@@ -35,8 +35,6 @@ $total_members = count(get_members_with_projects());
 ?>
 
 <div class="compensator">
-	<div class="about">
-
 <?php // theloop
 if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 		<header class="about__header loading">
@@ -54,6 +52,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 					data-src-small="<?php bloginfo('template_directory'); ?>/build/img/card.png"/><?php } ?>
             </div>
 		</header>
+        <div class="about">
         <section class="counters">
             <div class="counters__counter" id="finished">
                 <span class="counters__count" data-finished="<?php echo $done_query->found_posts ?>"></span>

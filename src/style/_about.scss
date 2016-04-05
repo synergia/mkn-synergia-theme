@@ -1,20 +1,37 @@
 .about {
     box-sizing: border-box;
-    @extend .project;
     background-color: #fff;
+    border: $border-light;
+    @include border-radius($radius);
+    margin-top: 50%;
+    @include mq($from:tablet) {
+        margin-top: 400px;
+    }
     &__header {
         height: auto;
         max-height: 500px;
         width: 100%;
         overflow: hidden;
-        position: relative;
-        @include border-radius(3px 3px 0 0);
-        z-index: 3;
+        position: absolute;
+        right: 0;
+        left: 0;
+        top: 0;
     }
     &__overimage {
-        // background-color: rgba(#000, .3);
+        content: '';
         width: 100%;
         height: auto;
+        &::after {
+            content: "";
+            background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAFUlEQVQIHWNgYGB4/P//fwZGEAECAEVMBt9tNvSUAAAAAElFTkSuQmCC");
+            opacity: 0.5;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            position: absolute;
+            z-index: -1;
+        }
     }
     &__featuredimg {
         @extend .project__featuredimg;
@@ -28,9 +45,9 @@
     z-index: 3;
     border-bottom: $border-light;
     @include mq($from:wide) {
-        margin-top: -85px;
         justify-content: center;
         border: none;
+        margin-top: -50px;
     }
     @include mq($until:tablet) {
         flex-flow: wrap;
@@ -74,8 +91,7 @@
             height: 4px;
             max-width: 150px;
             width: 50%;
-            margin: 10px auto 10px;
-
+            margin: 10px auto;
         }
     }
 }
