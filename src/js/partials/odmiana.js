@@ -25,5 +25,17 @@
             $(this).find('.counter__label').html(num(count, ["Projektów realizowanych", "Projekt realizowany", "Projekty realizowane"]));
         }
     });
+    $('.counters__counter').each(function(index) {
+        var status = $(this).attr('id');
+        var count = parseInt($(this).children('.counters__count').data(status));
+        console.log(count, status);
+        if (status === 'finished') {
+            $(this).find('.counters__label').html(num(count, ["Projektów ukończonych", "Projekt ukończony", "Projekty ukończone"]));
+        } else if (status === 'in-progress'){
+            $(this).find('.counters__label').html(num(count, ["Projektów realizowanych", "Projekt realizowany", "Projekty realizowane"]));
+        }
+        $('#'+status).jQuerySimpleCounter({end: count, duration: 2500});
+
+    });
 
 })();

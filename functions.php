@@ -109,16 +109,19 @@ function js() {
     wp_register_script('main', $js_path.'/main.min.js', array('jquery'), $version, true);
     wp_register_script('swipe', $js_path.'/swipe.min.js', array('jquery'), $version, true);
     wp_register_script('blazy', $js_path.'/blazy.min.js', array('jquery'), $version, true);
-    // wp_register_script('cookie', get_template_directory_uri().'/build/js/js-cookie.min.js', '', true);
+    wp_register_script('map', 'https://maps.googleapis.com/maps/api/js', false);
+
+    wp_enqueue_script('main');
+    wp_enqueue_script('blazy');
+    wp_enqueue_script('swipe');
+    
+    if(is_page('about')) {
+        wp_enqueue_script('map');
+    }
+
     if (is_singular('project') || is_single()) {
         wp_enqueue_script('prism');
     }
-    // if ($snrg_settings['recruitment']) {
-    //     wp_enqueue_script('cookie');
-    // }
-    wp_enqueue_script('swipe');
-    wp_enqueue_script('blazy');
-    wp_enqueue_script('main');
 }
 add_action('wp_footer', 'js');
 

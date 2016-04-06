@@ -49,11 +49,15 @@ jQuery(function($) {
 
     //= partials/tabs.js
 
+    //= partials/counter.js
+
     //= partials/odmiana.js
 
     //= partials/footer.js
 
     //= partials/banner.js
+
+    //= partials/map.js
 
   });
 
