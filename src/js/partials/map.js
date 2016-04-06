@@ -1,8 +1,8 @@
 // http://codepen.io/codyhouse/pen/szKvm
 
 //set your google maps parameters
-var $latitude = 51.10830,
-    $longitude = 17.06542,
+var $latitude = $('#snrg-google-map').data('lat'),
+    $longitude = $('#snrg-google-map').data('lon'),
     $map_zoom = 16;
 
 //google map custom marker icon - .png fallback for IE11

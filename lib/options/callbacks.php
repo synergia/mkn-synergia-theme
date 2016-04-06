@@ -40,3 +40,18 @@ function snrg_g_anal_callback() {
   <p class="description">Kod śledzący Google Analytics</p>
   <?php
 }
+
+// ===============O NAS===================== //
+
+function snrg_robodrift_edition_callback() {
+  global $about_options;
+    echo '<input type="text" id="robodrift_edition_id" name="snrg_about_page_option[robodrift_edition]" value="' . $about_options['robodrift_edition']. '"></input>';
+}
+function snrg_latitude_callback() {
+  global $about_options;
+    echo '<input type="text" id="latitude_id" name="snrg_about_page_option[latitude]" value="' . $about_options['latitude']. '"></input>';
+}
+function snrg_longtitude_callback() {
+  global $about_options;
+    echo '<input type="text" id="longtitude_id" name="snrg_about_page_option[longtitude]" value="' . $about_options['longtitude']. '"></input>';
+}

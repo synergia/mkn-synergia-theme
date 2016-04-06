@@ -67,12 +67,16 @@ if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
                 <span class="counters__label">Członków koła</span>
             </div>
             <div class="counters__counter" id="robodrift">
-                <span class="counters__count" data-robodrift="4"></span>
+                <span class="counters__count" data-robodrift="<?php echo $about_options['robodrift_edition']; ?>"></span>
                 <span class="counters__label">Edycje RoboDrift</span>
             </div>
         </section>
 		<div class="about__content"><?php the_content(); ?></div>
-        <section class="map" id="snrg-google-map">
+        <section
+                class="map"
+                id="snrg-google-map"
+                data-lat="<?php echo $about_options['latitude']; ?>"
+                data-lon="<?php echo $about_options['longtitude']; ?>">
             <div class="map__container" id="snrg-map"></div>
             <div class="map__zoomIn btn--synergia" id="snrg-zoom-in"><i class="icon-plus "></i></div>
 	        <div class="map__zoomOut btn--synergia" id="snrg-zoom-out"><i class="icon-minus"></i></div>

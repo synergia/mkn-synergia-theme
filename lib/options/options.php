@@ -102,28 +102,62 @@ add_settings_section(
     'snrg_banner_page_option',
     'snrg_banner_page'
 );
+// ===============O NAS================= //
+add_settings_section(
+    'snrg_about_page',
+    'O nas',
+    false,
+    'snrg_about_page_option'
+);
 
-register_setting('snrg_general_page_option', 'snrg_general_page_option', 'snrg_validate_general_options');
-register_setting('snrg_banner_page_option', 'snrg_banner_page_option', 'snrg_validate_banner_options');
+    add_settings_field(
+    'robodrift_edition',
+    'Liczba edycji RoboDrift',
+    'snrg_robodrift_edition_callback',
+    'snrg_about_page_option',
+    'snrg_about_page'
+);
+    add_settings_field(
+    'latitude',
+    'Szerokość geograficzna (lat)',
+    'snrg_latitude_callback',
+    'snrg_about_page_option',
+    'snrg_about_page'
+);
+    add_settings_field(
+    'longtitude',
+    'Długość geograficzna (lon)',
+    'snrg_longtitude_callback',
+    'snrg_about_page_option',
+    'snrg_about_page'
+);
+register_setting('snrg_general_page_option', 'snrg_general_page_option', 'snrg_validate_options');
+register_setting('snrg_banner_page_option', 'snrg_banner_page_option', 'snrg_validate_options');
+register_setting('snrg_about_page_option', 'snrg_about_page_option', 'snrg_validate_options');
 }
 
 $general_options = get_option('snrg_general_page_option');
 $banner_options = get_option('snrg_banner_page_option');
+$about_options = get_option('snrg_about_page_option');
 
-function snrg_validate_general_options( $input ) {
+function snrg_validate_options( $input ) {
   $input['archive_link'] = wp_filter_nohtml_kses( $input['archive_link'] );
   $input['projects_link'] = wp_filter_nohtml_kses( $input['projects_link'] );
   $input['fb_link'] = wp_filter_nohtml_kses( $input['fb_link'] );
   $input['twitter_link'] = wp_filter_nohtml_kses( $input['twitter_link'] );
   $input['github_link'] = wp_filter_nohtml_kses( $input['github_link'] );
+
+  $input['left_page'] = wp_filter_nohtml_kses( $input['left_page'] );
+  $input['middle_page'] = wp_filter_nohtml_kses( $input['middle_page'] );
+  $input['right_page'] = wp_filter_nohtml_kses( $input['right_page'] );
+
+  $input['robodrift_edition'] = wp_filter_nohtml_kses( $input['robodrift_edition'] );
+  $input['latitude'] = wp_filter_nohtml_kses( $input['latitude'] );
+  $input['longtitude'] = wp_filter_nohtml_kses( $input['longtitude'] );
+
   return $input;
 }
-function snrg_validate_banner_options( $input ) {
-    if ( !isset( $input['left_page'] ) ) {
-      $input['left_page'] = null;
-  }
-  return $input;
-}
+
 // Wyświetla info o aktualizacji danych członków //
 function update_members_meta_page() {
   $timestamp = date('d F Y H:i:s', wp_next_scheduled('update_members_meta'));
