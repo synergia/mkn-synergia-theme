@@ -28,8 +28,6 @@ jQuery(function($) {
   // przez to gnwo nie działa .on()
   ////= partials/smooth-scrolling.js
 
-  //= partials/404.js
-
   //= partials/tooltip.js
 
   //= partials/github.js
