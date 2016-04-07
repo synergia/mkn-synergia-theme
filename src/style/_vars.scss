@@ -45,7 +45,7 @@ $image-opacity: 0.6;
 // GRADIENTS
 $gradient-black: linear-gradient(transparent, rgba(0, 0, 0, 0.4));
 $gradient-white: linear-gradient(transparent, rgba(255, 255, 255, 1));
-$gradient-purple: linear-gradient(transparent 50%, rgba($synergia-color, 1) 99%);
+$gradient-purple: linear-gradient(rgba($synergia-color, 1) 10%, transparent 100%);
 
 // Breakpoints //
 $mq-media-type: screen;

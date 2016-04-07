@@ -10,7 +10,7 @@ Template Name: Główna
 <?php get_template_part('parts/banner'); ?>
 <?php // args
 $projects = array(
-    'numberposts' => -1,
+    'posts_per_page' => 3,
     'post_type' => 'project',
     'orderby' => 'modified',
 );

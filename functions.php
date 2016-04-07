@@ -109,18 +109,24 @@ function js() {
     wp_register_script('main', $js_path.'/main.min.js', array('jquery'), $version, true);
     wp_register_script('swipe', $js_path.'/swipe.min.js', array('jquery'), $version, true);
     wp_register_script('blazy', $js_path.'/blazy.min.js', array('jquery'), $version, true);
+    wp_register_script('404', $js_path.'/404.min.js', array('jquery'), $version, true);
     wp_register_script('map', 'https://maps.googleapis.com/maps/api/js', false);
 
-    wp_enqueue_script('main');
-    wp_enqueue_script('blazy');
-    wp_enqueue_script('swipe');
-    
+    if(!is_404()){
+        wp_enqueue_script('main');
+        wp_enqueue_script('blazy');
+    }
+    if(is_404()){
+        wp_enqueue_script('404');
+    }
+
     if(is_page('about')) {
         wp_enqueue_script('map');
     }
 
     if (is_singular('project') || is_single()) {
         wp_enqueue_script('prism');
+        wp_enqueue_script('swipe');
     }
 }
 add_action('wp_footer', 'js');
