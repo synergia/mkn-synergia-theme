@@ -19,11 +19,19 @@ function show_links($items) {
   if ($items->have_posts()) {
       while ($items->have_posts()) {
           $items->the_post();?>
-              <a href="<?php the_title();?>">
-                <img class="blazy"
-                     alt="<?php the_title(); ?>"
-                     src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-                     data-src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), 'sponsor_logo', true)[0];?>"/>              </a>
+          <div class="brand">
+              <div class="brand__controls">
+                  <div class="brand__more">
+                      <a href='' class="link link--glowing"><i class="icon-dot-3"></i></a>
+                  </div>
+                  <div class="brand__link">
+                      <a href='' class="link link--glowing"><i class="icon-link"></i></a>
+                  </div>
+              </div>
+              <img class="brand__logo blazy" alt=""
+              src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+              data-src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), 'sponsor_logo', true)[0];?>" />
+          </div>
 <?php }
   } else {
       echo 'Nic a nic';
@@ -32,12 +40,16 @@ function show_links($items) {
 
 // Następnie wywołujemy tę funkcję w HTMLu
 ?>
-    <div class="sponsors-container">
-        <h4>Sponsorzy</h4>
-        <?php show_links($sponsors); ?>
-    </div>
+    <section class="orgs">
+        <h4 class="orgs__title">Sponsorzy</h4>
+        <div class="cardsWrapper">
+            <?php show_links($sponsors); ?>
+        </div>
+    </section>
 
-    <div class="partnership-container">
-        <h4>Współpraca</h4>
-        <?php show_links($partnerships); ?>
-    </div>
+    <section class="orgs">
+        <h4 class="orgs__title">Współpraca</h4>
+        <div class="cardsWrapper">
+            <?php show_links($partnerships); ?>
+        </div>
+    </section>

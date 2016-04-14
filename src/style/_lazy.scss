@@ -6,11 +6,8 @@
   opacity: 1;
 }
 
-.sponsors-container .blazy.b-loaded {
-  opacity: 0.6;
-  &:hover {
-    opacity: 1;
-  }
+.brand__logo.blazy.b-loaded {
+    @include transition($bezier);
 }
 
 .card__overimage.loading {
