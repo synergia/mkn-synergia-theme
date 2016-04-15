@@ -2,9 +2,11 @@
     margin-top: 20px;
     position: relative;
     width: 100%;
-    @include border-radius($radius);
     border: $border-light;
     background-color: #fff;
+    @include mq($from:tablet) {
+        @include border-radius($radius);
+    }
     &:first-of-type {
         margin-top: 10px;
     }
@@ -46,22 +48,26 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: rgba(#000, 0.5);
-        border: 1px solid rgba(#000, 0.55);
-        @include border-radius($radius);
+        background-color: rgba(#fff, 0.5);
         @include transition($bezier);
 
     }
     &__link {
         opacity: 0.95;
         font-size: 1.8rem;
-        border: 3px solid #fff;
+        border: 3px solid $text-color;
         @include border-radius(50%);
         margin: 10px;
         padding: .2rem;
+        &:hover {
+            border: 3px solid $text-color-light;
+        }
     }
     &__more {
         @extend .brand__link;
+        &:hover {
+            border: 3px solid $text-color-light;
+        }
     }
     &__logo {
         position: relative;

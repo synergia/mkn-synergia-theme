@@ -43,6 +43,12 @@
     &--tag {
         @extend .link--social;
     }
+    &--controls {
+        color: $text-color-light;
+        &:hover {
+            color: $text-color;
+        }
+    }
     // --FOOTER //
     &--footer {
         color: #ffffff;

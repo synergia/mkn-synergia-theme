@@ -13,9 +13,19 @@
     overflow: hidden;
     white-space: nowrap;
 }
+.visible {
+    opacity: 1;
+    visibility: visible;
+}
 .hidden {
     opacity: 0;
     visibility: hidden;
     z-index: 0;
     // @include transition($bezier);
+}
+.doNotScroll {
+    overflow: hidden;
+}
+.noMargins {
+    margin: 0;
 }
