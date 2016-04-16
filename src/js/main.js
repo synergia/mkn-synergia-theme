@@ -34,8 +34,6 @@ jQuery(function($) {
 
   //= partials/lastfm.js
 
-  //= partials/modal.js
-
   $(document).ready(function() {
     //= partials/lazy.js
 
@@ -57,7 +55,9 @@ jQuery(function($) {
 
     //= partials/banner.js
 
-    //= partials/map.js
+    ////= partials/map.js
+
+    //= partials/modal.js
 
   });
 

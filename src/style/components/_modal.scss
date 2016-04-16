@@ -54,15 +54,15 @@
     }
     &__container {
         position: relative;
-        padding: 10px;
+        padding: 20px;
         display: flex;
         align-items: flex-start;
     }
     &__image {
         height: auto;
-        width: 200px;
+        max-width: 200px;
         position: relative;
-        margin-right: 10px;
+        margin-right: 20px;
     }
     &__content {
         width: 360px;
