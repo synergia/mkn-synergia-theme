@@ -70,6 +70,8 @@ include 'lib/general/setup.php';
 include 'lib/general/walker.php';
 // Login
 include 'lib/login/login.php';
+// ULTRON
+include 'lib/ultron/ultron.php';
 
 
 // Synergiczne style //
@@ -113,8 +115,9 @@ function js() {
     wp_register_script('map', 'https://maps.googleapis.com/maps/api/js', false);
 
     if(!is_404()){
-        wp_enqueue_script('main');
         wp_enqueue_script('blazy');
+        wp_enqueue_script('swipe');
+        wp_enqueue_script('main');
     }
     if(is_404()){
         wp_enqueue_script('404');
@@ -126,7 +129,6 @@ function js() {
 
     if (is_singular('project') || is_single()) {
         wp_enqueue_script('prism');
-        wp_enqueue_script('swipe');
     }
 }
 add_action('wp_footer', 'js');

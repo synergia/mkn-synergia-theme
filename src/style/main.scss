@@ -58,8 +58,9 @@ textarea {
     resize: vertical;
 }
 html {
-    // height: 100%;
-    // overflow-y: scroll;
+// https://aykevl.nl/2014/09/fix-jumping-scrollbar
+    width:100vw;
+    overflow-x:hidden;
 }
 blockquote {
     position: relative;
@@ -79,6 +80,7 @@ body {
     color: $text-color;
     background-color: $background-color;
     position: relative;
+    // overflow-y: scroll;
 }
 input,
 button,
@@ -207,6 +209,7 @@ img {
     }
 }
 @import 'author';
+@import "sponsors-n-partners";
 @import "about";
 @import "topbar";
 @import "banner";
@@ -217,7 +220,7 @@ img {
 @import "404"; // Style z project także wykorzystywane są w single i page
 @import 'project';
 @import 'member';
-@import 'recruitment';
+// @import 'recruitment';
 @import "login";
 @import 'animations';
 @import "lazy";

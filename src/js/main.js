@@ -55,7 +55,9 @@ jQuery(function($) {
 
     //= partials/banner.js
 
-    //= partials/map.js
+    ////= partials/map.js
+
+    //= partials/modal.js
 
   });
 

@@ -46,3 +46,4 @@ Usunąć folder `build`:
 *   [bLazy.js](http://dinbror.dk/blog/blazy/) - A lazy load image script
 *   [Swipe](https://github.com/thebird/Swipe) -  Swipe is the most accurate touch slider.
 *   [Dropy2](http://codepen.io/Tombek/pen/OPvpLe) -  A Simple SCSS & jQuery dropdown
+*   [Carbon Fields](http://carbonfields.net/) -  Elegant WordPress custom fields for developers
