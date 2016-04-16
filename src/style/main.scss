@@ -59,8 +59,8 @@ textarea {
 }
 html {
 // https://aykevl.nl/2014/09/fix-jumping-scrollbar
-    width:100vw;
-    overflow-x:hidden;
+    // width:100vw;
+    // overflow-x:hidden;
 }
 blockquote {
     position: relative;
@@ -152,45 +152,6 @@ img {
     &--full {
         width: 100%;
     }
-}
-.sponsors-container {
-    position: relative;
-    padding: 0;
-    overflow: hidden;
-    text-align: center;
-    @include mq($until: tablet) {
-        display: none;
-    }
-    h4 {
-        text-transform: uppercase;
-        font-weight: 700;
-        @extend h2;
-        font-size: 1.25em;
-        color: $text-color-light;
-        margin: 40px 0 20px;
-        border-bottom: $border-light;
-    }
-    a:hover {
-        text-decoration: none;
-    }
-    img {
-        opacity: $image-opacity;
-        filter:alpha(opacity=calc($image-opacity * 100)); // For IE8 and earlier
-        filter:grayscale(1);
-        width: auto;
-        margin: 15px;
-        max-height: 75px;
-        max-width: 200px;
-        @include transition($bezier);
-        &:hover {
-            opacity: 1;
-            filter:alpha(opacity=100); // For IE8 and earlier
-            filter:grayscale(0);
-        }
-    }
-}
-.partnership-container {
-    @extend .sponsors-container;
 }
 .widget {
     @extend .partnership-container;

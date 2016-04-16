@@ -147,14 +147,6 @@
                 border-bottom: 4px solid $synergia-color;
             }
         }
-        a {
-            display: block;
-            color: $synergia-color;
-            padding: 5px 15px;
-            text-decoration: none;
-            &:hover {
-                color: $synergia-color-light;
-            }
-        }
+        
     }
 }
