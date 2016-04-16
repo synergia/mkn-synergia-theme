@@ -59,6 +59,9 @@ function remind_to_do() {
   if ( !is_plugin_active( 'custom-upload-dir/custom_upload_dir.php' ) ) {
     echo '<div class="error"> <p>Należy zainstalować wtyczkę Custom Upload Dir</p></div>';
   }
+  if ( !is_plugin_active( 'carbon-fields/carbon-fields-plugin.php' ) ) {
+    echo '<div class="error"> <p>Należy zainstalować wtyczkę Carbon Fields</p></div>';
+  }
   $current_member = wp_get_current_user();
   if(!$current_member->image) {
     echo '<div class="error"> <p>Dodaj zdjęcie profilowe!</p><img src="'.get_template_directory_uri().'/build/img/b.jpg"/></div>';
