@@ -144,9 +144,9 @@
         }
         &--current {
             @include mq($from:tablet) {
-                border-bottom: 4px solid $synergia-color;
+                // border-bottom: 2px solid $synergia-color-light;
             }
         }
-        
+
     }
 }

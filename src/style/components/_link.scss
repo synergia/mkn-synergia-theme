@@ -19,7 +19,6 @@
     &--logo {}
     &--nav {
         display: block;
-        color: $synergia-color;
         padding: 5px 10px;
         text-decoration: none;
         &:hover {
@@ -27,7 +26,7 @@
         }
     }
     &--current {
-        // color: #fff;
+        color: $grey-dark;
     }
     // --PROJEKT //
     &--glowing {

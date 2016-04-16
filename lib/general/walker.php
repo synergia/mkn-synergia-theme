@@ -8,7 +8,8 @@ class Walker_Simple_Example extends Walker_Nav_Menu {
      */
     function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
         $activeMenuItemClass = (in_array('current-menu-item', $item->classes)) ? ' nav__item--current' : '';
-        $output .= "<li class='nav__item ".$activeMenuItemClass."'><a class='link link--nav' href='".$item->url."'>".$item->title."</a></li>";
+        $activeMenuLinkClass = (in_array('current-menu-item', $item->classes)) ? ' link--current' : '';
+        $output .= "<li class='nav__item ".$activeMenuItemClass."'><a class='link link--nav ".$activeMenuLinkClass."' href='".$item->url."'>".$item->title."</a></li>";
     }
 }
 
