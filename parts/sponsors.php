@@ -25,12 +25,12 @@ function show_links($items) {
                data-brand-desc="<?php echo wp_filter_nohtml_kses(get_the_content()); ?>">
               <div class="brand__controls">
                   <div class="brand__more">
-                      <a title="Dowiedz się więcej" href='' class="link link--social" target="_blank">
+                      <a title="Dowiedz się więcej" href='' class="link link--controls" target="_blank">
                           <i class="icon-dot-3"></i>
                       </a>
                   </div>
                   <div class="brand__link">
-                      <a title="Odwiedź stronę" href='' class="link link--social" target="_blank">
+                      <a title="Odwiedź stronę" href='' class="link link--controls" target="_blank">
                           <i class="icon-link"></i>
                       </a>
                   </div>

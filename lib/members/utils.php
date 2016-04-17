@@ -67,9 +67,10 @@ function get_member_avatar_url($current_member) {
 
 function show_avatar($current_member, $css_class)
 {
+    $img_url = carbon_get_user_meta($current_member->ID, 'crb_member_profile_image');
     $avatar_img = '<a class="link--name" href="'.get_author_posts_url( $current_member->ID, $current_member->user_nicename ).'">';
-    if ($current_member->image) {
-        $avatar_img .= '<img class="blazy '.$css_class.'" src="'.get_template_directory_uri().'/build/img/member.png"  data-src="'.$current_member->image.'" /></a>';
+    if ($img_url) {
+        $avatar_img .= '<img class="blazy '.$css_class.'" src="'.get_template_directory_uri().'/build/img/member.png"  data-src="'.$img_url.'" /></a>';
     } else {
         $avatar_img .= '<img class="'.$css_class.'" src="'.get_template_directory_uri().'/build/img/member.png"/></a>';
     }
@@ -91,7 +92,9 @@ function show_avatar_admin($current_member)
 }
 
 function is_president($current_member) {
-  if ($current_member->president) {
+    $member_of_managment_board = carbon_get_user_meta($current_member->ID, 'crb_managment_board');
+
+  if ($member_of_managment_board == 'president') {
     return true;
   } else {
     return false;
@@ -259,9 +262,10 @@ function get_number_of_projects ($current_member, $project_status) {
 // Stan członkostwa //
 function show_membership_status($current_member) {
     $role = array_shift($current_member->roles);
+    $member_of_managment_board = carbon_get_user_meta($current_member->ID, 'crb_managment_board');
   if(is_president($current_member)) {
     echo 'Prezes';
-} else if($current_member->member_of_managment_board && ($role != 'ex_synergia_member')) {
+} else if($member_of_managment_board == 'member_of_managment_board' && ($role != 'ex_synergia_member')) {
     echo 'Członek zarządu';
 } else if((has_finished_projects($current_member) || $administrator) && ($role != 'ex_synergia_member')) {
     echo 'Członek koła';
@@ -318,31 +322,41 @@ function has_finished_projects($current_member) {
 
 function social_links($current_member, $css_class)
 {
-    if ($current_member->show_mail) {
+    $github_url = carbon_get_user_meta($current_member->ID, 'crb_member_github_link');
+    $facebook_url = carbon_get_user_meta($current_member->ID, 'crb_member_facebook_link');
+    $twitter_url = carbon_get_user_meta($current_member->ID, 'crb_member_twitter_link');
+    $lastfm_url = carbon_get_user_meta($current_member->ID, 'crb_member_lastfm_link');
+    $cv_url = carbon_get_user_meta($current_member->ID, 'crb_member_cv_link');
+    $show_mail = carbon_get_user_meta($current_member->ID, 'crb_show_mail');
+
+    if ($show_mail) {
         echo '<a class="link '.$css_class.'" title="Poczta" data-email href="mailto:'.$current_member->user_email.'"><i class="icon icon-mail"></i>';
         echo '</a>';
     }
-    if ($current_member->github_profile) {
+    if ($github_url) {
         echo '<a class="link '.$css_class.'" data-github href="'.$current_member->github_profile.'"><i class="icon icon-github"></i><div class="tooltip"></div></a>';
     }
-    if ($current_member->twitter_profile) {
+    if ($twitter_url) {
         echo '<a class="link '.$css_class.'" data-twitter title="Twitter" href="'.$current_member->twitter_profile.'"><i class="icon icon-twitter"></i></a>';
     }
-    if ($current_member->facebook_profile) {
+    if ($facebook_url) {
         echo '<a class="link '.$css_class.'" data-facebook title="Facebook" href="'.$current_member->facebook_profile.'"><i class="icon icon-facebook-squared"></i></a>';
     }
-    if ($current_member->lastfm_profile) {
+    if ($lastfm_url) {
         echo '<a class="link '.$css_class.'" data-lastfm href="'.$current_member->lastfm_profile.'"><i class="icon icon-lastfm"></i><div class="tooltip"></div></a>';
     }
-    if ($current_member->cv) {
-        echo '<a class="link '.$css_class.'" data-cv title="Zobacz moje CV" href="'.$current_member->cv.'"><i class="icon icon-briefcase"></i>';
+    if ($cv_url) {
+        echo '<a class="link '.$css_class.'" data-cv title="Zobacz moje CV" href="'.$cv_url.'"><i class="icon icon-briefcase"></i>';
         echo '</a>';
     }
 }
 function cmp($a, $b){  //The function to order our authors
-  if ($a->member_of_managment_board == $b->member_of_managment_board) {  //This is where the name of our custom meta key is entered, I named mine "order"
+    $member_of_managment_board_A = carbon_get_user_meta($a->ID, 'crb_managment_board');
+    $member_of_managment_board_B = carbon_get_user_meta($b->ID, 'crb_managment_board');
+
+  if ($member_of_managment_board_A == $member_of_managment_board_B) {  //This is where the name of our custom meta key is entered, I named mine "order"
     return 0;
   }
-  return ($b->member_of_managment_board < $a->member_of_managment_board ) ? -1 : 1;  //The actual sorting is done here. Change ">" to "<" to reverse order
+  return ($member_of_managment_board_B < $member_of_managment_board_A ) ? -1 : 1;  //The actual sorting is done here. Change ">" to "<" to reverse order
 }
 ?>
