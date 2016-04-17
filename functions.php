@@ -106,13 +106,15 @@ function synergia_admin_styles() {
 function js() {
   global $version, $snrg_settings;
   $js_path = get_template_directory_uri().'/build/js';
+  $google_map_key = 'AIzaSyD6ovUl5OZwwEa_MzTArrazVuvVtCMH-B8';
 
     wp_register_script('prism', $js_path.'/prism.min.js', '', true);
     wp_register_script('main', $js_path.'/main.min.js', array('jquery'), $version, true);
     wp_register_script('swipe', $js_path.'/swipe.min.js', array('jquery'), $version, true);
     wp_register_script('blazy', $js_path.'/blazy.min.js', array('jquery'), $version, true);
     wp_register_script('404', $js_path.'/404.min.js', array('jquery'), $version, true);
-    wp_register_script('map', 'https://maps.googleapis.com/maps/api/js', false);
+    wp_register_script('map', 'https://maps.googleapis.com/maps/api/js?key='.$google_map_key, false);
+    wp_register_script('map_settings',$js_path.'/map.min.js', array('jquery'), $version, true);
 
     if(!is_404()){
         wp_enqueue_script('blazy');
@@ -125,6 +127,7 @@ function js() {
 
     if(is_page('about')) {
         wp_enqueue_script('map');
+        wp_enqueue_script('map_settings');
     }
 
     if (is_singular('project') || is_single()) {
