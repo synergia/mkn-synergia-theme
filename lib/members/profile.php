@@ -14,7 +14,7 @@ function crb_register_member_images()
                 ->help_text('Można też wkleić URL'),
             Field::make('image', 'crb_member_cover_image', 'Obrazek tła')
                 ->set_value_type('url')
-                ->help_text('Można też wkleić URL')
+                ->help_text('Można też wkleić URL, a nawet lepiej')
         ));
 
 }
@@ -28,7 +28,7 @@ Container::make('user_meta', 'Linki do portali społecznościowych, CV i poczta'
         Field::make('text', 'crb_member_twitter_link', 'URL Twitter'),
         Field::make('text', 'crb_member_lastfm_link', 'URL Last.fm'),
         Field::make('text', 'crb_member_cv_link', 'URL do CV'),
-        Field::make('checkbox', 'crb_show_mail', 'Pokazyj adres pocztowy')
+        Field::make('checkbox', 'crb_show_mail', 'Pokazyj adres email')
             ->set_option_value('no')
             ->help_text('Zaznacz, jeśli chcesz, by był wyświetlany'),
 
@@ -41,7 +41,7 @@ function crb_register_management_board() {
 
     Container::make('user_meta', 'Obierz zarząd lub prezesa')
         ->add_fields(array(
-            Field::make('radio', 'crb_managment_board', 'Mianuj na członka zarządu lub prezesa')
+            Field::make('set', 'crb_managment_board', 'Mianuj na członka zarządu lub prezesa')
             ->help_text('With great power comes great responsibility')
             ->add_options(array(
                 'member_of_managment_board' => 'Członek zarządu',

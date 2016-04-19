@@ -57,22 +57,20 @@ function get_ex_members() {
 }
 
 function get_member_avatar_url($current_member) {
-    if ($current_member->image) {
-        return $current_member->image;
+    $avatar_url = carbon_get_user_meta($current_member->ID, 'crb_member_profile_image');
+    if ($avatar_url) {
+        return $avatar_url;
     } else {
         return get_template_directory_uri().'/build/img/member.png';
     }
 }
-// TODO to trzeba przepisać, uwzględniając powyższą funkcję
 
 function show_avatar($current_member, $css_class)
 {
-    $img_url = carbon_get_user_meta($current_member->ID, 'crb_member_profile_image');
+    $avatar_url = get_member_avatar_url($current_member);
     $avatar_img = '<a class="link--name" href="'.get_author_posts_url( $current_member->ID, $current_member->user_nicename ).'">';
-    if ($img_url) {
-        $avatar_img .= '<img class="blazy '.$css_class.'" src="'.get_template_directory_uri().'/build/img/member.png"  data-src="'.$img_url.'" /></a>';
-    } else {
-        $avatar_img .= '<img class="'.$css_class.'" src="'.get_template_directory_uri().'/build/img/member.png"/></a>';
+    if ($avatar_url) {
+        $avatar_img .= '<img class="blazy '.$css_class.'" src="'.get_template_directory_uri().'/build/img/member.png"  data-src="'.$avatar_url.'" /></a>';
     }
     return $avatar_img;
 }
@@ -265,7 +263,7 @@ function show_membership_status($current_member) {
     $member_of_managment_board = carbon_get_user_meta($current_member->ID, 'crb_managment_board');
   if(is_president($current_member)) {
     echo 'Prezes';
-} else if($member_of_managment_board == 'member_of_managment_board' && ($role != 'ex_synergia_member')) {
+} else if($member_of_managment_board[0] == 'member_of_managment_board' && ($role != 'ex_synergia_member')) {
     echo 'Członek zarządu';
 } else if((has_finished_projects($current_member) || $administrator) && ($role != 'ex_synergia_member')) {
     echo 'Członek koła';
@@ -354,9 +352,9 @@ function cmp($a, $b){  //The function to order our authors
     $member_of_managment_board_A = carbon_get_user_meta($a->ID, 'crb_managment_board');
     $member_of_managment_board_B = carbon_get_user_meta($b->ID, 'crb_managment_board');
 
-  if ($member_of_managment_board_A == $member_of_managment_board_B) {  //This is where the name of our custom meta key is entered, I named mine "order"
+  if ($member_of_managment_board_A[0] == $member_of_managment_board_B[0]) {  //This is where the name of our custom meta key is entered, I named mine "order"
     return 0;
   }
-  return ($member_of_managment_board_B < $member_of_managment_board_A ) ? -1 : 1;  //The actual sorting is done here. Change ">" to "<" to reverse order
+  return ($member_of_managment_board_B[0] < $member_of_managment_board_A[0] ) ? -1 : 1;  //The actual sorting is done here. Change ">" to "<" to reverse order
 }
 ?>
