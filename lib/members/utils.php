@@ -65,7 +65,7 @@ function get_member_avatar_url($current_member) {
     }
 }
 
-function show_avatar($current_member, $css_class)
+function show_avatar($current_member, $css_class = "")
 {
     $avatar_url = get_member_avatar_url($current_member);
     $avatar_img = '<a class="link--name" href="'.get_author_posts_url( $current_member->ID, $current_member->user_nicename ).'">';
@@ -74,25 +74,26 @@ function show_avatar($current_member, $css_class)
     }
     return $avatar_img;
 }
+function show_avatar_on_admin($current_member)
+{
+    $avatar_url = get_member_avatar_url($current_member);
+    $avatar_img = '<a class="link--name" href="'.get_author_posts_url( $current_member->ID, $current_member->user_nicename ).'">';
+    if ($avatar_url) {
+        $avatar_img .= '<img src="'.$avatar_url.'" /></a>';
+    } else {
+        $avatar_img .= '<img src="'.get_template_directory_uri().'/build/img/member.png" /></a>';
+    }
+    return $avatar_img;
+}
 function get_member_name($current_member) {
     $member_url = get_author_posts_url( $current_member->ID, $current_member->user_nicename );
     return '<a class="link link--name" href="'.$member_url.'">'.$current_member->display_name.'</a>';
 }
 
-function show_avatar_admin($current_member)
-{
-    if ($current_member->image) {
-        $avatar_img = '<img src="'.$current_member->image.'" />';
-    } else {
-        $avatar_img = '<img src="'.get_template_directory_uri().'/build/img/member.png"/>';
-    }
-    return $avatar_img;
-}
-
 function is_president($current_member) {
     $member_of_managment_board = carbon_get_user_meta($current_member->ID, 'crb_managment_board');
 
-  if ($member_of_managment_board == 'president') {
+  if ($member_of_managment_board[0] == 'president') {
     return true;
   } else {
     return false;
@@ -141,7 +142,7 @@ function user_avatars_column_value($value, $column_name, $id){
       return $value;
   }
     $user = get_user_by('id', $id);
-    return show_avatar_admin($user);
+    return show_avatar_on_admin($user);
 }
 add_filter('manage_users_custom_column', 'user_avatars_column_value', 2, 3);
 
