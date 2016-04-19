@@ -26,21 +26,6 @@ function wpdocs_theme_name_wp_title($title, $sep)
 }
 add_filter('wp_title', 'wpdocs_theme_name_wp_title', 10, 2);
 
-
-// Inline style dla REKRUTACJI //
-function enqueue_inline_styles()
-{
-    global $snrg_settings;
-    $recruitment_image = $snrg_settings['recruitment_image_'.rand(1, 3)];
-    if ($snrg_settings['recruitment']) {
-        echo '<style>.modal-background {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
-      url('.$recruitment_image.') !important;}</style>
-  	';
-    }
-}
-add_action('wp_print_styles', 'enqueue_inline_styles', 8);
-
 function synergia_footer_admin()
 {
     echo 'Made with &hearts; in Wrocław by <a href="https://twitter.com/stsdc" target="_blank"> Stanisław</a>, powered by <a href="http://www.wordpress.org" target="_blank">WordPress</a> </p>';
@@ -63,7 +48,7 @@ function remind_to_do() {
     echo '<div class="error"> <p>Należy zainstalować wtyczkę Carbon Fields</p></div>';
   }
   $current_member = wp_get_current_user();
-  if(!$current_member->image) {
+  if(!get_member_avatar_url($current_member)) {
     echo '<div class="error"> <p>Dodaj zdjęcie profilowe!</p><img src="'.get_template_directory_uri().'/build/img/b.jpg"/></div>';
   }
 }

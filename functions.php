@@ -136,19 +136,6 @@ function js() {
 }
 add_action('wp_footer', 'js');
 
-// Rejestrujemy sidebar //
-
-register_sidebar(
-    array(
-        'name' => 'Left Sidebar',
-        'id' => 'left-sidebar',
-        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-        'after_widget' => '</aside>',
-        'before_title' => '<h3>',
-        'after_title' => '</h3>',
-    )
-);
-
 // Dodajemy wsparcie linków RSS //
 
 add_theme_support('automatic-feed-links');

@@ -1,4 +1,4 @@
-<div class="membercard" <?php if($current_member->president) echo "id='president'" ?>
+<div class="membercard" <?php if(is_president($current_member)) echo "id='president'" ?>
     data-id="<?php echo $current_member->ID; ?>">
 
     <div class="membercard__avatar">
