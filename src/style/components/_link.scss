@@ -15,9 +15,18 @@
         outline-offset: -2px;
     }
     // MODYFIKATORY //
-
     // --TOPBAR //
-    &--logo {
+    &--logo {}
+    &--nav {
+        display: block;
+        padding: 5px 10px;
+        text-decoration: none;
+        &:hover {
+            // color: #fff;
+        }
+    }
+    &--current {
+        color: $grey-dark;
     }
     // --PROJEKT //
     &--glowing {
@@ -46,20 +55,19 @@
     &--controls {
         color: $text-color-light;
         &:hover {
-            color: $text-color;
+            color: $synergia-color;
         }
     }
     // --FOOTER //
     &--footer {
         color: #ffffff;
         padding: 2px;
-
         margin: 0 2px;
         box-sizing: border-box;
         position: relative;
         &:before {
             content: '';
-            border-bottom:solid 1px #fff;
+            border-bottom: solid 1px #fff;
             position: absolute;
             bottom: 5px;
             left: 0;

@@ -31,7 +31,7 @@ function show_member_summary() {
     <div id="col-right">
       <div class="col-wrap">
         <a href="<?php echo get_site_url(); ?>/wp-admin/profile.php">
-          <img src="<?php echo $current_member->image; ?>"/>
+          <img src="<?php echo get_member_avatar_url($current_member); ?>"/>
         </a>
         <h1><?php echo $current_member->display_name;?></h1>
         <a href="<?php echo get_site_url();?>/wp-admin/edit.php?post_type=project">

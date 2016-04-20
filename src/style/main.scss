@@ -9,12 +9,12 @@
  * These selection rule sets have to be separate.
  * Customize the background color to match your design.
  */
- ::-moz-selection {
+::-moz-selection {
     background: $synergia-color;
     text-shadow: none;
     color: #ffffff;
 }
- ::selection {
+::selection {
     background: $synergia-color;
     text-shadow: none;
     color: #ffffff;
@@ -58,9 +58,9 @@ textarea {
     resize: vertical;
 }
 html {
-// https://aykevl.nl/2014/09/fix-jumping-scrollbar
-    width:100vw;
-    overflow-x:hidden;
+    // https://aykevl.nl/2014/09/fix-jumping-scrollbar
+    // width:100vw;
+    // overflow-x:hidden;
 }
 blockquote {
     position: relative;
@@ -82,8 +82,8 @@ body {
     position: relative;
     // overflow-y: scroll;
 }
-input,
 button,
+input,
 select,
 textarea {
     font-family: inherit;
@@ -92,8 +92,8 @@ textarea {
     border: none;
     padding: 5px;
 }
-ul,
-ol {
+ol,
+ul {
     margin-top: 0;
     margin-bottom: 10px;
 }
@@ -153,45 +153,6 @@ img {
         width: 100%;
     }
 }
-.sponsors-container {
-    position: relative;
-    padding: 0;
-    overflow: hidden;
-    text-align: center;
-    @include mq($until: tablet) {
-        display: none;
-    }
-    h4 {
-        text-transform: uppercase;
-        font-weight: 700;
-        @extend h2;
-        font-size: 1.25em;
-        color: $text-color-light;
-        margin: 40px 0 20px;
-        border-bottom: $border-light;
-    }
-    a:hover {
-        text-decoration: none;
-    }
-    img {
-        opacity: $image-opacity;
-        filter:alpha(opacity=calc($image-opacity * 100)); // For IE8 and earlier
-        filter:grayscale(1);
-        width: auto;
-        margin: 15px;
-        max-height: 75px;
-        max-width: 200px;
-        @include transition($bezier);
-        &:hover {
-            opacity: 1;
-            filter:alpha(opacity=100); // For IE8 and earlier
-            filter:grayscale(0);
-        }
-    }
-}
-.partnership-container {
-    @extend .sponsors-container;
-}
 .widget {
     @extend .partnership-container;
     h3 {
@@ -217,10 +178,8 @@ img {
 @import "nojs";
 @import 'archive';
 @import 'components';
-@import "404"; // Style z project także wykorzystywane są w single i page
-@import 'project';
-@import 'member';
-// @import 'recruitment';
+@import "404";
+@import 'project'; // Style z project także wykorzystywane są w single i page
 @import "login";
 @import 'animations';
 @import "lazy";

@@ -5,13 +5,13 @@
     border-left: 0;
     z-index: 1;
     overflow: hidden;
-    margin: 0 0 20px;
+    margin: 0 0 10px;
     animation: fadeIn 0.5s $bezier forwards;
     @include mq($from: tablet) {
         @include border-radius($radius);
         border-right: $border-light;
         border-left: $border-light;
-        margin: 0 10px 20px;
+        margin: 0 10px 10px;
     }
     &__nameWrapper {
         display: flex;
@@ -75,7 +75,9 @@
     }
 }
 .violetWrapper {
-    background-color: $synergia-color;
+    background:linear-gradient(210deg, #b226f9, #6c42a4, #5566e2);
+    background-size: 100% 400%;
+
     padding: 20px;
     z-index: 1;
     position: relative;

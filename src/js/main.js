@@ -23,8 +23,6 @@ jQuery(function($) {
 
   //= partials/nav.js
 
-  //= partials/slider.js
-
   // przez to gnwo nie działa .on()
   ////= partials/smooth-scrolling.js
 
@@ -55,9 +53,9 @@ jQuery(function($) {
 
     //= partials/banner.js
 
-    ////= partials/map.js
-
     //= partials/modal.js
+
+    //= partials/slider.js
 
   });
 

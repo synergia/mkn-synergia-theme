@@ -20,6 +20,17 @@
         @extend .map__zoomIn;
         margin-top: 0;
     }
+	// &__adress {
+	// 	position: absolute;
+	// 	top: 20px;
+	// 	right: 20px;
+	// 	background-color: #fff;
+	// 	font-style: normal;
+	// 	width: 400px;
+	// 	height: 85px;
+	// 	padding: 10px;
+	// 	@include border-radius($radius);
+	// }
 }
 .no-touch &:hover {
     // background-color: rgba($color-2, 1);

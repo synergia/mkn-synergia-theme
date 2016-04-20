@@ -11,12 +11,12 @@ Template Name: Projekty
 <?php
 // http://www.advancedcustomfields.com/resources/query-posts-custom-fields/
 // args
-$ideas = array(
-    'numberposts' => -1,
-    'post_type' => 'project',
-    'meta_key' => 'project_status',
-    'meta_value' => 'Pomysł',
-);
+// $ideas = array(
+//     'numberposts' => -1,
+//     'post_type' => 'project',
+//     'meta_key' => 'project_status',
+//     'meta_value' => 'Pomysł',
+// );
 $in_progress = array(
     'numberposts' => -1,
     'post_type' => 'project',
@@ -40,16 +40,13 @@ $done = array(
 );
 
 // queries
-$ideas_query = new WP_Query($ideas);
+// $ideas_query = new WP_Query($ideas);
 $in_progress_query = new WP_Query($in_progress);
 $done_query = new WP_Query($done);
 
 ?>
 <div class="compensator" id="projects" data-ajax-url="<?php echo admin_url('admin-ajax.php'); ?>">
     <ul class="tabsMenu">
-        <li id="tabsReset" class="tabsMenu__item">
-            <a class="link link--tab" href="#ideas_projects">Pomysły</a>
-        </li>
         <li class="tabsMenu__item tabsMenu__item--current">
             <a class="link link--tab" href="#in_progress_projects">Realizowane</a>
         </li>
@@ -58,14 +55,6 @@ $done_query = new WP_Query($done);
         </li>
     </ul>
   <div class="tab">
-  <?php // Pomysły ?>
-    <div class="tab__content" id="ideas_projects"
-      data-projects-status="ideas"
-      data-total ="<?php echo $ideas_query->found_posts ?>">
-        <div class="cardsWrapper">
-            <?php project_card($ideas_query); ?>
-        </div>
-    </div>
 
   <?php // W trakcie realizacji ?>
     <div class="tab__content" id="in_progress_projects"
