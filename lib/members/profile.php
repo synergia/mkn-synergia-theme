@@ -6,15 +6,15 @@ use Carbon_Fields\Field;
 add_action('carbon_register_fields', 'crb_register_member_images');
 function crb_register_member_images()
 {
-    Container::make('user_meta', 'Zdjęcia i obrazki')
+    Container::make('user_meta', 'Profilowe')
         // ->show_on_user_role('synergia_member')
         ->add_fields(array(
             Field::make('image', 'crb_member_profile_image', 'Obrazek profilowy')
                 ->set_value_type('url')
                 ->help_text('Można też wkleić URL'),
-            Field::make('image', 'crb_member_cover_image', 'Obrazek tła')
-                ->set_value_type('url')
-                ->help_text('Można też wkleić URL, a nawet lepiej')
+            // Field::make('image', 'crb_member_cover_image', 'Obrazek tła')
+            //     ->set_value_type('url')
+            //     ->help_text('Można też wkleić URL, a nawet lepiej')
         ));
 
 }

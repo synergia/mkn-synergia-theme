@@ -38,8 +38,8 @@ $output .= "<div id='slider' class='swipe'><div class='swipe-wrap'>";
                  $output .= "<div><img class='slide' src='".wp_get_attachment_url( $attachment->ID )."' /></div>";
             }
         }
-             $output .= " </div><span class='nav prev'><i class='icon-left-open-big'></i></span>
-                          <span class='nav next'><i class='icon-right-open-big'></i></span></div>";
+             $output .= " </div><div class='swipe__nav swipe__prev'><i class='icon-left-open-big'></i></div>
+                          <div class='swipe__nav swipe__next'><i class='icon-right-open-big'></i></div></div>";
   }
   return $output;
 

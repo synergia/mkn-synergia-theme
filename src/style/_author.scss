@@ -75,7 +75,9 @@
     }
 }
 .violetWrapper {
-    background-color: $synergia-color;
+    background:linear-gradient(210deg, #b226f9, #6c42a4, #5566e2);
+    background-size: 100% 400%;
+
     padding: 20px;
     z-index: 1;
     position: relative;

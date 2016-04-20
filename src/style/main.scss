@@ -9,12 +9,12 @@
  * These selection rule sets have to be separate.
  * Customize the background color to match your design.
  */
- ::-moz-selection {
+::-moz-selection {
     background: $synergia-color;
     text-shadow: none;
     color: #ffffff;
 }
- ::selection {
+::selection {
     background: $synergia-color;
     text-shadow: none;
     color: #ffffff;
@@ -58,7 +58,7 @@ textarea {
     resize: vertical;
 }
 html {
-// https://aykevl.nl/2014/09/fix-jumping-scrollbar
+    // https://aykevl.nl/2014/09/fix-jumping-scrollbar
     // width:100vw;
     // overflow-x:hidden;
 }
@@ -82,8 +82,8 @@ body {
     position: relative;
     // overflow-y: scroll;
 }
-input,
 button,
+input,
 select,
 textarea {
     font-family: inherit;
@@ -92,8 +92,8 @@ textarea {
     border: none;
     padding: 5px;
 }
-ul,
-ol {
+ol,
+ul {
     margin-top: 0;
     margin-bottom: 10px;
 }
@@ -178,10 +178,8 @@ img {
 @import "nojs";
 @import 'archive';
 @import 'components';
-@import "404"; // Style z project także wykorzystywane są w single i page
-@import 'project';
-@import 'member';
-// @import 'recruitment';
+@import "404";
+@import 'project'; // Style z project także wykorzystywane są w single i page
 @import "login";
 @import 'animations';
 @import "lazy";
