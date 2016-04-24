@@ -153,12 +153,6 @@ img {
         width: 100%;
     }
 }
-.widget {
-    @extend .partnership-container;
-    h3 {
-        margin-top: 0;
-    }
-}
 .cardsWrapper {
     display: flex;
     flex-flow: row wrap;
