@@ -44,7 +44,7 @@ function opengraph()
         if (has_post_thumbnail($post->ID)) {
             $img_src = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'large');
         } else {
-            $img_src = get_template_directory_uri().'/build/img/synergia-vertical.png';
+            $img_src[0] = get_template_directory_uri().'/build/img/main-og-img.png';
         }
         $description = my_excerpt($post->post_content, $post->post_excerpt);
         $description = strip_tags($description);
@@ -69,7 +69,7 @@ function opengraph()
       <meta property="og:type" content="website"/>
       <meta name="twitter:url" property="og:url" content="<?php echo get_bloginfo('url'); ?>"/>
       <meta property="og:site_name" content="<?php echo get_bloginfo('name'); ?>"/>
-      <meta name="twitter:image" property="og:image" content="<?php echo get_template_directory_uri().'/build/img/synergia-vertical.png'; ?>"/>
+      <meta name="twitter:image" property="og:image" content="<?php echo get_template_directory_uri().'/build/img/main-og-img.png'; ?>"/>
 <?php
     } elseif (is_author()) {
         global $wp_query;
