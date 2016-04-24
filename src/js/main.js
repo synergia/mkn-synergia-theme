@@ -13,8 +13,6 @@ jQuery(function($) {
 
   //= partials/image-wrapper.js
 
-  //= partials/name-trimmer.js
-
   //= partials/notifications.js
 
   //= partials/recruitment.js
@@ -38,6 +36,8 @@ jQuery(function($) {
     ////= member.js
 
     ////= partials/infinite-scroll.js
+
+    //= partials/name-trimmer.js
 
     //= partials/load-more.js
 
