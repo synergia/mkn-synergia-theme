@@ -1,174 +1,110 @@
-.project-container {
-  @include box-shadow;
-  @include border-radius(2px);
-  margin: 0.625em;
-
-  //	    overflow: hidden;
-  // http://stackoverflow.com/a/26921844
-  .center-cropped {
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-    position: relative;
-    @include border-radius(2px 2px 0 0);
-    background-image: $gradient-black;
-    @include mq($from: desktop) {
-      height: 25em;
+.project {
+    @include border-radius($radius);
+    margin: 0.625em;
+    border: $border-light;
+    //	    overflow: hidden;
+    // http://stackoverflow.com/a/26921844
+    &__header {
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+        position: relative;
+        @include border-radius(3px 3px 0 0);
+        z-index: 3;
+        @include mq($from: desktop) {
+            height: 25em;
+        }
     }
-    .meta-stuff {
-      color: #ffffff;
-      padding: 0 30px;
-      font-weight: 400;
-      overflow: hidden;
-      @include mq($from:tablet) {
-        padding: 0 53px;
-      }
-      span {
+    &__meta {
+        color: #ffffff;
+        padding: 0 30px;
+        font-weight: 400;
+        overflow: hidden;
+        @include mq($from:tablet) {
+            padding: 0 53px;
+        }
+    }
+    &__status {
         float: left;
         width: 100%;
-      }
-      time {
+    }
+    &__time {
         float: left;
         padding-right: 10px;
-      }
-      .project-links {
+    }
+    &__links {
         position: relative;
         display: inline;
         padding: 0 5px;
         border-left: 1px solid rgba(255, 255, 255, 0.2);
-        a {
-          color: #ffffff;
-          &:hover {
-            text-shadow: 0 0 2px #FFFFFF;
-          }
-        }
-      }
     }
-    header {
-      position: absolute;
-      bottom: 0;
-    }
-    img {
-      height: auto;
-      min-width: 100%;
-      left: 50%;
-      position: relative;
-      transform: translateX(-50%);
-      width: 100%;
-      top: -25%;
-      z-index: -1;
-    }
-    .project-title {
-      margin: 0;
-      font-weight: 400;
-      color: #ffffff;
-      font-size: 1.5em;
-      padding: 0 1.250em 0.625em;
-      @include mq($from:tablet) {
-        font-size: 2.5em;
-      }
-    }
-  }
-  .userpic-project {
-    float: left;
-    position: relative;
-    margin: 0.313em;
-    margin-right: 10px;
-    img {
-      @include circle(50px, #ffffff);
-    }
-    .project-count {
-      @include circle(20px, $synergia-color);
-      position: absolute;
-      right: -3px;
-      top: -3px;
-      font-weight: 600;
-      font-size: 10px;
-      text-align: center;
-      line-height: 20px;
-      color: #ffffff;
-
-      //				-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
-      //				box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
-    }
-  }
-  .authors {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    overflow: hidden;
-    border-bottom: $border-light;
-    .co-author {
-      float: left;
-      padding: 5px;
-      @include mq($until: tablet) {
-        width: 50%;
-      }
-      @include mq ($until:mobile) {
+    &__overimage {
+        background-image: $gradient-black;
         width: 100%;
-      }
-      .icons-wrapper {
-        padding-left: 7px;
-        float: left;
-      }
-      h3 {
-        float: left;
+        height: inherit;
+    }
+    &__featuredimg {
+        height: auto;
+        min-width: 100%;
+        left: 50%;
+        position: relative;
+        transform: translateX(-50%);
+        width: 100%;
+        top: -25%;
+        z-index: -1;
+    }
+    &__title {
         margin: 0;
         font-weight: 400;
-        width: calc(100% - 65px);
+        color: #ffffff;
         font-size: 1.5em;
-        padding-left: 10px;
-        a {
-          color: $text-color;
-          text-decoration: none;
-          text-overflow: ellipsis;
-          overflow: hidden;
-          white-space: nowrap;
+        padding: 0 1.250em 0.625em;
+        @include mq($from:tablet) {
+            font-size: 2.5em;
         }
-      }
     }
-  }
-  .project-content {
-    padding: 0 30px;
-    font-size: 1.1em;
-    @include clearfix;
-    img {
-      max-width: 100%;
-      height: auto;
+    &__content {
+        background-color: #ffffff;
+        padding: 0 30px 30px;
+        font-size: 1.125em;
+        @include clearfix;
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        figure {
+            text-align: center;
+            background-color: #f8f8f8;
+            margin: 0 -30px;
+        }
+        figcaption {
+            font-style: oblique;
+            background-color: #ffffff;
+            text-align: center;
+            padding: 0 30px;
+        }
     }
-    figure {
-      text-align: center;
-      background-color: #f8f8f8;
-      margin: 0 -30px;
-    }
-    figcaption {
-      font-style: oblique;
-      background-color: #ffffff;
-      text-align: center;
-      padding: 0 30px;
-    }
-  }
 }
 .video-container {
-  position: relative;
-  padding-bottom: 56.25%;
-  padding-top: 30px;
-  height: 0;
-  overflow: hidden;
-  margin: 0 -30px;
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
+    margin: 0 -30px;
 }
 .video-container iframe,
 .video-container object,
 .video-container embed {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 .entry-content img,
 .entry-content iframe,
 .entry-content object,
 .entry-content embed {
-  max-width: 100%;
+    max-width: 100%;
 }

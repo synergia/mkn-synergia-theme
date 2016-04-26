@@ -37,12 +37,14 @@ add_action('wp_head', 'header_meta_tags');
 function opengraph()
 {
     global $post;
+    global $wp;
+    $current_url = home_url(add_query_arg(array(),$wp->request));
 
-    if (is_single() || is_page()) {
+    if (is_single() || is_page() && !is_front_page()) {
         if (has_post_thumbnail($post->ID)) {
             $img_src = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'large');
         } else {
-            $img_src = get_template_directory_uri().'/build/img/synergia-vertical.png';
+            $img_src[0] = get_template_directory_uri().'/build/img/main-og-img.png';
         }
         $description = my_excerpt($post->post_content, $post->post_excerpt);
         $description = strip_tags($description);
@@ -67,8 +69,26 @@ function opengraph()
       <meta property="og:type" content="website"/>
       <meta name="twitter:url" property="og:url" content="<?php echo get_bloginfo('url'); ?>"/>
       <meta property="og:site_name" content="<?php echo get_bloginfo('name'); ?>"/>
-      <meta name="twitter:image" property="og:image" content="<?php echo get_template_directory_uri().'/build/img/synergia-vertical.png'; ?>"/>
+      <meta name="twitter:image" property="og:image" content="<?php echo get_template_directory_uri().'/build/img/main-og-img.png'; ?>"/>
 <?php
+    } elseif (is_author()) {
+        global $wp_query;
+        $current_member = $wp_query->get_queried_object();
+
+?>
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" value="@MKNMSynergia" />
+      <meta name="twitter:title" property="og:title" content="<?php echo $current_member->display_name; ?>"/>
+      <meta name="twitter:description" property="og:description" content="<?php echo show_membership_status($current_member); ?>"/>
+      <meta property="og:type" content="website"/>
+      <meta name="twitter:url" property="og:url" content="<?php echo $current_url; ?>"/>
+      <meta property="og:site_name" content="<?php echo get_bloginfo('name'); ?>"/>
+      <meta name="twitter:image" property="og:image" content="<?php echo get_member_avatar_url($current_member) ?>"/>
+      <?php if($current_member->twitter_profile) {
+          echo '<meta name="twitter:creator" content="'.$current_member->twitter_profile.'" />';
+      } ?>
+<?php
+
     }
 }
 add_action('wp_head', 'opengraph', 5);

@@ -4,59 +4,51 @@ Template Name: Blog
 */
 ?>
 <?php get_header(); ?>
-<?php get_template_part('template-part', 'topnav'); ?>
-
-<div class="content-wrapper">
-	<div class="gl">
-    <div class="post-list">
-			<?php
-				$paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
-				$args = array (
-					'pagination'             => true,
-					'posts_per_page'         => '5',
-					'paged' => $paged
-				);
-            $query = new WP_Query( $args );
-
-            if ($query->have_posts()) :
-                while ($query->have_posts()) : $query->the_post(); ?>
-								<div class="post-list-item ">
-									<div class="thumb">
-										<a rel="bookmark" href="<?php the_permalink(); ?>">
-											<time><?php echo get_the_date(); ?></time>
-										</a>
-										<?php if ( has_post_thumbnail() ) { ?>
-											<img class="blazy"
-													 alt="<?php the_title(); ?>"
-													 src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-													 data-src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), 'thumbnail', true)[0];?>"/>
-										<?php } else { ?><img class="blazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="<?php bloginfo('template_directory'); ?>/build/img/thumb.png"/><?php } ?>
-									</div>
-									<div class="post-list-item-content">
-										<a rel="bookmark" href="<?php the_permalink(); ?>">
-											<h2><?php the_title(); ?></h2>
-										</a>
-										<div class="excerpt">
-											<?php the_excerpt(); ?>
-										</div>
-									</div>
-								</div>
-            <?php
-                  endwhile;
-              ?>
-          </div>
-		            <div class="gl">
-                <p class="gl-sm-6 gl-cell"><?php previous_posts_link('<i class="icon-left-open-big"></i> Siędy');?></p>
-                <p class="text-right gl-cell gl-sm-6"><?php next_posts_link( 'Tędy  <i class="icon-right-open-big"></i>', $query->max_num_pages ); ?></p>
+<?php get_template_part('parts/topbar'); ?>
+<?php
+$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+$args = array(
+    'pagination' => true,
+    'posts_per_page' => '6',
+    'paged' => $paged,
+);
+$posts = new WP_Query($args);
+?>
+<div class="compensator">
+    <ul class="tabsMenu">
+        <li id="tabsReset" class="tabsMenu__item tabsMenu__item--current">
+            <a class="link link--tab" href="#posts">Wpisy</a>
+        </li>
+        <li class="tabsMenu__item">
+            <a class="link link--tab" href="#archive">Archiwum</a>
+        </li>
+        <li class="tabsMenu__item">
+            <a class="link link--tab" href="#tags">Tagi</a>
+        </li>
+    </ul>
+    <div class="tab">
+        <div class="tab__content" id="posts">
+            <div class="cardsWrapper">
+                <?php project_card($posts); ?>
             </div>
-	</div>
-
-		<?php wp_reset_postdata();
-
-        else :
-            echo "Brak wpisów";
-        endif;
-
-                ?>
+            <button id="load_more_posts" class="btn btn--loadMore  btn--synergia">Zobacz starsze</div></button>
+        </div>
+        <div class="tab__content" id="archive">
+            <?php get_template_part('parts/archive'); ?>
+        </div>
+        <div class="tab__content" id="tags">
+            <?php
+            $tags = My_TagCloud(array('wrapper' => 'div'));
+            if ($tags) {
+                echo $tags;
+            } else {
+                echo '<p class="emptyState">Brak tagów na razie.</p>';
+            }
+             ?>
+        </div>
+    </div>
+<?php
+wp_reset_postdata();
+?>
 </div>
 <?php get_footer(); ?>

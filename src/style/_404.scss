@@ -1,3 +1,55 @@
 .error404 {
-  background-color: $synergia-color;
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background: no-repeat center center fixed #000;
+    background-size: cover;
+    overflow: hidden;
+    &::after {
+        content: "";
+        background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAFUlEQVQIHWNgYGB4/P//fwZGEAECAEVMBt9tNvSUAAAAAElFTkSuQmCC");
+        // opacity: 0.5;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        z-index: -2;
+    }
+    &__topbar {
+        position: relative;
+        font-size: 2rem;
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+        &::after {
+            content: "";
+            width: 100%;
+            height: 30vh;
+            background-image: $gradient-purple;
+            // opacity: 0.5;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            position: absolute;
+            z-index: -1;
+        }
+    }
+    &__back {
+        margin-right: 5px;
+    }
+    &__logo {
+        height: 30px;
+        width: auto;
+    }
+    &__404 {
+        margin-left: 5px;
+        color: #fff;
+    }
+    &__powered {
+        position: fixed;
+        bottom: 5px;
+        right: 5px;
+    }
 }

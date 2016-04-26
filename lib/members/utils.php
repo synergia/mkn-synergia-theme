@@ -1,7 +1,9 @@
 <?php
+
 // Różne funkcje pomocnicze //
 
-function get_members_with_projects() {
+function get_members_with_projects()
+{
 
 // https://tommcfarlin.com/wp_user_query-multiple-roles/
 // Każdy członek z rolą synergia_member i administrator
@@ -46,7 +48,8 @@ function get_members_with_projects() {
 }
 
 // pobieranie byłych członków
-function get_ex_members() {
+function get_ex_members()
+{
     $ex_synergia_member_args = array(
     'role' => 'ex_synergia_member',
 );
@@ -56,67 +59,66 @@ function get_ex_members() {
     return $ex_synergia_members;
 }
 
-function social_links($current_member){
-    if ($current_member->show_mail) {
-        echo '<a title="Poczta" data-email href="mailto:'.$current_member->user_email.'"><i class="icon icon-mail"></i>';
-        if (is_author()) {
-            echo 'napisz';
-        }
-        echo '</a>';
-    }
-    if ($current_member->github_profile) {
-        echo '<a data-github title="Github" href="'.$current_member->github_profile.'"><i class="icon icon-github"></i></a>';
-    }
-    if ($current_member->twitter_profile) {
-        echo '<a data-twitter title="Twitter" href="'.$current_member->twitter_profile.'"><i class="icon icon-twitter"></i></a>';
-    }
-    if ($current_member->facebook_profile) {
-        echo '<a data-facebook title="Facebook" href="'.$current_member->facebook_profile.'"><i class="icon icon-facebook"></i></a>';
-    }
-    if ($current_member->cv) {
-      echo '<a data-cv title="Zobacz moje CV" href="'.$current_member->cv.'"><i class="icon icon-briefcase"></i>';
-      if (is_author()) {
-          echo 'cv';
-      }
-      echo '</a>';
+function get_member_avatar_url($current_member) {
+    $avatar_url = carbon_get_user_meta($current_member->ID, 'crb_member_profile_image');
+    if ($avatar_url) {
+        return $avatar_url;
+    } else {
+        return get_template_directory_uri().'/build/img/member.png';
     }
 }
 
-function show_avatar($current_member)
+function show_avatar($current_member, $css_class = '')
 {
-    if ($current_member->image) {
-        $avatar_img = '<img class="blazy" src="'.get_template_directory_uri().'/build/img/member.png"  data-src="'.$current_member->image.'" />';
-    } else {
-        $avatar_img = '<img src="'.get_template_directory_uri().'/build/img/member.png"/>';
+    $avatar_url = get_member_avatar_url($current_member);
+    $avatar_img = '<a class="link--name" href="'.get_author_posts_url($current_member->ID, $current_member->user_nicename).'">';
+    if ($avatar_url) {
+        $avatar_img .= '<img class="blazy '.$css_class.'" src="'.get_template_directory_uri().'/build/img/member.png"  data-src="'.$avatar_url.'" /></a>';
     }
+
     return $avatar_img;
 }
-function show_avatar_admin($current_member)
+function show_avatar_on_admin($current_member)
 {
-    if ($current_member->image) {
-        $avatar_img = '<img class="blazy" src="'.$current_member->image.'" />';
+    $avatar_url = get_member_avatar_url($current_member);
+    $avatar_img = '<a class="link--name" href="'.get_author_posts_url($current_member->ID, $current_member->user_nicename).'">';
+    if ($avatar_url) {
+        $avatar_img .= '<img src="'.$avatar_url.'" /></a>';
     } else {
-        $avatar_img = '<img src="'.get_template_directory_uri().'/build/img/member.png"/>';
+        $avatar_img .= '<img src="'.get_template_directory_uri().'/build/img/member.png" /></a>';
     }
+
     return $avatar_img;
+}
+function get_member_name($current_member)
+{
+    $member_url = get_author_posts_url($current_member->ID, $current_member->user_nicename);
+
+    return '<a class="link link--name" href="'.$member_url.'">'.$current_member->display_name.'</a>';
 }
 
-function is_president($current_member) {
-  if ($current_member->president) {
-    return true;
-  } else {
-    return false;
-  }
+function is_president($current_member)
+{
+    $member_of_managment_board = carbon_get_user_meta($current_member->ID, 'crb_managment_board');
+
+    if ($member_of_managment_board[0] == 'president') {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 // Wyświetla liczbę projektów w panelu admin. //
 // Skradziono u co-authors
-function users_projects_column($cols){
+function users_projects_column($cols)
+{
     $cols['projects'] = 'Ukończone (Realiz.)';
+
     return $cols;
 }
 
-function user_projects_column_value($value, $column_name, $id){
+function user_projects_column_value($value, $column_name, $id)
+{
     if ('projects' != $column_name) {
         return $value;
     }
@@ -131,27 +133,31 @@ add_filter('manage_users_columns', 'users_projects_column');
 
 // Wyświetlanie loga na liście członków //
 // Wrzucenie kolumny z profilowymi przed username
-function users_avatars_column($cols){
-  $cols['avatars'] = 'Profilowe';
-  $crunchify_columns = array();
-  $title = 'username';
-  foreach($cols as $key => $value) {
-    if ($key==$title){
-      $crunchify_columns['avatars'] = '';   // Move date column before title column
+function users_avatars_column($cols)
+{
+    $cols['avatars'] = 'Profilowe';
+    $crunchify_columns = array();
+    $title = 'username';
+    foreach ($cols as $key => $value) {
+        if ($key == $title) {
+            $crunchify_columns['avatars'] = '';   // Move date column before title column
       // Move tags column before title column
+        }
+        $crunchify_columns[$key] = $value;
     }
-    $crunchify_columns[$key] = $value;
-  }
-  return $crunchify_columns;
+
+    return $crunchify_columns;
 }
 add_filter('manage_users_columns', 'users_avatars_column');
 
-function user_avatars_column_value($value, $column_name, $id){
-  if ('avatars' != $column_name) {
-      return $value;
-  }
+function user_avatars_column_value($value, $column_name, $id)
+{
+    if ('avatars' != $column_name) {
+        return $value;
+    }
     $user = get_user_by('id', $id);
-    return show_avatar_admin($user);
+
+    return show_avatar_on_admin($user);
 }
 add_filter('manage_users_custom_column', 'user_avatars_column_value', 2, 3);
 
@@ -159,91 +165,94 @@ add_filter('manage_users_custom_column', 'user_avatars_column_value', 2, 3);
 add_action('update_members_meta', 'update_number_of_projects');
 function em_event_activation()
 {
-  // wp_unschedule_event( wp_next_scheduled( 'update_members_meta' ), 'update_members_meta' );
+    // wp_unschedule_event( wp_next_scheduled( 'update_members_meta' ), 'update_members_meta' );
 
-    if ( !wp_next_scheduled( 'update_members_meta' ) ) {
-        wp_schedule_event( current_time( 'timestamp' ), 'daily', 'update_members_meta');
+    if (!wp_next_scheduled('update_members_meta')) {
+        wp_schedule_event(current_time('timestamp'), 'daily', 'update_members_meta');
     }
 }
 add_action('wp', 'em_event_activation');
 // Make sure this event hasn't been scheduled
 
-function update_number_of_projects() {
-  $all_members = get_users();
-  function update_number_of_projects_meta($member, $number_of_projects, $project_status) {
-    if ($project_status == 'finished') {
-        update_user_meta($member->ID, 'number_of_finished_projects', $number_of_projects);
-        if (get_user_meta($member->ID, 'number_of_finished_projects', true) != $number_of_projects) {
-          return false;
-        } else {
-          return true;
+function update_number_of_projects()
+{
+    $all_members = get_users();
+    function update_number_of_projects_meta($member, $number_of_projects, $project_status)
+    {
+        if ($project_status == 'finished') {
+            update_user_meta($member->ID, 'number_of_finished_projects', $number_of_projects);
+            if (get_user_meta($member->ID, 'number_of_finished_projects', true) != $number_of_projects) {
+                return false;
+            } else {
+                return true;
+            }
+        } elseif ($project_status == 'in_progress') {
+            update_user_meta($member->ID, 'number_of_in_progress_projects', $number_of_projects);
+            if (get_user_meta($member->ID, 'number_of_in_progress_projects', true) != $number_of_projects) {
+                return false;
+            } else {
+                return true;
+            }
         }
-      } elseif ($project_status == 'in_progress') {
-        update_user_meta($member->ID, 'number_of_in_progress_projects', $number_of_projects);
-        if (get_user_meta($member->ID, 'number_of_in_progress_projects', true) != $number_of_projects) {
-          return false;
-        } else {
-          return true;
-        }
-      }
     }
-  echo '<ol>';
-  foreach ( $all_members as $member ) {
-	   $finished_projects = new WP_Query(project_args_per_user($member, 'finished'));
-	   $in_progress_projects = new WP_Query(project_args_per_user($member, 'in_progress'));
+    echo '<ol>';
+    foreach ($all_members as $member) {
+        $finished_projects = new WP_Query(project_args_per_user($member, 'finished'));
+        $in_progress_projects = new WP_Query(project_args_per_user($member, 'in_progress'));
      // Jeśli członek ma projekty, to je przelicza
      if ($finished_projects->have_posts()) {
-       if (update_number_of_projects_meta($member, $finished_projects->found_posts, 'finished')) {
-         echo '<li>Updating Fin '.$member->display_name.' ('.$member->number_of_finished_projects.'): OK</li>';
-       } else {
-         echo '<li>Updating Fin '.$member->display_name.': FAILED</li>';
-       }
+         if (update_number_of_projects_meta($member, $finished_projects->found_posts, 'finished')) {
+             echo '<li>Updating Fin '.$member->display_name.' ('.$member->number_of_finished_projects.'): OK</li>';
+         } else {
+             echo '<li>Updating Fin '.$member->display_name.': FAILED</li>';
+         }
      } else {
-       // Gdy brak ukończonych projektów
+         // Gdy brak ukończonych projektów
        if (update_number_of_projects_meta($member, 0, 'finished')) {
-         echo '<li>Updating Fin '.$member->display_name.' ('.$member->number_of_finished_projects.'): OK</li>';
+           echo '<li>Updating Fin '.$member->display_name.' ('.$member->number_of_finished_projects.'): OK</li>';
        } else {
-         echo '<li>Updating Fin '.$member->display_name.': FAILED</li>';
+           echo '<li>Updating Fin '.$member->display_name.': FAILED</li>';
        }
      }
-     if ($in_progress_projects->have_posts()) {
-       if (update_number_of_projects_meta($member, $in_progress_projects->found_posts, 'in_progress')) {
-         echo '<li>Updating IP '.$member->display_name.' ('.$member->number_of_in_progress_projects.'): OK</li>';
-       } else {
-         echo '<li>Updating IP '.$member->display_name.': FAILED</li>';
-       }
-     } else {
-       // Gdy brak ukończonych projektów
+        if ($in_progress_projects->have_posts()) {
+            if (update_number_of_projects_meta($member, $in_progress_projects->found_posts, 'in_progress')) {
+                echo '<li>Updating IP '.$member->display_name.' ('.$member->number_of_in_progress_projects.'): OK</li>';
+            } else {
+                echo '<li>Updating IP '.$member->display_name.': FAILED</li>';
+            }
+        } else {
+            // Gdy brak ukończonych projektów
        if (update_number_of_projects_meta($member, 0, 'in_progress')) {
-         echo '<li>Updating IP '.$member->display_name.' ('.$member->number_of_in_progress_projects.'): OK</li>';
+           echo '<li>Updating IP '.$member->display_name.' ('.$member->number_of_in_progress_projects.'): OK</li>';
        } else {
-         echo '<li>Updating IP '.$member->display_name.': FAILED</li>';
+           echo '<li>Updating IP '.$member->display_name.': FAILED</li>';
        }
-     }
-   }
-   echo '</ol>';
+        }
+    }
+    echo '</ol>';
 }
 
 // Zapisuje liczbę ukończonych projektów do meta użytkownika //
 
-function count_projects() {
-  global  $post;
+function count_projects()
+{
+    global  $post;
 
     // Pobiera stan projektu
     $project_status = get_post_meta($post->ID, 'project_status', true);
     // get_coauthors() zwraca wszystkich członków przypisanych do tego wpisu
     foreach (get_coauthors($post->ID) as $member) {
-      // Sprawdza, jaki licznik zaktualizować
-      if($project_status == "Ukończony" || $project_status == "W ciągłym doskonaleniu" ) {
-        $projects = new WP_Query(project_args_per_user($member, 'finished'));
-        if ($projects->have_posts()) {
-          update_user_meta($member->ID, 'number_of_finished_projects', $projects->found_posts);
-        }
-      } else if ($project_status == "W trakcie realizacji") {
-        $projects = new WP_Query(project_args_per_user($member, 'in_progress'));
-        if ($projects->have_posts()) {
-          update_user_meta($member->ID, 'number_of_in_progress_projects', $projects->found_posts);
-        }
+        // Sprawdza, jaki licznik zaktualizować
+      if ($project_status == 'Ukończony' || $project_status == 'W ciągłym doskonaleniu') {
+          $projects = new WP_Query(project_args_per_user($member, 'finished'));
+          if ($projects->have_posts()) {
+              update_user_meta($member->ID, 'number_of_finished_projects', $projects->found_posts);
+          }
+      } elseif ($project_status == 'W trakcie realizacji') {
+          $projects = new WP_Query(project_args_per_user($member, 'in_progress'));
+          if ($projects->have_posts()) {
+              update_user_meta($member->ID, 'number_of_in_progress_projects', $projects->found_posts);
+          }
       }
     }
 }
@@ -257,36 +266,41 @@ add_action('before_delete_post', 'count_projects');
 add_action('wp_trash_post', 'count_projects');
 add_action('untrashed_post', 'count_projects');
 // Wyświetla liczbę projektów //
-function get_number_of_projects ($current_member, $project_status) {
-  if (($current_member->number_of_finished_projects) && $project_status == 'finished') {
-    return $current_member->number_of_finished_projects;
-  } elseif (($current_member->number_of_in_progress_projects) && $project_status == 'in_progress') {
-    return $current_member->number_of_in_progress_projects;
-  } else {
-    return 0;
-  }
+function get_number_of_projects($current_member, $project_status)
+{
+    if (($current_member->number_of_finished_projects) && $project_status == 'finished') {
+        return $current_member->number_of_finished_projects;
+    } elseif (($current_member->number_of_in_progress_projects) && $project_status == 'in_progress') {
+        return $current_member->number_of_in_progress_projects;
+    } else {
+        return 0;
+    }
 }
 
 // Stan członkostwa //
-function show_membership_status($current_member) {
-  if(is_president($current_member)) {
-    echo '<span>Prezes MKNM "Synergia"</span>';
-  } else if($current_member->member_of_managment_board) {
-    echo '<span>Członek zarządu MKNM "Synergia"</span>';
-  } else if(has_finished_projects($current_member) || $administrator) {
-    echo '<span>Członek MKNM "Synergia"</span>';
-  }else if($ex_synergia_member) {
-    echo '<span>Były członek MKNM "Synergia"</span>';
-  } else {
-    echo '<span>Członkostwo nie potwierdzono</span>';
-  }
+function show_membership_status($current_member)
+{
+    $role = array_shift($current_member->roles);
+    $member_of_managment_board = carbon_get_user_meta($current_member->ID, 'crb_managment_board');
+    if (is_president($current_member)) {
+        echo 'Prezes';
+    } elseif ($member_of_managment_board[0] == 'member_of_managment_board' && ($role != 'ex_synergia_member')) {
+        echo 'Członek zarządu';
+    } elseif ((has_finished_projects($current_member) || $administrator) && ($role != 'ex_synergia_member')) {
+        echo 'Członek koła';
+    } elseif ($role = 'ex_synergia_member') {
+        echo 'Były członek koła';
+    } else {
+        echo 'Członkostwo nie potwierdzono';
+    }
 }
 // Zwraca tablicę argumentów projektów //
 // finished - Ukończone
 // in_progress - W trakcie realizacji
-function project_args_per_user($current_member, $project_status) {
-  if ($project_status == "finished") {
-    $args = array(
+function project_args_per_user($current_member, $project_status)
+{
+    if ($project_status == 'finished') {
+        $args = array(
       'post_type' => 'project ',
       'posts_per_page' => -1,
       'author_name' => $current_member->user_nicename,
@@ -302,27 +316,70 @@ function project_args_per_user($current_member, $project_status) {
         ),
       ),
     );
-    return $args;
-  }
-  elseif ($project_status == "in_progress") {
-    $args = array(
+
+        return $args;
+    } elseif ($project_status == 'in_progress') {
+        $args = array(
       'post_type' => 'project ',
       'posts_per_page' => -1,
       'author_name' => $current_member->user_nicename,
       'meta_key' => 'project_status',
       'meta_value' => 'W trakcie realizacji',
     );
-    return $args;
-  }
+
+        return $args;
+    }
 }
 // Sprawdza, czy członek ukończył przynajmniej jeden projekt //
 // zwraca true, lub false
-function has_finished_projects($current_member) {
-  $projects = new WP_Query( project_args_per_user($current_member, 'finished') );
-     if( $projects->have_posts() ) {
-       return true;
-     }else {
-       return false;
-     }
+function has_finished_projects($current_member)
+{
+    $projects = new WP_Query(project_args_per_user($current_member, 'finished'));
+    if ($projects->have_posts()) {
+        return true;
+    } else {
+        return false;
+    }
 }
-?>
+
+function social_links($current_member, $css_class)
+{
+    $github_url = carbon_get_user_meta($current_member->ID, 'crb_member_github_link');
+    $facebook_url = carbon_get_user_meta($current_member->ID, 'crb_member_facebook_link');
+    $twitter_url = carbon_get_user_meta($current_member->ID, 'crb_member_twitter_link');
+    $lastfm_url = carbon_get_user_meta($current_member->ID, 'crb_member_lastfm_link');
+    $cv_url = carbon_get_user_meta($current_member->ID, 'crb_member_cv_link');
+    $show_mail = carbon_get_user_meta($current_member->ID, 'crb_show_mail');
+
+    if ($show_mail) {
+        echo '<a class="link '.$css_class.'" title="Poczta" data-email href="mailto:'.$current_member->user_email.'"><i class="icon icon-mail"></i>';
+        echo '</a>';
+    }
+    if ($github_url) {
+        echo '<a class="link '.$css_class.'" data-github href="'.$current_member->github_profile.'"><i class="icon icon-github"></i><div class="tooltip"></div></a>';
+    }
+    if ($twitter_url) {
+        echo '<a class="link '.$css_class.'" data-twitter title="Twitter" href="'.$current_member->twitter_profile.'"><i class="icon icon-twitter"></i></a>';
+    }
+    if ($facebook_url) {
+        echo '<a class="link '.$css_class.'" data-facebook title="Facebook" href="'.$current_member->facebook_profile.'"><i class="icon icon-facebook-squared"></i></a>';
+    }
+    if ($lastfm_url) {
+        echo '<a class="link '.$css_class.'" data-lastfm href="'.$current_member->lastfm_profile.'"><i class="icon icon-lastfm"></i><div class="tooltip"></div></a>';
+    }
+    if ($cv_url) {
+        echo '<a class="link '.$css_class.'" data-cv title="Zobacz moje CV" href="'.$cv_url.'"><i class="icon icon-briefcase"></i>';
+        echo '</a>';
+    }
+}
+function cmp($a, $b)
+{  //The function to order our authors
+    $member_of_managment_board_A = carbon_get_user_meta($a->ID, 'crb_managment_board');
+    $member_of_managment_board_B = carbon_get_user_meta($b->ID, 'crb_managment_board');
+
+    if ($member_of_managment_board_A[0] == $member_of_managment_board_B[0]) {  //This is where the name of our custom meta key is entered, I named mine "order"
+    return 0;
+    }
+
+    return ($member_of_managment_board_B[0] < $member_of_managment_board_A[0]) ? -1 : 1;  //The actual sorting is done here. Change ">" to "<" to reverse order
+}

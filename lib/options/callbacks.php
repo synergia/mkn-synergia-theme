@@ -1,57 +1,18 @@
 <?php
-// ================REKRUTACJA================= //
+// ===============BANNER================= //
 
-function snrg_enable_recruitment_callback() {
-  global $recruitment_options;
-?>
-<label>
-  <input type='checkbox' id="" name='snrg_recruitment_page_option[enable_recruitment]' value='1' <?php if ( 1 == $recruitment_options['enable_recruitment'] ) echo 'checked="checked"'; ?> />
-  Zaznacz, jeśli trwa rekrutacja
-</label>
-<?php }
-
-function snrg_upload_recruitment_images_callback($args) {
-  global $recruitment_options;
-
-  ?>
-  <script>
-  var $ =jQuery.noConflict();
-  $(document).ready(function() {
-    // UPLOADING //
-    var file_frame, some_input;
-    $('#upload_image_button').live('click', function(podcast) {
-      podcast.preventDefault();
-      some_input = $(this).prev();
-      // If the media frame already exists, reopen it.
-      if (file_frame) {
-        file_frame.open();
-        return;
-      }
-      file_frame = wp.media.frames.file_frame = wp.media({
-        title: $(this).data('uploader_title'),
-        button: {
-          text: $(this).data('uploader_button_text'),
-        },
-        multiple: false // Set to true to allow multiple files to be selected
-      });
-      // When a file is selected, run a callback.
-      file_frame.on('select', function(){
-        // We set multiple to false so only get one image from the uploader
-        attachment = file_frame.state().get('selection').first().toJSON();
-        var url = attachment.url;
-        $(some_input).attr("value", url);
-        console.log(some_input);
-      });
-      // Finally, open the modal
-      file_frame.open();
-    });
-  });
-  </script>
-  <input type="text" id="recruitment_image_1" name="snrg_recruitment_page_option[upload_recruitment_image_1]" value="<?php esc_attr_e($recruitment_options['upload_recruitment_image_1']); ?>" />
-                      <input id = "upload_image_button" type = "button" class="button button-primary button-large" value="Wybierz">
-                      <p class="description">Pamiętaj, by wybrać jak największy rozmiar</p>
-  <?php
-}
+function snrg_left_page_callback() {
+  global $banner_options;
+  echo '<input type="text" id="left_page" name="snrg_banner_page_option[left_page]" value="' . $banner_options['left_page']. '"></input>';
+ }
+function snrg_middle_page_callback() {
+  global $banner_options;
+  echo '<input type="text" id="middle_page" name="snrg_banner_page_option[middle_page]" value="' . $banner_options['middle_page']. '"></input>';
+ }
+function snrg_right_page_callback() {
+  global $banner_options;
+  echo '<input type="text" id="right_page" name="snrg_banner_page_option[right_page]" value="' . $banner_options['right_page']. '"></input>';
+ }
 
 
 // ================OGÓLNE===================== //
@@ -68,10 +29,29 @@ function snrg_github_link_callback() {
   global $general_options;
     echo '<input type="text" id="github_link_id" name="snrg_general_page_option[github_link]" value="' . $general_options['github_link']. '"></input>';
 }
+function snrg_instagram_link_callback() {
+  global $general_options;
+    echo '<input type="text" id="instagram_link_id" name="snrg_general_page_option[instagram_link]" value="' . $general_options['instagram_link']. '"></input>';
+}
 function snrg_g_anal_callback() {
   global $general_options;
   ?>
   <textarea name="snrg_general_page_option[g_anal]" id="google_anal"><?php echo $general_options['g_anal']; ?></textarea>
   <p class="description">Kod śledzący Google Analytics</p>
   <?php
+}
+
+// ===============O NAS===================== //
+
+function snrg_robodrift_edition_callback() {
+  global $about_options;
+    echo '<input type="text" id="robodrift_edition_id" name="snrg_about_page_option[robodrift_edition]" value="' . $about_options['robodrift_edition']. '"></input>';
+}
+function snrg_latitude_callback() {
+  global $about_options;
+    echo '<input type="text" id="latitude_id" name="snrg_about_page_option[latitude]" value="' . $about_options['latitude']. '"></input>';
+}
+function snrg_longtitude_callback() {
+  global $about_options;
+    echo '<input type="text" id="longtitude_id" name="snrg_about_page_option[longtitude]" value="' . $about_options['longtitude']. '"></input>';
 }

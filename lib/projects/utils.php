@@ -1,15 +1,6 @@
 <?php
 // Różne funkcje //
 
-// Dodaje style dla paginacji //
-add_filter('next_posts_link_attributes', 'posts_link_attributes');
-add_filter('previous_posts_link_attributes', 'posts_link_attributes');
-
-function posts_link_attributes() {
-    return 'class="button pagination"';
-}
-
-
 // Ubiera obrazki w figure //
 // Tylko gdy obrazek ma tytuł jakiś, inaczej działa js, który wrzuca sam obrazek
 // w <figure>
@@ -64,9 +55,9 @@ function custom_oembed_filter($html, $url, $attr, $post_ID) {
 function the_project_status($project_ID) {
     $project_status = get_post_meta($project_ID, "project_status", true);
     if($project_status){
-        echo '<span>Stan: '.$project_status.'</span>';
+        echo '<span class="project__status">Stan: '.$project_status.'</span>';
     }else {
-        echo '<span>Stan: Nieznany</span>';
+        echo '<span class="project__status">Stan: Nieznany</span>';
     }
 }
 
@@ -76,14 +67,14 @@ function the_project_links($project_ID) {
     $facebook = get_post_meta($project_ID, "facebook", true);
     $github = get_post_meta($project_ID, "github", true);
     if( $web || $facebook || $github) {
-        echo '<div class="project-links">';
+        echo '<div class="project__links">';
         if($web){
-            echo '<a title="Strona internetowa projektu" href="'.get_post_meta($project_ID, "web", true).'"><i class="icon icon-link"></i></a>';
+            echo '<a class="link link--glowing" title="Strona internetowa projektu" href="'.get_post_meta($project_ID, "web", true).'"><i class="icon icon-link"></i></a>';
         }
         if($facebook) {
-            echo '<a title="Facebook" href="'.get_post_meta($project_ID, "facebook", true).'"><i class="icon icon-facebook"></i></a>';
+            echo '<a class="link link--glowing" title="Facebook" href="'.get_post_meta($project_ID, "facebook", true).'"><i class="icon icon-facebook"></i></a>';
         }    if($github) {
-            echo '<a title="Github" href="'.get_post_meta($project_ID, "github", true).'"><i class="icon icon-github"></i></a>';
+            echo '<a class="link link--glowing" title="Github" href="'.get_post_meta($project_ID, "github", true).'"><i class="icon icon-github"></i></a>';
         }
         echo '</div>';
     }
@@ -95,11 +86,9 @@ function download_button ($project_ID) {
     if($files){
  ?>
  <div class="download-button-container">
-   <div id="dd" class="dropdown raised">
-     <div class="front">
-       <span>Pobierz <i class="icon icon-down-open-big"></i></span>
-     </div>
-     <div class="back">
+   <dl class="dropy">
+     <dt class="dropy__title btn btn--synergia btn--raised">Pobierz <i class="icon icon-down-open-big"></i></dt>
+     <dd class="dropy__content">
        <ul> <?php
          if ( is_array($files) ) {
              foreach( $files as $file ) {
@@ -109,8 +98,7 @@ function download_button ($project_ID) {
              }
          } ?>
        </ul>
-     </div>
-   </div>
+     </dd><input type="hidden" name="first"></dl>
  </div>
 <?php
     }
@@ -122,28 +110,29 @@ function project_card ($query) {
   if ($query->have_posts()) {
     while ($query->have_posts()) {
       $query->the_post(); ?>
-      <div class="gl-lg-4 gl-md-6 gl-cell left card-wrapper">
         <div class="card">
           <a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>">
-            <div class="image loading">
+            <div class="card__overimage loading">
               <?php if ( has_post_thumbnail() ) { ?>
-                <img class="blazy"
+                <img class="card__image blazy"
                      alt="<?php the_title(); ?>"
                      src="<?php bloginfo('template_directory'); ?>/build/img/card.png"
                      data-src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), 'card_image', true)[0];?>"/>
               <?php } else { ?><img class="blazy" src="<?php bloginfo('template_directory'); ?>/build/img/card.png" /><?php } ?>
-              <h2 class="title"><?php the_title(); ?></h2>
+              <h2 class="card__title"><?php the_title(); ?></h2>
             </div>
           </a>
-          <div class="excerpt">
-            <?php the_excerpt(); ?>
+          <div class="card__excerpt">
+            <?php echo get_the_excerpt(); ?>
           </div>
-          <div class="action">
-            <a class="button" href="<?php the_permalink(); ?>">Czytaj dalej</a>
+          <div class="card__action">
+            <a class="btn btn--readmore" href="<?php the_permalink(); ?>">Czytaj dalej</a>
           </div>
         </div>
-      </div> <?php
+ <?php
     }
-  }
+} else {
+    echo 'Brak wpisów.';
+}
 }
  ?>

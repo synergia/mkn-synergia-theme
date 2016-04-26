@@ -19,27 +19,12 @@ function wpdocs_theme_name_wp_title($title, $sep)
 
     // Add a page number if necessary:
     if (($paged >= 2 || $page >= 2) && !is_404()) {
-        $title .= " $sep ".sprintf(__('Page %s', '_s'), max($paged, $page));
+        $title .= " $sep ".sprintf(__('Strona %s', '_s'), max($paged, $page));
     }
 
     return $title;
 }
 add_filter('wp_title', 'wpdocs_theme_name_wp_title', 10, 2);
-
-
-// Inline style dla REKRUTACJI //
-function enqueue_inline_styles()
-{
-    global $snrg_settings;
-    $recruitment_image = $snrg_settings['recruitment_image_'.rand(1, 3)];
-    if ($snrg_settings['recruitment']) {
-        echo '<style>.modal-background {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
-      url('.$recruitment_image.') !important;}</style>
-  	';
-    }
-}
-add_action('wp_print_styles', 'enqueue_inline_styles', 8);
 
 function synergia_footer_admin()
 {
@@ -59,8 +44,11 @@ function remind_to_do() {
   if ( !is_plugin_active( 'custom-upload-dir/custom_upload_dir.php' ) ) {
     echo '<div class="error"> <p>Należy zainstalować wtyczkę Custom Upload Dir</p></div>';
   }
+  if ( !is_plugin_active( 'carbon-fields/carbon-fields-plugin.php' ) ) {
+    echo '<div class="error"> <p>Należy zainstalować wtyczkę Carbon Fields</p></div>';
+  }
   $current_member = wp_get_current_user();
-  if(!$current_member->image) {
+  if(!get_member_avatar_url($current_member)) {
     echo '<div class="error"> <p>Dodaj zdjęcie profilowe!</p><img src="'.get_template_directory_uri().'/build/img/b.jpg"/></div>';
   }
 }
@@ -138,3 +126,11 @@ function namespace_add_custom_types( $query ) {
 	}
 }
 add_filter( 'pre_get_posts', 'namespace_add_custom_types' );
+
+// Dodaje style dla paginacji //
+add_filter('next_posts_link_attributes', 'posts_link_attributes');
+add_filter('previous_posts_link_attributes', 'posts_link_attributes');
+
+function posts_link_attributes() {
+    return 'class="btn btn--pagination"';
+}

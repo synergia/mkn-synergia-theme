@@ -1,44 +1,65 @@
 // main.js //
 // Wszystko wrzucamy tu
 
+//= ../../bower_components/scroll-up-bar/src/scroll-up-bar.js
+
+////= ../../bower_components/df-visible/jquery.visible.js
+
 jQuery(function($) {
 
-  //= partials/dropdown-download.js
+    //= partials/dropdown.js
 
-  //= partials/dropdown.js
+    //= partials/excerpt.js
 
-  //= partials/excerpt.js
+    //= partials/image-wrapper.js
 
-  //= partials/image-wrapper.js
+    //= partials/notifications.js
 
-  //= partials/name-trimmer.js
+    //= partials/recruitment.js
 
-  //= partials/notifications.js
+    //// = partials/show-nicknames.js
 
-  //= partials/recruitment.js
+    //= partials/nav.js
 
-  //= partials/ripple-effect.js
+    //= partials/tooltip.js
 
-  //= partials/show-nicknames.js
+    //= partials/github.js
 
-  //= partials/tabs.js
+    //= partials/lastfm.js
 
-  //= partials/transition.js
+    //= partials/smooth-scroll.js
 
-  //= partials/nav.js
+    $(document).ready(function() {
+        //= partials/lazy.js
 
-  //= partials/slider.js
+        ////= member.js
 
-  //= partials/smooth-scrolling.js
+        //= partials/name-trimmer.js
 
+        //= partials/load-more.js
 
-  $(document).ready(function() {
+        //= partials/topbar.js
 
-    //= partials/lazy.js
+        //= partials/tabs.js
 
-    //= partials/infinite-scroll.js
+        //= partials/counter.js
 
-  });
-  // Prezes zawsze na pierwszym miejscu //
-  $('#management_board li#admin').insertBefore('#management_board li:eq(0)');
+        //= partials/odmiana.js
+
+        //= partials/footer.js
+
+        //= partials/banner.js
+
+        //= partials/modal.js
+
+        //= partials/slider.js
+
+    });
+
+    // Prezes zawsze na pierwszym miejscu //
+    $('.membercard#president').insertBefore('#current_members .cardsWrapper div:eq(0)');
+
+    // Dodaje do <a> klasę "link"
+    $('.project__content a').addClass('link');
+
 });

@@ -1,6 +1,6 @@
 {
   "name": "mknm-synergia-theme",
-  "description": "MKNM \"Synergia\" Theme ===================== Strona internetowa naszego koła naukowego zawsze była ważnym miejscem do eksponowania naszych projektów, sukcesów i wydarzeń. Nadchodzące zmiany spowodują, że strona zostanie wyjątkowym instrumentem do przedstawienia swojego projektu.",
+  "description": "MKNM \"Synergia\" Theme",
   "main": "index.js",
   "authors": [
     "stsdc"
@@ -26,6 +26,8 @@
     "bLazy": "blazy#~1.5.2"
   },
   "devDependencies": {
-    "basic-slider": "*"
+    "basic-slider": "*",
+    "scroll-up-bar": "~0.3.0",
+    "df-visible": "jquery-visible#^1.2.0"
   }
 }

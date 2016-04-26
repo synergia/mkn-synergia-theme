@@ -1,104 +1,77 @@
-/* Colors */
+.download-button-container {
+    margin: 0 -30px;
+    padding: 0 30px;
+    border-top: $border-light;
+}
 // http://codepen.io/Tombek/pen/OPvpLe
-$black: #464646;
-$lightGray: #cccccc;
-$gray: #868686;
-$darkGray: #666666;
-$white: #fafafa;
-$darkWhite: #eeeeee;
-
 /* Normalize */
-ul, dl{
-  -webkit-margin-before: 0;
-  -webkit-margin-after: 0;
-  -webkit-padding-start: 0;
+ul,
+dl {
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    -webkit-padding-start: 0;
 }
-dd{
-  -webkit-margin-start: 0;
+dd {
+    -webkit-margin-start: 0;
 }
-
 /* Dropy style */
-.dropy{
-  position: relative;
-	width: 100%;
+.dropy {
+    position: relative;
 }
-
-.dropy__title{
-  position: relative;
-  display: block;
-  text-decoration: none;
-  cursor: pointer;
-  transition: all .2s $bezier;
-  border-bottom: 4px solid $shadowlight;
-  color: $cardbutton-color;
-  &:hover{
-    border-color: $synergia-light-color;
-    color: $text-color;
-  }
-}
-
-.dropy__content{
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-
-  ul{
-    z-index: 1;
-    overflow: hidden;
-    position: absolute;
-    left: 0;
-    right: 0;
-    width: 100%;
-    @include border-radius(0.125em);
-    max-height: 0;
-    opacity: 0;
-    padding: 0;
-    transition: opacity .2s $bezier, max-height .2s $bezier;
-
-    list-style: none;
-    background: $white;
-    @include box-shadow;
-    li:first-child a:hover{
-      @include border-radius(0.125em);
-    }
-    li:last-child a{
-      // margin-bottom: 1.5rem;
-      &:hover{
-        @include border-radius(0.125em);
-      }
-    }
-  }
-  li a{
-    display: block;
-    padding: 1rem 1.5rem;
-    font-size: 1.4rem;
-
-    color: $cardbutton-color;
+.dropy__title {
+    position: relative;
+    display: inline-block;
     text-decoration: none;
     cursor: pointer;
-    transition: background-color .2s $bezier, color .2s $bezier;
-
-    &:hover{
-      color: $darkGray;
-      background-color: $darkWhite;
-    }
-  }
-  .dropy__header{
-    border-bottom: 1px solid $shadowlight;
-    margin-bottom: 1.5rem;
-    padding: 1rem 1.5rem;
-    font-size: 1.6rem;
-  }
-  .selected{
-    font-weight: 700 !important;
-    color: $synergia-color;
-  }
+    @include transition($bezier);
 }
-.dropy.open{
-  .dropy__content ul{
-    max-height: 17rem;
-    overflow-y: auto;
-    opacity: 1;
-  }
+.dropy__content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 300px;
+    z-index: 1;
+    ul {
+        overflow: hidden;
+        @include border-radius($radius);
+        max-height: 0;
+        opacity: 0;
+        padding: 0;
+        @include transition($bezier);
+        list-style: none;
+        background: #ffffff;
+        @include box-shadow;
+    }
+    a {
+        display: block;
+        color: $text-color;
+        padding: 1rem 1.5rem;
+        font-size: 1.4rem;
+        text-decoration: none;
+        cursor: pointer;
+        @include transition($bezier);
+        @include ellipsis;
+        &:hover {
+            color: $synergia-color;
+            background-color: $grey-light;
+        }
+    }
+    .dropy__header {
+        border-bottom: 1px solid $grey;
+        margin-bottom: 1.5rem;
+        padding: 1rem 1.5rem;
+        font-size: 1.6rem;
+    }
+    .selected {
+        font-weight: 700 !important;
+        color: $synergia-color;
+    }
+}
+.dropy.open {
+    .dropy__content ul {
+        max-height: 17rem;
+        overflow-y: auto;
+        opacity: 1;
+    }
 }

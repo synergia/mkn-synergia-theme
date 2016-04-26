@@ -4,8 +4,8 @@
     $logo = get_template_directory_uri() . '/build/img/logo.png';
     $version = $theme->get('Version');
     $theme_name = $theme->get('Name');
-    $codename = 'Carrie Fisher';
-    $codeimg = 'http://cs628419.vk.me/v628419187/48151/3R20Q-CTUPI.jpg';
+    $codename = 'Jessica Alba';
+    $codeimg = 'http://cs633618.vk.me/v633618187/1a842/cNH0Mgb-jHU.jpg';
 
 
 // Dodatkowe style i skrypty dla panelu. Odpowiedzialne za otwieranie okna
@@ -50,10 +50,12 @@ include 'lib/projects/utils.php';
 // Posts
 include 'lib/posts/post.php';
 include 'lib/posts/utils.php';
+include 'lib/posts/ajax.php';
 // Członkowie
 include 'lib/members/profile.php';
 include 'lib/members/capabilities.php';
 include 'lib/members/utils.php';
+include 'lib/members/ajax.php';
 // Sponsorzy
 include 'lib/sponsors/post-type.php';
 include 'lib/sponsors/utils.php';
@@ -65,8 +67,11 @@ include 'lib/general/slider.php';
 include 'lib/general/lazy.php';
 include 'lib/general/dashboard.php';
 include 'lib/general/setup.php';
+include 'lib/general/walker.php';
 // Login
 include 'lib/login/login.php';
+// ULTRON
+include 'lib/ultron/ultron.php';
 
 
 // Synergiczne style //
@@ -76,20 +81,13 @@ include 'lib/login/login.php';
         global $version, $snrg_settings;
         $style_path = get_template_directory_uri().'/build/style';
 
-        wp_register_style('Titillium', 'https://fonts.googleapis.com/css?family=Titillium+Web:400,300,700&subset=latin,latin-ext');
+        wp_register_style('Titillium', 'https://fonts.googleapis.com/css?family=Titillium+Web:400,400italic,300,700&subset=latin,latin-ext');
         wp_register_style('Titillium900', 'https://fonts.googleapis.com/css?family=Titillium+Web:900&subset=latin');
         wp_register_style('main', $style_path.'/main.css', array(), $version, 'all');
-        wp_register_style('github', $style_path.'/github.css', array(), $version, 'all');
         wp_register_style('prism', $style_path.'/prism-okaidia.css', array(), $version, 'all');
         wp_enqueue_style('main');
         wp_enqueue_style('Titillium');
-        // Dla rekrutacji potrzebna jest ciężka czcionka
-        if ($snrg_settings['recruitment']) {
-            wp_enqueue_style('Titillium900');
-        }
-        if (is_author()) {
-            wp_enqueue_style('github');
-        }
+        wp_enqueue_style('Titillium900');
         if (is_singular('project') || is_single()) {
             wp_enqueue_style('prism');
         }
@@ -108,42 +106,35 @@ function synergia_admin_styles() {
 function js() {
   global $version, $snrg_settings;
   $js_path = get_template_directory_uri().'/build/js';
+  $google_map_key = 'AIzaSyD6ovUl5OZwwEa_MzTArrazVuvVtCMH-B8';
 
-    wp_register_script('underscore', $js_path.'/underscore.min.js', '1.6.0', true);
-    wp_register_script('github.js', $js_path.'/github.min.js', '0.1.3', true);
     wp_register_script('prism', $js_path.'/prism.min.js', '', true);
     wp_register_script('main', $js_path.'/main.min.js', array('jquery'), $version, true);
     wp_register_script('swipe', $js_path.'/swipe.min.js', array('jquery'), $version, true);
     wp_register_script('blazy', $js_path.'/blazy.min.js', array('jquery'), $version, true);
-    // wp_register_script('cookie', get_template_directory_uri().'/build/js/js-cookie.min.js', '', true);
-    if (is_author()) {
-        wp_enqueue_script('underscore');
-        wp_enqueue_script('github.js');
+    wp_register_script('404', $js_path.'/404.min.js', array('jquery'), $version, true);
+    wp_register_script('map', 'https://maps.googleapis.com/maps/api/js?key='.$google_map_key, false);
+    wp_register_script('map_settings',$js_path.'/map.min.js', array('jquery'), $version, true);
+
+    if(!is_404()){
+        wp_enqueue_script('blazy');
+        wp_enqueue_script('swipe');
+        wp_enqueue_script('main');
     }
+    if(is_404()){
+        wp_enqueue_script('404');
+    }
+
+    if(is_page('about')) {
+        wp_enqueue_script('map');
+        wp_enqueue_script('map_settings');
+    }
+
     if (is_singular('project') || is_single()) {
         wp_enqueue_script('prism');
     }
-    // if ($snrg_settings['recruitment']) {
-    //     wp_enqueue_script('cookie');
-    // }
-    wp_enqueue_script('swipe');
-    wp_enqueue_script('blazy');
-    wp_enqueue_script('main');
 }
 add_action('wp_footer', 'js');
-
-// Rejestrujemy sidebar //
-
-register_sidebar(
-    array(
-        'name' => 'Left Sidebar',
-        'id' => 'left-sidebar',
-        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-        'after_widget' => '</aside>',
-        'before_title' => '<h3>',
-        'after_title' => '</h3>',
-    )
-);
 
 // Dodajemy wsparcie linków RSS //
 

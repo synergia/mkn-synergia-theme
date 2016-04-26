@@ -1,71 +1,71 @@
 .swipe {
-  overflow: hidden;
-  position: relative;
-  margin: 20px -30px;
-  width: 100%;
-  height: 400px;
-  @include mq($from:wide) {
-    width: 1000px;
-    height: 500px;
-  }
-  @include mq(desktop, wide) {
-    width: 970px;
+    overflow: hidden;
+    position: relative;
+    margin: 20px -30px;
+    width: inherit;
     height: 400px;
-  }
-  @include mq(tablet, desktop) {
-    width: 750px;
-    height: 400px;
-  }
-  @include mq($until: tablet) {
-    width: calc(100% + 60px);
-    margin-left: -30px;
-    height: 300px;
-  }
-  .nav {
-    position: absolute;
-    padding: 20px;
-    font-size: 2em;
-    cursor: pointer;
-    @include vertical-align();
-    color: $shadowlight;
-    @include transition;
-    &:hover {
-      color: $shadowdark;
-
+    background-color: $synergia-grey-color;
+    @include mq($from:wide) {
+        height: 500px;
+    }
+    @include mq(desktop, wide) {
+        height: 400px;
+    }
+    @include mq(tablet, desktop) {
+        height: 400px;
     }
     @include mq($until: tablet) {
-      font-size: 2.5em;
+        width: calc(100% + 60px);
+        margin-left: -30px;
+        height: auto;
     }
-  }
-  .prev {
-    left: 0;
-  }
-  .next {
-    right: 0;
-  }
+    &__nav {
+        position: absolute;
+        padding: 20px;
+        font-size: 2.5em;
+        cursor: pointer;
+        @include vertical-align();
+        color: $grey;
+        @include transition($bezier);
+        &:hover {
+            color: $grey-dark;
+        }
+        @include mq($until: tablet) {
+            font-size: 2.5em;
+        }
+    }
+    &__prev {
+        left: 0;
+    }
+    &__next {
+        right: 0;
+    }
 }
 .swipe-wrap {
-  overflow: hidden;
-  position: relative;
-  &> div {
-    float: left;
-    width: 100%;
+    overflow: hidden;
     position: relative;
-    text-align: center;
-    background-color: #f8f8f8;
-    img.slide {
-      width: auto;
-      max-width: none;
-      max-height: 300px;
-      @include mq($from:wide) {
-        max-height: 500px;
-      }
-      @include mq(desktop, wide) {
-        max-height: 400px;
-      }
-      @include mq(tablet, desktop) {
-        max-height: 400px;
-      }
+    & > div {
+        float: left;
+        width: 100%;
+        position: relative;
+        text-align: center;
+        img.slide {
+            width: 100%;
+            max-height: 400px;
+            @include mq($from:wide) {
+                width: 100%;
+                height: auto;
+                max-height: none;
+            }
+            @include mq(desktop, wide) {
+                height: auto;
+                width: 1000px;
+                max-height: none;
+            }
+            @include mq(tablet, desktop) {
+                height: auto;
+                max-width: 100%
+            }
+        }
     }
-  }
 }
