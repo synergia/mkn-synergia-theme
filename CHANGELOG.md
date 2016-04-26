@@ -1,3 +1,25 @@
+### 2.0.0 "Jessica Alba"
+
+![](http://cs633618.vk.me/v633618187/1a842/cNH0Mgb-jHU.jpg)
+
+* Usunięto wyświetlanie projektów w stanie "Pomysł"
+* Przeróbka strony O nas
+    * Przerobiono obrazek nagłówkowy
+    * Dodano mapkę
+* Przeróbka blogu
+    * Wpisy wyświetlają się jako karty
+    * Dodano hashtagi
+    * Archiwum ze stopki przeniesiono do blogu
+    * Naprawiono wyświetlanie archiwum
+* Pzeróbka strony głównej
+    * Dodano slajder
+* Rozbudowano Sponsorów i Współpracę
+* Naprawiono pobieranie projektów
+* Nowa strona 404
+* Przerobiono profil członka
+* Nazewnictwo klas wg BEMu
+* Flexbox
+
 ### 1.4.0 "Carrie Fisher"
 
 ![](http://cs628419.vk.me/v628419187/48151/3R20Q-CTUPI.jpg)
