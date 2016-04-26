@@ -19,6 +19,7 @@
 * Przerobiono profil członka
 * Nazewnictwo klas wg BEMu
 * Flexbox
+* REFAKTORING
 
 ### 1.4.0 "Carrie Fisher"
 
