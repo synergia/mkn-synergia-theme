@@ -1,0 +1,21 @@
+.ultron {
+    position: relative;
+    margin: 0 auto;
+    width: 400px;
+    text-align: center;
+    background-color: #fff;
+    border: $border-light;
+    @include border-radius($radius);
+    &__state {
+        font-size: 3.5rem;
+        font-weight: 300;
+        border-bottom: $border-light;
+        text-transform: uppercase;
+        padding: 10px;
+    }
+    &__datetime {
+        padding: 10px;
+        font-size: 1.125rem;
+        color: $text_color_light;
+    }
+}

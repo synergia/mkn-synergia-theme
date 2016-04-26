@@ -10,7 +10,7 @@ Strona internetowa naszego koła naukowego zawsze była ważnym miejscem do eksp
 #### Tam
 Po aktywacji motywu należy:
 
- - Zainstalować wtyczki `Co-Authors Plus`, `WP Users Media` oraz `Github Updater`. Motyw jest najściślej powiązany z Co-Authors Plus. Github Updater jest potrzebny do aktualizacji motywu bezpośrednio z Githuba.
+ - Zainstalować wtyczki `Co-Authors Plus`, `WP Users Media`, `Carbon Fields` oraz `Github Updater`. Github Updater jest potrzebny do aktualizacji motywu bezpośrednio z Githuba.
  - Wyłączyć Gravatars w `Ustawienia->Dyskusja`
 
 #### Tu

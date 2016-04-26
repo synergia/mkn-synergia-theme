@@ -12,10 +12,12 @@
     @include border-radius($radius);
     &__excerpt {
         padding: 1.250em;
-        font-weight: 300;
+        // font-weight: 300;
         border-radius: 0 0 0.125em 0.125em;
         height: 5.000em;
         background-color: #fff;
+        color: $text-color-light;
+        font-size: 1.063rem;
         @include mq($until: desktop) {
             height: 6em;
         }

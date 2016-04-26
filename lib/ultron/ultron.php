@@ -1,16 +1,15 @@
 <?php
 
-// nie najlepszy kod, co pisałem
-function ultron_state()
+// add_action('wp', 'ultron_state');
+function ultron_get_state()
 {
     $ultron_data = ultron_get_data();
-    $ultron_state = $ultron_data[0];
-
-    return $ultron_state;
+    if ($ultron_data[0] == True) {
+        return array('Zamknięte', $ultron_data[1]);
+    } else {
+        return array('Otwarte', $ultron_data[1]);
+    }
 }
-
-// add_action('wp', 'ultron_state');
-
 
 function ultron_get_data()
 {

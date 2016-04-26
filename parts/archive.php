@@ -22,7 +22,7 @@ function show_nested_archive() {
     echo '<dd class="dropy__content"><ul>';
     foreach(get_posts_by_months($year) as $month) {
       echo '<li><a href="'.get_month_link($year, $month).'">';
-      echo date( 'F', mktime(0, 0, 0, $month) ).'</a>';
+      echo date_i18n( 'F', mktime(0, 0, 0, $month) ).'</a>';
       echo '</li>';
     }
     echo '</ul></dd><input type="hidden" name="first"></dl>';

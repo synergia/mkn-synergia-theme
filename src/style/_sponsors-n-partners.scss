@@ -62,13 +62,13 @@
         @include transition($bezier);
 
         &:hover {
-            border: 3px solid $synergia-color;
+            border: 3px solid $synergia_color_dark;
         }
     }
     &__more {
         @extend .brand__link;
         &:hover {
-            border: 3px solid $synergia-color;
+            border: 3px solid $synergia_color_dark;
         }
     }
     &__logo {

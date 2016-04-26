@@ -153,12 +153,6 @@ img {
         width: 100%;
     }
 }
-.widget {
-    @extend .partnership-container;
-    h3 {
-        margin-top: 0;
-    }
-}
 .cardsWrapper {
     display: flex;
     flex-flow: row wrap;
@@ -182,6 +176,7 @@ img {
 @import 'project'; // Style z project także wykorzystywane są w single i page
 @import "login";
 @import 'animations';
-@import "lazy";
+@import "blazy";
 @import "helpers";
+@import "ultron";
 @import "print";
