@@ -4,10 +4,12 @@
 function ultron_get_state()
 {
     $ultron_data = ultron_get_data();
-    if ($ultron_data[0] == True) {
-        return array('Zamknięte', $ultron_data[1]);
+    echo $ultron_data[1];
+    echo $ultron_data[0];
+    if ($ultron_data[1] == "True") {
+        return array('Zamknięte', $ultron_data[0]);
     } else {
-        return array('Otwarte', $ultron_data[1]);
+        return array('Otwarte', $ultron_data[0]);
     }
 }
 
@@ -16,8 +18,8 @@ function ultron_get_data()
     $fh = fopen('../ultron/ultron.data', 'r');
     $ultron_data = array();
 
-    while ($line = fgets($fh)) {
-        array_push($ultron_data, $line);
+    while (feof($fh) !== true) {
+        $ultron_data[] = fgets($fh);
     }
     fclose($fh);
 

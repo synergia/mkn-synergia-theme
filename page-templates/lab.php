@@ -14,7 +14,7 @@ Template Name: Lab
             <?php echo $ultron_state[0]; ?>
         </div>
         <div class="ultron__datetime">
-            <?php echo date_i18n('H:i:s d.m.Y',$ultron_state[1]); ?>
+            <?php echo $ultron_state[1]; ?>
         </div>
     </div>
 </div>
