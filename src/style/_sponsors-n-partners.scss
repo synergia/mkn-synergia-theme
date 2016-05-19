@@ -82,5 +82,6 @@
         max-height: 90px;
         max-width: 180px;
         @include transition($bezier);
+        image-rendering: -moz-optimizeQuality;
     }
 }
