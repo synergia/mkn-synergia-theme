@@ -2,7 +2,7 @@
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
 
-add_image_size( 'sponsor_logo', auto, 75, false );
+add_image_size( 'sponsor_logo', 75, false );
 
 add_action('carbon_register_fields', 'crb_sponsor_link');
 function crb_sponsor_link() {

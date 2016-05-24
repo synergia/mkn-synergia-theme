@@ -68,6 +68,7 @@ include 'lib/general/lazy.php';
 include 'lib/general/dashboard.php';
 include 'lib/general/setup.php';
 include 'lib/general/walker.php';
+include 'lib/general/humans.php';
 // Login
 include 'lib/login/login.php';
 // ULTRON
