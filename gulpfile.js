@@ -134,6 +134,7 @@ gulp.task('js', function() {
             extname: '.min.js'
         }))
         .pipe(production(uglify()))
+        .pipe(production(stripDebug()))
         .pipe(development(sourcemaps.write())) // sourcemapy tylko na devie
         .pipe(gulp.dest(path.build.js))
         .pipe(notify({
@@ -178,12 +179,6 @@ gulp.task('watch', function() {
     gulp.watch(path.watch.font, ['fonts']);
 });
 
-gulp.task('rm-logs', function () {
-	return gulp.src(path.src.js)
-		.pipe(stripDebug())
-		.pipe(gulp.dest('dist'));
-});
-
 // Usuwa katalog build
 gulp.task('clean', function(cb) {
     rimraf(path.clean, cb);
@@ -195,4 +190,4 @@ gulp.task('set-prod', production.task);
 // TASKS
 gulp.task('dev', ['set-dev', 'scss', 'js', 'img', 'fonts', 'webserver', 'watch']);
 gulp.task('devv', ['set-dev', 'scss', 'js', 'img', 'fonts', 'watch']);
-gulp.task('prod', ['set-prod', 'scss', 'rm-logs', 'js', 'img', 'fonts']);
+gulp.task('prod', ['set-prod', 'scss', 'js', 'img', 'fonts']);
