@@ -7,7 +7,7 @@ Template Name: Główna
 
 <?php get_header(); ?>
 <?php get_template_part('parts/topbar'); ?>
-<?php get_template_part('parts/banner'); ?>
+<?php get_template_part('parts/hero'); ?>
 <?php // args
 $projects = array(
     'posts_per_page' => 3,

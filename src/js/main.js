@@ -48,7 +48,7 @@ jQuery(function($) {
 
         //= partials/footer.js
 
-        //= partials/banner.js
+        //= partials/hero.js
 
         //= partials/modal.js
 
