@@ -19,6 +19,7 @@ var browserSync = require("browser-sync");
 var rimraf = require('rimraf'); // do usuwania
 var reload = browserSync.reload;
 var environments = require('gulp-environments');
+var stripDebug = require('gulp-strip-debug');
 
 var development = environments.development;
 var production = environments.production;
@@ -62,10 +63,10 @@ gulp.task('webserver', function() {
         // Read here http://www.browsersync.io/docs/options/
         proxy: '127.0.0.1/synergia/',
 
-        // port: 8080,
+        port: 8080,
 
         // Tunnel the Browsersync server through a random Public URL
-        // tunnel: true,
+        tunnel: true,
 
         // Attempt to use the URL "http://my-private-site.localtunnel.me"
         // tunnel: "ppress",
@@ -176,6 +177,13 @@ gulp.task('watch', function() {
     gulp.watch(path.watch.img, ['img']);
     gulp.watch(path.watch.font, ['fonts']);
 });
+
+gulp.task('rm-logs', function () {
+	return gulp.src(path.src.js)
+		.pipe(stripDebug())
+		.pipe(gulp.dest('dist'));
+});
+
 // Usuwa katalog build
 gulp.task('clean', function(cb) {
     rimraf(path.clean, cb);
@@ -187,4 +195,4 @@ gulp.task('set-prod', production.task);
 // TASKS
 gulp.task('dev', ['set-dev', 'scss', 'js', 'img', 'fonts', 'webserver', 'watch']);
 gulp.task('devv', ['set-dev', 'scss', 'js', 'img', 'fonts', 'watch']);
-gulp.task('prod', ['set-prod', 'scss', 'js', 'img', 'fonts']);
+gulp.task('prod', ['set-prod', 'scss', 'rm-logs', 'js', 'img', 'fonts']);
