@@ -63,10 +63,10 @@ gulp.task('webserver', function() {
         // Read here http://www.browsersync.io/docs/options/
         proxy: '127.0.0.1/synergia/',
 
-        port: 8080,
+        // port: 8080,
 
         // Tunnel the Browsersync server through a random Public URL
-        tunnel: true,
+        // tunnel: true,
 
         // Attempt to use the URL "http://my-private-site.localtunnel.me"
         // tunnel: "ppress",

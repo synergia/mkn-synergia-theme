@@ -6,7 +6,6 @@
     position: relative;
     justify-content: center;
     overflow: hidden;
-    cursor: pointer;
     // will-change:height;
     // &--animation {
     //     animation: 1s $bezier bannerAnimation forwards;
@@ -15,11 +14,13 @@
         text-align: center;
         width: 100%;
         position: relative;
-        @include box-shadow;
-        background-color: $synergia_color_dark;
+        // @include box-shadow;
+        background-color: $synergia-color-dark;
         @include mq($from:desktop) {
-            border-left: 8px solid $synergia-color;
-            border-right: 8px solid $synergia-color;
+            // border-left: 8px solid $background-color;
+            border-left: 12px solid $synergia-color-dark;
+            // border-right: 8px solid $background-color;
+            border-right: 12px solid $synergia-color-dark;
             width: 800px;
             position: absolute;
             height: inherit;
@@ -89,7 +90,7 @@
         position: absolute;
         top: auto;
         bottom: 0;
-        right: 350px;
+        right: 325px;
         margin-bottom: 0;
         transform: none;
         display: inline-block;
@@ -116,7 +117,7 @@
         line-height: 0.6;
         transform: none;
         display: inline-block;
-        left: 17%;
+        left: 160px;
         text-align: left;
         transition: all .4s $bezier;
         // &--animation {
