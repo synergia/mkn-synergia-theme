@@ -146,6 +146,10 @@
             @include mq($from:tablet) {
                 // border-bottom: 2px solid $synergia-color-light;
             }
+            border: 0 solid transparent !important;
+        }
+        &:first-of-type {
+            border: 2px solid $synergia-color-light;
         }
 
     }
