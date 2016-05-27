@@ -57,10 +57,10 @@
             top: 7%;
         }
         white-space: nowrap;
-        font-size: 7rem;
+        font-size: 4rem;
         color: $background-color;
         font-weight: 900;
-        letter-spacing: -6px;
+        letter-spacing: -3px;
         text-transform: uppercase;
         position: absolute;
         top: 20%;
@@ -126,15 +126,22 @@
         // }
     }
     &__middleImg {
-        height: 100%;
-        width: auto;
+        height: 100vh;
         object-fit: cover;
+        width: auto;
+        margin-left: -25%;
+        @include mq($from:tablet) {
+            width: 100vw; //!!
+            // height: auto;
+            margin-left: 0;
+        }
         @include mq($from:desktop) {
              @include transition($bezier);
+             margin-left: -15%;
             width: 100vw; //!!
             height: auto;
             transform: skewX(15deg);
-            margin-left: -25%;
+
         }
         &--opacity60 {
             opacity: 0.4 !important;

@@ -17,7 +17,7 @@ $projects = array(
 $projects_query = new WP_Query($projects);
 ?>
 <div class="compensator">
-  <div class="cardsWrapper">
+  <div class="cardsWrapper showcase">
     <?php project_card($projects_query); ?>
   </div>
 </div>
