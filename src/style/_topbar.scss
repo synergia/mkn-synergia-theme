@@ -6,7 +6,7 @@
     z-index: 4;
     background-color: rgba(255, 255, 255, 1);
     border-bottom: $border-light;
-    transition: background-color .2s $bezier, border-bottom .2s $bezier;
+    transition: background-color 0.2s $bezier, border-bottom 0.2s $bezier;
     @include mq($from:tablet) {
         border-bottom: 1px solid transparent;
         background-color: $background-color;
@@ -35,7 +35,7 @@
     }
     &__logo {
         @include transition($bezier);
-        @include background-image('logo');
+        @include background-image( 'logo');
         display: block;
         width: 50px;
         height: 50px;
@@ -149,8 +149,9 @@
             border: 0 solid transparent !important;
         }
         &:first-of-type {
-            border: 2px solid $synergia-color-light;
+            @include mq($from:tablet) {
+                border: 2px solid $synergia-color-light;
+            }
         }
-
     }
 }
