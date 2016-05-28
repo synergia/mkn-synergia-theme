@@ -62,13 +62,13 @@
         @include transition($bezier);
 
         &:hover {
-            border: 3px solid $synergia_color_dark;
+            border: 3px solid $synergia-color-dark;
         }
     }
     &__more {
         @extend .brand__link;
         &:hover {
-            border: 3px solid $synergia_color_dark;
+            border: 3px solid $synergia-color-dark;
         }
     }
     &__logo {
@@ -80,7 +80,8 @@
         filter:grayscale(0.4);
         width: auto;
         max-height: 90px;
-        max-width: 180px;
+        max-width: 170px;
         @include transition($bezier);
+        image-rendering: -moz-optimizeSpeed;
     }
 }

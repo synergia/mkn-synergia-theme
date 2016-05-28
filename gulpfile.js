@@ -19,6 +19,7 @@ var browserSync = require("browser-sync");
 var rimraf = require('rimraf'); // do usuwania
 var reload = browserSync.reload;
 var environments = require('gulp-environments');
+var stripDebug = require('gulp-strip-debug');
 
 var development = environments.development;
 var production = environments.production;
@@ -133,6 +134,7 @@ gulp.task('js', function() {
             extname: '.min.js'
         }))
         .pipe(production(uglify()))
+        .pipe(production(stripDebug()))
         .pipe(development(sourcemaps.write())) // sourcemapy tylko na devie
         .pipe(gulp.dest(path.build.js))
         .pipe(notify({
@@ -176,6 +178,7 @@ gulp.task('watch', function() {
     gulp.watch(path.watch.img, ['img']);
     gulp.watch(path.watch.font, ['fonts']);
 });
+
 // Usuwa katalog build
 gulp.task('clean', function(cb) {
     rimraf(path.clean, cb);

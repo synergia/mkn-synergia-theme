@@ -38,7 +38,7 @@ function show_links($items) {
               </div>
               <img class="brand__logo blazy" alt=""
               src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-              data-src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), 'sponsor_logo', true)[0];?>" />
+              data-src="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), 'card', true)[0];?>" />
           </div>
 <?php }
   } else {
