@@ -50,7 +50,7 @@ $min = 9999999; $max = 0;
     		else {
     			$class = $sizeclass;
     		}
-            $ret .= ($wrapper ? '<'.$wrapper.' class="tagWrapper">' : '') . '<a href="'.$url.'" class="'.$class.' link">#'.$tag->name.'</a>' .
+            $ret .= ($wrapper ? '<'.$wrapper.' class="tagWrapper">' : '') . '<a href="'.$url.'" class="'.$class.' link">'.$tag->name.'</a>' .
 			($wrapper ? '</'.$wrapper.'>' : '');
 
     	}

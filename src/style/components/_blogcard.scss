@@ -25,7 +25,7 @@
 
     }
     &__tags {
-        @extend .blogEntry__time;
+        @extend .blogcard__time;
     }
     &__tag {
         margin-left: 5px;

@@ -7,7 +7,7 @@ Template Name: Główna
 
 <?php get_header(); ?>
 <?php get_template_part('parts/topbar'); ?>
-<?php get_template_part('parts/banner'); ?>
+<?php get_template_part('parts/hero'); ?>
 <?php // args
 $projects = array(
     'posts_per_page' => 3,
@@ -17,7 +17,7 @@ $projects = array(
 $projects_query = new WP_Query($projects);
 ?>
 <div class="compensator">
-  <div class="cardsWrapper">
+  <div class="cardsWrapper showcase">
     <?php project_card($projects_query); ?>
   </div>
 </div>
