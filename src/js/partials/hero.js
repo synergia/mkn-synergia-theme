@@ -37,4 +37,14 @@
         $(this).removeClass('hero__right--mvL');
 
     });
+
+    var height = $(window).height();
+    var width = $(window).width();
+    console.log(height);
+    if(width<750) {
+        var heroMiddleImg = document.getElementsByClassName('hero__middleImg')[0];
+        var heroMiddle = document.getElementsByClassName('hero__middle')[0];
+        console.log(heroMiddleImg);
+        heroMiddleImg.height= height;
+    }
 })();

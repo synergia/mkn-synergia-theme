@@ -10,6 +10,7 @@
     // &--animation {
     //     animation: 1s $bezier bannerAnimation forwards;
     // }
+    transition: height 99999s ease;
     &__middle {
         text-align: center;
         width: 100%;
@@ -126,7 +127,8 @@
         // }
     }
     &__middleImg {
-        height: 100vh;
+        // height: 100vh;
+        transition: height 99999s ease;
         object-fit: cover;
         width: auto;
         margin-left: -25%;
