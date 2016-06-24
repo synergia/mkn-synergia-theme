@@ -38,7 +38,7 @@ jQuery(function($) {
 
         //= partials/load-more.js
 
-        ////= partials/topbar.js
+        //= partials/topbar.js
 
         //= partials/tabs.js
 
