@@ -16,9 +16,9 @@ function initTopbar() {
 }
 initTopbar();
 
-if ($(window).width() < 750) {
-    $.scrollupbar.destroy('.topbarWrapper');
-}
+// if ($(window).width() < 750) {
+//     $.scrollupbar.destroy('.topbarWrapper');
+// }
 
 $(window).scroll(function(event) {
     // didScroll = true;

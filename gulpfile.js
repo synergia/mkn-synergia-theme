@@ -66,7 +66,7 @@ gulp.task('webserver', function() {
         // port: 8080,
 
         // Tunnel the Browsersync server through a random Public URL
-        // tunnel: true,
+        tunnel: true,
 
         // Attempt to use the URL "http://my-private-site.localtunnel.me"
         // tunnel: "ppress",
