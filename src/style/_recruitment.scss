@@ -1,216 +1,43 @@
-// http://www.cssscript.com/accessible-fullscreen-modal-popup-with-pure-css-css3/
-.modal {
-  display: block;
-  float: right;
-  @include mq($until:tablet) {
-    float: left;
-  }
-  & > {
-    label {
-      background: $synergia-color;
-      color: #fff;
-      font-weight: bold;
-      margin: 0 1em;
-      width: auto;
-      @include mq($until:tablet) {
-        background: #fff;
-        color: $synergia-color;
-        margin-top: 3px;
-      }
-      span {
-        display: inline;
-        @include mq($until:desktop) {
-          display: none;
-        }
-      }
-      &:hover {
-        background: $synergia-color-light;
-      }
-    }
-  }
-  input {
-    display: none;
-  }
-}
-.modal-background {
-  background: black;
-  bottom: 0;
-  left: 0;
-  position: fixed;
-  right: 0;
-  text-align: center;
-  top: 0;
-  z-index: -800;
-  background-size: cover;
-  label {
-    color: #fff;
-    cursor: pointer;
-    display: inline-block;
-    height: 2em;
-    line-height: 2em;
-    position: absolute;
-    right: 0.5em;
-    top: 0.5em;
-    font-size: 2em;
-    width: 2em;
-    text-shadow: 0 1px 2px $text-color;
-    @include transition($bezier);
-    &:hover {
-      text-shadow: 0 0 3px #fff;
-    }
-    @include mq($until:tablet) {
-      height: 1em;
-      width: 1em;
-      line-height: 1em;
-      font-size: 3em;
-    }
-  }
-}
-.modal-box {
-  padding: 1em 0.75em;
-  position: relative;
-  margin: 1em auto;
-  width: 90%;
-  color: #fff;
-  @include mq($from:mobile) {
-    h1 {
-      font-weight: 900;
-      text-transform: uppercase;
-    }
-    span {
-      font-weight: 300;
-      text-transform: uppercase;
-    }
-  }
-  @include mq($from:desktop) {
-    padding: 1.75em;
-    h1 {
-      font-size: 6em;
-      margin: 0.8em 0 0;
-      line-height: 0.7em;
-    }
-    span {
-      font-size: 1.445em;
-    }
-  }
-    @include mq(tablet, desktop) {
-      h1 {
-        font-size: 3em;
-        margin: 0.8em 0 0;
-        line-height: 0.7em;
-      }
-      span {
-        font-size: 0.71em;
-      }
-      svg {
-        width: 100px;
-        height: auto;
-      }
-      .info-container {
-        width:370px;
-        span {
-          font-size: 1em;
-        }
-      }
-      .icon-container {
-        font-size: 0.7em;
-      }
-    }
-    @include mq($until:tablet) {
-      svg {
-        width: 100px;
-        height: auto;
-      }
-      .info-container {
-        width:100%;
+.recruitment {
+    /* Background image is centered vertically and horizontally at all times */
+    background-position: center center;
+    /* Background image doesn't tile */
+    background-repeat: no-repeat;
+    /* Background image is fixed in the viewport so that it doesn't move when
+   the content's height is greater than the image's height */
+    background-attachment: fixed;
+    /* This is what makes the background image rescale based
+   on the container's size */
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
 
-        .icon-container {
-          font-size: 0.7em;
-        }
-        .date {
-          &:before {
-            display: none;
-          }
-        }
-      }
+    &__grad {
+        background: linear-gradient( rgba(58, 59, 129, 0.87), rgba(126, 62, 145, 0.68) ),;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        justify-content: center;
     }
-}
-.modal-background {
-  opacity: 0;
-  overflow: hidden;
-  -webkit-transform: scale(0.5);
-  -ms-transform: scale(0.5);
-  transform: scale(0.5);
-  @include transition($bezier);
-}
-input:checked ~ .modal-background {
-  opacity: 1;
-  -webkit-transform: scale(1);
-  -ms-transform: scale(1);
-  transform: scale(1);
-  -webkit-transition: all 0.75s cubic-bezier(0.19, 1, 0.22, 1);
-  transition: all 0.75s cubic-bezier(0.19, 1, 0.22, 1);
-  z-index: 800;
-}
-input:focus + label {
-  -webkit-transform: scale(0.97);
-  -ms-transform: scale(0.97);
-  transform: scale(0.97);
-}
-#close_banner {
-  z-index: 3;
-}
-.info-container {
-  width: 500px;
-  position: relative;
-  margin: 1em auto;
-  i {
-    font-size: 6em;
-  }
-  span {
-    width: 100%;
-    text-align: center;
-    position: relative;
-    float: left;
-  }
-  .date {
-    overflow: hidden;
-    &:before {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 8%;
-      height: 75%;
-      z-index: 1;
-      width: 1px;
-      /* or 100px */
-      border-left: 1px solid rgba(255, 255, 255, 0.2);
+    &__title {
+        color: #fff;
+        font-family: 'PT Mono', monospace;
+        font-size: 22px;
+        font-weight: normal;
     }
-  }
-  .location {
-    overflow: hidden;
-  }
-}
-.fb {
-  display: table;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  div {
-    display: inherit;
-    margin: 0 auto;
-  }
-  i {
-    font-size: 1.5em;
-  }
-  a {
-    color: #fff;
-    font-size: 1.1em;
-    line-height: 1em;
-    height: 1em;
-    position: relative;
-    display: table-cell;
-    vertical-align: middle;
-  }
+
+    &__info {
+        color: #fff;
+        font-family: 'PT Mono', monospace;
+        font-size: 22px;
+    }
+    &__links {
+        margin-top: 20px;
+
+        color: #fff;
+        font-family: 'PT Mono', monospace;
+        font-size: 22px;
+    }
 }

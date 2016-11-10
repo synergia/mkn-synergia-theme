@@ -84,6 +84,7 @@ include 'lib/ultron/ultron.php';
 
         wp_register_style('Titillium', 'https://fonts.googleapis.com/css?family=Titillium+Web:400,400italic,300,700&subset=latin,latin-ext');
         wp_register_style('Titillium900', 'https://fonts.googleapis.com/css?family=Titillium+Web:900&subset=latin');
+        wp_register_style('PTMono', 'https://fonts.googleapis.com/css?family=PT+Mono');
         wp_register_style('main', $style_path.'/main.css', array(), $version, 'all');
         wp_register_style('prism', $style_path.'/prism-okaidia.css', array(), $version, 'all');
         wp_enqueue_style('main');
@@ -92,6 +93,9 @@ include 'lib/ultron/ultron.php';
         if (is_singular('project') || is_single()) {
             wp_enqueue_style('prism');
         }
+        // if (is_page('recruitment')) {
+            wp_enqueue_style('PTMono');
+        // }
     }
     add_action('wp_enqueue_scripts', 'synergia_theme_stylesheets');
 
