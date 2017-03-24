@@ -9,16 +9,16 @@ if(!check_header('HTTP_USER_AGENT', 'ESP8266-IoT') OR !isset($_SERVER['HTTP_ESP8
     get_header();
     get_template_part('parts/topbar');
     get_ultron_body();
+// read_json_and_push(0, 88888);
+    // write_all_the_shit(0);
+
+
     get_footer();
     exit();
 
 } else {
-    $filename = './ultron/data.json';
-
-    $file = fopen($filename, 'w');
-    $text = '{"state":"'.$_SERVER['HTTP_ESP8266_DATA'].'","time":"'.time().'"}';
-    fwrite($file, $text);
-    fclose($file);
-    echo 'OK';
+    write_all_the_shit($_SERVER['HTTP_ESP8266_DATA']);
 }
+
+
 ?>

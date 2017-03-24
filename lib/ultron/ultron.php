@@ -21,4 +21,35 @@ function get_ultron_body()
     </div>
     <?php
 }
+
+function read_json_and_push($state, $time) {
+    $filename = './ultron/data.json';
+    $not_json = json_decode(file_get_contents($filename), false );
+    if (!is_array ($not_json)) {
+        $not_json = [];
+    }
+
+    // $new_record['state'] = $state;
+    // $new_record['time'] = $time;
+    $new_record = array(
+        "state" => $state,
+        "time" => $time
+    );
+    array_push( $not_json, $new_record );
+    $json = json_encode($not_json);
+    // print_r ($json);
+
+    return $json;
+}
+
+function write_all_the_shit ($esp_data) {
+    $json = read_json_and_push($esp_data, time());
+    $filename = './ultron/data.json';
+    $file = fopen($filename, 'w');
+    fwrite($file, $json);
+    fclose($file);
+    echo 'OK';
+}
+
+
 ?>

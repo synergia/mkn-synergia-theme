@@ -17,25 +17,26 @@ function update_time() {
         url: "./ultron/data.json",
         cache: false,
         success: function(data) {
+            var latest = latestData(data);
             if (firstRun === false) {
-                $('.state').html(isOpen(data.state));
+                $('.state').html(isOpen(latest.state));
                 firstRun = true;
-                console.log(data);
+                console.log(latest);
             }
-            console.log(data);
+            console.log(latest);
             $('.desc').fadeOut(0, function() {
                 var tajm = Math.round(new Date().getTime() / 1000);
-                if (tajm - data.time < 60) {
-                    $('.desc').html((tajm - data.time) + "s ago");
-                } else if (tajm - data.time < 3600) {
-                    $minutes = parseInt((tajm - data.time) / 60);
+                if (tajm - latest.time < 60) {
+                    $('.desc').html((tajm - latest.time) + "s ago");
+                } else if (tajm - latest.time < 3600) {
+                    $minutes = parseInt((tajm - latest.time) / 60);
                     $('.desc').html($minutes + "m ago");
                 } else {
-                    $hours = parseInt((tajm - data.time) / 3600);
-                    $minutes = parseInt((tajm - data.time) / 60) - $hours * 60;
+                    $hours = parseInt((tajm - latest.time) / 3600);
+                    $minutes = parseInt((tajm - latest.time) / 60) - $hours * 60;
                     $('.desc').html($hours + "h " + $minutes + "m ago");
                 }
-                $('.state').html(isOpen(data.state));
+                $('.state').html(isOpen(latest.state));
             });
             $('.desc').fadeIn(0);
 
@@ -44,6 +45,7 @@ function update_time() {
             }, tu * 1000);
         },
         error: function(e, xhr) {
+            console.error("err");
             setTimeout(function() {
                 update_time();
             }, tu * 1000);
@@ -59,4 +61,7 @@ function isOpen(data) {
     } else {
         return "Zamknięte";
     }
+}
+function latestData(data) {
+    return data.slice(-1)[0];
 }
