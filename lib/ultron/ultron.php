@@ -44,11 +44,18 @@ function read_json_and_push($state, $time) {
 
 function write_all_the_shit ($esp_data) {
     $json = read_json_and_push($esp_data, time());
-    $filename = './ultron/data.json';
-    $file = fopen($filename, 'w');
-    fwrite($file, $json);
-    fclose($file);
-    echo 'OK';
+    // echo ABSPATH;
+    $filename = ABSPATH.'/ultron/data.json';
+    if (file_exists($filename)) {
+        $file = fopen($filename, 'w');
+        fwrite($file, $json);
+        fclose($file);
+        echo 'OK';
+
+    }else {
+        fclose($file);
+        echo "NOT OK";
+    }
 }
 
 function isESP ($esp_data) {
