@@ -1,42 +1,24 @@
 <?php
 
-// add_action('wp', 'ultron_state');
-function ultron_get_state()
-{
-    $ultron_data = ultron_get_data();
-    echo $ultron_data[1];
-    echo $ultron_data[0];
-    if ($ultron_data[1] == "True") {
-        return array('Zamknięte', $ultron_data[0]);
-    } else {
-        return array('Otwarte', $ultron_data[0]);
+function check_header($name, $value = false) {
+    if(!isset($_SERVER[$name])) {
+        return false;
     }
-}
-
-function ultron_get_data()
-{
-    $fh = fopen('../ultron/ultron.data', 'r');
-    $ultron_data = array();
-
-    while (feof($fh) !== true) {
-        $ultron_data[] = fgets($fh);
+    if($value && $_SERVER[$name] != $value) {
+        return false;
     }
-    fclose($fh);
-
-    return $ultron_data;
+    return true;
 }
 
-function ultron_get_modified_date()
+function get_ultron_body()
 {
-    $filename = '../ultron/ultron.data';
-    if (file_exists($filename)) {
-        return filemtime($filename);
-    } else {
-        echo "Zła ścieżka";
-    }
-}
+    ?>
+    <div class="state">
 
-function ultron_get_ping() {
-    $ping = ultron_get_modified_date() - ultron_state();
-    return $ping;
+    </div>
+    <div class="desc">
+
+    </div>
+    <?php
 }
+?>

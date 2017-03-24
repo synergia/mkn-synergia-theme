@@ -56,6 +56,8 @@ jQuery(function($) {
 
         //= partials/slider.js
 
+        //= partials/ultron.js
+
     });
 
     // Prezes zawsze na pierwszym miejscu //

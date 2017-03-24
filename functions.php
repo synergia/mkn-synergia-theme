@@ -30,6 +30,7 @@ if (is_admin()) {
     add_action('admin_enqueue_scripts', 'enqueue_admin');
 }
 
+remove_filter('template_redirect','redirect_canonical');
 
 // Rejestrujemu menu //
 
