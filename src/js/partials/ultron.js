@@ -1,5 +1,6 @@
 var tu = 1;
 var firstRun = false;
+var ultronFileLocation = "http://"+window.location.hostname+"/ultron/data.json";
 console.log('ultron');
 
 $.ajaxSetup({
@@ -14,7 +15,7 @@ function update_time() {
     $.ajax({
         dataType: "json",
         type: "GET",
-        url: "./ultron/data.json",
+        url: ultronFileLocation,
         cache: false,
         success: function(data) {
             var latest = latestData(data);
