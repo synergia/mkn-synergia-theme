@@ -51,5 +51,11 @@ function write_all_the_shit ($esp_data) {
     echo 'OK';
 }
 
+function isESP ($esp_data) {
+    if(check_header('HTTP_USER_AGENT', 'ESP8266-IoT') OR isset($esp_data) OR check_header('HTTP_ESP8266_AUTH_KEY', 'e9b4dbb90c565d901b086169e77c8eaf')) {
+        return true;
+    }
+}
+
 
 ?>
