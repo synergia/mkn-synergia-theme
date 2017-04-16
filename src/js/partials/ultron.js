@@ -1,68 +1,76 @@
-var tu = 1;
-var firstRun = false;
-var ultronFileLocation = "http://"+window.location.hostname+"/ultron/data.json";
-console.log('ultron');
+(function($) {
+    var updateTime = 5;
+    var ultronFileLocation = "http://" + window.location.hostname + "/ultron/data.json";
+    var ustate = document.getElementById('state');
+    var utime = document.getElementById('time');
 
-$.ajaxSetup({
-    beforeSend: function(xhr) {
-        if (xhr.overrideMimeType) {
-            xhr.overrideMimeType("application/json");
-        }
-    }
-});
+if(document.body.classList.contains('page-template-lab') === true) {
+    // Pierwszy request
+    requestJSON();
+    window.setInterval(function(){
+        console.info('Interval request...');
+        requestJSON();
+    }, updateTime * 1000);
+}
 
-function update_time() {
-    $.ajax({
-        dataType: "json",
-        type: "GET",
-        url: ultronFileLocation,
-        cache: false,
-        success: function(data) {
-            var latest = latestData(data);
-            if (firstRun === false) {
-                $('.state').html(isOpen(latest.state));
-                firstRun = true;
-                console.log(latest);
-            }
-            console.log(latest);
-            $('.desc').fadeOut(0, function() {
-                var tajm = Math.round(new Date().getTime() / 1000);
-                if (tajm - latest.time < 60) {
-                    $('.desc').html((tajm - latest.time) + "s ago");
-                } else if (tajm - latest.time < 3600) {
-                    $minutes = parseInt((tajm - latest.time) / 60);
-                    $('.desc').html($minutes + "m ago");
-                } else {
-                    $hours = parseInt((tajm - latest.time) / 3600);
-                    $minutes = parseInt((tajm - latest.time) / 60) - $hours * 60;
-                    $('.desc').html($hours + "h " + $minutes + "m ago");
+
+    function requestJSON() {
+        $.ajaxSetup({
+            beforeSend: function(xhr) {
+                if (xhr.overrideMimeType) {
+                    xhr.overrideMimeType("application/json");
                 }
-                $('.state').html(isOpen(latest.state));
-            });
-            $('.desc').fadeIn(0);
+            }
+        });
 
-            setTimeout(function() {
-                update_time();
-            }, tu * 1000);
-        },
-        error: function(e, xhr) {
-            console.error("err");
-            setTimeout(function() {
-                update_time();
-            }, tu * 1000);
-
-        }
-    });
-}
-update_time();
-
-function isOpen(data) {
-    if(data === "1"){
-        return "Otwarte";
-    } else {
-        return "Zamknięte";
+        $.ajax({
+            dataType: "json",
+            type: "GET",
+            url: ultronFileLocation,
+            cache: false,
+            success: function(data) {
+                console.info("Latest", latestData(data));
+                setState(latestData(data));
+                setTime(calcTime(latestData(data)));
+            },
+            error: function(e, xhr) {
+                console.error("err");
+                return e;
+            }
+        });
     }
-}
-function latestData(data) {
-    return data.slice(-1)[0];
-}
+
+    function setState(latest) {
+        ustate.innerHTML = isOpenText(latest.state);
+    }
+
+    function setTime(time) {
+        utime.innerHTML = time;
+    }
+
+    function calcTime(latest) {
+        var time = Math.round(new Date().getTime() / 1000);
+        var min = parseInt((time - latest.time) / 60);
+        var hours = parseInt((time - latest.time) / 3600);
+        if (time - latest.time < 60) {
+            return (time - latest.time) + "s temu";
+        } else if (time - latest.time < 3600) {
+            return min + "m temu";
+        } else {
+            min = min - hours * 60;
+            return hours + "g " + min + "m temu";
+        }
+    }
+
+    function isOpenText(data) {
+        if (data === "1") {
+            return "Otwarte";
+        } else {
+            return "Zamknięte";
+        }
+    }
+
+    function latestData(data) {
+        return data.slice(-1)[0];
+    }
+})(jQuery);

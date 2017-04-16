@@ -10,18 +10,6 @@ function check_header($name, $value = false) {
     return true;
 }
 
-function get_ultron_body()
-{
-    ?>
-    <div class="state">
-
-    </div>
-    <div class="desc">
-
-    </div>
-    <?php
-}
-
 function read_json_and_push($state, $time) {
     $filename = './ultron/data.json';
     $not_json = json_decode(file_get_contents($filename), false );
