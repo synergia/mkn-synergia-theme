@@ -1,6 +1,6 @@
 {
   "name": "mknm-synergia-theme",
-  "version": "2.0.5",
+  "version": "2.0.7",
   "description": "MKNM \"Synergia\" Theme ===================== Strona internetowa naszego koła naukowego zawsze była ważnym miejscem do eksponowania naszych projektów, sukcesów i wydarzeń. Nadchodzące zmiany spowodują, że strona zostanie wyjątkowym instrumentem do przedstawienia swojego projektu.",
   "main": "index.js",
   "scripts": {
