@@ -17,7 +17,7 @@ function get_members_with_projects()
         'meta_query' => array(
             array(
                 'key' => 'number_of_finished_projects',
-                'compare' => '>',
+                'compare' => '>=',
                 'type' => 'NUMERIC',
                 'value' => '0',
             ),
@@ -31,7 +31,7 @@ function get_members_with_projects()
         'meta_query' => array(
             array(
                 'key' => 'number_of_finished_projects',
-                'compare' => '>',
+                'compare' => '>=',
                 'type' => 'NUMERIC',
                 'value' => '0',
             ),
