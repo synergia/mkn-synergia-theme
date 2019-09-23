@@ -1,34 +1,36 @@
-<?php global $general_options; ?>
-    </div>
-</div><!--Closes Global -->
-<div class="footer-wrapper">
-  <div class="footer">
-      <a href="http://www.pwr.edu.pl/index.dhtml" target="_blank">
-          <?php get_template_part('parts/pwr'); ?>
-      </a>
-      <span class="footer__social">
-          <a class="link link--glowing" href="<?php echo $general_options['fb_link'] ?>" title="Polub"><i class="icon-facebook-squared"></i></a>
-          <a class="link link--glowing" href="<?php echo $general_options['instagram_link'] ?>" title="Zobacz"><i class="icon-instagram"></i></a>
-          <a class="link link--glowing" href="<?php echo $general_options['twitter_link'] ?>" title="Śledź"><i class="icon-twitter"></i></a>
-          <a class="link link--glowing" href="<?php echo $general_options['github_link'] ?>" title="Koduj"><i class="icon-github"></i></a>
-      </span>
-      <span class="footer__others">
-          <a class="link link--footer" href="http://wmech.pwr.wroc.pl/">Wydział Mechaniczny</a> &middot;
-          <a class="link link--footer" href="http://tmm.pwr.wroc.pl">Zakład Teorii Maszyn i Układów Mechatronicznych</a> &middot;
-          <a class="link link--footer" href="http://weka.pwr.wroc.pl/">Wydział Elektroniki</a>
-      </span>
-      <span class="footer__mknm">
-          <a class="link link--footer" href="<?php echo esc_url(home_url('/')); ?>">Międzywydziałowe Koło Naukowe Mechatroniki "Synergia"</a> <?php echo comicpress_copyright(); ?>
-      </span>
-      </div>
+<?php
+/**
+ * The template for displaying the footer
+ *
+ * Contains the closing of the #content div and all content after.
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
+ *
+ * @package Synergia
+ */
 
+?>
 
+	</div><!-- #content -->
 
-    </div>
-  </div>
-</div>
-<!-- end main container -->
-<?php echo $general_options['g_anal']; ?>
+	<footer id="colophon" class="site-footer">
+		<div class="site-info">
+			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'synergia' ) ); ?>">
+				<?php
+				/* translators: %s: CMS name, i.e. WordPress. */
+				printf( esc_html__( 'Proudly powered by %s', 'synergia' ), 'WordPress' );
+				?>
+			</a>
+			<span class="sep"> | </span>
+				<?php
+				/* translators: 1: Theme name, 2: Theme author. */
+				printf( esc_html__( 'Theme: %1$s by %2$s.', 'synergia' ), 'synergia', '<a href="http://underscores.me/">Me</a>' );
+				?>
+		</div><!-- .site-info -->
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+
 <?php wp_footer(); ?>
+
 </body>
 </html>
