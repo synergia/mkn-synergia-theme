@@ -7,20 +7,16 @@ $in_progress_projects = new WP_Query(project_args_per_user($current_member, 'in_
 <div class="memberInfo">
     <div class="violetWrapper">
         <div class="memberInfo__avatar">
-            <?php echo show_avatar($current_member, 'avatar'); ?>
+            <?php echo show_avatar($current_member); ?>
         </div>
         <div class="memberInfo__nameWrapper">
             <div class="memberInfo__name"><?php echo $current_member->display_name; ?></div>
-            <span class="memberInfo__social"><?php social_links($current_member, 'link--glowing'); ?></span>
+            <span class="memberInfo__social"><?php social_links($current_member); ?></span>
         </div>
     </div>
     <div class="whiteWrapper">
         <span class="memberInfo__status"><?php show_membership_status($current_member); ?></span>
-        <?php if($current_member->description) {?>
-            <span class="memberInfo__desc">
-                <?php echo $current_member->description ?>
-            </span>
-        <?php } ?>
+
     </div>
 </div>
 
@@ -43,7 +39,7 @@ $in_progress_projects = new WP_Query(project_args_per_user($current_member, 'in_
          if ($finished_projects->have_posts()) {
              project_card($finished_projects);
          } else {
-             echo '<p class="emptyState">Brak ukończonych projektów</p>';
+             echo '<p class="no-projects">Brak ukończonych projektów</p>';
          }
         ?><!-- UKOŃCZONE END -->
         </div>
@@ -53,7 +49,7 @@ $in_progress_projects = new WP_Query(project_args_per_user($current_member, 'in_
             if ($in_progress_projects->have_posts()) {
                 project_card($in_progress_projects);
             } else {
-                echo '<p class="emptyState">Brak realizowanych projektów</p>';
+                echo '<p class="no-projects">Brak realizowanych projektów</p>';
             }
           ?>
     </div>

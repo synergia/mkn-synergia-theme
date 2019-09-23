@@ -1,16 +1,16 @@
 (function() {
     $(".hero__middleTitle").one('animationend webkitAnimationEnd oAnimationEnd oanimationend MSAnimationEnd',
-    function() {
-        $(this).removeClass('hero__middleTitle--animation');
-    });
+        function() {
+            $(this).removeClass('hero__middleTitle--animation');
+        });
     $(".hero__leftTitle").one('animationend webkitAnimationEnd oAnimationEnd oanimationend MSAnimationEnd',
-    function() {
-        $(this).removeClass('hero__leftTitle--animation');
-    });
+        function() {
+            $(this).removeClass('hero__leftTitle--animation');
+        });
     $(".hero__rightTitle").one('animationend webkitAnimationEnd oAnimationEnd oanimationend MSAnimationEnd',
-    function() {
-        $(this).removeClass('hero__rightTitle--animation');
-    });
+        function() {
+            $(this).removeClass('hero__rightTitle--animation');
+        });
 
 
     $('.hero__left').hover(function() {
@@ -41,10 +41,12 @@
     var height = $(window).height();
     var width = $(window).width();
     console.log(height);
-    if(width<750) {
+    if (width < 750) {
         var heroMiddleImg = document.getElementsByClassName('hero__middleImg')[0];
         var heroMiddle = document.getElementsByClassName('hero__middle')[0];
         console.log(heroMiddleImg);
-        heroMiddleImg.height= height;
+        if (heroMiddleImg) {
+            heroMiddleImg.height = height;
+        }
     }
 })();

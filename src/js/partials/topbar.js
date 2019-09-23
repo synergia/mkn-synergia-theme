@@ -14,7 +14,7 @@ function initTopbar() {
         }
     });
 }
-initTopbar();
+    initTopbar();
 
 if ($(window).width() < 750) {
     $.scrollupbar.destroy('.topbarWrapper');

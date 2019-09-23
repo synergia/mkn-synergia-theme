@@ -1,40 +1,56 @@
 <?php
 
-// add_action('wp', 'ultron_state');
-function ultron_get_state()
-{
-    $ultron_data = ultron_get_data();
-    if ($ultron_data[0] == True) {
-        return array('Zamknięte', $ultron_data[1]);
-    } else {
-        return array('Otwarte', $ultron_data[1]);
+function check_header($name, $value = false) {
+    if(!isset($_SERVER[$name])) {
+        return false;
     }
+    if($value && $_SERVER[$name] != $value) {
+        return false;
+    }
+    return true;
 }
 
-function ultron_get_data()
-{
-    $fh = fopen('../ultron/ultron.data', 'r');
-    $ultron_data = array();
-
-    while ($line = fgets($fh)) {
-        array_push($ultron_data, $line);
+function read_json_and_push($state, $time) {
+    $filename = './ultron/data.json';
+    $not_json = json_decode(file_get_contents($filename), false );
+    if (!is_array ($not_json)) {
+        $not_json = [];
     }
-    fclose($fh);
 
-    return $ultron_data;
+    // $new_record['state'] = $state;
+    // $new_record['time'] = $time;
+    $new_record = array(
+        "state" => $state,
+        "time" => $time
+    );
+    array_push( $not_json, $new_record );
+    $json = json_encode($not_json);
+    // print_r ($json);
+
+    return $json;
 }
 
-function ultron_get_modified_date()
-{
-    $filename = '../ultron/ultron.data';
+function write_all_the_shit ($esp_data) {
+    $json = read_json_and_push($esp_data, time());
+    // echo ABSPATH;
+    $filename = ABSPATH.'/ultron/data.json';
     if (file_exists($filename)) {
-        return filemtime($filename);
-    } else {
-        echo "Zła ścieżka";
+        $file = fopen($filename, 'w');
+        fwrite($file, $json);
+        fclose($file);
+        echo 'OK';
+
+    }else {
+        fclose($file);
+        echo "NOT OK";
     }
 }
 
-function ultron_get_ping() {
-    $ping = ultron_get_modified_date() - ultron_state();
-    return $ping;
+function isESP ($esp_data) {
+    if(check_header('HTTP_USER_AGENT', 'ESP8266-IoT') OR isset($esp_data) OR check_header('HTTP_ESP8266_AUTH_KEY', 'e9b4dbb90c565d901b086169e77c8eaf')) {
+        return true;
+    }
 }
+
+
+?>

@@ -3,19 +3,26 @@
 Template Name: Lab
 */
 ?>
-<?php get_header(); ?>
-
-<?php $ultron_state = ultron_get_state(); ?>
-
-<?php get_template_part('parts/topbar'); ?>
-<div class="compensator">
+<?php
+if(!isESP($_SERVER['HTTP_ESP8266_DATA'])) {
+    //header($_SERVER["SERVER_PROTOCOL"].' 403 Forbidden', true, 403);
+    get_header();
+    get_template_part('parts/topbar');
+    ?>
     <div class="ultron">
-        <div class="ultron__state">
-            <?php echo $ultron_state[0]; ?>
-        </div>
-        <div class="ultron__datetime">
-            <?php echo date_i18n('H:i:s d.m.Y',$ultron_state[1]); ?>
-        </div>
+        <div id="state" class="ultron__state"></div>
+        <div id="time" class="ultron__time"></div>
     </div>
-</div>
-<?php get_footer(); ?>
+
+    <?php
+    // read_json_and_push(0, 88888);
+    // write_all_the_shit(0);
+    get_footer();
+    exit();
+
+} else {
+    write_all_the_shit($_SERVER['HTTP_ESP8266_DATA']);
+}
+
+
+?>

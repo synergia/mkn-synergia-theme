@@ -36,6 +36,8 @@ jQuery(function($) {
 
         //= partials/name-trimmer.js
 
+        //= partials/recruitment.js
+
         //= partials/load-more.js
 
         //= partials/topbar.js
@@ -53,6 +55,8 @@ jQuery(function($) {
         //= partials/modal.js
 
         //= partials/slider.js
+
+        //= partials/ultron.js
 
     });
 

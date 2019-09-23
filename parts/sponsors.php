@@ -18,19 +18,20 @@ $sponsors = new WP_Query($sponsors_args);
 function show_links($items) {
   if ($items->have_posts()) {
       while ($items->have_posts()) {
-          $items->the_post();?>
+          $items->the_post();
+          $url = carbon_get_post_meta(get_the_ID(), 'crb_sponsor_link'); ?>
           <div class="brand"
                data-brand-name="<?php the_title(); ?>"
-               data-brand-link="<?php echo carbon_get_post_meta(get_the_ID(), 'crb_sponsor_link'); ?>"
+               data-brand-link="<?php echo $url; ?>"
                data-brand-desc="<?php echo wp_filter_nohtml_kses(get_the_content()); ?>">
               <div class="brand__controls">
                   <div class="brand__more">
-                      <a title="Dowiedz się więcej" href='' class="link link--controls" target="_blank">
+                      <a title="Dowiedz się więcej" href="" class="link link--controls" target="_blank">
                           <i class="icon-dot-3"></i>
                       </a>
                   </div>
                   <div class="brand__link">
-                      <a title="Odwiedź stronę" href='' class="link link--controls" target="_blank">
+                      <a title="Odwiedź stronę" href="<?php echo $url; ?>" class="link link--controls" target="_blank">
                           <i class="icon-link"></i>
                       </a>
                   </div>
