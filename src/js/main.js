@@ -1,9 +1,7 @@
 // main.js //
 // Wszystko wrzucamy tu
 
-//= ../../bower_components/scroll-up-bar/src/scroll-up-bar.js
-
-////= ../../bower_components/df-visible/jquery.visible.js
+//= partials/scroll-up-bar.js
 
 jQuery(function($) {
 

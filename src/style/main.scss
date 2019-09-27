@@ -1,7 +1,7 @@
 @import 'vars';
 @import 'mixins';
-@import '../../bower_components/normalize-scss/_normalize';
-@import '../../bower_components/sass-mq/mq';
+@import '../../node_modules/normalize.css/normalize.css';
+@import '../../node_modules/sass-mq/mq';
 /*
  * Remove text-shadow in selection highlight:
  * https://twitter.com/miketaylr/status/12228805301

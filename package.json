@@ -4,7 +4,8 @@
   "description": "MKNM \"Synergia\" Theme ===================== Strona internetowa naszego koła naukowego zawsze była ważnym miejscem do eksponowania naszych projektów, sukcesów i wydarzeń. Nadchodzące zmiany spowodują, że strona zostanie wyjątkowym instrumentem do przedstawienia swojego projektu.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "gulp dev",
+    "prod": "gulp prod"
   },
   "repository": {
     "type": "git",
@@ -36,5 +37,10 @@
     "gulp-util": "^3.0.7",
     "imagemin-pngquant": "^4.2.0",
     "rimraf": "^2.4.4"
+  },
+  "dependencies": {
+    "@glidejs/glide": "^3.4.1",
+    "normalize.css": "^8.0.1",
+    "sass-mq": "^5.0.1"
   }
 }

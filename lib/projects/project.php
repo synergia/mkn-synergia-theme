@@ -61,8 +61,7 @@ function save_meta($post_id) {
           // If it is set (there was already data),
           // and the new data isn't empty, update it.
         }
-        elseif(isset($custom_field)
-    && !is_null($custom_field))
+        elseif(isset($custom_field) && !is_null($custom_field))
         {
           // update
          update_post_meta($post_id,$key,$custom_field);

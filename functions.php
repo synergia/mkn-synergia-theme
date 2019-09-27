@@ -87,7 +87,7 @@ include 'lib/ultron/ultron.php';
         wp_register_style('Titillium900', 'https://fonts.googleapis.com/css?family=Titillium+Web:900&subset=latin');
         wp_register_style('PTMono', 'https://fonts.googleapis.com/css?family=PT+Mono');
         wp_register_style('main', $style_path.'/main.css', array(), $version, 'all');
-        wp_register_style('prism', $style_path.'/prism-okaidia.css', array(), $version, 'all');
+        wp_register_style('prism', 'https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/themes/prism-okaidia.css', array(), $version, 'all');
         wp_enqueue_style('main');
         wp_enqueue_style('Titillium');
         wp_enqueue_style('Titillium900');
@@ -114,10 +114,11 @@ function js() {
   $js_path = get_template_directory_uri().'/build/js';
   $google_map_key = 'AIzaSyD6ovUl5OZwwEa_MzTArrazVuvVtCMH-B8';
 
-    wp_register_script('prism', $js_path.'/prism.min.js', '', true);
+    wp_register_script('prism', 'https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/prism.min.js', $version, true);
+    wp_register_script('glide', 'https://cdn.jsdelivr.net/npm/@glidejs/glide', $version, true);
     wp_register_script('main', $js_path.'/main.min.js', array('jquery'), $version, true);
-    wp_register_script('swipe', $js_path.'/swipe.min.js', array('jquery'), $version, true);
-    wp_register_script('blazy', $js_path.'/blazy.min.js', array('jquery'), $version, true);
+    wp_register_script('swipe', 'https://cdnjs.cloudflare.com/ajax/libs/swipejs/2.2.13/swipe.min.js', array('jquery'), $version, true);
+    wp_register_script('blazy', 'https://cdnjs.cloudflare.com/ajax/libs/blazy/1.8.2/blazy.min.js', array('jquery'), $version, true);
     wp_register_script('404', $js_path.'/404.min.js', array('jquery'), $version, true);
     wp_register_script('map', 'https://maps.googleapis.com/maps/api/js?key='.$google_map_key, false);
     wp_register_script('map_settings',$js_path.'/map.min.js', array('jquery'), $version, true);
@@ -125,6 +126,7 @@ function js() {
     if(!is_404()){
         wp_enqueue_script('blazy');
         wp_enqueue_script('swipe');
+        wp_enqueue_script('glide');
         wp_enqueue_script('main');
     }
     if(is_404()){

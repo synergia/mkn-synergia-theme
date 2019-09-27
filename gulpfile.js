@@ -35,15 +35,10 @@ var path = {
     src: { // Pliki źródłowe bierzemy stąd
         js: [
             'src/js/*.js',
-            // Różne pluginy
-            'bower_components/prism/prism.js',
-            'bower_components/Swipe/swipe.js',
-            'bower_components/bLazy/blazy.js',
         ],
         style: [
             'src/style/*.scss',
             // Różne pluginy
-            'bower_components/prism/themes/prism-okaidia.css'
         ],
         img: 'src/img/**/*.*', // bierzemy wszystko, co jest w tych folderach
         font: 'src/font/*.*'
