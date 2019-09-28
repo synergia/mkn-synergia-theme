@@ -128,7 +128,9 @@ gulp.task('js', function() {
         .pipe(rename({
             extname: '.min.js'
         }))
-        .pipe(production(uglify()))
+        .pipe(production((uglify().on('error', function(e){
+            console.log(e);
+         }))))
         .pipe(production(stripDebug()))
         .pipe(development(sourcemaps.write())) // sourcemapy tylko na devie
         .pipe(gulp.dest(path.build.js))

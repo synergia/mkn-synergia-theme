@@ -1,6 +1,6 @@
 (function () {
 
-    let glide = new Glide('.glide', {
+    var glide = new Glide('.glide', {
         type: 'carousel',
         focusAt: 'center',
         perView: 1,
