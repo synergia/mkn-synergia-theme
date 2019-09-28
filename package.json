@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "gulp dev",
-    "build": "gulp prod"
+    "build": "gulp prod",
+    "zip": "zip -r synergia-theme.zip . --exclude='*.git*' --exclude='*node_modules*'"
   },
   "repository": {
     "type": "git",
