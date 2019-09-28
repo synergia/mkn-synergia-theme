@@ -25,11 +25,10 @@ $right_post = get_posts($args_right);
 $middle_post = get_posts($args_middle);
 
 function slide_from_project($project) { ?>
-  <div class="hero__slide">
+  <div class="hero__slide" style="background-image: url('<?php echo wp_get_attachment_url( get_post_thumbnail_id($project[0])); ?>')">
     <a href="<?php echo get_permalink($project[0]); ?>">
       <h3 class="hero__title"><?php echo get_the_title($project[0]); ?></h3>
     </a>
-    <img class="hero__img blazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=" data-src="<?php echo wp_get_attachment_url( get_post_thumbnail_id($project[0])); ?>" />
   </div>
 
 <?php

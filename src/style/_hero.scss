@@ -12,22 +12,20 @@
     overflow: hidden;
     padding-top: 80px;
 
+    @include mq($until: tablet) {
+        padding-top: 70px;
+
+    }
+
     // transition: height 99999s ease;
     &__slide {
         position: relative;
-        height: 80%;
+        height: 70vh;
         width: 100%;
         margin: 0 auto;
-    }
+        background-size: cover;
+        background-position: 0 20%;
 
-    &__img {
-        width: 100%;
-        height: auto;
-        margin-top: -15%;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
     }
 
     &__controls {
@@ -44,6 +42,7 @@
         cursor: pointer;
         @include vertical-align();
         @include transition($bezier);
+
         &:hover {
             background-color: $background-color
         }
@@ -57,15 +56,29 @@
         cursor: pointer;
         @include vertical-align();
         @include transition($bezier);
+
         &:hover {
             background-color: $background-color
         }
     }
 
     &__title {
+        width: $container-wide;
+        color: #fff;
+        font-weight: 600;
         position: absolute;
-        bottom: 0;
-        left: 20px;
+        font-size: 2.5em;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 10px;
+
+        @include mq($until: wide) {
+            width: $container-desktop;
+        }
+
+        @include mq($until: desktop) {
+            width: auto;
+        }
     }
 
 }
