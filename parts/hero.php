@@ -52,9 +52,13 @@ function slide_from_project($project) { ?>
         </li>
       </ul>
     </div>
-    <div data-glide-el="controls">
-      <button data-glide-dir="<<">start</button>
-      <button data-glide-dir=">>">end</button>
+    <div data-glide-el="controls" class="hero__controls">
+      <button class="hero__left_control" data-glide-dir="<">
+        <i class="icon-left-open-big"></i>
+      </button>
+      <button class="hero__right_control" data-glide-dir=">">
+      <i class="icon-right-open-big"></i>
+      </button>
     </div>
   </div>
 
