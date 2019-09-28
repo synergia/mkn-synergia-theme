@@ -1,0 +1,35 @@
+sudo: required
+
+language: php
+php:
+  - 7.1.9
+
+env:
+  - NODE_VERSION='8.11.3'
+
+addons:
+  apt:
+    update: true
+    packages:
+      - composer
+
+before_install:
+  - nvm install $NODE_VERSION
+
+install:
+  - yarn install
+
+script:
+  - yarn build
+  - composer install
+
+# deploy:
+#   provider: releases
+#   api_key: $GITHUB_TOKEN
+#   file: '*.deb'
+#   file_glob: true
+#   skip_cleanup: true
+#   name: $TRAVIS_TAG
+#   on:
+#     branch: master
+#     tags: true
