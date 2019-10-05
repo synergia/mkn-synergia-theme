@@ -8,6 +8,12 @@
     $codeimg = 'http://cs633618.vk.me/v633618187/1a842/cNH0Mgb-jHU.jpg';
 
 
+    add_action( 'after_setup_theme', 'crb_load' );
+    function crb_load() {
+        require_once( 'vendor/autoload.php' );
+        \Carbon_Fields\Carbon_Fields::boot();
+    }
+
 // Dodatkowe style i skrypty dla panelu. Odpowiedzialne za otwieranie okna
 // z mediami
 // http://stackoverflow.com/a/26103160/1589989
@@ -148,8 +154,4 @@ add_action('wp_footer', 'js');
 
 add_theme_support('automatic-feed-links');
 
-add_action( 'after_setup_theme', 'crb_load' );
-function crb_load() {
-    require_once( 'vendor/autoload.php' );
-    \Carbon_Fields\Carbon_Fields::boot();
-}
+
